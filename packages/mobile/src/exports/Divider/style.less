@@ -1,0 +1,38 @@
+@import '../../theme/vars';
+
+@divider-prefix: ~'exd-divider';
+
+.@{divider-prefix} {
+  margin: 0 16px * @size-scale;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: @color-gray-primary;
+  font-size: 10px * @size-scale;
+  border-width: 0;
+
+  &::before,
+  &::after {
+    min-width: 48px * @size-scale;
+    content: '';
+    flex: 1;
+    border-top: 0;
+    border-left: 0;
+    border-right: 0;
+    border-bottom: 1px solid;
+    border-color: @color-gray-border;
+  }
+  &-text {
+    padding: 0 16px * @size-scale;
+    text-align: center;
+    line-height: 1.5em;
+  }
+}
+
+.@{divider-prefix}-vertical {
+  margin: 0 8px * @size-scale;
+  border-left: 1px solid @color-gray-border;
+  // 自适应高度
+  height: auto;
+  align-self: stretch;
+}

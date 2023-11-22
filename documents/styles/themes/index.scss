@@ -1,0 +1,78 @@
+@use 'sass:map';
+@import './configs/index.scss';
+
+$themes: default, asetku;
+
+$colors: (
+  default: $default-colors,
+  asetku: $asetku-colors,
+);
+
+@function map-get($ref, $key, $rest...) {
+  $result: map.get($ref, $key);
+
+  @if length($rest) == 0 {
+    @return $result;
+  }
+
+  @return map-get($result, $rest...);
+}
+
+@function get-themed-vars($theme) {
+  @return (colors: map-get($colors, $theme));
+}
+
+@mixin themed {
+  @each $theme in $themes {
+    $vars: get-themed-vars($theme);
+
+    // @if $theme == default {
+    //   body & {
+    //     @content ($theme, $vars);
+    //   }
+    // }
+
+    .themed-#{$theme} & {
+      @content ($theme, $vars);
+    }
+  }
+}
+
+@mixin themed-when($theme) {
+  .themed-#{$theme} & {
+    @content();
+  }
+}
+
+@mixin themed-colors {
+  @include themed using ($theme, $vars) {
+    $themed-colors: map-get($vars, colors);
+
+    @content ($themed-colors);
+  }
+}
+
+@mixin themed-dynamic($args...) {
+  @include themed using ($theme, $vars) {
+    @if length($args) == 1 and type-of(nth($args, 1)) == 'map' {
+      $properties: nth($args, 1);
+      @each $key, $value in $properties {
+        @if type-of($value) == 'string' {
+          #{$key}: map-get($vars, colors, $value);
+        } @else if type-of($value) == 'list' {
+          #{$key}: map-get($vars, $value...);
+        }
+      }
+    } @else if length($args) == 2 and type-of(nth($args, 2)) == 'string' {
+      $property: nth($args, 1);
+      $value: nth($args, 2);
+      @if type-of($property) == 'string' {
+        #{$property}: map-get($vars, colors, $value);
+      } @else if type-of($property) == 'list' {
+        @each $key in $property {
+          #{$key}: map-get($vars, colors, $value);
+        }
+      }
+    }
+  }
+}

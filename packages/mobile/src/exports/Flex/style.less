@@ -1,0 +1,46 @@
+@import './Item/style.less';
+@import '../../theme/vars';
+
+@flex-prefix: ~'exd-flex';
+
+.@{flex-prefix} {
+  display: flex;
+  flex-wrap: wrap;
+  color: @color-gray-primary;
+  font-size: 10px;
+  &-no-wrap {
+    flex-wrap: nowrap;
+  }
+
+  &-start {
+    justify-content: flex-start;
+  }
+
+  &-center {
+    justify-content: center;
+  }
+
+  &-end {
+    justify-content: flex-end;
+  }
+
+  &-space-between {
+    justify-content: space-between;
+  }
+
+  &-space-around {
+    justify-content: space-around;
+  }
+
+  &-middle {
+    align-items: center;
+  }
+
+  &-top {
+    align-items: flex-start;
+  }
+
+  &-bottom {
+    align-items: flex-end;
+  }
+}

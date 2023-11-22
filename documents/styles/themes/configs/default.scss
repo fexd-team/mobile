@@ -1,0 +1,17 @@
+$colors: (
+  primary: #497ff8,
+  red: #eb341d,
+  blue: #248af3,
+  orange: #f93,
+  green: #7fb800,
+);
+
+@mixin button {
+  transition: background 0.1s;
+  background: map-get($colors, primary);
+  border-radius: 4px;
+
+  &:active {
+    background: rgba(map-get($colors, primary), 0.8);
+  }
+}

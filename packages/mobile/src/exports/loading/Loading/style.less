@@ -1,0 +1,29 @@
+@import '../../Modal/style';
+@import '../../Spinner/style';
+
+@loading-prefix: ~'exd-loading';
+
+.@{loading-prefix} {
+  box-sizing: border-box;
+
+  &-content {
+    color: #fff;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 18px * @size-scale;
+    background-color: rgba(0, 0, 0, 0.6);
+    border-radius: 4px;
+
+    .@{spinner-prefix} {
+      width: 40px * @size-scale;
+      height: 40px * @size-scale;
+      color: #fff;
+
+      & + span {
+        margin-top: 8px * @size-scale;
+      }
+    }
+  }
+}

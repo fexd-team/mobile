@@ -1,0 +1,19 @@
+@import '../../../theme/vars';
+
+@video-loading-prefix: ~'exd-video-loading';
+
+.@{video-loading-prefix} {
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.15);
+  z-index: 1;
+  pointer-events: none;
+
+  &-hide {
+    opacity: 0;
+    z-index: -1;
+  }
+}

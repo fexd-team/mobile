@@ -1,0 +1,9 @@
+{
+  "pipeline": {
+    "build": {
+      "outputs": ["es/**", "lib/**"],
+      "inputs": ["src/**", "scripts/**", "package.json"]
+    }
+  },
+  "globalDependencies": [".father.ts", "package.json"]
+}

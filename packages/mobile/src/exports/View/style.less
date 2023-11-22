@@ -1,0 +1,61 @@
+@import '../../theme/vars'; // 引入全局样式变量集，内含 @size-scale、各类色值等变量
+
+// 由于 less 变量的懒生效特性，变量命名空间存在冲突，此处 prefix 变量命名前需要加特定前缀
+// https://less.bootcss.com/features/#variables-lazy-evaluation
+@view-prefix: ~'exd-view';
+
+.@{view-prefix} {
+  display: flex;
+  flex-shrink: 0;
+  overflow: hidden;
+
+  &-auto {
+    flex: 1;
+    width: 100%;
+    height: 100%;
+  }
+
+  &-row {
+    flex-direction: row;
+  }
+
+  &-row-reverse {
+    flex-direction: row-reverse;
+  }
+
+  &-column {
+    flex-direction: column;
+  }
+
+  &-column-reverse {
+    flex-direction: column-reverse;
+  }
+
+  &-vertical {
+    &.@{view-prefix} {
+      &-row,
+      &-row-reverse {
+        align-items: center;
+      }
+
+      &-column,
+      &-column-reverse {
+        justify-content: center;
+      }
+    }
+  }
+
+  &-horizontal {
+    &.@{view-prefix} {
+      &-row,
+      &-row-reverse {
+        justify-content: center;
+      }
+
+      &-column,
+      &-column-reverse {
+        align-items: center;
+      }
+    }
+  }
+}

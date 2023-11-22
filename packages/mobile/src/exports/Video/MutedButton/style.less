@@ -1,0 +1,72 @@
+@import '../../../theme/vars';
+@video-muted-prefix: ~'exd-video-muted';
+
+.@{video-muted-prefix} {
+  position: absolute;
+  padding: 0;
+  border-radius: 14px;
+  font-size: 11px;
+  left: 12px;
+  bottom: 16px;
+  display: flex;
+  align-items: center;
+  height: 26px;
+
+  &--hide {
+    display: none;
+  }
+
+  &-icon {
+    padding: 0 8px;
+    height: 100%;
+    border-radius: 14px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 10;
+
+    img {
+      width: 14px;
+      height: 12px;
+    }
+  }
+
+  &-text {
+    font-size: 11px;
+    margin-right: 8px;
+    opacity: 1;
+    z-index: 10;
+    -webkit-animation: unmute-alpha-anim 0.25s cubic-bezier(0.4, 0, 1, 1) 5.4s reverse forwards;
+    animation: unmute-alpha-anim 0.25s cubic-bezier(0.4, 0, 1, 1) 5.4s reverse forwards;
+  }
+
+  &-box {
+    width: 100%;
+    border-radius: 14px;
+    position: absolute;
+    left: 0;
+    top: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.65);
+    -webkit-animation: unmute-width-anim 0.5s cubic-bezier(0.4, 0, 1, 1) 5.5s reverse forwards;
+    animation: unmute-width-anim 0.5s cubic-bezier(0.4, 0, 1, 1) 5.5s reverse forwards;
+  }
+}
+
+@keyframes unmute-alpha-anim {
+  0% {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes unmute-width-anim {
+  0% {
+    width: 30px;
+  }
+  to {
+    width: 100%;
+  }
+}

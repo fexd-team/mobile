@@ -1,0 +1,92 @@
+@import './Item/style';
+@import '../../theme/vars';
+
+@steps-prefix: ~'exd-steps';
+@step-prefix: ~'exd-step';
+
+.@{steps-prefix} {
+  background: #fff;
+
+  // box-shadow: 0 2px * @size-scale 6px * @size-scale 0 rgba(0, 0, 0, 0.05);
+  &-container {
+    margin: 0;
+    padding: 0;
+    // padding: 13px * @size-scale;
+    display: flex;
+    justify-content: center;
+
+    &-flex {
+      .@{step-prefix} {
+        flex: 1;
+        max-width: 96px * @size-scale;
+
+        .@{step-prefix}-header {
+          width: 100%;
+          overflow: hidden;
+
+          &::before,
+          &::after {
+            width: 50%;
+          }
+
+          .@{step-prefix}-header-icon {
+            left: 50%;
+            transform: translateX(-50%);
+            z-index: 1;
+          }
+        }
+        .@{step-prefix}-content {
+          &-title,
+          &-description {
+            max-width: 96px * @size-scale;
+          }
+        }
+
+        &:last-child {
+          .@{step-prefix}-header::before {
+            right: 26px * @size-scale;
+            width: 100%;
+          }
+
+          .@{step-prefix}-header-icon {
+            left: auto;
+            right: 0;
+            transform: translateX(0);
+          }
+
+          .@{step-prefix}-content {
+            .@{step-prefix}-content-title,
+            .@{step-prefix}-content-description {
+              max-width: 100%;
+              position: relative;
+              left: 50%;
+              transform: translateX(-12px * @size-scale);
+            }
+          }
+        }
+
+        &:first-child {
+          .@{step-prefix}-header::after {
+            left: 26px * @size-scale;
+            width: 100%;
+          }
+
+          .@{step-prefix}-header-icon {
+            left: 0;
+            transform: translateX(0);
+          }
+
+          .@{step-prefix}-content {
+            .@{step-prefix}-content-title,
+            .@{step-prefix}-content-description {
+              max-width: 100%;
+              position: relative;
+              left: -50%;
+              transform: translateX(12px * @size-scale);
+            }
+          }
+        }
+      }
+    }
+  }
+}

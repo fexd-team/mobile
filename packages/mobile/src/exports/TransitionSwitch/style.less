@@ -1,0 +1,52 @@
+@import './slide.less';
+@import './fade.less';
+@import './slide-cover.less';
+@import './none.less';
+
+.exd-transition-switch__transition-group,
+.exd-transition-switch__animated-switch {
+  height: 100%;
+  width: 100%;
+  position: relative;
+  overflow: hidden;
+}
+
+.exd-transition-switch__animating {
+  & + & {
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    top: 0;
+  }
+
+  &--none {
+    animation-duration: 0ms;
+  }
+
+  &--fastest {
+    animation-duration: 100ms;
+  }
+
+  &--fast {
+    animation-duration: 200ms;
+  }
+
+  &--normal {
+    animation-duration: 300ms;
+  }
+
+  &--slow {
+    animation-duration: 500ms;
+  }
+
+  &--slowest {
+    animation-duration: 700ms;
+  }
+
+  &--test {
+    animation-duration: 5000ms;
+  }
+
+  animation-fill-mode: both;
+}

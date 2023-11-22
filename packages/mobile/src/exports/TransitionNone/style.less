@@ -1,0 +1,31 @@
+.exd-none {
+  transition-duration: 0ms !important;
+  animation-duration: 0ms !important;
+}
+
+.exd-none.exd-transition {
+  &-enter {
+    opacity: 0;
+  }
+
+  &-enter-active {
+    opacity: 1;
+  }
+
+  &-enter-done {
+    opacity: 1;
+  }
+
+  &-exit {
+    opacity: 1;
+  }
+
+  &-exit-active {
+    opacity: 0;
+  }
+
+  &-exit-done {
+    opacity: 0;
+    pointer-events: none;
+  }
+}

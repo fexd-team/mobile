@@ -1,0 +1,109 @@
+@import '../../theme/vars'; // 引入全局样式变量集，内含 @size-scale、各类色值等变量
+@import '../TransitionFade/style';
+
+// 由于 less 变量的懒生效特性，变量命名空间存在冲突，此处 prefix 变量命名前需要加特定前缀
+// https://less.bootcss.com/features/#variables-lazy-evaluation
+@alert-prefix: ~'exd-alert';
+
+.@{alert-prefix} {
+  /* 组件样式 */
+  display: flex;
+  align-items: flex-start;
+  padding: 6px 14px;
+  border-radius: 4px;
+
+  &-info {
+    background-color: rgb(229, 246, 253);
+    color: rgb(1, 67, 97);
+  }
+  &-info &-icon {
+    color: rgb(3, 169, 244);
+  }
+  &-info&-outlined {
+    background-color: transparent;
+    border: 1px solid rgb(3, 169, 244);
+    color: rgb(1, 67, 97);
+  }
+  &-info&-filled {
+    background-color: rgb(2, 136, 209);
+    color: rgb(255, 255, 255);
+  }
+
+  &-success {
+    background-color: rgb(237, 247, 237);
+    color: rgb(30, 70, 32);
+  }
+  &-success &-icon {
+    color: rgb(76, 175, 80);
+  }
+  &-success&-outlined {
+    background-color: transparent;
+    border: 1px solid rgb(76, 175, 80);
+    color: rgb(30, 70, 32);
+  }
+  &-success&-filled {
+    background-color: rgb(46, 125, 50);
+    color: rgb(255, 255, 255);
+  }
+
+  &-warning {
+    background-color: rgb(255, 244, 229);
+    color: rgb(102, 60, 0);
+  }
+  &-warning &-icon {
+    color: rgb(255, 152, 0);
+  }
+  &-warning&-outlined {
+    background-color: transparent;
+    border: 1px solid rgb(255, 152, 0);
+    color: rgb(102, 60, 0);
+  }
+  &-warning&-filled {
+    background-color: transparent;
+    background-color: rgb(237, 108, 2);
+    color: rgb(255, 255, 255);
+  }
+
+  &-error {
+    background-color: rgb(253, 237, 237);
+    color: rgb(95, 33, 32);
+  }
+  &-error &-icon {
+    color: rgb(239, 83, 80);
+  }
+  &-error&-outlined {
+    background-color: transparent;
+    border: 1px solid rgb(239, 83, 80);
+    color: rgb(95, 33, 32);
+  }
+  &-error&-filled {
+    background-color: rgb(211, 47, 47);
+    color: rgb(255, 255, 255);
+  }
+
+  &-filled &-icon {
+    color: currentColor;
+  }
+
+  &-icon {
+    margin-right: 6px;
+    padding: 4px 0;
+    display: flex;
+    font-size: 22px;
+    opacity: 0.9;
+  }
+  &-content {
+    flex: 1 0 0;
+    padding: 4px;
+    font-size: 14px;
+    text-align: left;
+    &-title {
+      font-size: 15px;
+      font-weight: 500;
+    }
+  }
+  &-close {
+    padding: 2px;
+    font-size: 16px;
+  }
+}

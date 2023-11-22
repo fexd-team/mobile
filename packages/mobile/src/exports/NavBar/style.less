@@ -1,0 +1,66 @@
+@import '../../theme/vars';
+
+@nav-bar-prefix: ~'exd-nav-bar';
+@nav-bar-height: 48px * @size-scale;
+
+.@{nav-bar-prefix} {
+  height: @nav-bar-height;
+  line-height: 1;
+  max-width: 100%;
+  overflow: hidden;
+  // border-bottom: solid 1px #f8f8f8;
+
+  &-wrapper {
+    height: @nav-bar-height;
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-items: center;
+    padding: 0 16px * @size-scale;
+    background-color: #fff;
+    font-size: 14px * @size-scale;
+  }
+
+  .exd-iconfont,
+  .exd-icon {
+    font-size: 18px * @size-scale;
+  }
+
+  &-center {
+    flex: 1;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+  }
+
+  &-left,
+  &-right {
+    color: @color-primary;
+    font-size: inherit;
+    cursor: pointer;
+    transition: opacity 0.3s;
+
+    &:active {
+      opacity: 0.7;
+    }
+  }
+
+  &-left {
+    margin-right: 16px * @size-scale;
+  }
+
+  &-right {
+    margin-left: 16px * @size-scale;
+  }
+
+  &-content {
+    display: inline-block;
+    max-width: 100%;
+    position: relative;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    font-size: inherit;
+    vertical-align: middle;
+  }
+}

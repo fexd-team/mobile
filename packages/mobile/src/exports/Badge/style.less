@@ -1,0 +1,64 @@
+@import '../../theme/vars'; // 引入全局样式变量集，内含 @size-scale、各类色值等变量
+@import './Stamp/style.less';
+
+// 由于 less 变量的懒生效特性，变量命名空间存在冲突，此处 prefix 变量命名前需要加特定前缀
+// https://less.bootcss.com/features/#variables-lazy-evaluation
+@badge-prefix: ~'exd-badge';
+
+.@{badge-prefix}-wrap {
+  display: inline-block;
+  position: relative;
+}
+
+.@{badge-prefix} {
+  display: inline-block;
+  color: #fff;
+  background-color: #ff411c;
+  font-weight: normal;
+  text-align: center;
+  vertical-align: middle;
+  box-sizing: border-box;
+  min-width: 16px;
+  border-radius: 100px;
+  padding: 0 4px;
+  font-size: 9px;
+  line-height: 1.2;
+  white-space: nowrap;
+
+  &-fixed {
+    position: absolute;
+    transform: translate(50%, -50%);
+    z-index: 99;
+    top: 0%;
+    right: 0%;
+  }
+
+  &-dot {
+    min-width: 10px;
+    width: 10px;
+    height: 10px;
+    border-radius: 5px;
+  }
+
+  &-hidden {
+    visibility: hidden;
+  }
+
+  &-status {
+    &-primary {
+      background-color: @color-primary;
+    }
+
+    &-success {
+      background-color: @color-success;
+    }
+
+    &-warning {
+      background-color: @color-warning;
+    }
+
+    &-danger {
+      background-color: @color-danger;
+    }
+  }
+}

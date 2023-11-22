@@ -1,0 +1,51 @@
+@import '../../theme/vars'; // 引入全局样式变量集，内含 @size-scale、各类色值等变量
+
+@rate-prefix: ~'exd-rate';
+
+@rate-active-color: @color-yellow;
+@rate-default-color: @color-gray;
+
+.@{rate-prefix} {
+  --rate-active-color: @rate-active-color;
+  --rate-default-color: @rate-default-color;
+
+  font-size: 20px * @size-scale;
+  display: inline-flex;
+  user-select: none;
+
+  &-box {
+    position: relative;
+  }
+
+  &-character {
+    padding: 3px * @size-scale;
+    font-size: inherit;
+    color: @rate-default-color;
+    color: var(--rate-default-color);
+    text-align: center;
+    overflow: hidden;
+    cursor: pointer;
+
+    &-half {
+      padding-right: 0;
+      width: 50%;
+      position: absolute;
+      left: 0;
+      top: 0;
+      display: none;
+    }
+
+    &-half&-active {
+      display: block;
+    }
+
+    &-active {
+      color: @rate-active-color;
+      color: var(--rate-active-color);
+    }
+
+    &-readonly {
+      cursor: unset;
+    }
+  }
+}

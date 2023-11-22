@@ -1,0 +1,49 @@
+@import '../../../theme/vars';
+
+@flex-item-prefix: ~'exd-flex-item';
+
+@flex-columns: 12;
+
+.loop(@index, @class: ~'') when (@index > 0) {
+  .@{flex-item-prefix}@{class}-@{index} {
+    display: block;
+    width: percentage((@index / @flex-columns));
+  }
+  .@{flex-item-prefix}@{class}-push-@{index} {
+    left: percentage((@index / @flex-columns));
+  }
+  .@{flex-item-prefix}@{class}-pull-@{index} {
+    right: percentage((@index / @flex-columns));
+  }
+  .@{flex-item-prefix}@{class}-offset-@{index} {
+    margin-left: percentage((@index / @flex-columns));
+  }
+  .@{flex-item-prefix}@{class}-order-@{index} {
+    order: @index;
+  }
+  .loop(@index - 1, @class);
+}
+
+.loop(@index, @class: ~'') when (@index = 0) {
+  .@{flex-item-prefix}@{class}-@{index} {
+    display: none;
+  }
+}
+
+.make-flex(@class: ~'') {
+  .loop(@flex-columns, @class);
+}
+
+.make-flex();
+
+.make-flex(-xs);
+
+.make-flex(-sm);
+
+.make-flex(-md);
+
+.make-flex(-lg);
+
+.@{flex-item-prefix} {
+  position: relative;
+}

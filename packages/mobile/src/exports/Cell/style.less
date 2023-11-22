@@ -1,0 +1,150 @@
+@import '../../theme/vars';
+@import '../Spinner/style';
+@import './Group/style';
+
+@cell-prefix: ~'exd-cell';
+
+.@{cell-prefix} {
+  position: relative;
+  display: flex;
+  flex-flow: row;
+  align-items: center;
+  box-sizing: border-box;
+  width: 100%;
+  background-color: #fff;
+
+  &-border {
+    & + & {
+      &::before {
+        position: absolute;
+        box-sizing: border-box;
+        content: '';
+        pointer-events: none;
+        right: 0;
+        top: 0;
+        left: 16px * @size-scale;
+        border-top: 1px solid #f2f2f2;
+        transform: scaleY(1);
+      }
+    }
+  }
+
+  &-label,
+  &-value {
+    display: flex;
+    align-items: center;
+  }
+
+  &-label {
+    flex: 1;
+    justify-content: flex-start;
+    margin-right: 8px * @size-scale;
+    color: #333;
+  }
+
+  &-description {
+    color: #969799;
+  }
+
+  &-value {
+    flex: 1.2;
+    justify-content: flex-end;
+    overflow: hidden;
+
+    &-content {
+      flex: 1;
+    }
+
+    &.@{cell-prefix}-value-only {
+      color: #333;
+      justify-content: flex-start;
+    }
+  }
+
+  &-prefix {
+    margin-right: 16px * @size-scale;
+  }
+
+  &-suffix {
+    margin-left: 10px * @size-scale;
+  }
+
+  &-value,
+  &-suffix {
+    color: @color-gray-secondary;
+    text-align: right;
+    vertical-align: middle;
+    word-wrap: break-word;
+
+    &.@{cell-prefix}-value-only {
+      text-align: left;
+    }
+  }
+
+  &-tapable {
+    transition: background-color 0.2s;
+    cursor: pointer;
+
+    &:active {
+      background-color: #f8f8f8;
+    }
+  }
+
+  &-loading {
+    width: 20px * @size-scale;
+    height: 0;
+    overflow: visible;
+    position: relative;
+
+    .exd-spin {
+      position: absolute;
+      left: 0;
+      top: -10px * @size-scale;
+      width: 20px * @size-scale;
+      height: 20px * @size-scale;
+      max-width: 20px * @size-scale;
+      max-height: 20px * @size-scale;
+    }
+  }
+}
+
+// 尺寸相关
+.@{cell-prefix} {
+  &-normal {
+    padding: 10px * @size-scale 16px * @size-scale;
+
+    .@{cell-prefix} {
+      &-label,
+      &-value {
+        font-size: 14px * @size-scale;
+      }
+
+      &-description {
+        font-size: 12px * @size-scale;
+      }
+    }
+  }
+  &-small {
+    padding: 8px * @size-scale 16px * @size-scale;
+
+    .@{cell-prefix}-label,
+    .@{cell-prefix}-value {
+      font-size: 12px * @size-scale;
+    }
+    .@{cell-prefix}-description {
+      font-size: 10px * @size-scale;
+    }
+  }
+
+  &-large {
+    padding: 12px * @size-scale 16px * @size-scale;
+
+    .@{cell-prefix}-label,
+    .@{cell-prefix}-value {
+      font-size: 16px * @size-scale;
+    }
+    .@{cell-prefix}-description {
+      font-size: 14px * @size-scale;
+    }
+  }
+}

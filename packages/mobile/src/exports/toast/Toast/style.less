@@ -1,0 +1,58 @@
+@import '../../TransitionFade/style';
+@import '../../TransitionSlideDown/style';
+@import '../../TransitionSlideUp/style';
+@import '../../Modal/style';
+
+@toast-prefix: ~'exd-toast';
+
+.@{toast-prefix} {
+  box-sizing: border-box;
+  padding: 16px * @size-scale;
+
+  &.@{modal-prefix}-center {
+    width: 100%;
+
+    .@{toast-prefix}-content {
+      flex-direction: column;
+    }
+
+    .@{toast-prefix}-icon {
+      font-size: 38px * @size-scale;
+      margin-bottom: 6px * @size-scale;
+    }
+  }
+
+  &.@{modal-prefix}-top {
+    margin-top: 16px * @size-scale;
+    padding-bottom: 0;
+  }
+
+  &.@{modal-prefix}-bottom {
+    margin-bottom: 16px * @size-scale;
+    padding-top: 0;
+  }
+
+  &.@{modal-prefix}-top,
+  &.@{modal-prefix}-bottom {
+    .@{toast-prefix}-icon {
+      font-size: 18px * @size-scale;
+      margin-right: 6px * @size-scale;
+    }
+  }
+
+  &-content {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 4px;
+    background: rgba(0, 0, 0, 0.6);
+    color: #fff;
+    box-sizing: border-box;
+    font-size: 14px * @size-scale;
+    padding: 8px * @size-scale 16px * @size-scale;
+  }
+
+  &-untouchable {
+    pointer-events: none;
+  }
+}

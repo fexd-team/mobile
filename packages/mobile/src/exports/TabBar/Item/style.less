@@ -1,0 +1,30 @@
+@import '../../../theme/vars';
+@import '../../Iconfont/style';
+
+.exd-tab-bar-item {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+  transition: color 0.2s;
+  line-height: 1;
+  cursor: pointer;
+
+  &--active {
+    color: @color-primary;
+  }
+
+  &__icon {
+    .exd-icon,
+    .exd-iconfont {
+      font-size: 22px * @size-scale;
+    }
+  }
+
+  &__name {
+    margin-top: 3px * @size-scale;
+    font-size: 12px * @size-scale;
+  }
+}

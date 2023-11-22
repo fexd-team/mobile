@@ -1,0 +1,57 @@
+@import '../../theme/vars'; // 引入全局样式变量集，内含 @size-scale、各类色值等变量
+@import './VideoLoading/style';
+@import './Mask/style';
+@import './MutedButton/style';
+@import './FullScreen/style';
+@import './PlaybackRate/style';
+@import './Time/style';
+@import './Progress/style';
+
+@video-prefix: ~'exd-video';
+
+.@{video-prefix} {
+  position: relative;
+  color: white;
+  width: 100%;
+  height: 100%;
+
+  &-player {
+    height: 100%;
+  }
+
+  video {
+    object-fit: contain;
+    vertical-align: top;
+  }
+
+  &-video-plugin {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    .@{video-prefix}-plugin-top {
+      width: 100%;
+      padding: 0 16px 0 12px;
+      margin-bottom: 10px;
+      display: flex;
+      justify-content: space-between;
+
+      &--hide {
+        z-index: -1;
+      }
+    }
+
+    .@{video-prefix}-plugin-top-right {
+      display: flex;
+      align-items: center;
+    }
+
+    .@{video-prefix}-video-plugin-bottom {
+      width: 100%;
+      display: flex;
+    }
+  }
+}

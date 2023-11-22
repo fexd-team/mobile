@@ -1,0 +1,109 @@
+@import '../../theme/vars'; // 引入全局样式变量集，内含 @size-scale、各类色值等变量
+@import '../Portal/style';
+
+// 由于 less 变量的懒生效特性，变量命名空间存在冲突，此处 prefix 变量命名前需要加特定前缀
+// https://less.bootcss.com/features/#variables-lazy-evaluation
+@tips-prefix: ~'exd-tips';
+
+.@{tips-prefix} {
+  /* 组件样式 */
+
+  &-alert-tips {
+    position: absolute;
+    &::after {
+      content: '';
+      width: 0;
+      height: 0;
+      position: absolute;
+      top: -10px;
+      left: 20%;
+      border: 5px solid black;
+      border-top-color: transparent;
+      border-left-color: transparent;
+      border-right-color: transparent;
+    }
+  }
+
+  &-alert-tips-modal {
+    width: 100%;
+    height: 100vh;
+    position: absolute;
+    top: 0;
+    left: 0;
+    background-color: rgba(0, 0, 0, 0.4);
+  }
+
+  &-alert-tips.tips-top-center {
+    &::after {
+      top: -10px;
+      left: 50%;
+      transform: translateX(-50%);
+    }
+  }
+
+  &-alert-tips.tips-left {
+    &::after {
+      top: 20%;
+      left: -10px;
+      border-bottom-color: transparent;
+      border-top-color: transparent;
+      border-left-color: transparent;
+      border-right-color: black;
+    }
+  }
+  &-alert-tips.tips-left-center {
+    &::after {
+      top: 50%;
+      left: -10px;
+      border-bottom-color: transparent;
+      border-top-color: transparent;
+      border-left-color: transparent;
+      border-right-color: black;
+      transform: translateY(-50%);
+    }
+  }
+
+  &-alert-tips.tips-bottom {
+    &::after {
+      top: -10px;
+      left: 20%;
+      border-right-color: transparent;
+      border-top-color: transparent;
+      border-left-color: transparent;
+      border-bottom-color: black;
+    }
+  }
+  &-alert-tips.tips-bottom-center {
+    &::after {
+      top: -10px;
+      left: 50%;
+      border-right-color: transparent;
+      border-top-color: transparent;
+      border-left-color: transparent;
+      border-bottom-color: black;
+      transform: translateX(-50%);
+    }
+  }
+
+  &-alert-tips.tips-right {
+    &::after {
+      left: -10px;
+      top: 20%;
+      border-left-color: transparent;
+      border-top-color: transparent;
+      border-bottom-color: transparent;
+      border-right-color: black;
+    }
+  }
+  &-alert-tips.tips-right-center {
+    &::after {
+      left: -10px;
+      top: 50%;
+      border-left-color: transparent;
+      border-top-color: transparent;
+      border-bottom-color: transparent;
+      border-right-color: black;
+      transform: translateY(-50%);
+    }
+  }
+}

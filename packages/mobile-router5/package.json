@@ -1,0 +1,39 @@
+{
+  "name": "@fexd/mobile-router5",
+  "version": "0.0.0",
+  "main": "lib/index.js",
+  "module": "es/index.js",
+  "types": "types.d.ts",
+  "scripts": {
+    "build": "father build",
+    "less2css": "node ./scripts/less2css"
+  },
+  "peerDependencies": {
+    "react": "^16.8.0",
+    "react-dom": "^16.8.0"
+  },
+  "dependencies": {
+    "@fexd/mobile": "^0.0.0",
+    "@fexd/icons": "^0.1.0",
+    "@babel/runtime": "^7.13.10",
+    "@fexd/tools": "^0.1.0",
+    "ahooks": "^3",
+    "react-router-dom": "^5"
+  },
+  "devDependencies": {
+    "less-plugin-import-node-modules": "^1.0.0"
+  },
+  "files": [
+    "es",
+    "lib",
+    "types.d.ts"
+  ],
+  "sideEffects": false,
+  "homepage": "https://github.com/fexd-team/mobile",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/fexd-team/mobile.git"
+  },
+  "author": "fexd-team",
+  "license": "ISC"
+}

@@ -1,0 +1,59 @@
+@import '../../theme/vars'; // 引入全局样式变量集，内含 @size-scale、各类色值等变量
+
+// 由于 less 变量的懒生效特性，变量命名空间存在冲突，此处 prefix 变量命名前需要加特定前缀
+// https://less.bootcss.com/features/#variables-lazy-evaluation
+@collapse-prefix: ~'exd-collapse';
+
+.@{collapse-prefix} {
+  /* 组件样式 */
+  font-size: 16px;
+  background-color: #fff;
+  overflow: hidden;
+  &-panel {
+    padding-left: 12px;
+    &-header {
+      display: flex;
+      justify-content: flex-start;
+      padding: 12px 12px 12px 0;
+      border-bottom: solid 1px #f5f5f5;
+    }
+    &-title {
+      flex: auto;
+    }
+    &-icon {
+      flex: none;
+      display: flex;
+      align-items: center;
+      color: #999;
+      font-size: 16px;
+      transform: rotate(0deg);
+      transition: all 0.2s ease;
+      &-active {
+        transform: rotate(90deg);
+      }
+    }
+
+    &-disabled {
+      color: #d6d6d6;
+      cursor: not-allowed;
+      .@{collapse-prefix}-panel-icon {
+        color: #d6d6d6;
+      }
+    }
+
+    &-content {
+      font-size: 14px;
+      color: #999;
+      overflow: hidden;
+      height: 0;
+      transition: height 0.4s ease;
+      &-box {
+        display: flex;
+        align-items: center;
+        justify-content: flex-start;
+        padding: 12px 12px 12px 0;
+        border-bottom: solid 1px #eee;
+      }
+    }
+  }
+}

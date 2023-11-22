@@ -1,0 +1,45 @@
+{
+  "name": "@fexd/mobile",
+  "version": "0.0.0",
+  "main": "lib/index.js",
+  "module": "es/index.js",
+  "types": "types.d.ts",
+  "scripts": {
+    "build": "father build",
+    "less2css": "node ./scripts/less2css"
+  },
+  "peerDependencies": {
+    "react": "^16.8.0",
+    "react-dom": "^16.8.0"
+  },
+  "dependencies": {
+    "@fexd/icons": "^0.1.0",
+    "@fexd/icons-bytesize": "^0.1.0",
+    "@babel/runtime": "^7.13.10",
+    "@fexd/tools": "^0.1.0",
+    "@pansy/react-watermark": "^2.1.1",
+    "@types/hoist-non-react-statics": "^3.3.1",
+    "@types/react-transition-group": "4.4.1",
+    "ahooks": "^3",
+    "dayjs": "^1.10.4",
+    "hoist-non-react-statics": "^3.3.2",
+    "proxy-polyfill": "^0.3.2",
+    "react-transition-group": "4.4.1"
+  },
+  "devDependencies": {
+    "less-plugin-import-node-modules": "^1.0.0"
+  },
+  "files": [
+    "es",
+    "lib",
+    "types.d.ts"
+  ],
+  "sideEffects": false,
+  "homepage": "https://github.com/fexd-team/mobile",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/fexd-team/mobile.git"
+  },
+  "author": "fexd-team",
+  "license": "ISC"
+}

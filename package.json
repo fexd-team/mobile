@@ -1,0 +1,122 @@
+{
+  "name": "root",
+  "workspaces": [
+    "packages/*"
+  ],
+  "private": true,
+  "scripts": {
+    "init": "npx pnpm@6 i --shamefully-hoist",
+    "dev": "dumi dev",
+    "start": "dumi dev",
+    "build": "turbo run build && npm run less2css && npm run size -- --fresh",
+    "less2css": "npx pnpm run --filter=!root --parallel less2css",
+    "clean:build": "rimraf ./packages/*/lib ./packages/*/es",
+    "clean:all": "npm run clean:build && rimraf .umi .umi-production docs-dist node_modules/ ./**/node_modules",
+    "build:docs": "dumi build",
+    "prettier": "prettier --write \"**/*.{js,jsx,ts,tsx,css,scss,less,md,json}\"",
+    "eslint": "eslint --cache \"./{packages,docs}/**/*.{js,jsx,ts,tsx}\"",
+    "eslint:error": "npm run eslint -- --quiet",
+    "test": "jest --silent",
+    "tsc:lint": "tsc --noEmit --isolatedModules",
+    "stylelint": "stylelint \"./{packages,docs}/**/*.{css,less}\"",
+    "release": "changeset publish",
+    "size": "node ./scripts/size/index.js",
+    "new:component": "node ./scripts/new-component/index.js"
+  },
+  "devDependencies": {
+    "@fexd/icons": "^0.1.0",
+    "@fexd/icons-antd": "^0.1.0",
+    "@fexd/icons-bootstrap": "^0.1.0",
+    "@fexd/icons-bytesize": "^0.1.0",
+    "@fexd/icons-mono": "^0.1.0",
+    "@arco-design/mobile-react": "^2.29.4",
+    "@changesets/cli": "^2.23.0",
+    "@cjy0208/import-cost": "^2.2.1",
+    "@commitlint/cli": "^12.0.1",
+    "@commitlint/config-conventional": "^12.0.1",
+    "@fexd/tools": "^0.1.0",
+    "@testing-library/jest-dom": "^5.16.4",
+    "@testing-library/react": "^13.3.0",
+    "@types/jest": "^28.1.2",
+    "@umijs/fabric": "^2.8.1",
+    "@umijs/plugin-sass": "^1.1.1",
+    "@umijs/test": "^3.0.5",
+    "@umijs/utils": "^3.5.20",
+    "antd": "^4.16.13",
+    "antd-mobile": "^5.32.4",
+    "babel-plugin-import": "^1.13.3",
+    "babel-plugin-jsx-css-modules": "^0.1.1",
+    "chalk": "^2.4.2",
+    "dumi": "^1.1.30",
+    "father": "^4.1.6",    
+    "filesize": "^8.0.3",
+    "gh-pages": "^3.0.0",
+    "husky": "4.x",
+    "jest": "^28.1.1",
+    "jest-environment-jsdom": "^28.1.1",
+    "kebab-case": "^1.0.1",
+    "lint-staged": "^10.0.7",
+    "ora": "^5.1.0",
+    "particles-bg": "^2.5.5",
+    "prettier": "^2.6.2",
+    "qrcode.react": "^1.0.1",
+    "react": "^16.8.0",
+    "react-activation": "^0.9.7",
+    "react-dom": "^16.8.0",
+    "react-node-key": "^0.2.0",
+    "react-router-dom": "^5.3.0",
+    "react-sticky": "^6.0.3",
+    "rimraf": "^3.0.2",
+    "sass": "^1.43.4",
+    "sass-loader": "^12.3.0",
+    "ts-jest": "^28.0.5",
+    "typescript": "^4.4.4",
+    "turbo": "1.2.14",
+    "umi": "^3.5.20",
+    "umi-hd": "^5.0.1",
+    "umi-plugin-tailwindcss": "^3.2.1",
+    "yargs": "^17.2.1",
+    "zarm": "^2.9.9"
+  },
+  "resolutions": {
+    "@types/react": "17",
+    "@types/react-dom": "17",
+    "react": "^17.0.2",
+    "react-dom": "^17.0.2",
+    "history": "4.10.0",
+    "typescript": "^4.6.3"
+  },
+  "commitlint": {
+    "extends": [
+      "@commitlint/config-conventional"
+    ],
+    "rules": {
+      "subject-case": [
+        0
+      ]
+    }
+  },
+  "lint-staged": {
+    "*.{md,json}": [
+      "prettier --write"
+    ],
+    "*.{css,less}": [
+      "stylelint",
+      "prettier --write"
+    ],
+    "*.js?(x)": [
+      "eslint --cache",
+      "prettier --write"
+    ],
+    "*.ts?(x)": [
+      "eslint --cache",
+      "prettier --parser=typescript --write"
+    ]
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "lint-staged",
+      "commit-msg": "commitlint -E HUSKY_GIT_PARAMS"
+    }
+  }
+}

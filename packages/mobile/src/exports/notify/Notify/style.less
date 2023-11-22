@@ -1,0 +1,39 @@
+@import '../../TransitionSlideDown/style';
+@import '../../Modal/style';
+
+@notify-prefix: ~'exd-notify';
+
+.@{notify-prefix} {
+  width: 100%;
+  opacity: 0.86;
+
+  &-untouchable {
+    pointer-events: none;
+  }
+
+  &-content {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #fff;
+    box-sizing: border-box;
+    font-size: 14px * @size-scale;
+    padding: 12px * @size-scale 16px * @size-scale;
+  }
+
+  &-info {
+    background-color: @color-primary;
+  }
+
+  &-success {
+    background-color: @color-success;
+  }
+
+  &-warning {
+    background-color: @color-warning;
+  }
+
+  &-error {
+    background-color: @color-danger;
+  }
+}

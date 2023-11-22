@@ -1,0 +1,219 @@
+@import '../../../theme/vars';
+
+@step-prefix: ~'exd-step';
+
+.@{step-prefix} {
+  flex: 0;
+  padding-bottom: 0;
+  display: inline-block;
+  width: 84px * @size-scale;
+  box-sizing: initial;
+
+  &-header {
+    position: relative;
+    width: 84px * @size-scale;
+    height: 24px * @size-scale;
+    text-align: center;
+
+    &::before {
+      position: absolute;
+      left: 0;
+      top: 50%;
+      width: 28px * @size-scale;
+      height: 0;
+      transform: translateY(-50%);
+      border-top: 2px * @size-scale solid #e9e9e9;
+      content: '';
+    }
+
+    &::after {
+      position: absolute;
+      right: 0;
+      top: 50%;
+      width: 28px * @size-scale;
+      height: 0;
+      transform: translateY(-50%);
+      border-top: 2px * @size-scale solid #e9e9e9;
+      content: '';
+    }
+
+    &-icon {
+      position: absolute;
+      left: 30px * @size-scale;
+      top: 0;
+      width: 24px * @size-scale;
+      height: 24px * @size-scale;
+      color: #999;
+
+      i,
+      i.exd-icon {
+        position: absolute;
+        left: 0;
+        right: 0;
+        top: 0;
+        bottom: 0;
+        font-size: 24px * @size-scale;
+      }
+
+      &-circle {
+        box-sizing: border-box;
+        position: absolute;
+        left: 0;
+        top: 0;
+        width: 100%;
+        height: 24px * @size-scale;
+        line-height: 20px * @size-scale;
+        border-radius: 100%;
+        font-size: 12px * @size-scale;
+        font-weight: 500;
+        border: 2px * @size-scale solid #e9e9e9;
+        background-color: #fff;
+      }
+    }
+  }
+
+  &-content {
+    display: flex;
+    justify-content: center;
+    text-align: center;
+    font-size: 14px * @size-scale;
+    line-height: 16px * @size-scale;
+    &-container {
+      width: 100%;
+    }
+
+    &-title {
+      margin-top: 6px * @size-scale;
+      max-width: 84px * @size-scale;
+      word-break: break-all;
+      font-weight: 500;
+      color: #333;
+    }
+
+    &-description {
+      margin-top: 6px * @size-scale;
+      max-width: 84px * @size-scale;
+      word-break: break-all;
+      font-weight: 400;
+      color: #999;
+    }
+  }
+
+  &:last-child {
+    .@{step-prefix}-header {
+      width: 54px * @size-scale;
+
+      &::after {
+        width: 0;
+      }
+
+      &-icon {
+        right: 0;
+      }
+    }
+
+    .@{step-prefix}-content {
+      justify-content: flex-end;
+      &-title,
+      &-description {
+        position: relative;
+        width: calc(100% + 28px * @size-scale);
+      }
+    }
+  }
+
+  &:first-child {
+    .@{step-prefix}-header {
+      width: 54px * @size-scale;
+
+      &::before {
+        width: 0;
+      }
+
+      &-icon {
+        left: 0;
+      }
+    }
+
+    .@{step-prefix}-content {
+      justify-content: flex-start;
+      &-title,
+      &-description {
+        position: relative;
+        left: -28px * @size-scale;
+        width: calc(100% + 28px * @size-scale);
+      }
+    }
+  }
+
+  &--process {
+    .@{step-prefix}-header {
+      &::before,
+      &::after {
+        border-color: @color-primary;
+      }
+
+      &-icon {
+        color: @color-primary;
+
+        &-circle {
+          border-color: @color-primary;
+        }
+      }
+    }
+  }
+
+  &--completed {
+    .@{step-prefix}-header {
+      &::before,
+      &::after {
+        border-color: @color-primary;
+      }
+
+      &-icon {
+        color: @color-primary;
+
+        &-circle {
+          background-color: @color-primary;
+          border: 2px * @size-scale solid @color-primary;
+          // border: none;
+
+          &::before {
+            position: absolute;
+            left: 5px * @size-scale;
+            top: 6px * @size-scale;
+            width: 10px * @size-scale;
+            height: 5px * @size-scale;
+            border-left: 2px * @size-scale solid #fff;
+            border-bottom: 2px * @size-scale solid #fff;
+            transform: rotate(-45deg);
+            content: '';
+          }
+        }
+      }
+    }
+  }
+
+  &--error {
+    .@{step-prefix}-header {
+      &::before,
+      &::after {
+        border-color: @color-red;
+      }
+
+      &-icon {
+        color: @color-red;
+
+        &-circle {
+          border-color: @color-red;
+        }
+      }
+    }
+
+    .@{step-prefix}-content {
+      &-title {
+        color: @color-red;
+      }
+    }
+  }
+}

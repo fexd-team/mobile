@@ -1,0 +1,105 @@
+@import './Item/style';
+@import '../../theme/vars';
+
+@height: 50px;
+
+.exd-tabs {
+  position: relative;
+  width: 100%;
+  height: @height;
+  overflow: hidden;
+  background: #fff;
+  border: 1px solid #efeff4;
+  border-left: none;
+  border-right: none;
+
+  *::-webkit-scrollbar-thumb {
+    background-color: transparent !important;
+  }
+
+  &__indicator {
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 24px * @size-scale;
+    height: 4px * @size-scale;
+    background: @color-primary;
+    border-radius: 4px * @size-scale;
+    z-index: 1;
+    transition: transform 0.3s cubic-bezier(0.645, 0.045, 0.355, 1);
+    opacity: 0;
+  }
+
+  &--flex {
+    display: flex;
+    height: 100%;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+
+    &__indicator {
+      position: absolute;
+      left: 0;
+      bottom: 0;
+      width: 24px * @size-scale;
+      height: 4px * @size-scale;
+      background: @color-primary;
+      border-radius: 4px * @size-scale;
+      z-index: 1;
+      transition: transform 0.3s cubic-bezier(0.645, 0.045, 0.355, 1);
+
+      &--hidden {
+        display: none;
+      }
+    }
+  }
+
+  &--scroll {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    white-space: nowrap;
+
+    &__overflow {
+      position: absolute;
+      left: 0;
+      top: 0;
+      width: 100%;
+      height: 100%;
+      padding-bottom: 20px * @size-scale;
+      overflow-x: auto;
+      overflow-y: hidden;
+      box-sizing: content-box;
+    }
+
+    &__container {
+      position: absolute;
+      left: 0;
+      top: 0;
+      display: flex;
+      width: 100%;
+      height: @height;
+      align-items: center;
+
+      &::-webkit-scrollbottom {
+        width: 0;
+      }
+    }
+
+    &__indicator {
+      position: absolute;
+      left: 0;
+      width: 24px * @size-scale;
+      height: 4px * @size-scale;
+      background: @color-primary;
+      border-radius: 4px * @size-scale;
+      z-index: 1;
+      transition: transform 0.3s cubic-bezier(0.645, 0.045, 0.355, 1);
+      top: (@height - 4px - 2px) * @size-scale;
+
+      &--hidden {
+        display: none;
+      }
+    }
+  }
+}

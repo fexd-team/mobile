@@ -1,0 +1,14 @@
+@import '../../theme/vars';
+
+@skeleton-prefix: ~'exd-skeleton';
+
+.@{skeleton-prefix} {
+  width: 45px * @size-scale;
+  height: 45px * @size-scale;
+  border: solid 1px #f2f2f2;
+  background-image: linear-gradient(to right, #f2f2f2, #f8f8f8);
+
+  &-round {
+    border-radius: 50%;
+  }
+}

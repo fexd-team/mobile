@@ -1,0 +1,79 @@
+@import '../../theme/vars'; // 引入全局样式变量集，内含 @size-scale、各类色值等变量
+
+// 由于 less 变量的懒生效特性，变量命名空间存在冲突，此处 prefix 变量命名前需要加特定前缀
+// https://less.bootcss.com/features/#variables-lazy-evaluation
+@slider-prefix: ~'exd-slider';
+
+@slider-track-size: 4px * @size-scale;
+@slider-transition-duration: 0.06s;
+
+.@{slider-prefix} {
+  &-disabled {
+    opacity: 0.5;
+  }
+
+  &-horizontal {
+    padding: 16px * @size-scale 0;
+
+    .@{slider-prefix} {
+      &-bar {
+        width: 100%;
+        height: @slider-track-size;
+      }
+
+      &-node {
+        top: 50%;
+        // transition: left @slider-transition-duration;
+      }
+
+      &-track {
+        height: @slider-track-size;
+        // transition: width @slider-transition-duration, left @slider-transition-duration;
+      }
+    }
+  }
+
+  &-vertical {
+    display: inline-block;
+    padding: 0 16px * @size-scale;
+    height: 160px * @size-scale;
+
+    .@{slider-prefix} {
+      &-bar {
+        height: 100%;
+        width: @slider-track-size;
+        transform: rotate(180deg);
+      }
+
+      &-node {
+        left: 50%;
+        // transition: top @slider-transition-duration;
+      }
+
+      &-track {
+        width: @slider-track-size;
+        // transition: height @slider-transition-duration, top @slider-transition-duration;
+      }
+    }
+  }
+
+  &-bar {
+    background-color: #e6e6e6;
+    position: relative;
+  }
+
+  &-node {
+    position: absolute;
+    transform: translate3d(-50%, -50%, 0);
+    width: 14px * @size-scale;
+    height: 14px * @size-scale;
+    border-radius: 50%;
+    background-color: @color-primary;
+  }
+
+  &-track {
+    position: relative;
+    background-color: @color-primary;
+    transform: translateZ(0);
+  }
+}

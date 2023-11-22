@@ -1,0 +1,39 @@
+@import '../NavBar/style';
+@import '../Modal/style';
+@import '../TransitionSlideUp/style';
+
+@popup-prefix: ~'exd-popup';
+
+.@{popup-prefix} {
+  max-height: 100%;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  transition: height 0.3s, min-height 0.3s;
+
+  &-round {
+    border-top-left-radius: 14px;
+    border-top-right-radius: 14px;
+  }
+
+  &-body {
+    flex: 1;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    background-color: #fff;
+    overflow: auto;
+  }
+
+  &-content {
+    flex: 1;
+    height: 100%;
+    overflow: auto;
+  }
+
+  &-header {
+    flex-shrink: 0;
+    border-bottom: solid 1px @color-gray-background;
+    border-top: solid 1px @color-gray-background;
+  }
+}

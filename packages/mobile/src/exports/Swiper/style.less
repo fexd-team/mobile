@@ -1,0 +1,74 @@
+@import '../../theme/vars'; // 引入全局样式变量集，内含 @size-scale、各类色值等变量
+@import '../Space/style';
+
+// 由于 less 变量的懒生效特性，变量命名空间存在冲突，此处 prefix 变量命名前需要加特定前缀
+// https://less.bootcss.com/features/#variables-lazy-evaluation
+@swiper-prefix: ~'exd-swiper';
+
+.@{swiper-prefix} {
+  // height: 160px;
+  width: 100%;
+  overflow: hidden;
+  position: relative;
+  cursor: grab;
+
+  &-loop {
+    .@{swiper-prefix} {
+      &-item {
+        position: absolute;
+      }
+    }
+  }
+
+  &-vertical {
+    .@{swiper-prefix} {
+      &-wrapper {
+        flex-wrap: wrap;
+      }
+
+      &-indicator {
+        left: 16px * @size-scale;
+        top: 50%;
+        bottom: auto;
+      }
+    }
+  }
+
+  &-wrapper {
+    height: 100%;
+    width: 100%;
+    display: flex;
+    flex-wrap: nowrap;
+    position: relative;
+    left: 0;
+    top: 0;
+  }
+
+  &-item {
+    // outline: solid 1px;
+    width: 100%;
+    height: 100%;
+    flex-shrink: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  &-indicator {
+    position: absolute;
+    transform: translate(-50%, -50%);
+    left: 50%;
+    bottom: 16px * @size-scale;
+
+    &-item {
+      height: 8px * @size-scale;
+      width: 8px * @size-scale;
+      border-radius: 50%;
+      background-color: rgba(0, 0, 0, 0.2);
+
+      &-active {
+        background-color: #fff;
+      }
+    }
+  }
+}

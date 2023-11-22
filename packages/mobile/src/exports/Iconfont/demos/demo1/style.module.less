@@ -1,0 +1,66 @@
+// :global {
+//   .icon {
+//     width: 1em;
+//     height: 1em;
+//     vertical-align: -0.15em;
+//     fill: currentColor;
+//   }
+// }
+
+.demo-icon {
+  // padding: 0 16px 24px;
+
+  p {
+    margin-top: 20px;
+    margin-bottom: 20px;
+    font-size: 16px;
+    color: #666;
+    width: 100%;
+  }
+
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.demo-icon-content {
+  // position: absolute;
+  // left: 0;
+  // top: 0;
+  // right: 0;
+  // bottom: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: background-color 0.2s, color 0.2s;
+
+  &:hover {
+    background-color: rgba(0, 0, 0, 0.02);
+    color: #1890ff;
+
+    .demo-icon-tag {
+      display: block;
+    }
+
+    :global(.icon) {
+      transform: scale(1.2);
+    }
+  }
+  :global(.icon) {
+    transition: transform 0.2s;
+    font-size: 32px;
+  }
+}
+
+.demo-icon-tag {
+  display: none;
+  position: fixed;
+  bottom: 0;
+  right: 0;
+  font-size: 14px;
+  padding: 8px 12px;
+  background: rgba(0, 0, 0, 0.6);
+  color: #fff !important;
+  z-index: 1000;
+}

@@ -1,0 +1,30 @@
+@import '../../../theme/vars';
+
+@cell-group-prefix: ~'exd-cell-group';
+@cell-prefix: ~'exd-cell';
+
+.@{cell-group-prefix} {
+  &-title {
+    padding: 12px * @size-scale 16px * @size-scale;
+    color: #999;
+    font-size: 12px * @size-scale;
+  }
+
+  &-content {
+    position: relative;
+    display: flex;
+    flex-wrap: wrap;
+    // background-color: #fff;
+    overflow: hidden;
+  }
+
+  &-inset {
+    margin: 0 16px * @size-scale;
+    // border-radius: 8px;
+    overflow: hidden;
+
+    .@{cell-group-prefix}-content {
+      border-radius: 8px;
+    }
+  }
+}

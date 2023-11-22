@@ -1,0 +1,57 @@
+@import '../../theme/vars';
+
+@switch-prefix: ~'exd-switch';
+
+.@{switch-prefix} {
+  position: relative;
+  display: inline-block;
+
+  &__checkbox {
+    position: absolute;
+    top: 0;
+    left: 0;
+    opacity: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 2;
+    border: 0;
+    appearance: none;
+    cursor: pointer;
+  }
+
+  @switch-size-scale: 1.3;
+
+  &__container {
+    position: relative;
+    width: 37px * @switch-size-scale * @size-scale;
+    height: 22px * @switch-size-scale * @size-scale;
+    border-radius: 31px * @size-scale;
+    background: #d8d8d8;
+    z-index: 0;
+    margin: 0;
+    padding: 0;
+    appearance: none;
+    border: 0;
+    transition: all 0.3s;
+
+    &::after {
+      position: absolute;
+      left: 1px * @switch-size-scale * @size-scale;
+      top: 1px * @switch-size-scale * @size-scale;
+      width: 20px * @switch-size-scale * @size-scale;
+      height: 20px * @switch-size-scale * @size-scale;
+      border-radius: 50%;
+      background-color: #fff;
+      content: '';
+      transition: all 0.3s;
+    }
+
+    &--checked {
+      background: @color-primary;
+
+      &::after {
+        transform: translateX(15px * @switch-size-scale * @size-scale);
+      }
+    }
+  }
+}

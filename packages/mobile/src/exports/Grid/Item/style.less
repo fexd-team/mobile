@@ -1,0 +1,99 @@
+@import '../../../theme/vars';
+
+@grid-item-prefix: ~'exd-grid-item';
+
+.@{grid-item-prefix} {
+  position: relative;
+  box-sizing: border-box;
+
+  &-icon {
+    font-size: 20px * @size-scale;
+  }
+
+  &-text {
+    font-size: 12px * @size-scale;
+    line-height: 1.5 * @size-scale;
+    word-break: break-all;
+    margin-top: 8px * @size-scale;
+  }
+
+  &-line {
+    &::after {
+      position: absolute;
+      box-sizing: border-box;
+      content: ' ';
+      pointer-events: none;
+      top: -50%;
+      right: -50%;
+      bottom: -50%;
+      left: -50%;
+      border: 0 solid @color-gray-border;
+      transform: scale(0.5);
+    }
+  }
+
+  &-content {
+    position: relative;
+    display: flex;
+    height: 100%;
+    padding: 16px * @size-scale 8px * @size-scale;
+    flex-flow: column;
+    flex-direction: column;
+    box-sizing: border-box;
+    background-color: #fff;
+
+    &::after {
+      z-index: 1;
+      border-width: 0 1px 1px 0;
+    }
+
+    &-center {
+      justify-content: center;
+      align-items: center;
+    }
+
+    &-square {
+      position: absolute;
+      top: 0;
+      right: 0;
+      left: 0;
+    }
+  }
+
+  &-square {
+    height: 0;
+  }
+
+  &-surround {
+    &::after {
+      border-width: 1px;
+    }
+  }
+
+  &-horizontal {
+    flex-direction: row;
+
+    .@{grid-item-prefix} {
+      &-icon {
+        margin-top: 0;
+        margin-left: 0;
+
+        svg {
+          display: block;
+        }
+      }
+
+      &-text {
+        margin-top: 0;
+        margin-left: 8px;
+      }
+    }
+  }
+
+  &-active {
+    cursor: pointer;
+    &:active {
+      background-color: #f2f3f5;
+    }
+  }
+}

@@ -1,0 +1,96 @@
+@import '../../../theme/vars';
+
+.exd-timeline-item {
+  position: relative;
+  display: flex;
+
+  // 最后一项：不需要时间线，时间不需要下外边距
+  &:last-child {
+    .exd-timeline-line {
+      &::after {
+        display: none;
+      }
+    }
+    .exd-timeline-content {
+      padding-bottom: 0;
+    }
+  }
+}
+
+.exd-timeline-content {
+  padding-right: 12px * @size-scale;
+  position: relative;
+  flex: 1;
+  // padding-left: 26px * @size-scale;
+  overflow: hidden;
+  padding-bottom: 16px * @size-scale;
+
+  &-title {
+    line-height: 16px * @size-scale;
+    font-size: 14px * @size-scale;
+    font-weight: 400;
+    color: #333;
+  }
+
+  &-main {
+    margin-top: 4px * @size-scale;
+    line-height: 14px * @size-scale;
+    font-size: 12px * @size-scale;
+    font-weight: 400;
+    color: #666;
+  }
+
+  &-time {
+    margin-top: 4px * @size-scale;
+    font-size: 12px * @size-scale;
+    line-height: 14px * @size-scale;
+    font-weight: 400;
+    color: #999;
+  }
+}
+
+.exd-timeline-line {
+  position: relative;
+  padding-left: 12px * @size-scale;
+  width: 26px * @size-scale;
+
+  // 线条的上下外边距
+  @lineMargin: 2px * @size-scale;
+
+  &::after {
+    content: '';
+    position: absolute;
+    z-index: 1;
+    top: 17px * @size-scale + @lineMargin;
+    bottom: @lineMargin;
+    width: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    border-left: 2px solid @color-primary;
+  }
+}
+
+.exd-timeline-dot {
+  position: absolute;
+  z-index: 2;
+  top: 3px * @size-scale;
+  left: 50%;
+  transform: translateX(-50%);
+  color: @color-primary;
+  width: 10px * @size-scale;
+  height: 10px * @size-scale;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  i.exd-icon {
+    font-size: 10px * @size-scale;
+  }
+
+  &-default {
+    width: 10px * @size-scale;
+    height: 10px * @size-scale;
+    border-radius: 50%;
+    background: @color-primary;
+  }
+}

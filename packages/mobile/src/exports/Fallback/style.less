@@ -1,0 +1,48 @@
+@import '../../theme/vars';
+
+.exd-fallback {
+  flex: 1;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  padding: 24px * @size-scale;
+  text-align: center;
+  align-items: center;
+}
+
+.exd-fallback-icon {
+  .exd-icon,
+  .exd-iconfont {
+    font-size: 100px * @size-scale;
+    color: #eee;
+    margin-bottom: 12px * @size-scale;
+  }
+
+  img {
+    // width: 208px * @size-scale;
+    height: 208px * @size-scale;
+    margin: 24px * @size-scale auto 16px * @size-scale;
+  }
+}
+
+.exd-fallback-footer {
+  width: 100%;
+  margin-top: 18px * @size-scale;
+}
+
+.exd-fallback-content {
+  color: #666;
+  font-size: 14px * @size-scale;
+  width: 100%;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 5;
+  overflow: hidden;
+}
+
+.exd-fallback-console {
+  font-size: 14px * @size-scale;
+  color: #999;
+  text-decoration: underline;
+  margin-top: 12px * @size-scale;
+}

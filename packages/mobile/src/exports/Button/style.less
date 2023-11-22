@@ -1,0 +1,63 @@
+@import '../BasicButton/style';
+// @import '../Iconfont/style';
+@import '../Spinner/style';
+
+@btn-prefix: ~'exd-btn';
+
+.@{btn-prefix} {
+  &-container,
+  &-icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  &-content {
+    display: inline-block;
+    max-width: 100%;
+  }
+
+  &-container {
+    width: 100%;
+    height: 100%;
+
+    span + span {
+      margin-left: 6px * @size-scale;
+    }
+  }
+}
+
+.@{btn-prefix} {
+  .scalable-spinner(@scale: 1) {
+    .@{btn-prefix}-spinner {
+      .@{spinner-prefix} {
+        width: @spinner-size * 0.55 * @size-scale * @scale;
+        height: @spinner-size * 0.55 * @size-scale * @scale;
+      }
+    }
+
+    &.@{btn-prefix}-block {
+      .@{btn-prefix}-spinner {
+        .@{spinner-prefix} {
+          width: @spinner-size * 0.55 * @size-scale * (@scale + 0.15);
+          height: @spinner-size * 0.55 * @size-scale * (@scale + 0.15);
+        }
+      }
+    }
+  }
+  &-large {
+    .scalable-spinner(1.2);
+  }
+
+  &-normal {
+    .scalable-spinner(1);
+  }
+
+  &-small {
+    .scalable-spinner(0.8);
+  }
+
+  &-mini {
+    .scalable-spinner(0.6);
+  }
+}

@@ -1,0 +1,31 @@
+@import '../createTransition/style';
+
+.exd-slide-up.exd-transition {
+  &-enter {
+    transform: translateY(100%);
+  }
+
+  &-enter-active {
+    transform: translateY(0);
+    transition-property: transform;
+  }
+
+  &-enter-done {
+    transform: translateY(0);
+  }
+
+  &-exit {
+    transform: translateY(0);
+  }
+
+  &-exit-active {
+    transform: translateY(100%);
+    transition-property: transform;
+  }
+
+  &-exit-done {
+    transform: translateY(100%);
+    pointer-events: none;
+    opacity: 0;
+  }
+}

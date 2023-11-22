@@ -1,0 +1,52 @@
+/* style.less */
+@import '../../theme/vars'; // 引入全局样式变量集，内含 @size-scale、各类色值等变量
+
+@scroll-view-prefix: ~'exd-scroll-view';
+
+.@{scroll-view-prefix} {
+  height: 100%;
+  overflow: hidden;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+
+  &::before,
+  &::after {
+    content: '';
+    position: absolute;
+    z-index: 2;
+    left: 0;
+    right: 0;
+    height: 6px * @size-scale;
+    opacity: 0;
+    transition: opacity 0.2s;
+  }
+  &::before {
+    top: 0;
+    background-image: linear-gradient(to bottom, rgba(0, 0, 0, 0.08), transparent);
+  }
+  &::after {
+    bottom: 0;
+    background-image: linear-gradient(to top, rgba(0, 0, 0, 0.08), transparent);
+  }
+
+  &--can-scroll-up {
+    &::before {
+      opacity: 1;
+    }
+  }
+
+  &--can-scroll-down {
+    &::after {
+      opacity: 1;
+    }
+  }
+}
+
+.@{scroll-view-prefix}__content {
+  height: 100%;
+  overflow: auto;
+  position: relative;
+  z-index: 1;
+  flex: 1;
+}

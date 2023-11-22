@@ -1,0 +1,62 @@
+@import '../../theme/vars';
+@picker-view-prefix: ~'exd-picker-view';
+
+@picker-view-item-height: 50px;
+// @picker-view-item-height: 1.33333rem;
+
+.@{picker-view-prefix} {
+  position: relative;
+  background-color: #fff;
+
+  &-mask-top,
+  &-mask-bottom {
+    position: absolute;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    margin: 0 auto;
+    z-index: 3;
+    background: rgba(255, 255, 255, 0.5);
+    pointer-events: none;
+  }
+
+  &-mask-top {
+    top: 0;
+  }
+
+  &-mask-bottom {
+    bottom: 0;
+  }
+
+  &-indicator {
+    box-sizing: border-box;
+    position: absolute;
+    left: 0;
+    top: @picker-view-item-height * @size-scale;
+    width: 100%;
+    height: @picker-view-item-height * @size-scale;
+    line-height: @picker-view-item-height * @size-scale;
+    border-top: 1px solid #ddd;
+    border-bottom: 1px solid #ddd;
+    pointer-events: none;
+  }
+
+  &-content {
+    overflow: scroll;
+
+    &::-webkit-scrollbar {
+      display: none;
+    }
+  }
+
+  &-item {
+    width: 100%;
+    height: @picker-view-item-height * @size-scale;
+    line-height: @picker-view-item-height * @size-scale;
+    text-align: center;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    padding: 0 14px * @size-scale;
+  }
+}

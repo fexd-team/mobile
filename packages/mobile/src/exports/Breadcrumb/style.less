@@ -1,0 +1,37 @@
+@import '../../theme/vars';
+
+@breadcrumb-prefix: ~'exd-breadcrumb';
+
+.@{breadcrumb-prefix} {
+  height: 44px * @size-scale;
+  display: flex;
+  align-items: center;
+  border-bottom: solid 1px #f5f5f5;
+  flex-shrink: 0;
+  overflow-x: auto;
+
+  &-content {
+    padding: 0 18px * @size-scale;
+    display: inline-block;
+    white-space: nowrap;
+  }
+
+  &-arrow {
+    margin: 0 10px * @size-scale;
+    position: relative;
+    top: 1px;
+
+    .exd-icon {
+      font-size: 14px * @size-scale;
+      color: #999;
+    }
+  }
+
+  &-item {
+    display: inline-block;
+
+    &:last-child {
+      color: @color-primary;
+    }
+  }
+}

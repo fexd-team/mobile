@@ -1,0 +1,23 @@
+{
+  "compilerOptions": {
+    "isolatedModules": false,
+    "preserveSymlinks": true,
+    "target": "esnext",
+    "module": "esnext",
+    "moduleResolution": "node",
+    "importHelpers": true,
+    "jsx": "react",
+    "esModuleInterop": true,
+    "skipLibCheck": true,
+    "sourceMap": true,
+    "declaration": true,
+    "strict": true,
+    "allowSyntheticDefaultImports": true,
+    "baseUrl": "./",
+    "paths": {
+      "@root/*": ["/*"],
+      "@documents/*": ["documents/*"],
+      "@dumiTheme/*": [".dumi/theme/*"]
+    }
+  }
+}

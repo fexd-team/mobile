@@ -1,0 +1,16 @@
+$colors: (
+  primary: #ff7d0f,
+  red: #eb341d,
+  blue: #248af3,
+  orange: #f93,
+  green: #7fb800,
+);
+
+$background: (
+  button-linear: linear-gradient(225deg, rgba(255, 150, 130, 1) 0%, rgba(246, 0, 89, 1) 100%),
+);
+
+@mixin button {
+  background: map-get($background, button-linear);
+  border-radius: 20px;
+}

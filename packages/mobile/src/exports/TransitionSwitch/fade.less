@@ -1,0 +1,63 @@
+.exd-transition-switch__fadePrevEnter {
+  animation-name: exd-transition-switch__fadePrevEnter;
+
+  @keyframes exd-transition-switch__fadePrevEnter {
+    from {
+      opacity: 0;
+      transform: translate3d(0, 0, 100px) scale(1.04);
+    }
+
+    to {
+      opacity: 1;
+      transform: translate3d(0, 0, 0) scale(1);
+    }
+  }
+}
+
+.exd-transition-switch__fadeNextLeave {
+  animation-name: exd-transition-switch__fadeNextLeave;
+
+  @keyframes exd-transition-switch__fadeNextLeave {
+    from {
+      opacity: 1;
+      transform: translate3d(0, 0, 0) scale(1);
+    }
+
+    to {
+      opacity: 0;
+      transform: translate3d(0, 0, -100px) scale(0.96);
+    }
+  }
+}
+
+.exd-transition-switch__fadeNextEnter {
+  animation-name: exd-transition-switch__fadeNextEnter;
+
+  @keyframes exd-transition-switch__fadeNextEnter {
+    from {
+      opacity: 0;
+      transform: translate3d(0, 0, -100px) scale(0.96);
+    }
+
+    to {
+      opacity: 1;
+      transform: translate3d(0, 0, 0) scale(1);
+    }
+  }
+}
+
+.exd-transition-switch__fadePrevLeave {
+  animation-name: exd-transition-switch__fadePrevLeave;
+
+  @keyframes exd-transition-switch__fadePrevLeave {
+    from {
+      opacity: 1;
+      transform: translate3d(0, 0, 0) scale(1);
+    }
+
+    to {
+      opacity: 0;
+      transform: translate3d(0, 0, 100px) scale(1.04);
+    }
+  }
+}

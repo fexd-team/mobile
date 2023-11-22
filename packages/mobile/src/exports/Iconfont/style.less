@@ -1,0 +1,26 @@
+@import '../../theme/vars';
+
+@iconfont-prefix: ~'exd-iconfont';
+
+.@{iconfont-prefix} {
+  display: inline-block;
+  width: 1em;
+  height: 1em;
+  vertical-align: -0.15em;
+  fill: currentColor;
+  overflow: visible;
+  position: relative;
+
+  &::before,
+  &::after {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    color: inherit;
+  }
+}
+
+i.@{iconfont-prefix} {
+  font-size: inherit;
+}

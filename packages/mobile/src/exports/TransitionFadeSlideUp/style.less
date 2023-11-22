@@ -1,0 +1,36 @@
+@import '../createTransition/style';
+
+.exd-fade-slide-up.exd-transition {
+  &-enter {
+    transform: translateY(100%);
+    opacity: 0;
+  }
+
+  &-enter-active {
+    transform: translateY(0);
+    opacity: 1;
+    transition-property: transform opacity;
+  }
+
+  &-enter-done {
+    transform: translateY(0);
+    opacity: 1;
+  }
+
+  &-exit {
+    transform: translateY(0);
+    opacity: 1;
+  }
+
+  &-exit-active {
+    transform: translateY(100%);
+    opacity: 0;
+    transition-property: transform opacity;
+  }
+
+  &-exit-done {
+    transform: translateY(100%);
+    pointer-events: none;
+    opacity: 0;
+  }
+}

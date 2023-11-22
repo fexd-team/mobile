@@ -1,0 +1,172 @@
+@import '../BasicButton/style';
+@import '../Modal/style';
+
+@dialog-prefix: ~'exd-dialog';
+
+.@{dialog-prefix} {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  background-color: #fff;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  border-radius: 6px;
+
+  &-modal {
+    display: flex;
+    flex-direction: column;
+    min-width: 68%;
+    max-width: 88%;
+    max-height: 90%;
+
+    .@{modal-prefix}-content {
+      overflow: hidden;
+      border-radius: 6px;
+      display: flex;
+      flex-direction: column;
+
+      .@{overlay-prefix} {
+        width: 101%;
+        height: 101%;
+      }
+    }
+  }
+
+  &-wrapper {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    padding: 24px * @size-scale;
+    height: 100%;
+    overflow: auto;
+  }
+
+  &-title {
+    font-size: 18px * @size-scale;
+    color: #333;
+    font-weight: bold;
+    margin-top: 0;
+    margin-bottom: 16px * @size-scale;
+  }
+
+  &-content {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    font-size: 14px * @size-scale;
+    color: #666;
+  }
+
+  &-action {
+    cursor: pointer;
+
+    &-content {
+      display: inline-block;
+      white-space: nowrap;
+      text-overflow: ellipsis;
+      overflow: hidden;
+    }
+  }
+
+  &-actions {
+    flex-shrink: 0;
+  }
+
+  &-normal,
+  &-iOS {
+    .@{dialog-prefix}-actions {
+      position: relative;
+      overflow: hidden;
+
+      &-vertical {
+        display: flex;
+        flex-direction: row-reverse;
+
+        .@{dialog-prefix}-action {
+          flex: 1;
+          width: auto;
+        }
+      }
+
+      .@{dialog-prefix}-action {
+        width: 100%;
+      }
+    }
+
+    .@{dialog-prefix}-action {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      box-sizing: border-box;
+      flex: 1;
+      overflow: hidden;
+
+      &-content {
+        max-width: 100%;
+      }
+    }
+  }
+
+  &-normal {
+    .@{dialog-prefix} {
+      &-wrapper {
+        padding-bottom: 8px;
+      }
+
+      &-actions {
+        padding: 16px 20px 20px;
+
+        .exd-btn + .exd-btn {
+          margin-top: 8px;
+        }
+
+        &-vertical {
+          .exd-btn + .exd-btn {
+            margin-top: 0;
+            margin-right: 12px;
+          }
+        }
+      }
+    }
+  }
+
+  &-iOS {
+    .@{dialog-prefix}-actions-vertical {
+      .@{dialog-prefix}-action {
+        &:first-child {
+          border-left: solid 1px @color-gray-divider;
+        }
+      }
+    }
+
+    .@{dialog-prefix}-actions,
+    .@{dialog-prefix}-action {
+      min-height: 50px * @size-scale;
+    }
+
+    .@{dialog-prefix}-action {
+      border-top: solid 1px @color-gray-divider;
+    }
+  }
+
+  &-Android {
+    text-align: left;
+
+    .@{dialog-prefix}-wrapper {
+      padding-bottom: 12px * @size-scale;
+    }
+
+    .@{dialog-prefix}-actions {
+      padding: 12px * @size-scale 12px * @size-scale 16px * @size-scale;
+      display: flex;
+      flex-direction: row-reverse;
+    }
+
+    .@{dialog-prefix}-action {
+      &-content {
+        max-width: 160px * @size-scale;
+      }
+    }
+  }
+}

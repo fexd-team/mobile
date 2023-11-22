@@ -1,0 +1,9 @@
+@import '../../theme/vars'; // 引入全局样式变量集，内含 @size-scale、各类色值等变量
+
+// 由于 less 变量的懒生效特性，变量命名空间存在冲突，此处 prefix 变量命名前需要加特定前缀
+// https://less.bootcss.com/features/#variables-lazy-evaluation
+@segmented-control-prefix: ~'exd-segmented-control';
+
+.@{segmented-control-prefix} {
+  /* 组件样式 */
+}

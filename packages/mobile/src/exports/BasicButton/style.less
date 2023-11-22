@@ -1,0 +1,166 @@
+@import '../../theme/vars';
+
+@btn-prefix: ~'exd-btn';
+@btn-inline-size-base: 38px;
+@btn-block-size-base: 42px;
+@btn-size-scale-large: 1.2;
+@btn-size-scale-normal: 1;
+@btn-size-scale-small: 0.8;
+@btn-size-scale-mini: 0.6;
+
+.@{btn-prefix} {
+  -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+  border: 0;
+  outline: 0;
+  transition: all 0.2s;
+  text-align: center;
+  position: relative;
+  display: inline-block;
+  box-sizing: border-box;
+  overflow: hidden;
+  cursor: pointer;
+  user-select: none;
+  line-height: 1;
+
+  &::after {
+    content: '';
+    display: block;
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    pointer-events: none;
+    transition: opacity 0.2s;
+    background: #000;
+    opacity: 0;
+  }
+}
+
+.@{btn-prefix} {
+  &-block {
+    display: block;
+    width: 100%;
+  }
+
+  &-disabled {
+    cursor: not-allowed;
+    opacity: 0.5;
+  }
+
+  &:active {
+    &::after {
+      opacity: 0.18;
+    }
+  }
+
+  &-plain,
+  &-fill-outline,
+  &-fill-none {
+    &:active {
+      &::after {
+        opacity: 0.06;
+      }
+    }
+  }
+}
+
+// 以下是颜色配置
+.@{btn-prefix} {
+  &-plain {
+    border: solid 1px @color-gray-border;
+    background-color: transparent;
+
+    &.@{btn-prefix}-fill-none {
+      border-color: transparent;
+    }
+  }
+
+  .colorful-btn(@color) {
+    &.@{btn-prefix}-fill-solid {
+      color: @color-white;
+      background-color: @color;
+      border: solid 1px @color;
+
+      &:hover {
+        color: @color-white;
+      }
+    }
+
+    &.@{btn-prefix}-fill-outline,
+    &.@{btn-prefix}-fill-none {
+      background-color: transparent;
+      color: @color;
+
+      &:hover {
+        color: @color;
+      }
+    }
+
+    &.@{btn-prefix}-fill-outline {
+      border: solid 1px @color;
+    }
+  }
+
+  &-primary {
+    .colorful-btn(@color-primary);
+  }
+
+  &-info {
+    .colorful-btn(@color-info);
+  }
+
+  &-success {
+    .colorful-btn(@color-success);
+  }
+
+  &-warning {
+    .colorful-btn(@color-warning);
+  }
+
+  &-danger {
+    .colorful-btn(@color-danger);
+  }
+}
+
+// 以下是尺寸配置
+.@{btn-prefix} {
+  .scalable-btn(@scale: 1) {
+    // line-height: (38px - 2px) * @size-scale * @scale;
+    height: @btn-inline-size-base * @size-scale * @scale;
+    padding: 0 14px * @size-scale * @scale;
+    font-size: 14px * @size-scale * @scale;
+
+    // &.@{btn-prefix}-block {
+    //   // line-height: (42px - 2px) * @size-scale * (@scale + 0.15);
+    //   height: @btn-block-size-base * @size-scale * (@scale + 0.1);
+    //   padding: 0 14px * @size-scale * (@scale + 0.1);
+    // }
+  }
+  &-large {
+    .scalable-btn(@btn-size-scale-large);
+  }
+
+  &-normal {
+    .scalable-btn(@btn-size-scale-normal);
+  }
+
+  &-small {
+    .scalable-btn(@btn-size-scale-small);
+  }
+
+  &-mini {
+    .scalable-btn(@btn-size-scale-mini);
+  }
+}
+
+// 以下是形状配置
+.@{btn-prefix} {
+  &-square {
+    border-radius: 2px;
+  }
+
+  &-round {
+    border-radius: 999px;
+  }
+}

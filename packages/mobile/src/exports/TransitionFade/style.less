@@ -1,0 +1,30 @@
+@import '../createTransition/style';
+
+.exd-fade.exd-transition {
+  &-enter {
+    opacity: 0;
+  }
+
+  &-enter-active {
+    opacity: 1;
+    transition-property: opacity;
+  }
+
+  &-enter-done {
+    opacity: 1;
+  }
+
+  &-exit {
+    opacity: 1;
+  }
+
+  &-exit-active {
+    opacity: 0;
+    transition-property: opacity;
+  }
+
+  &-exit-done {
+    opacity: 0;
+    pointer-events: none;
+  }
+}
