@@ -1080,23 +1080,23 @@
     },
     {
       "fileName": "mobile/es/exports",
-      "name": "@fexd/mobile/es/exports/SwipeAction/index.js",
-      "line": 86,
-      "string": "require('@fexd/mobile/es/exports/SwipeAction/index.js')",
-      "size": "1.3k",
-      "gzip": "680",
-      "rawSize": 1281,
-      "rawGzip": 680,
-      "label": "1.3k (gzipped: 680)"
-    },
-    {
-      "fileName": "mobile/es/exports",
       "name": "@fexd/mobile/es/exports/SegmentedControl/index.js",
       "line": 73,
       "string": "require('@fexd/mobile/es/exports/SegmentedControl/index.js')",
       "size": "1.3k",
       "gzip": "680",
       "rawSize": 1291,
+      "rawGzip": 680,
+      "label": "1.3k (gzipped: 680)"
+    },
+    {
+      "fileName": "mobile/es/exports",
+      "name": "@fexd/mobile/es/exports/SwipeAction/index.js",
+      "line": 86,
+      "string": "require('@fexd/mobile/es/exports/SwipeAction/index.js')",
+      "size": "1.3k",
+      "gzip": "680",
+      "rawSize": 1281,
       "rawGzip": 680,
       "label": "1.3k (gzipped: 680)"
     },
@@ -1212,12 +1212,12 @@
     },
     {
       "fileName": "mobile/es/exports",
-      "name": "@fexd/mobile/es/exports/Pagination/index.js",
-      "line": 64,
-      "string": "require('@fexd/mobile/es/exports/Pagination/index.js')",
+      "name": "@fexd/mobile/es/exports/Dropdown/index.js",
+      "line": 28,
+      "string": "require('@fexd/mobile/es/exports/Dropdown/index.js')",
       "size": "1.3k",
       "gzip": "672",
-      "rawSize": 1278,
+      "rawSize": 1274,
       "rawGzip": 672,
       "label": "1.3k (gzipped: 672)"
     },
@@ -1234,12 +1234,12 @@
     },
     {
       "fileName": "mobile/es/exports",
-      "name": "@fexd/mobile/es/exports/Dropdown/index.js",
-      "line": 28,
-      "string": "require('@fexd/mobile/es/exports/Dropdown/index.js')",
+      "name": "@fexd/mobile/es/exports/Pagination/index.js",
+      "line": 64,
+      "string": "require('@fexd/mobile/es/exports/Pagination/index.js')",
       "size": "1.3k",
       "gzip": "672",
-      "rawSize": 1274,
+      "rawSize": 1278,
       "rawGzip": 672,
       "label": "1.3k (gzipped: 672)"
     },
@@ -1830,23 +1830,23 @@
     },
     {
       "fileName": "mobile/lib/exports",
-      "name": "@fexd/mobile/lib/exports/TransitionSlideUp/index.js",
-      "line": 104,
-      "string": "require('@fexd/mobile/lib/exports/TransitionSlideUp/index.js')",
-      "size": "12.8k",
-      "gzip": "4k",
-      "rawSize": 12810,
-      "rawGzip": 4032,
-      "label": "12.8k (gzipped: 4k)"
-    },
-    {
-      "fileName": "mobile/lib/exports",
       "name": "@fexd/mobile/lib/exports/TransitionFadeSlideUp/index.js",
       "line": 101,
       "string": "require('@fexd/mobile/lib/exports/TransitionFadeSlideUp/index.js')",
       "size": "12.8k",
       "gzip": "4k",
       "rawSize": 12811,
+      "rawGzip": 4032,
+      "label": "12.8k (gzipped: 4k)"
+    },
+    {
+      "fileName": "mobile/lib/exports",
+      "name": "@fexd/mobile/lib/exports/TransitionSlideUp/index.js",
+      "line": 104,
+      "string": "require('@fexd/mobile/lib/exports/TransitionSlideUp/index.js')",
+      "size": "12.8k",
+      "gzip": "4k",
+      "rawSize": 12810,
       "rawGzip": 4032,
       "label": "12.8k (gzipped: 4k)"
     },
@@ -2567,6 +2567,17 @@
     },
     {
       "fileName": "mobile/lib/exports",
+      "name": "@fexd/mobile/lib/exports/Drag/index.js",
+      "line": 26,
+      "string": "require('@fexd/mobile/lib/exports/Drag/index.js')",
+      "size": "1.4k",
+      "gzip": "646",
+      "rawSize": 1422,
+      "rawGzip": 646,
+      "label": "1.4k (gzipped: 646)"
+    },
+    {
+      "fileName": "mobile/lib/exports",
       "name": "@fexd/mobile/lib/exports/Dropdown/index.js",
       "line": 28,
       "string": "require('@fexd/mobile/lib/exports/Dropdown/index.js')",
@@ -2595,17 +2606,6 @@
       "size": "1.4k",
       "gzip": "646",
       "rawSize": 1424,
-      "rawGzip": 646,
-      "label": "1.4k (gzipped: 646)"
-    },
-    {
-      "fileName": "mobile/lib/exports",
-      "name": "@fexd/mobile/lib/exports/Drag/index.js",
-      "line": 26,
-      "string": "require('@fexd/mobile/lib/exports/Drag/index.js')",
-      "size": "1.4k",
-      "gzip": "646",
-      "rawSize": 1422,
       "rawGzip": 646,
       "label": "1.4k (gzipped: 646)"
     },

@@ -1,4 +1,6 @@
 ---
+hide: true
+
 nav:
   title: 文档
 

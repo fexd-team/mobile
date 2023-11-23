@@ -17,7 +17,7 @@ features:
     desc: 颗粒细、功能全、体积小（gzipped 平均 5kb），按需加载，便于组合
   - icon: https://gw.alipayobjects.com/zos/bmw-prod/d1ee0c6f-5aed-4a45-a507-339a4bfe076c/k7bjsocq_w144_h144.png
     title: 易用
-    desc: 各组件的属性设计上，汇总了多种技术方案种的良好实践
+    desc: 各组件的属性设计上，汇总了各类技术方案中的良好实践
 footer: Open-source MIT Licensed | Copyright © 2020<br />Powered by [dumi](https://d.umijs.org)
 ---
 
