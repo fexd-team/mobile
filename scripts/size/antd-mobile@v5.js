@@ -1,3 +1,5 @@
+const fs = require('fs')
+const path = require('path')
 const glob = require('glob')
 const ora = require('ora')
 
@@ -30,6 +32,10 @@ async function antdMobileSize() {
   )
 
   console.log('--------------------')
+
+  fs.writeFileSync(path.resolve(process.cwd(), './public/antd-size.json'), JSON.stringify({ esm: info }), {
+    encoding: 'utf-8',
+  })
 }
 
 module.exports = antdMobileSize

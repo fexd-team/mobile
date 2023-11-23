@@ -27,7 +27,7 @@ const Device: FC<IDeviceProps> = ({ url, className = '' }) => {
   return (
     <div className={['__dumi-default-device'].concat(className).join(' ')} data-device-type="iOS" data-mode={mode}>
       <div className="__dumi-default-device-status">
-        <span>Mobile</span>
+        <span>FEXD</span>
         <span>10:24</span>
       </div>
       <iframe title="dumi-previewer" src={url} key={renderKey} />

@@ -88,7 +88,10 @@ export default [
   {
     name: '其他',
     children: [
-      { name: 'ErrorBoundary 错误边界', demo: lazy(() => import('@fexd/mobile/src/exports/ErrorBoundary/demos/demo1')) },
+      {
+        name: 'ErrorBoundary 错误边界',
+        demo: lazy(() => import('@fexd/mobile/src/exports/ErrorBoundary/demos/demo1')),
+      },
       { name: 'Portal 渲染视窗', demo: lazy(() => import('@fexd/mobile/src/exports/Portal/demos/demo1')) },
     ],
   },
@@ -101,11 +104,11 @@ export default [
       { name: 'CountDown 倒计时', demo: lazy(() => import('@fexd/mobile/src/exports/CountDown/demos/demo1')) },
       { name: 'Flex 弹性布局', demo: lazy(() => import('@fexd/mobile/src/exports/Flex/demos/demo1')) },
       { name: 'Image 图片', demo: lazy(() => import('@fexd/mobile/src/exports/Image/demos/demo1')) },
-      { name: 'List 列表', demo: lazy(() => import('@fexd/mobile/src/exports/List/demos/demo1')) },
+      // { name: 'List 列表', demo: lazy(() => import('@fexd/mobile/src/exports/List/demos/demo1')) },
       { name: 'NoticeBar 提醒栏', demo: lazy(() => import('@fexd/mobile/src/exports/NoticeBar/demos/demo1')) },
       { name: 'Skeleton 骨架屏', demo: lazy(() => import('@fexd/mobile/src/exports/Skeleton/demos/demo1')) },
       { name: 'Tips 提示', demo: lazy(() => import('@fexd/mobile/src/exports/Tips/demos/demo1')) },
-      { name: 'Video 视频', demo: lazy(() => import('@fexd/mobile/src/exports/Video/demos/demo1')) },
+      // { name: 'Video 视频', demo: lazy(() => import('@fexd/mobile/src/exports/Video/demos/demo1')) },
     ],
   },
 ]

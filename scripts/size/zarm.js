@@ -1,3 +1,5 @@
+const fs = require('fs')
+const path = require('path')
 const glob = require('glob')
 const ora = require('ora')
 
@@ -28,6 +30,10 @@ async function size() {
   )
 
   console.log('--------------------')
+
+  fs.writeFileSync(path.resolve(process.cwd(), './public/zarm-size.json'), JSON.stringify({ esm: info }), {
+    encoding: 'utf-8',
+  })
 }
 
 module.exports = size

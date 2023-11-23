@@ -3,8 +3,11 @@ hero:
   title: Fexd Mobile
   desc: React 移动端组件库
   actions:
-    - text: 开始
-      link: /documents
+    - text: 查看文档
+      link: /exports
+
+    - text: 移动端预览
+      link: /~demos/documents-preview-demo
 features:
   - icon: https://gw.alipayobjects.com/zos/bmw-prod/881dc458-f20b-407b-947a-95104b5ec82b/k79dm8ih_w144_h144.png
     title: 丰富
@@ -13,8 +16,8 @@ features:
     title: 灵活
     desc: 颗粒细、功能全、体积小（gzipped 平均 5kb），按需加载，便于组合
   - icon: https://gw.alipayobjects.com/zos/bmw-prod/d1ee0c6f-5aed-4a45-a507-339a4bfe076c/k7bjsocq_w144_h144.png
-    title: 可靠
-    desc: 抱歉，用的人少，暂时编不出来，等你来体验！
+    title: 易用
+    desc: 各组件的属性设计上，汇总了多种技术方案种的良好实践
 footer: Open-source MIT Licensed | Copyright © 2020<br />Powered by [dumi](https://d.umijs.org)
 ---
 
