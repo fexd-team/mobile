@@ -7,7 +7,9 @@ dist
 build
 es
 lib
-docs-dist
+docs
+public/*-size.json
+public/size.json
 .history
 .umi
 .umi-production
