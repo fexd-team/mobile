@@ -14,12 +14,11 @@ order: 10
 
 ## 为什么要写我们自己的移动端组件库？
 
-1. 目前没有特别好用的、基于 React 的第三方移动端组件库
+1. 基于 React 的第三方优质移动端组件库较少
 2. 第三方库存在定制性不足、体积成本大、功能少、可控性低等问题
 3. 自研组件库可以解决第三方库存在的问题，提升对业务的支持能力
 4. 自研组件库可以提升团队技术氛围
 5. 自研组件库可以锤炼团队技术水平
-6. 如能开源，可以收获一定的团队知名度，提升影响力与团队向心力
 
 ## 有什么能做的？
 
@@ -32,9 +31,9 @@ order: 10
 
 ## 规划导图
 
-https://www.processon.com/view/link/60599b2c7d9c08555e4f448c
+https://www.processon.com/view/link/655eb550d1fe402d6d1a995a
 
-<iframe src="https://www.processon.com/view/link/60599b2c7d9c08555e4f448c" width="100%" style="height: 70vh; border: 1px solid #e6e6e6;" />
+<iframe src="https://www.processon.com/view/link/655eb550d1fe402d6d1a995a" width="100%" style="height: 70vh; border: 1px solid #e6e6e6;" />
 
 ---
 

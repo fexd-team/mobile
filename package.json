@@ -8,7 +8,7 @@
     "init": "npx pnpm@6 i --shamefully-hoist",
     "dev": "dumi dev",
     "start": "dumi dev",
-    "build": "npm run -C ./packages/mobile build && npm run -C ./packages/mobile-router5 build && npm run less2css && npm run size -- --fresh",
+    "build": "turbo run build && npm run less2css && npm run size -- --fresh",
     "less2css": "npx pnpm@6 run --filter=!root --parallel less2css",
     "clean:build": "rimraf ./packages/*/lib ./packages/*/es",
     "clean:all": "npm run clean:build && rimraf .umi .umi-production docs-dist node_modules/ ./**/node_modules",
@@ -79,10 +79,10 @@
     "zarm": "^2.9.9"
   },
   "resolutions": {
-    "@types/react": "17",
-    "@types/react-dom": "17",
-    "react": "^17.0.2",
-    "react-dom": "^17.0.2",
+    "@types/react": "18",
+    "@types/react-dom": "18",
+    "react": "^18.1.0",
+    "react-dom": "^18.1.0",
     "history": "4.10.0",
     "typescript": "^4.6.3"
   },

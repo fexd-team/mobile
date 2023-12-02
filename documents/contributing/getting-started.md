@@ -52,4 +52,4 @@ order: 20
    git push --set-upstream origin feat/xxx
    ```
 
-8. 创建一个合入 `master` 分支的 [Merge Request](https://github.com/fexd-team/mobile/-/merge_requests)，找人 review 提交，等待合并
+8. 创建一个合入 `main` 分支的 [Pull Request](https://github.com/fexd-team/mobile/pulls)，找人 review 提交，等待合并
