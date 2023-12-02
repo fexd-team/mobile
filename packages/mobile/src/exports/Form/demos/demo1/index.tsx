@@ -2,7 +2,7 @@ import React from 'react'
 import DemoBlock from '@documents/components/DemoBlock'
 // import createForm from 'formini'
 import { first, pickBy, isExist } from '@fexd/tools'
-import { Form, MaterialInput, MaterialPicker, Button, toast } from '@fexd/mobile'
+import { Form, LineInput, LinePicker, Button, toast } from '@fexd/mobile'
 
 import './style.module.less'
 
@@ -46,7 +46,7 @@ export default () => {
             ]}
           >
             {({ value, setValue, error, validate }) => (
-              <MaterialInput
+              <LineInput
                 // active
                 label="Input - 1"
                 placeholder="Please input"
@@ -75,7 +75,7 @@ export default () => {
           >
             {({ value, setValue, error, validate, relative }) =>
               relative?.show && (
-                <MaterialInput
+                <LineInput
                   // active
                   label="Input - 1"
                   placeholder="Please input"
@@ -96,7 +96,7 @@ export default () => {
             rules={[(value) => (!isExist(value) ? '请选择是否显示 Input - 2' : undefined)]}
           >
             {({ value, setValue, error, validate }) => (
-              <MaterialPicker
+              <LinePicker
                 // active
                 label="是否显示 Input - 2"
                 placeholder='Please select "是" or "否"'
@@ -122,7 +122,7 @@ export default () => {
           >
             {({ value, setValue, error, validate, relative: { show } }) =>
               show && (
-                <MaterialInput
+                <LineInput
                   // active
                   label="Input - 2"
                   placeholder="Please input"

@@ -7,17 +7,19 @@ group:
 # DatePicker 日期选择器
 
 - DatePicker <ImportCost name="DatePicker" />
-- MaterialDatePicker <ImportCost name="MaterialDatePicker" />
+- LineDatePicker <ImportCost name="LineDatePicker" />
+- BlockDatePicker <ImportCost name="BlockDatePicker" />
 - DatePickerView <ImportCost name="DatePickerView" />
 
-日期选择器，选择年月日。有三种风格，可通过底部的导航栏切换。
+日期选择器，选择年月日
 
 <!-- prettier-ignore -->
 ```jsx | pure
-import { DatePicker, MaterialDatePicker, DatePickerView } from '@fexd/mobile'
+import { DatePicker, LineDatePicker, BlockDatePicker, DatePickerView } from '@fexd/mobile'
 
 <DatePicker />
-<MaterialDatePicker />
+<LineDatePicker />
+<BlockDatePicker />
 <DatePickerView />
 ```
 
@@ -154,7 +156,7 @@ const [date, setDate] = useState(null)
 
 ### DatePickerView 的 API
 
-`<DatePickerView />` 作为基础组件，嵌套在 `<DatePicker />` 、`<MaterialDatePicker />` 中。
+`<DatePickerView />` 作为基础组件，嵌套在 `<DatePicker />` 、`<LineDatePicker />` 中。
 
 | 属性 | 说明 | 类型 | 默认值 |
 | :-- | :-- | :-- | :-- |
@@ -185,7 +187,7 @@ const [date, setDate] = useState(null)
 | rows | 展示的行数 | `Number` | `3` |
 | children<span style="color: red;">\*</span> | 点击后能触发对话框展示的内容 | `ReactNode` | - |
 
-### MaterialDatePicker 的 API
+### LineDatePicker 的 API
 
 #### 新增的 API
 
@@ -205,9 +207,9 @@ const [date, setDate] = useState(null)
 
 ## 样式变量
 
-| 变量名                       | 说明         | 默认值                      |
-| :--------------------------- | :----------- | :-------------------------- |
-| @material-data-picker-prefix | 组件样式前缀 | `'exd-material-data-picker'` |
+| 变量名                   | 说明         | 默认值                   |
+| :----------------------- | :----------- | :----------------------- |
+| @line-data-picker-prefix | 组件样式前缀 | `'exd-line-data-picker'` |
 
 ---
 

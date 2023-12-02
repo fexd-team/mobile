@@ -1,0 +1,98 @@
+@import '../../theme/vars'; // 引入全局样式变量集，内含 @size-scale、各类色值等变量
+@import '../UnstyledIOInput/style';
+@import '../BlockLabel/style';
+@import '../Input/style';
+@import '../TextArea/style';
+
+// 由于 less 变量的懒生效特性，变量命名空间存在冲突，此处 prefix 变量命名前需要加特定前缀
+// https://less.bootcss.com/features/#variables-lazy-evaluation
+@block-input-prefix: ~'exd-block-input';
+
+// .@{block-input-prefix} {
+//   /* 组件样式 */
+// }
+
+.@{block-input-prefix}__label {
+  &--disabled {
+    pointer-events: none;
+  }
+  &--multiple {
+    height: auto;
+  }
+}
+
+.@{block-input-prefix}__input {
+  &::placeholder {
+    color: #999;
+  }
+}
+
+.@{block-input-prefix}__input,
+.@{block-input-prefix}__textarea {
+  padding: 0;
+  border: 0;
+  outline: 0;
+  border-radius: 0;
+  resize: none;
+  width: 100%;
+  background-color: transparent;
+  font-size: 14px * @size-scale;
+  color: #333;
+
+  &--disabled {
+    color: #c2bcbe;
+    pointer-events: none;
+  }
+
+  opacity: 0;
+  transition: opacity 0.2s;
+
+  &--active {
+    opacity: 1;
+  }
+}
+
+.@{block-input-prefix}__textarea {
+  white-space: pre;
+}
+
+.@{block-input-prefix}__disabled {
+  color: #c2bcbe;
+}
+
+.@{block-input-prefix}__prefix {
+  line-height: 22px * @size-scale;
+  font-size: 14px * @size-scale;
+  color: #c2bcbe;
+}
+
+.@{block-input-prefix}__clear {
+  font-size: 17px * @size-scale;
+  cursor: pointer;
+  color: #bbb;
+  opacity: 0;
+  transform: scale(0.8);
+  transition: opacity 0.2s, transform 0.2s;
+
+  &--show {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+.@{block-input-prefix}__suffix-wrapper {
+  display: flex;
+  align-items: center;
+
+  .@{block-input-prefix}__suffix {
+    margin-left: 6px * @size-scale;
+  }
+}
+
+.@{block-input-prefix}__placeholder {
+  &--capitalize {
+    &::placeholder {
+      text-transform: capitalize;
+    }
+  }
+}

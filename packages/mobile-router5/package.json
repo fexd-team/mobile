@@ -1,6 +1,6 @@
 {
   "name": "@fexd/mobile-router5",
-  "version": "0.0.0",
+  "version": "0.1.0",
   "main": "lib/index.js",
   "module": "es/index.js",
   "types": "types.d.ts",
@@ -13,7 +13,7 @@
     "react-dom": "^16.8.0"
   },
   "dependencies": {
-    "@fexd/mobile": "^0.0.0",
+    "@fexd/mobile": "^0.1.0",
     "@fexd/icons": "^0.1.0",
     "@babel/runtime": "^7.13.10",
     "@fexd/tools": "^0.1.0",

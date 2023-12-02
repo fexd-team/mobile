@@ -7,17 +7,19 @@ group:
 # TimePicker 时间选择器
 
 - TimePicker <ImportCost name="TimePicker" />
-- MaterialTimePicker <ImportCost name="MaterialTimePicker" />
+- LineTimePicker <ImportCost name="LineTimePicker" />
+- BlockTimePicker <ImportCost name="BlockTimePicker" />
 - TimePickerView <ImportCost name="TimePickerView" />
 
-时间选择器，选择时分秒。有三种风格，可通过底部的导航栏切换。
+时间选择器，选择时分秒
 
 <!-- prettier-ignore -->
 ```jsx | pure
-import { TimePicker, MaterialTimePicker, TimePickerView } from '@fexd/mobile'
+import { TimePicker, LineTimePicker, BlockTimePicker, TimePickerView } from '@fexd/mobile'
 
 <TimePicker />
-<MaterialTimePicker />
+<LineTimePicker />
+<BlockTimePicker />
 <TimePickerView />
 ```
 
@@ -108,7 +110,7 @@ import { TimePicker } from '@fexd/mobile'
 
 ### TimePickerView 的 API
 
-`<TimePickerView />` 作为基础组件，嵌套在 `<TimePicker />` 、`<MaterialTimePicker />` 中。
+`<TimePickerView />` 作为基础组件，嵌套在 `<TimePicker />` 、`<LineTimePicker />` 中。
 
 | 属性        | 说明                               | 类型                                         | 默认值 |
 | :---------- | :--------------------------------- | :------------------------------------------- | :----- |
@@ -135,7 +137,7 @@ import { TimePicker } from '@fexd/mobile'
 | rows | 展示的行数 | `Number` | `3` |
 | children<span style="color: red;">\*</span> | 点击后能触发对话框展示的内容 | `ReactNode` | - |
 
-### MaterialTimePicker 的 API
+### LineTimePicker 的 API
 
 #### 新增的 API
 
@@ -155,9 +157,9 @@ import { TimePicker } from '@fexd/mobile'
 
 ## 样式变量
 
-| 变量名                       | 说明         | 默认值                      |
-| :--------------------------- | :----------- | :-------------------------- |
-| @material-time-picker-prefix | 组件样式前缀 | `'exd-material-time-picker'` |
+| 变量名                   | 说明         | 默认值                   |
+| :----------------------- | :----------- | :----------------------- |
+| @line-time-picker-prefix | 组件样式前缀 | `'exd-line-time-picker'` |
 
 ---
 

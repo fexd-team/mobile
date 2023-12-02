@@ -1,0 +1,48 @@
+@import '../../theme/vars'; // 引入全局样式变量集，内含 @size-scale、各类色值等变量
+@import '../UnstyledIODatePicker/style';
+@import '../BlockIOLabel/style';
+
+// 由于 less 变量的懒生效特性，变量命名空间存在冲突，此处 prefix 变量命名前需要加特定前缀
+// https://less.bootcss.com/features/#variables-lazy-evaluation
+@block-date-picker-prefix: ~'exd-block-date-picker';
+
+// .@{block-date-picker-prefix} {
+//   /* 组件样式 */
+// }
+
+.@{block-date-picker-prefix}__value {
+  width: 100%;
+  background-color: transparent;
+  font-size: 14px * @size-scale;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.@{block-date-picker-prefix}__disabled {
+  color: #999;
+  .@{block-date-picker-prefix}__value {
+    color: #999;
+  }
+  .@{block-date-picker-prefix}__arrow {
+    .exd-icon,
+    .exd-iconfont {
+      color: #ccc;
+    }
+  }
+}
+
+.@{block-date-picker-prefix}__clear {
+  color: #ccc;
+}
+
+.@{block-date-picker-prefix}__arrow {
+  display: flex;
+  align-items: center;
+
+  .exd-icon,
+  .exd-iconfont {
+    font-size: 18px * @size-scale;
+    color: #a5a0a1;
+  }
+}

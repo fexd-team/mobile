@@ -1,4 +1,4 @@
-// from https://github.com/mui-org/material-ui/blob/v4.11.3/packages/material-ui/src/transitions/transition.d.ts
+// from https://github.com/mui-org/line-ui/blob/v4.11.3/packages/line-ui/src/transitions/transition.d.ts
 import { TransitionProps as ReactTransitionProps, TransitionActions } from './Transition.d'
 import { CSSTransitionProps } from './CSSTransition.d'
 import * as React from 'react'

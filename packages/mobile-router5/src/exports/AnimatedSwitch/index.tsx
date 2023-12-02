@@ -2,12 +2,23 @@ import React, { Suspense, useMemo } from 'react'
 import { Switch, useLocation, useHistory, matchPath } from 'react-router-dom'
 import { get, run, isString } from '@fexd/tools'
 import { usePrevious } from 'ahooks'
-import { Spinner, TransitionSwitch } from '@fexd/mobile'
+import { Spinner, TransitionSwitch, TransitionSwitchProps } from '@fexd/mobile'
 
-import createFC from '@fexd/mobile/es/helpers/createFC'
+import createFC, { FC } from '@fexd/mobile/es/helpers/createFC'
 import renderLayout from './renderLayout'
 
-const AnimatedSwitch: any = createFC<any, any>(function AnimatedSwitch(
+interface AnimatedSwitchProps extends Omit<TransitionSwitchProps, 'direction' | 'animate'> {
+  direction?: 'history' | 'index'
+  animate?: 'slide' | 'slide-cover' | 'fade' | { [key: string]: any }
+  speed?: 'fast' | 'normal' | 'slow'
+  always?: boolean
+  location?: any
+  renderWrapper?: (routes: any) => React.ReactNode
+}
+
+const AnimatedSwitch: FC<AnimatedSwitchProps> & {
+  renderLayout: typeof renderLayout
+} = createFC<AnimatedSwitchProps, any>(function AnimatedSwitch(
   { children: propChildren, direction, renderWrapper, always, location: propLocation, animate, speed, ...props },
   forwardedRef,
 ) {
@@ -37,26 +48,26 @@ const AnimatedSwitch: any = createFC<any, any>(function AnimatedSwitch(
   return (
     <TransitionSwitch
       {...props}
-      animate={isString(animateMap) ? animateMap : get(animateMap, action, animateMap)}
+      animate={isString(animateMap) ? animateMap : (get(animateMap, action, animateMap) as any)}
       speed={speed}
       direction={
         // @ts-ignore
         {
           history: action === 'POP' ? 'back' : 'forward',
           index: prevMatchIdx < matchIdx ? 'forward' : 'back',
-        }[direction] ?? 'forward'
+        }[direction as any] ?? 'forward'
       }
       animateKey={always ? location.key ?? location.pathname : matchIdx}
       ref={forwardedRef}
     >
-      {renderWrapper(
-        <Switch location={location} {...props}>
+      {renderWrapper?.(
+        <Switch location={location} {...(props as any)}>
           {children}
         </Switch>,
       )}
     </TransitionSwitch>
   )
-})
+}) as any
 
 AnimatedSwitch.defaultProps = {
   direction: 'history',

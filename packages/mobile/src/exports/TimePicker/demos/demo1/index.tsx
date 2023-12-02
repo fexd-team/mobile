@@ -2,11 +2,22 @@ import React, { useState } from 'react'
 import { MemoryRouter, Route, Redirect } from 'react-router-dom'
 import dayjs from 'dayjs'
 import DemoBlock from '@documents/components/DemoBlock'
-import { TabBarLayout, AnimatedSwitch } from '@fexd/mobile-router5'
 import { CheckmarkOutline, CloseOutline } from '@fexd/icons'
-import { MaterialTimePicker, TimePicker, Button, TimePickerView, ScrollView, showPopup, toast } from '@fexd/mobile'
+import {
+  LineTimePicker,
+  TimePicker,
+  Button,
+  TimePickerView,
+  showPopup,
+  toast,
+  Space,
+  LineLabel,
+  BlockLabel,
+  BlockTimePicker,
+  ScrollView,
+} from '@fexd/mobile'
 
-import './style.module.less'
+// import './style.module.less'
 
 const showTimePicker = async () => {
   let value
@@ -15,14 +26,17 @@ const showTimePicker = async () => {
   const { close, promise } = showPopup({
     title: ' ',
     headerRight: (
-      <CheckmarkOutline
+      <Button
+        type="primary"
+        fill="none"
         onClick={() => {
           value = tempValue
           close()
         }}
+        icon={<CheckmarkOutline />}
       />
     ),
-    headerLeft: <CloseOutline onClick={() => close()} />,
+    headerLeft: <Button type="primary" fill="none" onClick={() => close()} icon={<CloseOutline />} />,
     content: (
       <TimePickerView
         onChange={(selectedValue) => {
@@ -37,22 +51,57 @@ const showTimePicker = async () => {
   return value
 }
 
-const MateriaDemo = () => {
+const LineDemo = () => {
   const [value, setValue] = React.useState<any>()
 
+  const [themeType, setThemeType] = useState('Block')
+  const theme = {
+    Line: LineLabel,
+    Block: BlockLabel,
+  }[themeType]
+
+  const ThemedTimePicker = {
+    Line: LineTimePicker,
+    Block: BlockTimePicker,
+  }[themeType] as typeof LineTimePicker
+
   return (
-    <ScrollView shadow>
-      <DemoBlock title="基础">
-        <MaterialTimePicker placeholder="基础用法" value={value} onChange={setValue} />
-        <MaterialTimePicker placeholder="受控状态，上边那个也是受控的" value={value} onChange={setValue} />
+    <div className="gap-4">
+      <DemoBlock title="切换样式类型">
+        <Space>
+          <Button
+            type="primary"
+            fill={themeType === 'Block' ? 'solid' : 'outline'}
+            onClick={() => setThemeType('Block')}
+          >
+            Block
+          </Button>
+          <Button type="primary" fill={themeType === 'Line' ? 'solid' : 'outline'} onClick={() => setThemeType('Line')}>
+            Line
+          </Button>
+        </Space>
       </DemoBlock>
 
-      <DemoBlock title="错误状态">
-        <MaterialTimePicker placeholder="设置了 error 属性" error="有点问题哦" helper="辅助文本" />
+      <DemoBlock title={`${themeType} 基础`}>
+        <ThemedTimePicker placeholder="基础用法" value={value} onChange={setValue} />
+        <ThemedTimePicker placeholder="受控状态，上边那个也是受控的" value={value} onChange={setValue} />
       </DemoBlock>
 
-      <DemoBlock title="各部分、多个排列">
-        <MaterialTimePicker
+      <DemoBlock title={`${themeType} 状态一览`}>
+        <ThemedTimePicker
+          label="错误状态，聚焦试试"
+          placeholder="聚焦时会暂时去掉错误状态"
+          error="XXX有点问题哦XXX有点问题哦XXX有点问题哦XXX有点问题哦XXX有点问题哦XXX有点问题哦XXX有点问题哦XXX有点问题哦XXX有点问题哦XXX有点问题哦XXX有点问题哦"
+          helper="辅助文本"
+        />
+        <ThemedTimePicker hideErrorWhenFocusing={false} placeholder="聚焦时不解除错误状态" error="XXX有点问题哦" />
+        <ThemedTimePicker placeholder={'警告状态'} labelType="warn" helper="辅助文本" />
+        <ThemedTimePicker placeholder={'成功状态'} labelType="success" helper="辅助文本" />
+        <ThemedTimePicker disabled label={'禁用状态'} helper="禁用了，点也点不着" />
+      </DemoBlock>
+
+      <DemoBlock title={`${themeType} 各部分、多个排列`}>
+        <ThemedTimePicker
           label="label-1"
           placeholder="placeholder-1"
           prefix="prefix-1"
@@ -60,7 +109,7 @@ const MateriaDemo = () => {
           suffix="suffix-1"
           error="error-1"
         />
-        <MaterialTimePicker
+        <ThemedTimePicker
           label="label-2"
           placeholder="placeholder-2"
           prefix="prefix-2"
@@ -69,7 +118,7 @@ const MateriaDemo = () => {
           error="error-2"
         />
       </DemoBlock>
-    </ScrollView>
+    </div>
   )
 }
 
@@ -83,7 +132,7 @@ const ViewDemo = () => {
   const [date5, setDate5] = useState<any>(undefined)
 
   return (
-    <ScrollView>
+    <div className="gap-4 bg-[#f5f5f5]">
       <DemoBlock title="受控模式">
         {String(date1)}
         <TimePickerView value={date1} onChange={setDate1} />
@@ -120,63 +169,42 @@ const ViewDemo = () => {
         {String(date5)}
         <TimePickerView value={date5} rows={5} onChange={setDate5} />
       </DemoBlock>
-    </ScrollView>
+    </div>
   )
 }
 
 export default () => {
   return (
-    <div className="demo">
-      {/* @ts-ignore */}
-      <MemoryRouter>
-        <AnimatedSwitch animate="slide-cover">
-          <Route exact path="/">
-            <Redirect to="/Picker" />
-          </Route>
-          {AnimatedSwitch.renderLayout(
-            <TabBarLayout>
-              <Route
-                exact
-                path="/Picker"
-                // @ts-ignore
-                name="默认"
-                render={() => (
-                  <ScrollView>
-                    <DemoBlock title="基础">
-                      <TimePicker>
-                        {(value) => <Button>点击选择时间: {value ? dayjs(value).format('HH:mm:ss') : '--'}</Button>}
-                      </TimePicker>
+    <ScrollView className="gap-4">
+      <DemoBlock title="基础">
+        <TimePicker>
+          {(value) => <Button>点击选择时间: {value ? dayjs(value).format('HH:mm:ss') : '--'}</Button>}
+        </TimePicker>
 
-                      <Button
-                        onClick={async () => {
-                          const value = await showTimePicker()
-                          toast.info(`你选择了：${value ? dayjs(value).format('HH:mm:ss') : '--'}`)
-                        }}
-                      >
-                        命令式（临时实现，mobile 内未提供）
-                      </Button>
-                    </DemoBlock>
-                  </ScrollView>
-                )}
-              />
-              <Route
-                exact
-                path="/MaretialPicker"
-                // @ts-ignore
-                name="Maretial"
-                render={() => <MateriaDemo />}
-              />
-              <Route
-                exact
-                path="/PickerView"
-                // @ts-ignore
-                name="滚动域"
-                render={() => <ViewDemo />}
-              />
-            </TabBarLayout>,
-          )}
-        </AnimatedSwitch>
-      </MemoryRouter>
-    </div>
+        <Button
+          onClick={async () => {
+            const value = await showTimePicker()
+            toast.info(`你选择了：${value ? dayjs(value).format('HH:mm:ss') : '--'}`)
+          }}
+        >
+          命令式（临时实现，kula 内未提供）
+        </Button>
+      </DemoBlock>
+
+      <LineDemo />
+
+      <DemoBlock title="TimePickerView 示例">
+        <Button
+          onClick={() => {
+            showPopup({
+              title: 'TimePickerView 示例',
+              content: <ViewDemo />,
+            })
+          }}
+        >
+          性能原因，请点击查看
+        </Button>
+      </DemoBlock>
+    </ScrollView>
   )
 }

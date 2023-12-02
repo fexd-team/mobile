@@ -8,17 +8,19 @@ group:
 
 - Input <ImportCost name="Input" />
 - TextArea <ImportCost name="TextArea" />
-- MaterialInput <ImportCost name="MaterialInput" />
+- LineInput <ImportCost name="LineInput" />
+- BlockInput <ImportCost name="BlockInput" />
 
 待补充
 
 <!-- prettier-ignore -->
 ```jsx | pure
-import { Input, TextArea， MaterialInput } from '@fexd/mobile'
+import { Input, TextArea, LineInput, BlockInput } from '@fexd/mobile'
 
 <Input />
 <TextArea />
-<MaterialInput />
+<LineInput />
+<BlockInput />
 ```
 
 ---

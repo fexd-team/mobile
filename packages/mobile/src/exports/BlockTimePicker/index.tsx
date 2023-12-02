@@ -1,0 +1,18 @@
+import React from 'react'
+import { CaretDown } from '@fexd/icons'
+
+import BlockLabel from '../BlockLabel'
+import cloneFC from '../cloneFC'
+import UnstyledIOTimePicker from '../UnstyledIOTimePicker'
+// 此处不引入 style.less，目的是实现按需引用
+
+const BlockTimePicker = cloneFC(UnstyledIOTimePicker)
+
+BlockTimePicker.defaultProps = {
+  ...BlockTimePicker.defaultProps,
+  theme: BlockLabel,
+  arrowIcon: <CaretDown color="#bbb" />,
+  classNamePrefix: 'exd-block-time-picker',
+}
+
+export default BlockTimePicker

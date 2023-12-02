@@ -4,7 +4,8 @@ import { PickerViewProps, PickerOptionValue, PickerOption } from '../PickerView/
 
 export type PickerRef = BasicPickerRef
 
-export interface PickerProps<T = PickerViewProps['value']> extends Omit<BasicPickerProps<T>, 'value' | 'onChange'> {}
+export interface PickerProps<T = PickerViewProps['value']>
+  extends Omit<BasicPickerProps<T>, 'defaultValue' | 'value' | 'onChange'> {}
 export interface PickerProps extends Omit<PickerViewProps, 'onChange'> {
   clearable?: boolean
   onChange?: (value: PickerOptionValue, item: PickerOption) => void

@@ -10,7 +10,8 @@ export interface TextFieldProps<T> extends Omit<JSXElement<T>, keyof IOProps<str
   ref?: React.Ref<T>
 }
 export interface TextFieldProps<T> extends IOProps<string> {
-  normalize?: (value: string, prevValuie?: string) => string
+  ref?: React.Ref<T>
+  normalize?: (value: string, prevValue?: string) => string
   normalizeTrigger?: 'onChange' | 'onBlur'
   format?: (value: string) => string
 }
@@ -57,19 +58,33 @@ export const defaultProps = {
 //   return matchCurrentValueRange?.length ?? currentValue.length
 // }
 
-export default function useTextFieldProps<T>(props: TextFieldProps<T>) {
-  const { ref: targetRef, format = identity, normalize = identity, normalizeTrigger, ...restProps } = props
+export default function useTextFieldProps<T>(props: TextFieldProps<T>, { noFormat = false } = {}) {
+  const {
+    ref: targetRef,
+    format = identity,
+    normalize = identity,
+    normalizeTrigger,
+    ...restProps
+  } = {
+    ...props,
+    ...(noFormat
+      ? {
+          format: identity,
+          normalize: identity,
+        }
+      : {}),
+  }
   const inputRef = useRef<T>(null)
   const { value, setValue, getValue, focused, setFocused } = useIOControl(props)
   const prevValue = usePrevious(value)
   const prevValueRef = useRef(prevValue)
   prevValueRef.current = prevValue
 
-  useImperativeHandle(targetRef, () => inputRef.current as T)
+  useImperativeHandle(targetRef, () => inputRef.current as T, [inputRef.current])
 
   const onChange = useMemoizedFn((e: string | React.ChangeEvent<T & HTMLInputElement>) => {
     const prevValue = getValue()
-    const rawNextValue = (isString(e) ? e : (e as any).target.value) as string
+    const rawNextValue = (isString(e) ? e : (e as any)?.nativeEvent?.text) as string
     let nextValue = rawNextValue
 
     if (normalizeTrigger === 'onChange') {
@@ -108,8 +123,14 @@ export default function useTextFieldProps<T>(props: TextFieldProps<T>) {
 
   return {
     ...restProps,
+    ...(noFormat
+      ? {
+          format: props?.format,
+          normalize: props?.normalize,
+        }
+      : {}),
     ref: inputRef,
-    value: format(String(value ?? '')),
+    value: !value ? '' : format(String(value ?? '')),
     focused,
     onChange,
     onFocus,

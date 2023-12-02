@@ -7,17 +7,19 @@ group:
 # Picker 选择器
 
 - Picker <ImportCost name="Picker" />
-- MaterialPicker <ImportCost name="MaterialPicker" />
+- LinePicker <ImportCost name="LinePicker" />
+- BlockPicker <ImportCost name="LinePicker" />
 - PickerView <ImportCost name="PickerView" />
 
 待补充
 
 <!-- prettier-ignore -->
 ```jsx | pure
-import { Picker, MaterialPicker, PickerView } from '@fexd/mobile'
+import { Picker, LinePicker, BlockPicker, PickerView } from '@fexd/mobile'
 
 <Picker />
-<MaterialPicker />
+<LinePicker />
+<BlockPicker />
 <PickerView />
 ```
 
@@ -60,9 +62,9 @@ import { Picker } from '@fexd/mobile'
 
 ## 样式变量
 
-| 变量名                  | 说明         | 默认值                 |
-| :---------------------- | :----------- | :--------------------- |
-| @material-picker-prefix | 组件样式前缀 | `'exd-material-picker'` |
+| 变量名              | 说明         | 默认值              |
+| :------------------ | :----------- | :------------------ |
+| @line-picker-prefix | 组件样式前缀 | `'exd-line-picker'` |
 
 ---
 
