@@ -1,14 +1,12 @@
 {
   "name": "root",
-  "workspaces": [
-    "packages/*"
-  ],
+  "workspaces": ["packages/*"],
   "private": true,
   "scripts": {
     "init": "npx pnpm@6 i --shamefully-hoist",
     "dev": "dumi dev",
     "start": "dumi dev",
-    "build": "turbo run build && npm run less2css && npm run size -- --fresh",
+    "build": "npm run -C ./packages/mobile build && npm run -C ./packages/mobile-router5 build && npm run less2css && npm run size -- --fresh",
     "less2css": "npx pnpm@6 run --filter=!root --parallel less2css",
     "clean:build": "rimraf ./packages/*/lib ./packages/*/es",
     "clean:all": "npm run clean:build && rimraf .umi .umi-production docs-dist node_modules/ ./**/node_modules",
@@ -48,7 +46,7 @@
     "babel-plugin-jsx-css-modules": "^0.1.1",
     "chalk": "^2.4.2",
     "dumi": "^1.1.30",
-    "father": "^4.1.6",    
+    "father": "^4.1.6",
     "filesize": "^8.0.3",
     "gh-pages": "^3.0.0",
     "husky": "4.x",
@@ -87,31 +85,16 @@
     "typescript": "^4.6.3"
   },
   "commitlint": {
-    "extends": [
-      "@commitlint/config-conventional"
-    ],
+    "extends": ["@commitlint/config-conventional"],
     "rules": {
-      "subject-case": [
-        0
-      ]
+      "subject-case": [0]
     }
   },
   "lint-staged": {
-    "*.{md,json}": [
-      "prettier --write"
-    ],
-    "*.{css,less}": [
-      "stylelint",
-      "prettier --write"
-    ],
-    "*.js?(x)": [
-      "eslint --cache",
-      "prettier --write"
-    ],
-    "*.ts?(x)": [
-      "eslint --cache",
-      "prettier --parser=typescript --write"
-    ]
+    "*.{md,json}": ["prettier --write"],
+    "*.{css,less}": ["stylelint", "prettier --write"],
+    "*.js?(x)": ["eslint --cache", "prettier --write"],
+    "*.ts?(x)": ["eslint --cache", "prettier --parser=typescript --write"]
   },
   "husky": {
     "hooks": {

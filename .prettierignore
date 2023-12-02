@@ -2,7 +2,7 @@
 **/*.ejs
 **/*.html
 node_modules
-package.json
+# package.json
 dist
 build
 es
