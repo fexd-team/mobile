@@ -24,7 +24,7 @@ const TextArea = createFC<TextAreaProps, any>(function TextArea({ height, classN
       </div>
       <textarea
         className={classnames(prefix, className)}
-        {...textFieldProps}
+        {...(textFieldProps as any)}
         style={{
           ...(autoHeight
             ? {

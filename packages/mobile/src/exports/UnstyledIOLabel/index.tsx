@@ -21,6 +21,7 @@ const UnstyledIOLabel = createFC<UnstyledIOLabelProps, UnstyledIOLabelRef>(funct
     onClick,
     type: propLabelType,
     hideErrorWhenFocusing,
+    keepHelperPlaceholder,
     active,
     children,
     ...props
@@ -44,6 +45,8 @@ const UnstyledIOLabel = createFC<UnstyledIOLabelProps, UnstyledIOLabelRef>(funct
     error = true
   }
 
+  const helperContent = run(helper, undefined, hasError)
+
   return (
     <ThemedLabel
       {...props}
@@ -59,10 +62,12 @@ const UnstyledIOLabel = createFC<UnstyledIOLabelProps, UnstyledIOLabelRef>(funct
       placeholder={placeholder}
       active={active}
       helper={
-        <>
-          {run(helperPrefix, undefined, hasError)}
-          <div className={`${prefix}__helper`}>{run(helper)}</div>
-        </>
+        (keepHelperPlaceholder || helperContent) && (
+          <>
+            {run(helperPrefix, undefined, hasError)}
+            <div className={`${prefix}__helper`}>{helperContent}</div>
+          </>
+        )
       }
       type={labelType}
       prefix={
@@ -86,6 +91,7 @@ UnstyledIOLabel.defaultProps = {
   disabled: false,
   type: 'info',
   hideErrorWhenFocusing: true,
+  keepHelperPlaceholder: false,
   theme: UnstyledLabel,
 }
 

@@ -68,7 +68,7 @@ const LineLabel = createFC<LineLabelProps, any>(function LineLabel(props, forwar
                 `${prefixClassName}__label`,
                 {
                   [`${prefixClassName}__label--active`]: active,
-                  [`${prefixClassName}__label--capitalize`]: true,
+                  // [`${prefixClassName}__label--capitalize`]: true,
                 },
                 labelProps?.className,
               ),

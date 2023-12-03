@@ -56,20 +56,7 @@ const BlockLabel = createFC<BlockLabelProps, any>(function BlockLabel(props, for
       }}
       barProps={{
         ...barProps,
-        className: classnames(
-          `${prefixClassName}__bar`,
-          {
-            // 'border-[#d9d9d9]': !type || type === 'info',
-            // 'border-[#1890ff]': type === 'warn',
-            // 'border-[#52c41a]': type === 'success',
-            // 'border-[#fa8c16]': type === 'warn',
-            // 'border-[#f5222d]': type === 'error',
-            // 'bg-black/5 opacity-70': disabled,
-            // 'border-[#d9d9d9]':
-          },
-          className,
-          barProps?.className,
-        ),
+        className: classnames(`${prefixClassName}__bar`, className, barProps?.className),
         style: {
           ...(style ?? {}),
           ...(barProps?.style ?? {}),
@@ -84,7 +71,7 @@ const BlockLabel = createFC<BlockLabelProps, any>(function BlockLabel(props, for
                 `${prefixClassName}__label`,
                 {
                   [`${prefixClassName}__label--active`]: active,
-                  [`${prefixClassName}__label--capitalize`]: true,
+                  // [`${prefixClassName}__label--capitalize`]: true,
                 },
 
                 labelProps?.className,
@@ -106,47 +93,18 @@ const BlockLabel = createFC<BlockLabelProps, any>(function BlockLabel(props, for
         ...placeholderProps,
         className: classnames(`${prefixClassName}__placeholder`, placeholderProps?.className),
       }}
-      // placeholderTextProps={{
-      //   ...placeholderTextProps,
-      //   className: classnames(`text-base text-[#999]`, placeholderTextProps?.className),
-      // }}
-      // className="h-6"
       prefixProps={{
         ...prefixProps,
         className: classnames(`${prefixClassName}__prefix`, prefixProps?.className),
       }}
-      // prefixTextProps={prefixTextProps}
       suffixProps={{
         ...suffixProps,
         className: classnames(`${prefixClassName}__suffix`, suffixProps?.className),
       }}
-      // suffixTextProps={suffixTextProps}
       helperProps={{
         ...helperProps,
-        className: classnames(
-          `${prefixClassName}__helper`,
-          // {
-          //   'min-h-[18px]': keepHelperPlaceholder,
-          //   // 'opacity-0': !type,
-          // },
-          helperProps?.className,
-        ),
+        className: classnames(`${prefixClassName}__helper`, helperProps?.className),
       }}
-      // helperTextProps={{
-      //   ...helperTextProps,
-      //   className: classnames(
-      //     `text-xs`,
-      //     {
-      //       'text-[#888]': !type || type === 'info',
-      //       // 'text-[#1890ff]': type === 'warn',
-      //       'text-[#52c41a]': type === 'success',
-      //       'text-[#fa8c16]': type === 'warn',
-      //       'text-[#f5222d]': type === 'error',
-      //       // 'text-[#d9d9d9]':
-      //     },
-      //     helperTextProps?.className,
-      //   ),
-      // }}
     />
   )
 })

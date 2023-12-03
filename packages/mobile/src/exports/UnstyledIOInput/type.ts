@@ -7,8 +7,7 @@ export type UnstyledIOInputRef = any
 
 export interface UnstyledIOInputProps
   extends Omit<UnstyledIOLabelProps, 'type' | 'placeholder' | 'value' | 'onChange' | 'defaultValue'> {}
-export interface UnstyledIOInputProps
-  extends Pick<BasicInputProps, 'value' | 'onChange' | 'defaultValue' | 'placeholder'> {}
+export interface UnstyledIOInputProps extends Omit<BasicInputProps, 'prefix' | 'onClick'> {}
 export interface UnstyledIOInputProps {
   classNamePrefix?: string
   scrollIntoView?: boolean

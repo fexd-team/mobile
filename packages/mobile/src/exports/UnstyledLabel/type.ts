@@ -17,15 +17,11 @@ export interface UnstyledLabelPureProps {
   active?: boolean
   type?: 'warn' | 'error' | 'info' | 'success'
   disabled?: boolean
-  // children?: React.ReactNode
-  // className?: string
-  // style?: JSXDivElement['style']
+  children?: React.ReactNode
+  className?: string
+  style?: JSXDivElement['style']
   keepHelperPlaceholder?: boolean
-  // onClick?: (e?: any) => void
-}
-
-export interface UnstyledLabelProps extends Omit<JSXDivElement, 'placeholder' | 'disabled' | 'prefix' | 'ref'> {}
-export interface UnstyledLabelProps extends UnstyledLabelPureProps {
+  onClick?: (e?: any) => any
   wrapperProps?: JSXDivElement
   labelProps?: JSXDivElement | ((config: { prefixWidth: number }) => JSXDivElement)
   barProps?: JSXLabelElement
@@ -35,3 +31,7 @@ export interface UnstyledLabelProps extends UnstyledLabelPureProps {
   suffixProps?: JSXDivElement
   helperProps?: JSXDivElement
 }
+
+export interface UnstyledLabelProps
+  extends Omit<JSXDivElement, 'placeholder' | 'disabled' | 'prefix' | 'ref' | 'onClick'> {}
+export interface UnstyledLabelProps extends UnstyledLabelPureProps {}

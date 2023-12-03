@@ -1,12 +1,10 @@
 import React from 'react'
 
-import { UnstyledLabelProps } from '../UnstyledLabel/type'
+import { UnstyledLabelPureProps } from '../UnstyledLabel/type'
 
 export type UnstyledIOLabelRef = any
 
-export interface UnstyledIOLabelProps extends Omit<UnstyledLabelProps, 'ref'> {}
-
-export interface UnstyledIOLabelProps {
+export interface UnstyledIOLabelProps extends Omit<UnstyledLabelPureProps, 'ref'> {
   // placeholder?: string
   error?: React.ReactNode
   disabled?: boolean
