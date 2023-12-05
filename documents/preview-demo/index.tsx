@@ -8,7 +8,7 @@ import { AliveScope, KeepAlive } from 'react-activation'
 import { ChevronForward, ExtensionPuzzleOutline, ColorPaletteOutline } from '@fexd/icons'
 import { flatten } from '@fexd/tools'
 import { TabBarLayout, NavBarLayout, AnimatedSwitch } from '@fexd/mobile-router5'
-import { List, ScrollView, NotFound, Empty, FullpageSpinner } from '@fexd/mobile'
+import { List, ScrollView, NotFound, Empty, FullpageSpinner, Provider } from '@fexd/mobile'
 import { createModel } from 'hox'
 import ImportCost from '@dumiTheme/builtins/ImportCost'
 
@@ -104,7 +104,9 @@ export default () => {
       {/* @ts-ignore */}
       <HashRouter basename={basename.current}>
         <AliveScope>
-          <RouterConfigs />
+          <Provider>
+            <RouterConfigs />
+          </Provider>
         </AliveScope>
       </HashRouter>
     </div>

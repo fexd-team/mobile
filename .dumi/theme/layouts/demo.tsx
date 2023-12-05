@@ -1,6 +1,7 @@
 import React, { useEffect, useContext } from 'react'
 import { IRouteComponentProps } from '@umijs/types'
 import { context } from 'dumi/theme'
+import { Provider } from '@fexd/mobile'
 import vl from 'umi-hd'
 import flex from 'umi-hd/lib/flex'
 import vw from 'umi-hd/lib/vw'
@@ -44,7 +45,7 @@ const MobileDemoLayout: React.FC<IRouteComponentProps> = ({ children }) => {
         // discard invalid rules
         .filter((rule) => HD_MODES[rule.mode])
         // match first valid rule
-        .some((rule) => {
+        .some((rule: any) => {
           if (
             // without min & max width
             (Number.isNaN(rule.minWidth * 1) && Number.isNaN(rule.maxWidth * 1)) ||
@@ -77,7 +78,9 @@ const MobileDemoLayout: React.FC<IRouteComponentProps> = ({ children }) => {
           overflow: hidden;
         }
       `}</style>
-      <div className="__dumi-default-mobile-demo-layout">{children}</div>
+      <div className="__dumi-default-mobile-demo-layout">
+        <Provider>{children}</Provider>
+      </div>
     </>
   )
 }
