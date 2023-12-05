@@ -2,13 +2,8 @@ import React, { useMemo, useEffect, useImperativeHandle } from 'react'
 import { createPortal } from 'react-dom'
 import { globalThis as root, get, run, debounce, throttle } from '@fexd/tools'
 
-import createFC from '../../helpers/createFC'
-
-export interface PortalProps {
-  children: React.ReactNode
-  className?: string
-  to?: any
-}
+import createFC from '../createFC'
+import { PortalProps } from './type'
 
 let dropTasks: any[] = []
 const drop = debounce(

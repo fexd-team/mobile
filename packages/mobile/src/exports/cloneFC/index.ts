@@ -1,5 +1,5 @@
 import hoistStatics from 'hoist-non-react-statics'
-import { creatorCache } from '../../helpers/createFC'
+import { creatorCache } from '../createFC'
 
 export default function cloneFC<T>(Component: T): T {
   const createComponent = creatorCache.get(Component)

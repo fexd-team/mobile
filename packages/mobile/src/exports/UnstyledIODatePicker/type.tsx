@@ -1,5 +1,5 @@
 import React from 'react'
-import { FC } from '../../helpers/createFC'
+import { FC } from '../createFC/type'
 
 import { DatePickerProps, DatePickerRef } from '../DatePicker/type'
 import { UnstyledIOLabelProps } from '../UnstyledIOLabel/type'

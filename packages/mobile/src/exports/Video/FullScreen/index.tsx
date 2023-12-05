@@ -3,7 +3,7 @@ import { Expand } from '@fexd/icons'
 import { useUnmount } from 'ahooks'
 
 import { FullScreenProps } from './type'
-import createFC from '../../../helpers/createFC'
+import createFC from '../../createFC'
 import classList from '../../../helpers/classList'
 
 const prefix = 'exd-video-fullscreen'

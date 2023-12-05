@@ -1,7 +1,7 @@
 import React, { isValidElement } from 'react'
 
 import LineLabel from '../LineLabel'
-import createFC from '../../helpers/createFC'
+import createFC from '../createFC'
 import { LineIOLabelProps, LineIOLabelRef } from './type'
 import UnstyledIOLabel from '../UnstyledIOLabel'
 

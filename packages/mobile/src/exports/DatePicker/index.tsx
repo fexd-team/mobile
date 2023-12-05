@@ -3,7 +3,7 @@ import { run } from '@fexd/tools'
 
 import usePickerProps from '../usePickerProps'
 import DatePickerView from '../DatePickerView'
-import createFC from '../../helpers/createFC'
+import createFC from '../createFC'
 import { DatePickerProps, DatePickerRef, DatePickerType } from './type'
 
 const DatePicker = createFC<DatePickerProps, DatePickerRef>(function DatePicker(props, ref) {

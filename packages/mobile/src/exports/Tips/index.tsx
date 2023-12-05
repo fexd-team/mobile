@@ -1,5 +1,5 @@
 import React, { useEffect, useState, useRef, useCallback } from 'react'
-import createFC from '../../helpers/createFC'
+import createFC from '../createFC'
 import Portal from '../Portal'
 import { TipsProps, TipsRef, TipsType } from './type'
 import { classnames, run } from '@fexd/tools'

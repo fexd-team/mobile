@@ -1,7 +1,6 @@
 import React, { ReactNode } from 'react'
 import { Value } from '../../Checkbox/type'
-
-type JSXElement = Omit<React.DetailedHTMLProps<React.HTMLAttributes<HTMLDivElement>, HTMLDivElement>, 'content'>
+import { JSXDivProps } from '../../../helpers/html.types'
 
 interface Option {
   value: Value
@@ -10,7 +9,7 @@ interface Option {
   block?: boolean
 }
 
-export interface CheckboxGroupProps extends JSXElement {
+export interface CheckboxGroupProps extends JSXDivProps {
   value: Value[]
   disabled?: boolean
   name?: string

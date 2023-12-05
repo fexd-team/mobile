@@ -2,7 +2,7 @@ import React from 'react'
 import { run, classnames } from '@fexd/tools'
 
 import { TimelineItemProps } from './type'
-import createFC from '../../../helpers/createFC'
+import createFC from '../../createFC'
 
 const TimelineItem = createFC<TimelineItemProps, HTMLDivElement>(function (
   { title, time, dot, children, className, ...props },

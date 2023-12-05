@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react'
 import { classnames } from '@fexd/tools'
 import { Icon, ChevronForward } from '@fexd/icons'
-import createFC from '../../helpers/createFC'
+import createFC from '../createFC'
 import { CollapsePanelProps } from './type'
 import { prefix } from './index'
 import PanelContent from './PanelContent'

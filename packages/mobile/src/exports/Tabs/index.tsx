@@ -1,6 +1,6 @@
 import React, { useEffect, useState, useRef, useCallback } from 'react'
 import TabItem from './Item'
-import createFC from '../../helpers/createFC'
+import createFC from '../createFC'
 import { classnames, delay, run } from '@fexd/tools'
 import useIOControl from '../useIOControl'
 import { TabsProps, ValueType } from './type'

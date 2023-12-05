@@ -1,5 +1,5 @@
 import React, { useState, useRef, useEffect, useLayoutEffect, useImperativeHandle } from 'react'
-import createFC from '../../helpers/createFC'
+import createFC from '../createFC'
 import { ImageProps, ImageRef } from './type'
 import { mergeProps, findScrollParent } from './utils'
 import { classnames, throttle } from '@fexd/tools'

@@ -1,7 +1,7 @@
 import React, { useRef, useEffect, useState, useImperativeHandle } from 'react'
 import { get, run, classnames, ScrollListener, isArray } from '@fexd/tools'
 
-import createFC from '../../helpers/createFC'
+import createFC from '../createFC'
 import { ScrollViewProps, ScrollViewRef } from './type'
 
 export const prefix = 'exd-scroll-view'

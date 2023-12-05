@@ -1,5 +1,5 @@
 import { ReactNode } from 'react'
-import { FC } from '../../helpers/createFC'
+import { FC } from '../createFC/type'
 
 export interface TipsProps {
   title: ReactNode | (() => ReactNode)

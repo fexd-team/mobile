@@ -9,7 +9,7 @@ import {
 } from '@fexd/icons'
 import TransitionFade from '../TransitionFade'
 import { classnames } from '@fexd/tools'
-import createFC from '../../helpers/createFC'
+import createFC from '../createFC'
 import { types, variantTypes, AlertProps, AlertRef } from './type'
 
 export const prefix = 'exd-alert'

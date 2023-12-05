@@ -1,7 +1,7 @@
 import React from 'react'
 import { classnames, run } from '@fexd/tools'
 import { EllipsisHorizontal } from '@fexd/icons'
-import createFC from '../../helpers/createFC'
+import createFC from '../createFC'
 import { StepsProps } from './type'
 import Step from './Item'
 

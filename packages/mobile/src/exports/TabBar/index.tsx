@@ -1,13 +1,12 @@
 import React from 'react'
 import { classnames } from '@fexd/tools'
+import { JSXDivProps } from '../../helpers/html.types'
 
 import Item from './Item'
 
-import createFC from '../../helpers/createFC'
+import createFC from '../createFC'
 
-type JSXDivElement = Omit<React.DetailedHTMLProps<React.HTMLAttributes<HTMLDivElement>, HTMLDivElement>, 'content'>
-
-interface TabBarProps extends JSXDivElement {
+interface TabBarProps extends JSXDivProps {
   // children?: (typeof React.Chil)[]
 }
 

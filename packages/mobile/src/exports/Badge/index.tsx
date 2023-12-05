@@ -1,6 +1,6 @@
 import React, { useMemo } from 'react'
 import { classnames } from '@fexd/tools'
-import createFC from '../../helpers/createFC'
+import createFC from '../createFC'
 import { BadgeProps, BadgeStatus } from './type'
 import Stamp from './Stamp'
 // 此处不引入 style.less，目的是实现按需引用

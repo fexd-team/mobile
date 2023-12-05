@@ -2,7 +2,7 @@ import React, { isValidElement } from 'react'
 import { classnames, isString, run } from '@fexd/tools'
 
 import BlockLabel from '../BlockLabel'
-import createFC from '../../helpers/createFC'
+import createFC from '../createFC'
 import { BlockIOLabelProps, BlockIOLabelRef } from './type'
 import UnstyledIOLabel from '../UnstyledIOLabel'
 

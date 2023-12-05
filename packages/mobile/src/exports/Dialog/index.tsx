@@ -5,7 +5,7 @@ import BasicButton from '../BasicButton'
 import Modal from '../Modal'
 import uniqueId from '../uniqueId'
 import { DialogProps } from './type'
-import createFC from '../../helpers/createFC'
+import createFC from '../createFC'
 
 const prefix = 'exd-dialog'
 const Dialog = createFC<DialogProps, HTMLDivElement>(function Dialog(

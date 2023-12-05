@@ -2,7 +2,7 @@ import React from 'react'
 import { classnames } from '@fexd/tools'
 import { WarningOutline } from '@fexd/icons'
 
-import createFC from '../../helpers/createFC'
+import createFC from '../createFC'
 import Empty from '../Empty'
 import { NotFoundProps, NotFoundRef, NotFoundType } from './type'
 // 此处不引入 style.less，目的是实现按需引用

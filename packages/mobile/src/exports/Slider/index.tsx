@@ -2,7 +2,7 @@ import React, { useMemo, useCallback, useRef, useImperativeHandle } from 'react'
 import { classnames, clamp, run, isNumber, isArray } from '@fexd/tools'
 
 import useIOControl from '../useIOControl'
-import createFC from '../../helpers/createFC'
+import createFC from '../createFC'
 import useTouch, { TouchData } from '../useTouch'
 import { SliderProps, SliderRef, SliderType } from './type'
 // 此处不引入 style.less，目的是实现按需引用

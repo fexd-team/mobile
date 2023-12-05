@@ -2,7 +2,7 @@ import { useState, useEffect, useRef } from 'react'
 import { value } from '@fexd/tools'
 
 import { CountDownProps } from './type'
-import createFC from '../../helpers/createFC'
+import createFC from '../createFC'
 
 const fix0 = Array.from({ length: 10 }, (_, i) => `0${i}`)
 const formatTime = (t: number) => {

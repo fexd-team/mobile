@@ -2,11 +2,11 @@ import React, { useRef, useImperativeHandle } from 'react'
 import { isString, run } from '@fexd/tools'
 import { useMemoizedFn, usePrevious } from 'ahooks'
 
-import { JSXInputElement } from '../../helpers/html.types'
+import { JSXInputProps } from '../../helpers/html.types'
 import useIOControl from '../useIOControl'
 import { IOProps } from '../useIOControl/type'
 
-export interface TextFieldProps<T = any> extends Omit<JSXInputElement, keyof IOProps<string> | 'ref'> {
+export interface TextFieldProps<T = any> extends Omit<JSXInputProps, keyof IOProps<string> | 'ref'> {
   ref?: React.Ref<T>
 }
 export interface TextFieldProps<T> extends IOProps<string> {

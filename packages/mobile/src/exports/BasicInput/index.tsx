@@ -1,9 +1,8 @@
 import React from 'react'
 
-import createFC from '../../helpers/createFC'
-import useTextFieldProps, { TextFieldProps, defaultProps } from '../useTextFieldProps'
-
-export interface BasicInputProps extends TextFieldProps<any> {}
+import createFC from '../createFC'
+import useTextFieldProps, { defaultProps } from '../useTextFieldProps'
+import { BasicInputProps } from './type'
 
 const BasicInput = createFC<BasicInputProps, HTMLInputElement>(function BasicInput(props, ref) {
   const { focused, onChange, ...inputProps } = useTextFieldProps({ ref, ...props })

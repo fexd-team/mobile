@@ -1,5 +1,5 @@
 import React, { memo, useState, useRef, useEffect, useCallback, useMemo } from 'react'
-import createFC from '../../../helpers/createFC'
+import createFC from '../../createFC'
 import { ProgressProps } from './type'
 import { useMount, useUnmount } from 'ahooks'
 import { getOffset } from '../utils'

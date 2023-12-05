@@ -6,7 +6,7 @@ import dayjs from 'dayjs'
 import TimePicker from '../TimePicker'
 import useIOControl from '../useIOControl'
 import UnstyledIOLabel from '../UnstyledIOLabel'
-import createFC from '../../helpers/createFC'
+import createFC from '../createFC'
 import { UnstyledIOTimePickerProps, UnstyledIOTimePickerRef, UnstyledIOTimePickerType } from './type'
 import UnstyledLabel from '../UnstyledLabel'
 // 此处不引入 style.less，目的是实现按需引用

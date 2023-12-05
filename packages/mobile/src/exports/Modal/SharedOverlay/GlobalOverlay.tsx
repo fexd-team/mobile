@@ -1,6 +1,6 @@
 import React, { useState, useEffect, useRef } from 'react'
-import { render as renderComponent } from 'react-dom'
-import { globalThis as root } from '@fexd/tools'
+// import { render } from 'react-dom'
+// import { globalThis as root } from '@fexd/tools'
 
 import { OverlayClassNamePrefix as prefix } from '../../Overlay'
 import BasicModal from '../../BasicModal'
@@ -47,13 +47,13 @@ const GlobalSharedOverlay: React.FC<Record<string, unknown>> = function GlobalSh
 }
 
 export default GlobalSharedOverlay
-export function render() {
-  const monted = `${GLOBAL_OVERLAY_ID}_MOUNTED`
-  if (!root.document || root[monted]) {
-    return
-  }
-  const container = document.createElement('div')
-  container.id = GLOBAL_OVERLAY_ID
-  renderComponent(<GlobalSharedOverlay />, container)
-  root[monted] = true
-}
+// export function render() {
+//   const monted = `${GLOBAL_OVERLAY_ID}_MOUNTED`
+//   if (!root.document || root[monted]) {
+//     return
+//   }
+//   const container = document.createElement('div')
+//   container.id = GLOBAL_OVERLAY_ID
+//   renderComponent(<GlobalSharedOverlay />, container)
+//   root[monted] = true
+// }

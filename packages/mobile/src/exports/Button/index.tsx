@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 import { run } from '@fexd/tools'
 
-import createFC from '../../helpers/createFC'
+import createFC from '../createFC'
 import Spinner from '../Spinner'
 // import Iconfont from '../Iconfont'
 import BasicButton, { ButtonClassNamePrefix as prefix } from '../BasicButton'

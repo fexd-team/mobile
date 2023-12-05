@@ -1,8 +1,7 @@
 import React, { ReactNode } from 'react'
+import { JSXDivProps } from '../../../helpers/html.types'
 
-type JSXDivElement = Omit<React.DetailedHTMLProps<React.HTMLAttributes<HTMLDivElement>, HTMLDivElement>, 'content'>
-
-export interface GridItemProps extends Omit<JSXDivElement, 'children'> {
+export interface GridItemProps extends Omit<JSXDivProps, 'children'> {
   icon?: ReactNode | (() => ReactNode)
   text?: string
   children?: ReactNode | (() => ReactNode)

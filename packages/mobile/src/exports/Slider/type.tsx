@@ -1,9 +1,9 @@
-import { FC } from '../../helpers/createFC'
-import { JSXDivElement } from '../../helpers/html.types'
+import { FC } from '../createFC/type'
+import { JSXDivProps } from '../../helpers/html.types'
 import { IOProps } from '../useIOControl/type'
 
 export type SliderValueType = number | [number, number]
-export interface SliderProps<T> extends Omit<JSXDivElement, 'value' | 'defaultValue' | 'onChange'> {}
+export interface SliderProps<T> extends Omit<JSXDivProps, 'value' | 'defaultValue' | 'onChange'> {}
 
 type ChangeValueType<T> = T extends [number, number] ? [number, number] : number
 export interface SliderProps<T extends SliderValueType = [number, number]> extends Omit<IOProps<T>, 'onChange'> {

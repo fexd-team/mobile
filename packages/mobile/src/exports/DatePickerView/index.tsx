@@ -5,7 +5,7 @@ import { useDebounceEffect } from 'ahooks'
 
 import PickerView from '../PickerView'
 import { DatePickerViewProps } from './type'
-import createFC from '../../helpers/createFC'
+import createFC from '../createFC'
 
 const prefix = 'exd-date-picker-view'
 const DatePickerView = createFC<DatePickerViewProps, HTMLDivElement>(function DatePickerView(

@@ -1,5 +1,5 @@
 import React, { useEffect, memo, useRef, useCallback } from 'react'
-import createFC from '../../../helpers/createFC'
+import createFC from '../../createFC'
 import { useUnmount } from 'ahooks'
 import { TimeProps, ChangType } from './type'
 import { timeTranslate } from '../utils'

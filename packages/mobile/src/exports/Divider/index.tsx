@@ -1,7 +1,7 @@
 import React from 'react'
 import { classnames, run } from '@fexd/tools'
 
-import createFC from '../../helpers/createFC'
+import createFC from '../createFC'
 import { DividerProps } from './type'
 
 const prefix = 'exd-divider'

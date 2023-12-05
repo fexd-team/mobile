@@ -1,7 +1,7 @@
 import React, { useEffect } from 'react'
 
 import { OverlayProps } from '../../Overlay'
-import { render as renderGlobalOverlay } from './GlobalOverlay'
+// import { render as renderGlobalOverlay } from './GlobalOverlay'
 import { add, remove } from './store'
 
 interface SharedOverlayProps extends OverlayProps {
@@ -23,6 +23,6 @@ const SharedOverlay: React.FC<SharedOverlayProps> = function GlobalSharedOverlay
   return null
 }
 
-renderGlobalOverlay()
+// renderGlobalOverlay()
 
 export default SharedOverlay

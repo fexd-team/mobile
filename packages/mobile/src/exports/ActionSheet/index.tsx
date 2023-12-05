@@ -4,7 +4,7 @@ import { classnames, run } from '@fexd/tools'
 import Button from '../Button'
 import Popup from '../Popup'
 import uniqueId from '../uniqueId'
-import createFC from '../../helpers/createFC'
+import createFC from '../createFC'
 import { ActionSheetProps, ActionSheetRef } from './type'
 // 此处不引入 style.less，目的是实现按需引用
 

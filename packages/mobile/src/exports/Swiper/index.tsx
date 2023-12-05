@@ -9,7 +9,7 @@ import useTween from '../useTween'
 import useTouch from '../useTouch'
 import useSize from '../useSize'
 import useIOControl from '../useIOControl'
-import createFC from '../../helpers/createFC'
+import createFC from '../createFC'
 import { SwiperProps, SwiperRef, SwiperType } from './type'
 // 此处不引入 style.less，目的是实现按需引用
 

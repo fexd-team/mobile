@@ -3,7 +3,7 @@ import { run, first, isExist } from '@fexd/tools'
 
 import usePickerProps from '../usePickerProps'
 import PickerView from '../PickerView'
-import createFC from '../../helpers/createFC'
+import createFC from '../createFC'
 import { PickerProps, PickerRef } from './type'
 
 export const prefix = 'exd-picker'

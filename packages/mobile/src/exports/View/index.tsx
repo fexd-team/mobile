@@ -1,7 +1,7 @@
 import React from 'react'
 import { classnames } from '@fexd/tools'
 
-import createFC from '../../helpers/createFC'
+import createFC from '../createFC'
 import { ViewProps, ViewRef, ViewType } from './type'
 // 此处不引入 style.less，目的是实现按需引用
 
@@ -30,7 +30,7 @@ const View = createFC<ViewProps, ViewRef>(function View(
       {children}
     </div>
   )
-}) as ViewType
+})
 
 View.defaultProps = {
   direction: 'column',

@@ -2,7 +2,7 @@ import React from 'react'
 import { clamp, classnames } from '@fexd/tools'
 import { useThrottle } from 'ahooks'
 import { SPEED_MAP } from '../createTransition'
-import createFC from '../../helpers/createFC'
+import createFC from '../createFC'
 import { ProgressBarProps } from './type'
 
 export const prefix = 'exd-progress-bar'

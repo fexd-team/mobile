@@ -1,8 +1,7 @@
 import React from 'react'
 import { Route, useLocation, useHistory } from 'react-router-dom'
 import { get, isArray } from '@fexd/tools'
-import { View, TabBar } from '@fexd/mobile'
-import createFC from '@fexd/mobile/es/helpers/createFC'
+import { View, TabBar, createFC } from '@fexd/mobile'
 
 import AnimatedSwitch from '../AnimatedSwitch'
 import { TabBarLayoutProps, TabBarLayoutRef, TabBarLayoutType } from './type'
@@ -48,7 +47,7 @@ const TabBarLayout = createFC<TabBarLayoutProps, TabBarLayoutRef>(function TabBa
       </TabBar>
     </View>
   )
-}) as TabBarLayoutType
+})
 
 TabBarLayout.defaultProps = {
   animate: 'slide',

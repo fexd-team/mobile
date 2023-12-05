@@ -3,7 +3,7 @@ import { classnames, run } from '@fexd/tools'
 import dayjs from 'dayjs'
 import PickerView from '../PickerView'
 import { TimePickerViewProps } from './type'
-import createFC from '../../helpers/createFC'
+import createFC from '../createFC'
 
 const prefix = 'exd-time-picker-view'
 const TimePickerView = createFC<TimePickerViewProps, HTMLDivElement>(function TimePickerView(

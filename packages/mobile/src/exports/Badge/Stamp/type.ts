@@ -1,8 +1,7 @@
 import React from 'react'
+import { JSXDivProps } from '../../../helpers/html.types'
 
-type JSXDivElement = Omit<React.DetailedHTMLProps<React.HTMLAttributes<HTMLDivElement>, HTMLDivElement>, 'content'>
-
-export interface BadgeStampProps extends JSXDivElement {
+export interface BadgeStampProps extends JSXDivProps {
   className?: string
   text?: React.ReactNode
   color?: string

@@ -2,7 +2,7 @@ import React, { useState, useEffect, useRef } from 'react'
 import { classnames, delay } from '@fexd/tools'
 import { CollapsePanelProps } from './type'
 import { prefix } from './index'
-import createFC from '../../helpers/createFC'
+import createFC from '../createFC'
 
 const CollapsePanelContent = createFC<CollapsePanelProps>(function CollapsePanelContent(props, ref) {
   const { children, isActive } = props

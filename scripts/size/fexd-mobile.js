@@ -27,7 +27,9 @@ async function kulaSize() {
   spinner.stop()
   console.log(
     esm
-      .map((item) => `[ESM] ${item.gzip} -- ${item.name.replace('@fexd/mobile/es/exports/', '').replace('/index.js', '')}`)
+      .map(
+        (item) => `[ESM] ${item.gzip} -- ${item.name.replace('@fexd/mobile/es/exports/', '').replace('/index.js', '')}`,
+      )
       .join(spliter),
   )
 
@@ -35,7 +37,10 @@ async function kulaSize() {
 
   console.log(
     cjs
-      .map((item) => `[CJS] ${item.gzip} -- ${item.name.replace('@fexd/mobile/lib/exports/', '').replace('/index.js', '')}`)
+      .map(
+        (item) =>
+          `[CJS] ${item.gzip} -- ${item.name.replace('@fexd/mobile/lib/exports/', '').replace('/index.js', '')}`,
+      )
       .join(spliter),
   )
 

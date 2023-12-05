@@ -1,5 +1,5 @@
 import React, { memo } from 'react'
-import createFC from '../../../helpers/createFC'
+import createFC from '../../createFC'
 import { MutedButtonProps } from './type'
 import { classnames } from '@fexd/tools'
 import { VolumeMute } from '@fexd/icons'

@@ -1,6 +1,6 @@
 import React from 'react'
 import { FileTrayOutline } from '@fexd/icons'
-import createFC from '../../helpers/createFC'
+import createFC from '../createFC'
 import { classnames } from '@fexd/tools'
 import { EmptyProps, EmptyRef, EmptyType } from './type'
 // 此处不引入 style.less，目的是实现按需引用

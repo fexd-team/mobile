@@ -2,7 +2,7 @@ import React, { useState, useEffect, useRef, isValidElement } from 'react'
 import { classnames, isNumber, get, isFunction } from '@fexd/tools'
 
 import { LineLabelProps } from './type'
-import createFC from '../../helpers/createFC'
+import createFC from '../createFC'
 import Hook from '../Hook'
 import UnstyledLabel from '../UnstyledLabel'
 

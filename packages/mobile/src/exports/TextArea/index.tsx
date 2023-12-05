@@ -1,7 +1,7 @@
 import React, { useEffect } from 'react'
 import { get, classnames } from '@fexd/tools'
 
-import createFC from '../../helpers/createFC'
+import createFC from '../createFC'
 import { TextAreaProps } from './type'
 import useTextFieldProps, { TextFieldProps, defaultProps } from '../useTextFieldProps'
 

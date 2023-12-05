@@ -1,9 +1,9 @@
-import { JSXDivElement } from '../../helpers/html.types'
-import { FC } from '../../helpers/createFC'
+import { JSXDivProps } from '../../helpers/html.types'
+import { FC } from '../createFC/type'
 
 export type ViewRef = HTMLDivElement
 
-export interface ViewProps extends JSXDivElement {
+export interface ViewProps extends JSXDivProps {
   direction?: 'column' | 'column-reverse' | 'row' | 'row-reverse'
   auto?: boolean
   height?: number

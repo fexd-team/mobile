@@ -1,8 +1,8 @@
 import React, { useState } from 'react'
 
-import createForm from '../../helpers/formini'
+import createForm from '../createForm'
 import { Provider } from './context'
-import createFC from '../../helpers/createFC'
+import createFC from '../createFC'
 import { FormProps, FormRef } from './type'
 import Field from './Field'
 // 此处不引入 style.less，目的是实现按需引用

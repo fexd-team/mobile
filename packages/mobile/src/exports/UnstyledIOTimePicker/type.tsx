@@ -1,12 +1,13 @@
 import React from 'react'
-import { FC } from '../../helpers/createFC'
+import { FC } from '../createFC/type'
 
 import { TimePickerProps, TimePickerRef } from '../TimePicker/type'
 import { UnstyledIOLabelProps } from '../UnstyledIOLabel/type'
 
 export type UnstyledIOTimePickerRef = TimePickerRef
 
-export interface UnstyledIOTimePickerProps extends Omit<UnstyledIOLabelProps, 'children' | 'defaultValue' | 'onChange'> {}
+export interface UnstyledIOTimePickerProps
+  extends Omit<UnstyledIOLabelProps, 'children' | 'defaultValue' | 'onChange'> {}
 export interface UnstyledIOTimePickerProps extends TimePickerProps {}
 export interface UnstyledIOTimePickerProps {
   classNamePrefix?: string

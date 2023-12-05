@@ -1,9 +1,8 @@
 import React from 'react'
 import { ValueType } from '../type'
+import { JSXDivProps } from '../../../helpers/html.types'
 
-type JSXDivElement = Omit<React.DetailedHTMLProps<React.HTMLAttributes<HTMLDivElement>, HTMLDivElement>, 'content'>
-
-export interface TabItemProps<T = ValueType> extends Omit<JSXDivElement, 'onClick'> {
+export interface TabItemProps<T = ValueType> extends Omit<JSXDivProps, 'onClick'> {
   display?: 'scroll' | 'flex'
   value?: T
   disabled?: boolean

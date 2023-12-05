@@ -2,7 +2,7 @@ import React, { Fragment } from 'react'
 import { run, classnames } from '@fexd/tools'
 import { ChevronForward } from '@fexd/icons'
 
-import createFC from '../../helpers/createFC'
+import createFC from '../createFC'
 import { BreadcrumbProps } from './type'
 
 const prefix = 'exd-breadcrumb'

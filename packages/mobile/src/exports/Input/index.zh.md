@@ -51,6 +51,10 @@ import { Input } from '@fexd/mobile'
 
 ---
 
+## LineInput API
+
+<API hideTitle src="../LineInput/type.tsx"></API>
+
 ## API
 
 | 属性                                         | 说明 | 类型 | 默认值 |

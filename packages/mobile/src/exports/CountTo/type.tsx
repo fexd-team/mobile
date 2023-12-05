@@ -1,4 +1,4 @@
-import { FC } from '../../helpers/createFC'
+import { FC } from '../createFC/type'
 
 export interface CountToProps {}
 export type CountToRef = any

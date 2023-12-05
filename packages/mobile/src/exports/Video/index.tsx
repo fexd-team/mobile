@@ -1,6 +1,6 @@
 import { classnames } from '@fexd/tools'
 import React, { useRef, useState, useEffect, useCallback } from 'react'
-import createFC from '../../helpers/createFC'
+import createFC from '../createFC'
 import FullScreen from './FullScreen'
 import Mask from './Mask'
 import PlaybackRate from './PlaybackRate'

@@ -2,7 +2,7 @@ import React from 'react'
 import { isString, classnames } from '@fexd/tools'
 
 import Iconfont from '../../Iconfont'
-import createFC from '../../../helpers/createFC'
+import createFC from '../../createFC'
 
 const TabBarItem = createFC<any, HTMLDivElement>(function ({ name, icon, active, className, ...props }, forwardedRef) {
   return (

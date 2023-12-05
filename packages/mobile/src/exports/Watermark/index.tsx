@@ -1,7 +1,7 @@
 import React from 'react'
 import ReactWatermark from '@pansy/react-watermark'
 
-import createFC from '../../helpers/createFC'
+import createFC from '../createFC'
 import { WatermarkProps, WatermarkRef } from './type'
 // 此处不引入 style.less，目的是实现按需引用
 

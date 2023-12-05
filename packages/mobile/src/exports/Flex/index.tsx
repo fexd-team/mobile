@@ -1,6 +1,6 @@
 import React, { useRef, useEffect, useState, useImperativeHandle } from 'react'
 import { classnames, run } from '@fexd/tools'
-import createFC from '../../helpers/createFC'
+import createFC from '../createFC'
 import { FlexProps } from './type'
 import FlexContext from './FlexContext'
 import Item from './Item'

@@ -1,6 +1,6 @@
 import React, { ReactNode } from 'react'
 import { isFunction, classnames, run } from '@fexd/tools'
-import createFC from '../../../helpers/createFC'
+import createFC from '../../createFC'
 import { GridItemProps } from './type'
 import GridContext from '../GridContext'
 

@@ -2,7 +2,7 @@ import React from 'react'
 import { isFunction, classnames, run } from '@fexd/tools'
 import { ChevronForward } from '@fexd/icons'
 
-import createFC from '../../../helpers/createFC'
+import createFC from '../../createFC'
 import { ListItemProps } from './type'
 
 const prefix = 'exd-list-item'

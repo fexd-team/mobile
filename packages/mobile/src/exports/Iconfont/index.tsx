@@ -1,7 +1,7 @@
 import React from 'react'
 import { classnames, source } from '@fexd/tools'
 
-import createFC from '../../helpers/createFC'
+import createFC from '../createFC'
 
 source.css('https://at.alicdn.com/t/c/font_3629196_pifvlm76us.css')
 source.js('https://at.alicdn.com/t/c/font_3629196_pifvlm76us.js')

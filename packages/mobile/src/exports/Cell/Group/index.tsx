@@ -1,7 +1,7 @@
 import React, { useMemo, createContext } from 'react'
 import { classnames } from '@fexd/tools'
 
-import createFC from '../../../helpers/createFC'
+import createFC from '../../createFC'
 import { CellGroupProps, CellGroupRef, CellGroupType, CellGroupContext } from './type'
 
 export const context: CellGroupContext = createContext<CellGroupProps>({})

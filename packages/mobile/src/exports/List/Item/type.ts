@@ -1,8 +1,7 @@
 import React, { ReactNode } from 'react'
+import { JSXDivProps } from '../../../helpers/html.types'
 
-type JSXDivElement = Omit<React.DetailedHTMLProps<React.HTMLAttributes<HTMLDivElement>, HTMLDivElement>, 'content'>
-
-export interface ListItemProps extends Omit<JSXDivElement, 'children'> {
+export interface ListItemProps extends Omit<JSXDivProps, 'children'> {
   border?: boolean
   children?: ReactNode | (() => ReactNode)
   extra?: ReactNode | (() => ReactNode)

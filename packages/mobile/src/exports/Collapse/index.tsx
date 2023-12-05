@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react'
 import { classnames, flatten } from '@fexd/tools'
 
 import useIOControl from '../useIOControl'
-import createFC from '../../helpers/createFC'
+import createFC from '../createFC'
 import { CollapseProps, CollapseRef, ActiveKeyType } from './type'
 import Panel from './Panel'
 

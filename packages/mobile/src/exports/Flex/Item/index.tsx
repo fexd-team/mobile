@@ -1,7 +1,7 @@
 import React, { ReactNode } from 'react'
 import useSize from '../../useSize'
 import { classnames, run, value } from '@fexd/tools'
-import createFC from '../../../helpers/createFC'
+import createFC from '../../createFC'
 import { FlexItemProps, itemSize, itemType } from './type'
 import FlexContext from '../FlexContext'
 

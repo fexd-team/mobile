@@ -1,7 +1,7 @@
 import React from 'react'
 import { classnames } from '@fexd/tools'
 import useIOControl from '../useIOControl'
-import createFC from '../../helpers/createFC'
+import createFC from '../createFC'
 import { SwitchProps, SwitchRef } from './type'
 
 export const prefix = 'exd-switch'

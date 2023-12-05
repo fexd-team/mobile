@@ -1,9 +1,8 @@
 import React from 'react'
-
 import { IOProps } from '../useIOControl/type'
+import { HTMLJSXProps } from '../../helpers/html.types'
 
-type JSXElement<T> = React.DetailedHTMLProps<React.HTMLAttributes<T>, T>
-export interface TextFieldProps<T> extends Omit<JSXElement<T>, keyof IOProps> {
+export interface TextFieldProps<T> extends Omit<HTMLJSXProps<T>, keyof IOProps> {
   ref?: React.Ref<T>
 }
 export interface TextFieldProps<T> extends IOProps<string> {

@@ -1,8 +1,7 @@
 import React from 'react'
 import { ChevronBack } from '@fexd/icons'
 import { useHistory } from 'react-router-dom'
-import { View, NavBar } from '@fexd/mobile'
-import createFC from '@fexd/mobile/es/helpers/createFC'
+import { View, NavBar, createFC } from '@fexd/mobile'
 
 import AnimatedSwitch from '../AnimatedSwitch'
 import { NavBarLayoutProps, NavBarLayoutRef, NavBarLayoutType } from './type'
@@ -22,7 +21,7 @@ const NavBarLayout = createFC<NavBarLayoutProps, NavBarLayoutRef>(function NavBa
       <AnimatedSwitch animate={animate}>{children}</AnimatedSwitch>
     </View>
   )
-}) as NavBarLayoutType
+})
 
 NavBarLayout.defaultProps = {
   animate: 'fade',

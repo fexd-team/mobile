@@ -7,7 +7,7 @@ import Modal from '../Modal'
 import uniqueId from '../uniqueId'
 import TransitionSlideUp from '../TransitionSlideUp'
 import { PopupProps } from './type'
-import createFC from '../../helpers/createFC'
+import createFC from '../createFC'
 
 const prefix = 'exd-popup'
 const Popup = createFC<PopupProps, HTMLDivElement>(function Popup(

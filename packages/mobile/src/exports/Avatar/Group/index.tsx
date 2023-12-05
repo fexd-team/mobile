@@ -1,6 +1,6 @@
 import React from 'react'
 import { classnames } from '@fexd/tools'
-import createFC from '../../../helpers/createFC'
+import createFC from '../../createFC'
 import { AvatarGroupProps, AvatarGroupRef } from './type'
 import Avatar from '../index'
 // 此处不引入 style.less，目的是实现按需引用

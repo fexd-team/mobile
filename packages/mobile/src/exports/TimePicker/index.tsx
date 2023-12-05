@@ -3,7 +3,7 @@ import { run } from '@fexd/tools'
 
 import usePickerProps from '../usePickerProps'
 import TimePickerView from '../TimePickerView'
-import createFC from '../../helpers/createFC'
+import createFC from '../createFC'
 import { TimePickerProps, TimePickerRef } from './type'
 
 const TimePicker = createFC<TimePickerProps, TimePickerRef>(function Picker(props, ref) {

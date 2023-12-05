@@ -10,7 +10,7 @@ import TransitionFade from '../TransitionFade'
 import Overlay from '../Overlay'
 import SharedOverlay from './SharedOverlay'
 import { ModalProps, ModalConflictProps } from './type'
-import createFC from '../../helpers/createFC'
+import createFC from '../createFC'
 
 const Modal = createFC<ModalProps, HTMLDivElement>(function Modal(
   { visible, modalId, children, onConflict, shareMask, contentClassName, ...props },

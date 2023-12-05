@@ -5,7 +5,7 @@ import Modal from '../../Modal'
 import Spinner from '../../Spinner'
 import uniqueId from '../../uniqueId'
 import { LoadingProps } from './type'
-import createFC from '../../../helpers/createFC'
+import createFC from '../../createFC'
 
 const prefix = 'exd-loading'
 const Loading = createFC<LoadingProps, HTMLDivElement>(function Loading(

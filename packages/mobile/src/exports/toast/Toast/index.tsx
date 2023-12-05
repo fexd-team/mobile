@@ -7,7 +7,7 @@ import TransitionFadeSlideDown from '../../TransitionFadeSlideDown'
 import TransitionFadeSlideUp from '../../TransitionFadeSlideUp'
 import uniqueId from '../../uniqueId'
 import { ToastProps } from './type'
-import createFC from '../../../helpers/createFC'
+import createFC from '../../createFC'
 
 const prefix = 'exd-toast'
 const Toast = createFC<ToastProps, HTMLDivElement>(function Toast(

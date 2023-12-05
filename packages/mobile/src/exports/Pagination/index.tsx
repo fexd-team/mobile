@@ -1,5 +1,5 @@
 import React from 'react'
-import createFC from '../../helpers/createFC'
+import createFC from '../createFC'
 import { PaginationProps, PaginationRef } from './type'
 // 此处不引入 style.less，目的是实现按需引用
 

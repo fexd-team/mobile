@@ -2,7 +2,7 @@ import React, { useState, useEffect, useRef, isValidElement } from 'react'
 import { classnames, isNumber, get, run } from '@fexd/tools'
 
 import { UnstyledLabelProps } from './type'
-import createFC from '../../helpers/createFC'
+import createFC from '../createFC'
 
 const labelPrefix = 'exd-label'
 

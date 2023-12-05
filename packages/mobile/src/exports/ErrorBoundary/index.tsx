@@ -3,17 +3,7 @@ import { run, get } from '@fexd/tools'
 
 import Fallback from '../Fallback'
 import Button from '../BasicButton'
-
-interface ErrorBoundaryProps {
-  console?: boolean
-  onError?: (error: Error) => void
-  children?: React.ReactNode
-  fallback?: ((error: Error, retry: () => void) => React.ReactNode) | React.ReactNode
-}
-
-interface ErrorBoundaryState {
-  error?: Error
-}
+import { ErrorBoundaryProps, ErrorBoundaryState } from './type'
 
 export default class ErrorBoundary extends Component<ErrorBoundaryProps, ErrorBoundaryState> {
   static defaultProps = {

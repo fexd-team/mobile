@@ -1,15 +1,10 @@
 import React, { useState, useEffect } from 'react'
-import { render } from 'react-dom'
+// import { render } from 'react-dom'
 import { isFunction } from '@fexd/tools'
-
-// interface IStationMap {
-//   [id: string]: any
-// }
-
-type IStationMap = Record<string, unknown>
+import { ModalStationProps, IStationMap } from './type'
 
 export const stationMap: IStationMap = {}
-export default function ModalStation({ id }: { id: string }) {
+export default function ModalStation({ id }: ModalStationProps) {
   const [modalMap, setModalMap] = useState<any>({})
 
   useEffect(() => {
@@ -42,5 +37,5 @@ export default function ModalStation({ id }: { id: string }) {
   )
 }
 
-const container = document.createElement('div')
-render(<ModalStation id="DEFAULT_STATION" />, container)
+// const container = document.createElement('div')
+// render(<ModalStation id="DEFAULT_STATION" />, container)

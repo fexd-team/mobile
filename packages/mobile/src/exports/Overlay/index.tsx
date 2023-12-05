@@ -4,7 +4,7 @@ import { classnames } from '@fexd/tools'
 import { TransitionType, TransitionSpeed } from '../createTransition/type'
 import useScrollLock from '../useScrollLock'
 import TransitionFade from '../TransitionFade'
-import createFC from '../../helpers/createFC'
+import createFC from '../createFC'
 
 export interface OverlayProps {
   visible: boolean // 是否显示遮罩

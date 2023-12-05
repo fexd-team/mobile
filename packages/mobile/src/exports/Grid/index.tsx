@@ -1,6 +1,6 @@
 import React from 'react'
 import { classnames, run } from '@fexd/tools'
-import createFC from '../../helpers/createFC'
+import createFC from '../createFC'
 import { detectFlexGapSupported } from '../../helpers/styleChecker'
 import { GridProps } from './type'
 import GridContext from './GridContext'

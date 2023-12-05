@@ -1,14 +1,8 @@
 import React, { useState, useEffect, useRef } from 'react'
 import { classnames, delay } from '@fexd/tools'
 
-import createFC from '../../helpers/createFC'
-
-type JSXSpanElement = Omit<React.DetailedHTMLProps<React.HTMLAttributes<HTMLSpanElement>, HTMLSpanElement>, 'content'>
-
-export interface SpinnerProps extends JSXSpanElement {
-  delay?: number
-  ref?: React.Ref<HTMLSpanElement>
-}
+import createFC from '../createFC'
+import { SpinnerProps } from './type'
 
 const Spinner = createFC<SpinnerProps, HTMLSpanElement>(function Spinner(
   { className, delay: displayDelay = 0, ...props },

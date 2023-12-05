@@ -2,7 +2,7 @@ import React, { useState, useEffect, createContext, Fragment } from 'react'
 import { run, pick } from '@fexd/tools'
 
 import useIOControl from '../../useIOControl'
-import createFC from '../../../helpers/createFC'
+import createFC from '../../createFC'
 import { Value } from '../../Checkbox/type'
 import { CheckboxGroupProps, CheckboxContentProps } from './type'
 import Checkbox from '../../Checkbox/index'

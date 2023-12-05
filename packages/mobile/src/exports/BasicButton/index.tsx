@@ -1,7 +1,7 @@
 import React from 'react'
 import { classnames } from '@fexd/tools'
 
-import createFC from '../../helpers/createFC'
+import createFC from '../createFC'
 import { BasicButtonProps } from './type'
 
 const prefix = 'exd-btn'

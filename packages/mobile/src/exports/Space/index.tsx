@@ -1,5 +1,5 @@
 import React from 'react'
-import createFC from '../../helpers/createFC'
+import createFC from '../createFC'
 import { SpaceProps, SpaceGapType } from './type'
 import { classnames, isArray } from '@fexd/tools'
 import Item from './Item'

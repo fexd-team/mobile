@@ -1,4 +1,4 @@
-import { FC } from '../../helpers/createFC'
+import { FC } from '../createFC/type'
 
 export interface ShareSheetProps {}
 export type ShareSheetRef = any

@@ -1,7 +1,7 @@
 import React, { memo } from 'react'
 import { classnames, run } from '@fexd/tools'
 
-import createFC from '../../helpers/createFC'
+import createFC from '../createFC'
 import { TimelineProps } from './type'
 import TimelineItem from './Item'
 

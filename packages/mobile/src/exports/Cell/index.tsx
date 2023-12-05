@@ -4,7 +4,7 @@ import { ChevronForward } from '@fexd/icons'
 
 import Spinner from '../Spinner'
 import Group, { context as cellGroupContext } from './Group'
-import createFC from '../../helpers/createFC'
+import createFC from '../createFC'
 import { CellProps, CellRef, CellType } from './type'
 
 const prefix = 'exd-cell'

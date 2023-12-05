@@ -1,5 +1,5 @@
 import React, { memo, useState, useMemo, useEffect } from 'react'
-import createFC from '../../../helpers/createFC'
+import createFC from '../../createFC'
 import { PlaybackRateProps, ALL_PLAYBACK_RATE, ALL_PLAYBACK_RATE_TEXT } from './type'
 
 const prefix = 'exd-video-playbackrate'

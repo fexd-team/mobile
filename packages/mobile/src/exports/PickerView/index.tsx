@@ -1,7 +1,7 @@
 import React, { useState, useEffect, useMemo, useRef, useCallback } from 'react'
 import { classnames, run, debounce, Tween } from '@fexd/tools'
 import { PickerViewProps } from './type'
-import createFC from '../../helpers/createFC'
+import createFC from '../createFC'
 
 const prefix = 'exd-picker-view'
 const PickerView = createFC<PickerViewProps, HTMLDivElement>(function PickerView(

@@ -1,5 +1,4 @@
-import { TransitionSwitchProps } from '@fexd/mobile/es/exports/TransitionSwitch/type'
-import { FC } from '@fexd/mobile/es/helpers/createFC'
+import { FC, TransitionSwitchProps } from '@fexd/mobile'
 
 export type TabBarLayoutRef = any
 

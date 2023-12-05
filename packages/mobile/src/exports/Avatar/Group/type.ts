@@ -1,6 +1,6 @@
-type JSXElement = Omit<React.DetailedHTMLProps<React.HTMLAttributes<HTMLDivElement>, HTMLDivElement>, 'content'>
+import { JSXDivProps } from '../../../helpers/html.types'
 
-export interface AvatarGroupProps extends JSXElement {
+export interface AvatarGroupProps extends JSXDivProps {
   max?: number
   total?: number
 }

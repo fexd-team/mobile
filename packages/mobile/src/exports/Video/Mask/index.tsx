@@ -2,7 +2,7 @@ import React from 'react'
 import { classnames } from '@fexd/tools'
 import { Play, Pause } from '@fexd/icons'
 
-import createFC from '../../../helpers/createFC'
+import createFC from '../../createFC'
 import { MaskProps } from './type'
 
 const prefix = 'exd-video-mask'

@@ -1,7 +1,7 @@
 import React, { isValidElement } from 'react'
 import { run, isObject } from '@fexd/tools'
 
-import createFC from '../../helpers/createFC'
+import createFC from '../createFC'
 import { HookProps } from './type'
 
 const Hook = createFC<HookProps>(function Hook({ hook, children, ...props }): JSX.Element | null {

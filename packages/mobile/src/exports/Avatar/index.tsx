@@ -1,6 +1,6 @@
 import React, { CSSProperties, useState } from 'react'
 import { classnames } from '@fexd/tools'
-import createFC from '../../helpers/createFC'
+import createFC from '../createFC'
 import { sizes, shapes, AvatarProps, AvatarRef } from './type'
 import AvatarGroup from './Group'
 

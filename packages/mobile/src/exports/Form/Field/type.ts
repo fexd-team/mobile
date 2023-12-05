@@ -1,12 +1,12 @@
-import { Rule, Value, Error, Values, Errors } from '../../../helpers/formini'
+import { FormRule, FormValue, FormError, FormValues, FormErrors } from '../../createForm'
 
 export type Relative<T = any> = T
-export type ComputeRelative<T = any> = (values: Values, errors: Errors) => Relative<T>
+export type ComputeRelative<T = any> = (values: FormValues, errors: FormErrors) => Relative<T>
 
 export interface FieldController {
-  value: Value
-  setValue: (value: Value) => void
-  error: Error
+  value: FormValue
+  setValue: (value: FormValue) => void
+  error: FormError
   validate: () => void
   relative: Relative
 }
@@ -14,7 +14,7 @@ export interface FieldController {
 export interface FormFieldProps {
   name?: string
   defaultValue?: any
-  rules?: Rule[]
+  rules?: FormRule[]
   relative?: ComputeRelative
   children?: (fieldController: FieldController) => JSX.Element
   validateOnChange?: boolean

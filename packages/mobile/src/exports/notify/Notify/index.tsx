@@ -5,7 +5,7 @@ import Modal from '../../Modal'
 import TransitionSlideDown from '../../TransitionSlideDown'
 import uniqueId from '../../uniqueId'
 import { NotifyProps } from './type'
-import createFC from '../../../helpers/createFC'
+import createFC from '../../createFC'
 
 const prefix = 'exd-notify'
 const Notify = createFC<NotifyProps, HTMLDivElement>(function Notify(

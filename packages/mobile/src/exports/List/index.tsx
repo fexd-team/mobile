@@ -1,7 +1,7 @@
 import React from 'react'
 import { run, classnames } from '@fexd/tools'
 
-import createFC from '../../helpers/createFC'
+import createFC from '../createFC'
 import Item from './Item'
 import { ListProps } from './type'
 

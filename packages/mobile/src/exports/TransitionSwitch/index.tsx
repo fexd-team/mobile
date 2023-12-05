@@ -3,7 +3,7 @@ import { TransitionGroup, CSSTransition } from 'react-transition-group'
 import { TransitionGroupProps } from 'react-transition-group/TransitionGroup'
 import { classnames, isNumber, random } from '@fexd/tools'
 
-import createFC from '../../helpers/createFC'
+import createFC from '../createFC'
 import { TransitionSwitchProps } from './type'
 
 const getRandomClassName = () => `switch-${random(10000, 99999)}`

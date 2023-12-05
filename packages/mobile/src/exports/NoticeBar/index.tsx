@@ -2,7 +2,7 @@ import React from 'react'
 import { classnames } from '@fexd/tools'
 
 import { NoticeBarProps } from './type'
-import createFC from '../../helpers/createFC'
+import createFC from '../createFC'
 
 const prefix = 'exd-notice-bar'
 const NoticeBar = createFC<NoticeBarProps, HTMLDivElement>(function (

@@ -1,6 +1,6 @@
 import React from 'react'
 import { isString, isNumber, classnames, run } from '@fexd/tools'
-import createFC from '../../../helpers/createFC'
+import createFC from '../../createFC'
 import { SpaceItemProps } from './type'
 
 const prefix = 'exd-space-item'

@@ -1,11 +1,11 @@
 import { EasingFunction } from '@fexd/tools/es/easing'
 
-import { FC } from '../../helpers/createFC'
-import { JSXDivElement } from '../../helpers/html.types'
+import { FC } from '../createFC/type'
+import { JSXDivProps } from '../../helpers/html.types'
 import { IOProps } from '../useIOControl/type'
 import { UseTouchOption } from '../useTouch'
 
-export interface SwiperProps extends Omit<JSXDivElement, 'defaultValue' | 'value' | 'onChange'> {}
+export interface SwiperProps extends Omit<JSXDivProps, 'defaultValue' | 'value' | 'onChange'> {}
 export interface SwiperProps extends IOProps<number> {}
 export interface SwiperProps extends Pick<UseTouchOption, 'rate' | 'preventDefault' | 'stopPropagation'> {}
 export interface SwiperProps {

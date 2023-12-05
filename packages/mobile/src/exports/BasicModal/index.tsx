@@ -7,7 +7,7 @@ import TransitionFade from '../TransitionFade'
 import Overlay from '../Overlay'
 import Portal from '../Portal'
 import modalStore from '../modalStore'
-import createFC from '../../helpers/createFC'
+import createFC from '../createFC'
 
 const prefix = 'exd-modal'
 const BasicModal = createFC<BasicModalProps, HTMLDivElement>(function BasicModal(modalProps, forwardedRef) {

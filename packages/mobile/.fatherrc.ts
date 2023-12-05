@@ -2,7 +2,7 @@ import { defineConfig } from 'father'
 
 export default defineConfig({
   extends: '../../.fatherrc.ts',
-  
+
   extraBabelPlugins: [
     'react-node-key/babel',
     [

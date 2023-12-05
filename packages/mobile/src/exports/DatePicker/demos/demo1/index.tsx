@@ -164,11 +164,7 @@ export default () => {
           >
             Block
           </Button>
-          <Button
-            type="primary"
-            fill={themeType === 'Line' ? 'solid' : 'outline'}
-            onClick={() => setThemeType('Line')}
-          >
+          <Button type="primary" fill={themeType === 'Line' ? 'solid' : 'outline'} onClick={() => setThemeType('Line')}>
             Line
           </Button>
         </Space>

@@ -2,7 +2,7 @@ import React, { useImperativeHandle, useRef, useEffect, useCallback } from 'reac
 import { classnames, run, throttle } from '@fexd/tools'
 
 import { NavBarProps } from './type'
-import createFC from '../../helpers/createFC'
+import createFC from '../createFC'
 
 const prefix = 'exd-nav-bar'
 const NavBar: React.FC<NavBarProps> = createFC<NavBarProps, HTMLDivElement>(function NavBar(

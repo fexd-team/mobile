@@ -4,8 +4,8 @@
 import React, { useState, useEffect, useContext, useMemo, useRef, isValidElement } from 'react'
 import { run, random, isFunction } from '@fexd/tools'
 
-import { StopWatch, Error, Values, Errors } from '../../../helpers/formini'
-import createFC from '../../../helpers/createFC'
+import { FormStopWatch, FormError, FormValues, FormErrors } from '../../createForm'
+import createFC from '../../createFC'
 import Hook from '../../Hook'
 import { FormFieldProps, FormFieldRef } from './type'
 
@@ -13,12 +13,12 @@ import { context } from '../context'
 // 此处不引入 style.less，目的是实现按需引用
 
 type Relative<T = any> = T
-type ComputeRelative<T = any> = (values: Values, errors: Errors) => Relative<T>
+type ComputeRelative<T = any> = (values: FormValues, errors: FormErrors) => Relative<T>
 
 function useRelative(relativeCompute?: ComputeRelative) {
   const form = useContext(context)!
   const [relativeName] = useState(() => String(random(10000, 99999)))
-  const listenerStopList = useRef<StopWatch[]>([])
+  const listenerStopList = useRef<FormStopWatch[]>([])
   useMemo(() => {
     if (!isFunction(relativeCompute)) {
       return
@@ -55,7 +55,7 @@ const FormField = createFC<FormFieldProps, FormFieldRef>(function FormField({
 }) {
   const form = useContext(context)!
   const [value, setFieldValue] = useState(defaultValue)
-  const [error, setError] = useState<Error>()
+  const [error, setError] = useState<FormError>()
   const relative = useRelative(relativeCompute!)
   const fieldRef = useRef<any>({ name, rules, defaultValue })
   Object.assign(fieldRef.current, { name, rules, defaultValue })
@@ -70,7 +70,7 @@ const FormField = createFC<FormFieldProps, FormFieldRef>(function FormField({
   }
 
   useEffect(() => {
-    const listenerStopList: StopWatch[] = []
+    const listenerStopList: FormStopWatch[] = []
 
     if (!name) {
       return

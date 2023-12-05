@@ -1,8 +1,7 @@
 import React, { ReactNode } from 'react'
+import { JSXLiProps } from '../../../helpers/html.types'
 
-type JSXLIElement = Omit<React.DetailedHTMLProps<React.HTMLAttributes<HTMLLIElement>, HTMLLIElement>, 'content'>
-
-export interface StepItemProps extends Omit<JSXLIElement, 'title' | 'children'> {
+export interface StepItemProps extends Omit<JSXLiProps, 'title' | 'children'> {
   step?: number
   title?: ReactNode | (() => ReactNode)
   children?: ReactNode | (() => ReactNode)

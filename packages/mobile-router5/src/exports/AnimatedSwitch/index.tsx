@@ -2,9 +2,8 @@ import React, { Suspense, useMemo } from 'react'
 import { Switch, useLocation, useHistory, matchPath } from 'react-router-dom'
 import { get, run, isString } from '@fexd/tools'
 import { usePrevious } from 'ahooks'
-import { Spinner, TransitionSwitch, TransitionSwitchProps } from '@fexd/mobile'
+import { Spinner, TransitionSwitch, TransitionSwitchProps, createFC, FC } from '@fexd/mobile'
 
-import createFC, { FC } from '@fexd/mobile/es/helpers/createFC'
 import renderLayout from './renderLayout'
 
 interface AnimatedSwitchProps extends Omit<TransitionSwitchProps, 'direction' | 'animate'> {

@@ -1,8 +1,7 @@
 import React, { ReactNode } from 'react'
+import { JSXDivProps } from '../../../helpers/html.types'
 
-type JSXDivElement = Omit<React.DetailedHTMLProps<React.HTMLAttributes<HTMLDivElement>, HTMLDivElement>, 'content'>
-
-export interface FlexItemProps extends Omit<JSXDivElement, 'children'> {
+export interface FlexItemProps extends Omit<JSXDivProps, 'children'> {
   children?: ReactNode | (() => ReactNode)
   style?: React.CSSProperties
   span?: number

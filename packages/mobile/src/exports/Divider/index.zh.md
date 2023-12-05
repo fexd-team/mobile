@@ -34,7 +34,6 @@ import { Divider } from '@fexd/mobile'
 
 ```jsx | pure
 import { Divider } from '@fexd/mobile'
-
 ;<Divider vertical={true} />
 ```
 

@@ -1,5 +1,5 @@
 import React, { ReactNode } from 'react'
-import { FC } from '../../helpers/createFC'
+import { FC } from '../createFC/type'
 import { EmptyProps, EmptyRef } from '../Empty/type'
 
 export interface NotFoundProps extends EmptyProps {}
