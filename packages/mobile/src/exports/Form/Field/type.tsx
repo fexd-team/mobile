@@ -1,15 +1,22 @@
 import AUTO_API from '../../../helpers/AUTO_API'
-import { FormRule, FormValue, FormError, FormValues, FormErrors } from '../../createForm'
+import { FormRule, FormValue, FormError, FormValues, FormErrors, Form } from '../../createForm'
 
 export type FormRelative<T = any> = T
 export type FormComputeRelative<T = any> = (values: FormValues, errors: FormErrors) => FormRelative<T>
 
 export interface FieldController {
+  /** 当前域字段的值 */
   value: FormValue
+  /** 更改字段的值 */
   setValue: (value: FormValue) => void
+  /** 当前域字段的错误 */
   error: FormError
+  /** 校验当前域的内容 */
   validate: () => void
+  /** 当前域与其他域的关联属性 */
   relative: FormRelative
+  /** 表单实例 */
+  form: Form
 }
 
 export interface FormFieldProps {
@@ -22,7 +29,10 @@ export interface FormFieldProps {
   /** 相对值，当值变化时，会自动计算出相对值 */
   relative?: FormComputeRelative
   children?: (fieldController: FieldController) => JSX.Element
-  /** 是否在值变化时自动校验 */
+  /**
+   * @description 当值变化时，是否自动校验
+   * @default true
+   */
   validateOnChange?: boolean
 }
 export type FormFieldRef = any

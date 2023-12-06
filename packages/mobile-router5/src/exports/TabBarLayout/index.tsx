@@ -17,8 +17,8 @@ const TabBarLayout = createFC<TabBarLayoutProps, TabBarLayoutRef>(function TabBa
 
   const tabs = ((isArray(children) ? children : [children]) ?? [])!.map((child: any, idx) => ({
     path: child?.props?.path,
-    name: child?.props?.name,
-    icon: child?.props?.icon,
+    name: child?.props?.tabName ?? child?.props?.name,
+    icon: child?.props?.tabIcon ?? child?.props?.icon,
     onClick: child?.props?.onClick,
     ...get<Record<string, any>>(tabConfigs, idx, {}),
   }))

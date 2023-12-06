@@ -46,7 +46,8 @@ const Slider = createFC<SliderProps, SliderRef>(function Slider(
 
   // 是否是单滑块状态，取决于 value 或 defaultValue 是否为 number 类型
   // FIXME: 当 value 与 defaultValue 类型不相符时，此处可能存在问题，待验证与修正
-  const single = isNumber(props?.value) || isNumber(props?.defaultValue)
+  const double = !isArray(props?.value) && !isArray(props?.defaultValue)
+  const single = !double
 
   // 组件内 value 一律使用 [number, number]
   // 此处将 value 由 numler | [number, number] 格式化为 [number, number] 类型

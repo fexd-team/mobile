@@ -32,10 +32,6 @@ const Demo = () => {
     },
   ]
 
-  Object.assign(window, {
-    setValue,
-  })
-
   return (
     <>
       <DemoBlock title="受控模式：">
@@ -72,7 +68,7 @@ const Demo = () => {
       </DemoBlock>
 
       <DemoBlock title="数组生成组">
-        <Checkbox.Group options={options} value={value} name="form" onChange={setValue} />
+        <Checkbox.Group options={options} value={value} onChange={setValue} />
       </DemoBlock>
 
       <DemoBlock title="子元素生成组">

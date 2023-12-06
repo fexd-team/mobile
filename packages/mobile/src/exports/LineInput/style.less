@@ -44,6 +44,10 @@
     pointer-events: none;
   }
 
+  &::placeholder {
+    color: #b2b2b2;
+  }
+
   opacity: 0;
   transition: opacity 0.2s;
 
@@ -90,6 +94,8 @@
 }
 
 .@{line-input-prefix}__placeholder {
+  color: #b2b2b2;
+  
   &--capitalize {
     &::placeholder {
       text-transform: capitalize;

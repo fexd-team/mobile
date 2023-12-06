@@ -127,6 +127,7 @@ UnstyledIOPicker.defaultProps = {
   labelType: 'info',
   disabled: false,
   clearable: true,
+  autoHeight: false,
   theme: UnstyledLabel,
   classNamePrefix: 'exd-unstyled-io-picker',
   arrowIcon: <ChevronForward color="#bbb" />,

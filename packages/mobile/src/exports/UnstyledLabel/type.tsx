@@ -18,9 +18,10 @@ export interface UnstyledLabelPureProps {
   style?: JSXDivProps['style']
   keepHelperPlaceholder?: boolean
   onClick?: (e?: any) => any
+  useLabelWrapper?: boolean
   wrapperProps?: JSXDivProps
   labelProps?: JSXDivProps | ((config: { prefixWidth: number }) => JSXDivProps)
-  barProps?: JSXLabelProps
+  barProps?: JSXLabelProps | JSXDivProps
   contentProps?: JSXDivProps
   placeholderProps?: JSXDivProps
   prefixProps?: JSXDivProps

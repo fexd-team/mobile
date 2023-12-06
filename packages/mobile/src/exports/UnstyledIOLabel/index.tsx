@@ -90,6 +90,8 @@ const UnstyledIOLabel = createFC<UnstyledIOLabelProps, UnstyledIOLabelRef>(funct
 UnstyledIOLabel.defaultProps = {
   disabled: false,
   type: 'info',
+  autoHeight: true,
+  useLabelWrapper: false,
   hideErrorWhenFocusing: true,
   keepHelperPlaceholder: false,
   theme: UnstyledLabel,

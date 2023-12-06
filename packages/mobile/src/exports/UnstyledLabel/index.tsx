@@ -29,12 +29,14 @@ const UnstyledLabel = createFC<UnstyledLabelProps, any>(function UnstyledLabel(
     prefixProps,
     suffixProps,
     helperProps,
+    useLabelWrapper,
     ...props
   },
   forwardedRef,
 ) {
   const prefixRef = useRef<HTMLDivElement>(null)
   const [prefixWidth, setPrefixWidth] = useState(0)
+  const BarWrapper: any = useLabelWrapper ? 'label' : 'div'
 
   useEffect(() => {
     if (prefix) {
@@ -55,7 +57,7 @@ const UnstyledLabel = createFC<UnstyledLabelProps, any>(function UnstyledLabel(
       className={classnames(labelPrefix, wrapperProps?.className, className)}
       ref={forwardedRef}
     >
-      <label {...barProps} className={barProps?.className}>
+      <BarWrapper {...barProps} className={barProps?.className}>
         {prefix && (
           <div ref={prefixRef} {...prefixProps} className={prefixProps?.className}>
             {run(prefix)}
@@ -77,7 +79,7 @@ const UnstyledLabel = createFC<UnstyledLabelProps, any>(function UnstyledLabel(
             {run(suffix)}
           </div>
         )}
-      </label>
+      </BarWrapper>
       {(keepHelperPlaceholder || helper) && (
         <div {...helperProps} className={helperProps?.className}>
           {run(helper)}
@@ -95,6 +97,7 @@ UnstyledLabel.defaultProps = {
   helper: null,
   active: false,
   keepHelperPlaceholder: false,
+  useLabelWrapper: true,
   wrapperProps: {
     className: '',
     onClick: () => null,

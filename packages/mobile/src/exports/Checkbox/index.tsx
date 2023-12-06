@@ -39,7 +39,7 @@ const Checkbox: CheckboxType = createFC<CheckboxProps, HTMLLabelElement>(functio
     if (!value) {
       return
     }
-    const checked = !!checkedValue?.includes(value)
+    const checked = !!checkedValue?.includes?.(value)
     setIsChecked(checked)
   }, [value, checkedValue])
 

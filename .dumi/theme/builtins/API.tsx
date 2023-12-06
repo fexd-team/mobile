@@ -35,7 +35,7 @@ export default ({ identifier, export: expt, ...props }: EnhancedIApiComponentPro
   const hideRequiredMark = props?.hiderequiredmark === ''
   const namePrefix = props?.nameprefix || ''
 
-  console.log('expt', expt, data, props)
+  // console.log('expt', expt, data, props)
 
   return (
     <>

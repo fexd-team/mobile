@@ -115,6 +115,7 @@ const UnstyledIOTimePicker = createFC<UnstyledIOTimePickerProps, UnstyledIOTimeP
 
 UnstyledIOTimePicker.defaultProps = {
   ...TimePicker.defaultProps,
+  autoHeight: false,
   format: 'HH:mm:ss',
   theme: UnstyledLabel,
   arrowIcon: <ChevronForward color="#bbb" />,

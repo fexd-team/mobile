@@ -39,7 +39,7 @@ const Avatar: AvatarType = createFC<AvatarProps, AvatarRef>(function Avatar(prop
     ...style,
   }
 
-  let content = null
+  let content: any = null
   if (src && !error) {
     content = (
       <img

@@ -87,15 +87,15 @@ export default (props: IPreviewerProps) => {
       }`}
       ref={ref as any}
     >
+      {!mobileDemoFixed && (
+        <Device className="__dumi-default-mobile-content-device" fixed={false} url={props.demoUrl ?? builtinDemoUrl} />
+      )}
       {previewerProps && (
         <Previewer
           className={useMobileDemo && isActive ? '__dumi-default-previewer-target' : null}
           {...previewerProps}
           defaultShowCode={window?.outerWidth > 960 && useMobileDemo}
         />
-      )}
-      {!mobileDemoFixed && (
-        <Device className="__dumi-default-mobile-content-device" fixed={false} url={props.demoUrl ?? builtinDemoUrl} />
       )}
     </div>
   )

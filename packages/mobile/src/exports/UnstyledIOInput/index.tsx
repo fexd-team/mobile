@@ -163,6 +163,8 @@ const UnstyledIOInput = createFC<UnstyledIOInputProps, UnstyledIOInputRef>(funct
 UnstyledIOInput.defaultProps = {
   disabled: false,
   clearable: true,
+  autoHeight: false,
+  useLabelWrapper: true,
   clearIcon: MdCloseCircle,
   scrollIntoView: false,
   labelType: 'info',

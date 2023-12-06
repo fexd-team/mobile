@@ -7,7 +7,7 @@ import { run, random, isFunction } from '@fexd/tools'
 import { FormStopWatch, FormError, FormValues, FormErrors } from '../../createForm'
 import createFC from '../../createFC'
 import Hook from '../../Hook'
-import { FormFieldProps, FormFieldRef } from './type'
+import { FieldController, FormFieldProps, FormFieldRef } from './type'
 
 import { context } from '../context'
 // 此处不引入 style.less，目的是实现按需引用
@@ -103,7 +103,8 @@ const FormField = createFC<FormFieldProps, FormFieldRef>(function FormField({
           error,
           validate,
           relative,
-        })
+          form,
+        } as FieldController)
         const hasRenderContent = !!renderContent
         const removeFieldRef = useRef<any>(() => undefined)
 

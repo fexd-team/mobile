@@ -15,7 +15,7 @@ const CheckboxGroup = createFC<CheckboxGroupProps, HTMLLabelElement>(function Ch
   forwardedRef,
 ) {
   // const [checkedValue, setCheckedValue] = useState<any[]>(value)
-  const { value: checkedValue, setValue: setCheckedValue } = useIOControl<CheckboxValue[]>(
+  const { value: checkedValue = [], setValue: setCheckedValue } = useIOControl<CheckboxValue[]>(
     pick(props, ['value', 'defaultValue', 'onChange']),
   )
 

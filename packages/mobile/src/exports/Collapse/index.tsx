@@ -52,7 +52,7 @@ const Collapse = createFC<CollapseProps, CollapseRef>(function Collapse(
           expandIcon,
           iconRotate,
           onItemClick: (key: React.Key) => {
-            let newActiveKey = []
+            let newActiveKey: any[] = []
             if (accordion) {
               newActiveKey = activeKey[0] === key ? [] : [key]
             } else {

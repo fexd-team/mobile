@@ -1,5 +1,6 @@
 {
   "compilerOptions": {
+    "noImplicitAny": false,
     "isolatedModules": false,
     "preserveSymlinks": true,
     "target": "esnext",

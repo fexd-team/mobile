@@ -118,6 +118,7 @@ UnstyledIODatePicker.defaultProps = {
   ...DatePicker.defaultProps,
   format: 'YYYY-MM-DD',
   theme: UnstyledLabel,
+  autoHeight: false,
   arrowIcon: <ChevronForward color="#bbb" />,
   classNamePrefix: 'exd-unstyled-io-date-picker',
 }
