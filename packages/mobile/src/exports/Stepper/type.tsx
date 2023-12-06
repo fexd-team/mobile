@@ -1,5 +1,5 @@
 import AUTO_API from '../../helpers/AUTO_API'
-import { BasicInputProps } from '../BasicInput'
+import { BasicInputProps } from '../BasicInput/type'
 import { IOProps } from '../useIOControl/type'
 
 export type StepperRef = any

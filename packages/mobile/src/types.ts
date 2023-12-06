@@ -127,3 +127,4 @@ export * from './exports/Video/type'
 export * from './exports/View/type'
 export * from './exports/Waterfall/type'
 export * from './exports/Watermark/type'
+export type {}

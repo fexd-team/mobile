@@ -5,6 +5,8 @@ group:
 
 title: 多个弹窗的处理方式
 order: 2
+
+mobileDemoFixed: true
 ---
 
 # 弹窗互斥

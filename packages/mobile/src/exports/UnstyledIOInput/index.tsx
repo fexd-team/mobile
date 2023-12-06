@@ -26,7 +26,7 @@ const UnstyledIOInput = createFC<UnstyledIOInputProps, UnstyledIOInputRef>(funct
     clearable,
     clearIcon: ClearIcon,
     placeholder,
-    label = placeholder,
+    label,
     prefix: labelPrefix,
     helperPrefix,
     suffix,
@@ -64,7 +64,14 @@ const UnstyledIOInput = createFC<UnstyledIOInputProps, UnstyledIOInputRef>(funct
   }
   const hasValue = inputProps.value?.length > 0
   const [clearShow, setClearShow] = useState(false)
-  const active = propActive ?? (focused || hasValue)
+
+  // if (multipleLines && !label) {
+  //   label = placeholder
+  // }
+
+  const noLabel = !label
+  const hasLabelAndPlaceholder = Boolean(label && placeholder) && label !== placeholder
+  const active = propActive ?? (focused || hasValue || hasLabelAndPlaceholder)
 
   useEffect(() => {
     setTimeout(() => {
@@ -72,18 +79,14 @@ const UnstyledIOInput = createFC<UnstyledIOInputProps, UnstyledIOInputRef>(funct
     }, 100)
   }, [clearable, hasValue])
 
-  // useEffect(() => {
-  //   if (!focused && multipleLines) {
-  //     inputProps.ref.current!.innerHTML = inputProps.value
-  //   }
-  // }, [inputProps.value, multipleLines, focused])
-
   const handleClear = useMemoizedFn(() => {
     if (!clearShow) {
       return
     }
     run(inputProps.onChange, undefined, '')
   })
+
+  const inputActive = noLabel ? true : active
 
   return (
     <UnstyledIOLabel
@@ -101,12 +104,13 @@ const UnstyledIOInput = createFC<UnstyledIOInputProps, UnstyledIOInputRef>(funct
       autoHeight={multipleLines}
       className={classnames(`${classNamePrefix}__label`, className, {
         [`${classNamePrefix}__label--multiple`]: multipleLines,
+        [`${classNamePrefix}__label--no-label`]: noLabel,
       })}
       style={style}
-      active={active}
+      active={noLabel ? false : active}
       focused={focused}
       disabled={disabled}
-      placeholder={label}
+      placeholder={noLabel ? undefined : label}
       helper={helper}
       helperPrefix={helperPrefix}
       error={error}
@@ -114,12 +118,7 @@ const UnstyledIOInput = createFC<UnstyledIOInputProps, UnstyledIOInputRef>(funct
       keepHelperPlaceholder={keepHelperPlaceholder}
       hideErrorWhenFocusing={hideErrorWhenFocusing}
       prefix={labelPrefix}
-      onClick={useMemoizedFn((...args) => {
-        if (!focused) {
-          run((inputProps?.ref as any)?.current, 'focus')
-        }
-        return run(onClick, undefined, ...args)
-      })}
+      onClick={onClick}
       suffix={
         <div className={`${classNamePrefix}__suffix-wrapper`}>
           <ClearIcon
@@ -138,10 +137,10 @@ const UnstyledIOInput = createFC<UnstyledIOInputProps, UnstyledIOInputRef>(funct
           {...inputProps}
           height="auto"
           // unstyled
-          placeholder={active && label !== placeholder ? placeholder : ''}
+          placeholder={inputActive && (label !== placeholder || noLabel) ? placeholder : ''}
           className={classnames(`${classNamePrefix}__textarea`, {
             [`${classNamePrefix}__textarea--disabled`]: disabled,
-            [`${classNamePrefix}__textarea--active`]: active,
+            [`${classNamePrefix}__textarea--active`]: inputActive,
           })}
         />
       ) : (
@@ -150,10 +149,10 @@ const UnstyledIOInput = createFC<UnstyledIOInputProps, UnstyledIOInputRef>(funct
           // unstyled
           ref={inputProps?.ref as any}
           onChange={inputProps?.onChange as any}
-          placeholder={active && label !== placeholder ? placeholder : ''}
+          placeholder={inputActive && (label !== placeholder || noLabel) ? placeholder : ''}
           className={classnames(`${classNamePrefix}__input`, {
             [`${classNamePrefix}__input--disabled`]: disabled,
-            [`${classNamePrefix}__input--active`]: active,
+            [`${classNamePrefix}__input--active`]: inputActive,
           })}
         />
       )}

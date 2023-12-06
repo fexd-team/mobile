@@ -47,7 +47,8 @@ const UnstyledIOTimePicker = createFC<UnstyledIOTimePickerProps, UnstyledIOTimeP
   const [focused, setFocused] = useState(false)
   const { value, setValue } = useIOControl(props)
   const hasValue = !!value
-  const active = propActive ?? (focused || hasValue)
+  const hasLabelAndPlaceholder = Boolean(label && placeholder) && label !== placeholder
+  const active = propActive ?? (focused || hasValue || hasLabelAndPlaceholder)
 
   return (
     <TimePicker

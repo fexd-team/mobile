@@ -8,3 +8,4 @@ export interface FormProps {
 export type FormRef = any
 
 export default AUTO_API<FormProps>()
+export const DOC_FormProps = AUTO_API<FormProps>()

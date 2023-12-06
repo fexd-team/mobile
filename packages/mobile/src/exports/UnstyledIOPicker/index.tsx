@@ -55,7 +55,8 @@ const UnstyledIOPicker = createFC<UnstyledIOPickerProps, UnstyledIOPickerRef>(fu
   })
   const selectedItem = getItem(value)
   const hasValue = !!selectedItem
-  const active = propActive ?? (focused || hasValue)
+  const hasLabelAndPlaceholder = Boolean(label && placeholder) && label !== placeholder
+  const active = propActive ?? (focused || hasValue || hasLabelAndPlaceholder)
 
   return (
     <Picker

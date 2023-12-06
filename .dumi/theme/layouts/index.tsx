@@ -1,5 +1,5 @@
-import React, { useState, useEffect } from 'react'
-import { IPreviewerComponentProps } from 'dumi/theme'
+import React, { useState, useEffect, useContext } from 'react'
+import { IPreviewerComponentProps, context } from 'dumi/theme'
 import { useDemoUrl } from 'dumi/theme'
 import Layout from 'dumi-theme-default/src/layout'
 import { IRouteComponentProps } from '@umijs/types'
@@ -9,8 +9,9 @@ import '../style/layout.less'
 import '../style/fix.less'
 
 const MobileLayout: React.FC<IRouteComponentProps> = ({ children, ...props }) => {
-  const [demo, setDemo] = useState<IPreviewerComponentProps>(null)
-  const builtinDemoUrl = useDemoUrl(demo?.identifier)
+  const [demo, setDemo] = useState<IPreviewerComponentProps | null>(null)
+  const builtinDemoUrl = useDemoUrl(demo?.identifier ?? '')
+  const { meta } = useContext(context)
 
   useEffect(() => {
     const handler = (ev: any) => {
@@ -33,7 +34,9 @@ const MobileLayout: React.FC<IRouteComponentProps> = ({ children, ...props }) =>
     <Layout {...props}>
       <div className="__dumi-default-mobile-content">
         <article>{children}</article>
-        {demo && <Device className="__dumi-default-mobile-content-device" url={demo.demoUrl || builtinDemoUrl} />}
+        {(meta?.mobileDemoFixed ?? true) && demo && (
+          <Device className="__dumi-default-mobile-content-device" fixed url={demo.demoUrl || builtinDemoUrl} />
+        )}
       </div>
     </Layout>
   )

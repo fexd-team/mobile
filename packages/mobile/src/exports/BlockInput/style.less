@@ -19,6 +19,15 @@
   &--multiple {
     height: auto;
   }
+
+  &--no-label {
+    &.@{block-label-prefix}__wrapper--auto-height {
+      .@{block-label-prefix}__content {
+        padding-top: 8px * @size-scale;
+        padding-bottom: 8px * @size-scale;
+      }
+    }
+  }
 }
 
 .@{block-input-prefix}__input {

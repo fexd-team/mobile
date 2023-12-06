@@ -94,14 +94,15 @@ const BasicDemo = () => {
 
       <DemoBlock title={`${themeType} 状态一览`}>
         <ThemedInput
-          label="错误状态，聚焦试试"
+          // active={false}
+          // label="错误状态，聚焦试试"
           placeholder="聚焦时会暂时去掉错误状态"
           error="XXX有点问题哦XXX有点问题哦XXX有点问题哦XXX有点问题哦XXX有点问题哦XXX有点问题哦XXX有点问题哦XXX有点问题哦XXX有点问题哦XXX有点问题哦XXX有点问题哦"
           helper="辅助文本"
         />
-        <ThemedInput hideErrorWhenFocusing={false} placeholder="聚焦时不解除错误状态" error="XXX有点问题哦" />
-        <ThemedInput placeholder={'警告状态'} labelType="warn" helper="辅助文本" />
-        <ThemedInput placeholder={'成功状态'} labelType="success" helper="辅助文本" />
+        <ThemedInput hideErrorWhenFocusing={false} label="聚焦时不解除错误状态" error="XXX有点问题哦" />
+        <ThemedInput label={'警告状态'} labelType="warn" helper="辅助文本" />
+        <ThemedInput label={'成功状态'} labelType="success" helper="辅助文本" />
         <ThemedInput disabled label={'禁用状态'} helper="禁用了，点也点不着" />
       </DemoBlock>
 

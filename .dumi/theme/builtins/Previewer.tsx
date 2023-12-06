@@ -1,9 +1,10 @@
 import React, { useRef, useEffect, useState, useContext } from 'react'
-import { context } from 'dumi/theme'
+import { context, useDemoUrl } from 'dumi/theme'
 import { IPreviewerProps } from 'dumi-theme-default/src/builtins/Previewer'
 import Previewer from 'dumi-theme-default/src/builtins/Previewer'
 import { isAndroid, isIOS, debounce } from '@fexd/tools'
 import './Previewer.less'
+import Device from '../components/Device'
 
 export const ACTIVE_MSG_TYPE = 'dumi:scroll-into-demo'
 
@@ -12,9 +13,11 @@ const isMobile = isAndroid() || isIOS()
 export default (props: IPreviewerProps) => {
   const ref = useRef<HTMLDivElement>()
   const { meta } = useContext(context)
+  const builtinDemoUrl = useDemoUrl(props.identifier)
   const [previewerProps, setPreviewerProps] = useState<null | IPreviewerProps>(null)
   const [isActive, setIsActive] = useState(false)
   const useMobileDemo = !previewerProps ? false : meta?.mobile ?? previewerProps?.mobile ?? true
+  const mobileDemoFixed = meta?.mobileDemoFixed ?? true
 
   useEffect(() => {
     const isFirstDemo = useMobileDemo && document.querySelector('.__dumi-default-mobile-previewer') === ref.current
@@ -26,9 +29,9 @@ export default (props: IPreviewerProps) => {
         (useMobileDemo &&
           // fallback to first demo
           isFirstDemo &&
-          scrollTop < ref?.current?.offsetTop) ||
+          scrollTop < ref?.current?.offsetTop!) ||
         // detect scroll position
-        (scrollTop > ref?.current?.offsetTop && scrollTop < ref?.current?.offsetTop + ref?.current?.offsetHeight)
+        (scrollTop > ref?.current?.offsetTop! && scrollTop < ref?.current?.offsetTop! + ref?.current?.offsetHeight!)
       ) {
         window.postMessage(
           { type: ACTIVE_MSG_TYPE, value: JSON.stringify({ identifier: props.identifier, demoUrl: props.demoUrl }) },
@@ -58,7 +61,7 @@ export default (props: IPreviewerProps) => {
             // show source code
             defaultShowCode: true,
             // hide external action
-            hideActions: ['EXTERNAL' as IPreviewerProps['hideActions'][0]].concat(props.hideActions),
+            hideActions: ['EXTERNAL'].concat(props.hideActions as any),
           },
           props,
         ),
@@ -78,13 +81,21 @@ export default (props: IPreviewerProps) => {
   }, [])
 
   return (
-    <div className={useMobileDemo ? '__dumi-default-mobile-previewer' : null} ref={ref}>
+    <div
+      className={`${useMobileDemo ? '__dumi-default-mobile-previewer' : ''} ${
+        !mobileDemoFixed ? '__dumi-default-mobile-previewer-inline' : ''
+      }`}
+      ref={ref as any}
+    >
       {previewerProps && (
         <Previewer
           className={useMobileDemo && isActive ? '__dumi-default-previewer-target' : null}
           {...previewerProps}
           defaultShowCode={window?.outerWidth > 960 && useMobileDemo}
         />
+      )}
+      {!mobileDemoFixed && (
+        <Device className="__dumi-default-mobile-content-device" fixed={false} url={props.demoUrl ?? builtinDemoUrl} />
       )}
     </div>
   )

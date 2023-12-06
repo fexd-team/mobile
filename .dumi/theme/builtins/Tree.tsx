@@ -5,9 +5,9 @@ import { TreeProps } from 'antd/es/tree'
 import 'antd/es/tree/style'
 import './Tree.less'
 
-function getTreeFromList(nodes: ReactNode, prefix = '') {
+function getTreeFromList(nodes: any[], prefix = '') {
   const data: TreeProps['treeData'] = []
-  ;[].concat(nodes).forEach((node, i) => {
+  ;[].concat(nodes as any).forEach((node: any, i) => {
     const key = `${prefix ? `${prefix}-` : ''}${i}`
 
     switch (node.type) {
@@ -22,7 +22,7 @@ function getTreeFromList(nodes: ReactNode, prefix = '') {
         const liLeafs = getTreeFromList(node.props.children, key)
 
         data.push({
-          title: [].concat(node.props.children).filter((child) => child.type !== 'ul'),
+          title: [].concat(node.props.children).filter((child: any) => child.type !== 'ul'),
           key,
           children: liLeafs,
           isLeaf: !liLeafs.length,
@@ -37,10 +37,10 @@ function getTreeFromList(nodes: ReactNode, prefix = '') {
 }
 
 const useListToTree = (nodes: ReactNode) => {
-  const [tree, setTree] = useState(getTreeFromList(nodes))
+  const [tree, setTree] = useState(getTreeFromList(nodes as any))
 
   useEffect(() => {
-    setTree(getTreeFromList(nodes))
+    setTree(getTreeFromList(nodes as any))
   }, [nodes])
 
   return tree

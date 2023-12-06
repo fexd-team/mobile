@@ -1,3 +1,6 @@
+/**
+ * mobile-device-style: fixed
+ */
 import React, { useState, useEffect } from 'react'
 import { run, debounce } from '@fexd/tools'
 import {

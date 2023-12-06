@@ -10,6 +10,7 @@ export default defineConfig({
   outputPath: 'docs',
   publicPath: process.env.NODE_ENV === 'production' ? '/mobile/' : '/',
   mode: 'site',
+  locales: [['zh-CN', '中文']],
   history: { type: 'hash' },
   resolve: {
     includes: ['documents', 'packages/mobile/src', 'packages/mobile-router5/src'],

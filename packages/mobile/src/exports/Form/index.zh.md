@@ -2,61 +2,39 @@
 group:
   title: 输入
   path: /data
+
+mobileDemoFixed: false
 ---
 
 # Form 表单 <ImportCost name="Form" />
-
-待补充
-
-<!-- prettier-ignore -->
-```jsx | pure
-import { Form } from '@fexd/mobile'
-
-<Form />
-```
 
 ---
 
 ## 使用说明
 
-### 基础
+### 基础用法
 
-待补充
-
-<!-- prettier-ignore -->
-```jsx | pure
-import { Form } from '@fexd/mobile'
-
-<Form />
-```
-
-### 进阶
-
-待补充
-
-<!-- prettier-ignore -->
-```jsx | pure
-import { Form } from '@fexd/mobile'
-
-<Form />
-```
+<code src="./demos/basic.tsx" />
 
 ---
 
-## API
+## Form Instance
 
-| 属性                                         | 说明 | 类型 | 默认值 |
-| :------------------------------------------- | :--- | :--- | :----- |
-| 必传参数 <span style="color: red;">\*</span> | -    | -    | -      |
-| 可选参数                                     | -    | -    | -      |
+`createForm()` 会得到 `From` 实例，以下是属性说明
 
----
+<API identifier="createForm" hideTitle src="../createForm/type.tsx" hideDefaultColumn hideRequiredMark></API>
 
-## 样式变量
+## Form.Field
 
-| 变量名       | 说明         | 默认值       |
-| :----------- | :----------- | :----------- |
-| @form-prefix | 组件样式前缀 | `'exd-form'` |
+`<From.Field>` 标签的属性说明
+
+<API identifier="Field" hideTitle src="../Form/Field/type.tsx" exports='["DOC_FormFieldProps"]'></API>
+
+## FieldController
+
+`<From.Field>` 标签的属性说明
+
+<API namePrefix="field." identifier="FieldController" hideTitle src="../Form/Field/type.tsx" exports='["DOC_FieldController"]' hideDefaultColumn hideRequiredMark></API>
 
 ---
 

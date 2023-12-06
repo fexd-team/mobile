@@ -3,7 +3,7 @@ import { run, pick } from '@fexd/tools'
 
 import useIOControl from '../../useIOControl'
 import createFC from '../../createFC'
-import { Value } from '../../Checkbox/type'
+import { CheckboxValue } from '../../Checkbox/type'
 import { CheckboxGroupProps, CheckboxContentProps } from './type'
 import Checkbox from '../../Checkbox/index'
 
@@ -15,7 +15,7 @@ const CheckboxGroup = createFC<CheckboxGroupProps, HTMLLabelElement>(function Ch
   forwardedRef,
 ) {
   // const [checkedValue, setCheckedValue] = useState<any[]>(value)
-  const { value: checkedValue, setValue: setCheckedValue } = useIOControl<Value[]>(
+  const { value: checkedValue, setValue: setCheckedValue } = useIOControl<CheckboxValue[]>(
     pick(props, ['value', 'defaultValue', 'onChange']),
   )
 

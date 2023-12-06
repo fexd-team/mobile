@@ -9,9 +9,10 @@ import './Device.less'
 interface IDeviceProps {
   className?: string
   url: string
+  fixed?: boolean
 }
 
-const Device: FC<IDeviceProps> = ({ url, className = '' }) => {
+const Device: FC<IDeviceProps> = ({ fixed = true, url, className = '' }) => {
   const [renderKey, setRenderKey] = useState(Math.random())
   const [color] = usePrefersColor()
   const {
@@ -25,11 +26,17 @@ const Device: FC<IDeviceProps> = ({ url, className = '' }) => {
   }, [color])
 
   return (
-    <div className={['__dumi-default-device'].concat(className).join(' ')} data-device-type="iOS" data-mode={mode}>
-      <div className="__dumi-default-device-status">
-        <span>FEXD</span>
-        <span>10:24</span>
-      </div>
+    <div
+      className={['__dumi-default-device', fixed ? '__dumi-default-device-fixed' : ''].concat(className).join(' ')}
+      data-device-type="iOS"
+      data-mode={mode}
+    >
+      {true && (
+        <div className="__dumi-default-device-status">
+          <span>FEXD</span>
+          <span>10:24</span>
+        </div>
+      )}
       <iframe title="dumi-previewer" src={url} key={renderKey} />
       <div className="__dumi-default-device-action">
         <button className="__dumi-default-icon" role="refresh" onClick={() => setRenderKey(Math.random())} />

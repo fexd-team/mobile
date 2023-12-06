@@ -48,8 +48,8 @@ const UnstyledIODatePicker = createFC<UnstyledIODatePickerProps, UnstyledIODateP
   const [focused, setFocused] = useState(false)
   const { value, setValue } = useIOControl(props as any)
   const hasValue = !!value
-
-  const active = propActive ?? (focused || hasValue)
+  const hasLabelAndPlaceholder = Boolean(label && placeholder) && label !== placeholder
+  const active = propActive ?? (focused || hasValue || hasLabelAndPlaceholder)
 
   return (
     <DatePicker
