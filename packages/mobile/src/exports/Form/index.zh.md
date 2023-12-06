@@ -22,7 +22,7 @@ mobileDemoFixed: false
 
 `createForm()` 会得到 `From` 实例，以下是属性说明
 
-<API identifier="createForm" hideTitle src="../createForm/type.tsx" hideDefaultColumn hideRequiredMark></API>
+<API namePrefix="form." identifier="createForm" hideTitle src="../createForm/type.tsx" hideDefaultColumn hideRequiredMark></API>
 
 ## Form.Field
 

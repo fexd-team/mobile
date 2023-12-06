@@ -25,6 +25,7 @@ interface EnhancedIApiComponentProps extends IApiComponentProps {
   hidedefaultcolumn?: any
   hiderequiredmark?: any
   src?: string
+  nameprefix?: string
 }
 export default ({ identifier, export: expt, ...props }: EnhancedIApiComponentProps) => {
   const data = useApiData(identifier)
@@ -32,6 +33,7 @@ export default ({ identifier, export: expt, ...props }: EnhancedIApiComponentPro
   const texts = /^zh|cn$/i.test(locale as any) ? LOCALE_TEXTS['zh-CN'] : LOCALE_TEXTS['en-US']
   const hideDefaultColumn = props?.hidedefaultcolumn === ''
   const hideRequiredMark = props?.hiderequiredmark === ''
+  const namePrefix = props?.nameprefix || ''
 
   console.log('expt', expt, data, props)
 
@@ -52,6 +54,7 @@ export default ({ identifier, export: expt, ...props }: EnhancedIApiComponentPro
             {get(data, expt, []).map((row) => (
               <tr key={row.identifier}>
                 <td>
+                  {namePrefix}
                   {row.identifier}
                   {!hideRequiredMark && row.required && <span style={{ color: 'red', marginLeft: 4 }}>*</span>}
                 </td>
