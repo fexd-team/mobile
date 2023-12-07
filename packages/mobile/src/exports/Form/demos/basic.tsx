@@ -7,6 +7,7 @@ import {
   LineDatePicker,
   LineTimePicker,
   Button,
+  Radio,
   Checkbox,
   Switch,
   Stepper,
@@ -71,6 +72,22 @@ function Demo() {
             ]}
             error={field.error}
           />
+        )}
+      </Form.Field>
+
+      <Form.Field name="radio" defaultValue={'1'}>
+        {(field) => (
+          <LineIOLabel contentProps={{ style: { height: 36 } }} active label="单选框" error={field.error}>
+            <Radio.Group
+              options={[
+                { label: '选项1', value: '1' },
+                { label: '选项2', value: '2' },
+                { label: '选项3', value: '3' },
+              ]}
+              value={field.value}
+              onChange={field.setValue}
+            />
+          </LineIOLabel>
         )}
       </Form.Field>
 

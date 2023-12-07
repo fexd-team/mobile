@@ -27,4 +27,4 @@ import { {{ name }} } from '@fexd/mobile'
 
 ## {{ name }}
 
-<API hideTitle src="./type.tsx"></API>
+<API identifier="{{ name }}" hideTitle src="./type.tsx"></API>

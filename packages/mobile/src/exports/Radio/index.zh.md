@@ -1,9 +1,7 @@
 ---
-hide: true
-
 group:
-  title: 实验性
-  path: /experimental
+  title: 输入
+  path: /data
 
 mobileDemoFixed: false
 ---
@@ -27,8 +25,12 @@ import { Radio } from '@fexd/mobile'
 
 ## Radio
 
-<API hideTitle src="./type.tsx"></API>
+<API identifier="Radio" hideTitle src="./type.tsx"></API>
 
 ## Radio.Group
 
-TODO
+<API identifier="RadioGroup" hideTitle src="./Group/type.tsx" exports='["default"]'></API>
+
+## GroupOption
+
+<API identifier="RadioGroupOptions" hideTitle src="./Group/type.tsx" exports='["DOC_PureRadioGroupOption"]'></API>

@@ -4,20 +4,48 @@ import { CheckmarkCircle, EllipseOutline } from '@fexd/icons'
 import createFC from '../createFC'
 import { RadioProps, RadioRef, RadioType } from './type'
 import useIOControl from '../useIOControl'
+import RadioGroup, { useRadioGroupContext } from './Group'
 // 此处不引入 style.less，目的是实现按需引用
 
+export const defaultIcon = (checked) => (checked ? <CheckmarkCircle /> : <EllipseOutline />)
 export const prefix = 'exd-radio'
 const Radio = createFC<RadioProps, RadioRef>(function Radio(
-  { className, block, disabled, description, children, icon, ...props },
+  {
+    className,
+    block: propBlock,
+    disabled: propDisabled,
+    description,
+    children,
+    icon: propIcon,
+    size: propSize,
+    value: propValue,
+    ...props
+  },
   ref,
 ) {
-  const { value: checked, setValue: setChecked } = useIOControl<boolean>(
+  const groupContext = useRadioGroupContext()
+  const {
+    icon: ctxIcon,
+    block: ctxBlock,
+    size: ctxSize,
+    disabled: ctxDisabled,
+    value: ctxValue,
+    setValue: setCtxValue,
+  } = groupContext
+  const block = propBlock ?? ctxBlock ?? false
+  const disabled = propDisabled ?? ctxDisabled
+  const icon = propIcon ?? ctxIcon ?? defaultIcon
+  const size = propSize ?? ctxSize ?? 'default'
+  const { value: ioChecked, setValue: setIOChecked } = useIOControl<boolean>(
     pick(props, ['checked', 'defaultChecked', 'onChange']),
     {
       valuePropName: 'checked',
       defaultValuePropName: 'defaultChecked',
     },
   )
+
+  const checked = ctxValue ? ctxValue === propValue : ioChecked
+
   /* 组件逻辑实现 */
   return (
     <label
@@ -27,12 +55,23 @@ const Radio = createFC<RadioProps, RadioRef>(function Radio(
         {
           [`${prefix}-wrapper--block`]: block,
           [`${prefix}-wrapper--disabled`]: disabled,
+          [`${prefix}-wrapper--size-${size}`]: true,
         },
         className,
       )}
       onChange={undefined}
       ref={ref}
-      onClick={() => setChecked((value) => !value)}
+      onClick={() => {
+        if (disabled) {
+          return
+        }
+        if (setCtxValue) {
+          setCtxValue(propValue)
+          return
+        }
+
+        setIOChecked((value) => !value)
+      }}
     >
       <div className={`${prefix}-label`}>
         <div
@@ -50,8 +89,9 @@ const Radio = createFC<RadioProps, RadioRef>(function Radio(
 }) as RadioType
 
 Radio.defaultProps = {
-  block: false,
-  icon: (checked) => (checked ? <CheckmarkCircle /> : <EllipseOutline />),
+  // block: false,
+  // icon: (checked) => (checked ? <CheckmarkCircle /> : <EllipseOutline />),
 }
+Radio.Group = RadioGroup
 
 export default Radio

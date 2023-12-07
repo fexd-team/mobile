@@ -1,6 +1,7 @@
 import AUTO_API from '../../helpers/AUTO_API'
 import { JSXLabelProps } from '../../helpers/html.types'
 import { FC } from '../createFC/type'
+import { RadioGroupType } from './Group/type'
 
 export interface PureRadioProps {
   /** 是否选中 */
@@ -9,15 +10,21 @@ export interface PureRadioProps {
   value?: any
   /** 是否默认选中 */
   defaultChecked?: boolean
-  /** 复选框选中状态回调函数 */
+  /** 单选框选中状态回调函数 */
   onChange?: (checked: boolean, value: any, e?: any) => void
   /** 是否禁用 */
   disabled?: boolean
   /** 自定义 icon 图标 */
   icon?: React.ReactNode | ((checked: boolean) => React.ReactNode)
-  /** 大小 */
+  /**
+   * @description 大小
+   * @default default
+   */
   size?: 'small' | 'default' | 'large'
-  /** 是否垂直排列 */
+  /**
+   * @description 是否垂直排列
+   * @default false
+   */
   block?: boolean
   /** 单选框名称 */
   children?: React.ReactNode
@@ -29,6 +36,8 @@ export interface PureRadioProps {
 export interface RadioProps extends PureRadioProps {}
 export interface RadioProps extends Omit<JSXLabelProps, 'ref' | 'onChange'> {}
 export type RadioRef = HTMLLabelElement
-export interface RadioType extends FC<RadioProps> {}
+export interface RadioType extends FC<RadioProps> {
+  Group: RadioGroupType
+}
 
 export default AUTO_API<PureRadioProps>()
