@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 import { classnames, run, get } from '@fexd/tools'
-import { ChevronForward, Time } from '@fexd/icons'
+import { ChevronForwardSharp } from '@fexd/icons'
 import dayjs from 'dayjs'
 
 import TimePicker from '../TimePicker'
@@ -118,7 +118,7 @@ UnstyledIOTimePicker.defaultProps = {
   autoHeight: false,
   format: 'HH:mm:ss',
   theme: UnstyledLabel,
-  arrowIcon: <ChevronForward color="#bbb" />,
+  arrowIcon: <ChevronForwardSharp />,
   classNamePrefix: 'exd-unstyled-io-time-picker',
 }
 

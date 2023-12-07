@@ -7,7 +7,4 @@ const showPopup = createModalAPI(Popup, {
   onConflict: modalConflict.handlers.mask,
 })
 
-// @ts-ignore
-window.showPopup = showPopup
-
 export default showPopup

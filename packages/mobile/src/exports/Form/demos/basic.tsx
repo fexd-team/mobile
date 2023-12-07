@@ -11,6 +11,7 @@ import {
   Switch,
   Stepper,
   Slider,
+  Rate,
   toast,
 } from '@fexd/mobile'
 
@@ -73,7 +74,7 @@ function Demo() {
         )}
       </Form.Field>
 
-      <Form.Field name="checkbox">
+      <Form.Field name="checkbox" defaultValue={['1', '2']}>
         {(field) => (
           <LineIOLabel contentProps={{ style: { height: 36 } }} active label="多选框" error={field.error}>
             <Checkbox.Group
@@ -89,8 +90,16 @@ function Demo() {
         )}
       </Form.Field>
 
+      <Form.Field name="rate" defaultValue={3}>
+        {(field) => (
+          <LineIOLabel contentProps={{ style: { height: 36 } }} active label="评分" error={field.error}>
+            <Rate value={field.value} onChange={field.setValue} allowHalf />
+          </LineIOLabel>
+        )}
+      </Form.Field>
+
       <div style={{ display: 'flex', width: '100%', gap: 8 }}>
-        <Form.Field name="switch">
+        <Form.Field name="switch" defaultValue={true}>
           {(field) => (
             <LineIOLabel
               wrapperProps={{ style: { flex: 1 } }}
@@ -103,7 +112,7 @@ function Demo() {
             </LineIOLabel>
           )}
         </Form.Field>
-        <Form.Field name="stepper" defaultValue={0}>
+        <Form.Field name="stepper" defaultValue={5}>
           {(field) => (
             <LineIOLabel
               wrapperProps={{ style: { flex: 1 } }}
@@ -118,7 +127,7 @@ function Demo() {
         </Form.Field>
       </div>
 
-      <Form.Field name="slider">
+      <Form.Field name="slider" defaultValue={50}>
         {(field) => (
           <LineIOLabel active label="滑块" error={field.error}>
             <div style={{ padding: '0 7px', width: '100%' }}>
@@ -181,5 +190,6 @@ function Demo() {
 export default () => (
   <div style={{ padding: 16, background: '#fff' }}>
     <Demo />
+    {/* 111 */}
   </div>
 )

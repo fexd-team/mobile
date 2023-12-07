@@ -47,14 +47,16 @@ export default function usePickerProps<T = string>(props: BasicPickerProps<T>) {
       onClose={() => setVisible(false)}
       onExited={() => {
         setVisible(false)
-        setInsideValue(value)
+        if (value) {
+          setInsideValue(value)
+        }
         run(onExited ?? popupProps?.onExited)
       }}
       headerRight={() => (
         <span
           onClick={() => {
-            setVisible(false)
             setValue(insideValue)
+            setVisible(false)
           }}
         >
           {run(headerRight)}

@@ -46,22 +46,29 @@
     border: 1px solid @color-primary;
     border-radius: 3px * @checkbox-size-scale * @size-scale;
     transition: background 0.2s;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 
     &--checked {
       background: @color-primary;
       transition: all 0.2s;
 
-      &::after {
-        position: absolute;
-        left: 3px * @checkbox-size-scale * @size-scale;
-        top: 1px * @checkbox-size-scale * @size-scale;
-        width: 6px * @checkbox-size-scale * @size-scale;
-        height: 8px * @checkbox-size-scale * @size-scale;
-        border-top: 2px solid #fff;
-        border-left: 2px solid #fff;
-        transform: rotate(220deg);
-        content: '';
+      .exd-icon {
+        color: #fff;
       }
+
+      // &::after {
+      //   position: absolute;
+      //   left: 3px * @checkbox-size-scale * @size-scale;
+      //   top: 1px * @checkbox-size-scale * @size-scale;
+      //   width: 6px * @checkbox-size-scale * @size-scale;
+      //   height: 8px * @checkbox-size-scale * @size-scale;
+      //   border-top: 2px solid #fff;
+      //   border-left: 2px solid #fff;
+      //   transform: rotate(220deg);
+      //   content: '';
+      // }
     }
 
     &--disabled {

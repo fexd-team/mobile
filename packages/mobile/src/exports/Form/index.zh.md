@@ -8,6 +8,13 @@ mobileDemoFixed: false
 
 # Form 表单 <ImportCost name="Form" />
 
+<!-- prettier-ignore -->
+```jsx | pure
+import { Form } from '@fexd/mobile'
+
+<Form />
+```
+
 ---
 
 ## 效果演示
@@ -29,25 +36,6 @@ import { Form } from '@fexd/mobile'
 
 ---
 
-## form 实例
-
-调用 `createForm()` 或 `Form.useForm()` 会得到 `form` 实例
-
-<!-- prettier-ignore -->
-```jsx | pure
-import { Form, createForm } from '@fexd/mobile'
-
-const form = createForm() // 任意位置
-const form = Form.useForm() // React FC 内
-<Form form={form}>...</Form>
-```
-
-以下是 `form` 实例的属性说明
-
-<API namePrefix="form." identifier="createForm" hideTitle src="../createForm/type.tsx" hideDefaultColumn hideRequiredMark></API>
-
----
-
 ## Form.Field
 
 `<From.Field>` 标签用来创建一个表单的作用域
@@ -58,15 +46,17 @@ const form = Form.useForm() // React FC 内
 ```jsx | pure
 import { Form } from '@fexd/mobile'
 
-<Form.Field
-  name="userName"
-  defaultValue="YOUR_USER_NAME"
-  rules={[
-    value => !value ? '请输入用户名' : undefined
-  ]}
->
-  {...}
-</Form.Field>
+<Form>
+  <Form.Field
+    name="userName"
+    defaultValue="YOUR_USER_NAME"
+    rules={[
+      value => !value ? '请输入用户名' : undefined
+    ]}
+  >
+    {...}
+  </Form.Field>
+</Form>
 ```
 
 <API identifier="Field" hideTitle src="../Form/Field/type.tsx" exports='["DOC_FormFieldProps"]'></API>
@@ -101,6 +91,25 @@ import { Form } from '@fexd/mobile'
 
 ---
 
-## 演示代码
+## form 实例
 
-<code src="./demos/demo1/index.tsx" />
+调用 `createForm()` 或 `Form.useForm()` 会得到 `form` 实例
+
+<!-- prettier-ignore -->
+```jsx | pure
+import { Form, createForm } from '@fexd/mobile'
+
+const form = createForm() // 任意位置
+const form = Form.useForm() // React FC 内
+<Form form={form}>...</Form>
+```
+
+以下是 `form` 实例的属性说明
+
+<API namePrefix="form." identifier="createForm" hideTitle src="../createForm/type.tsx" hideDefaultColumn hideRequiredMark></API>
+
+---
+
+<!-- ## 演示代码
+
+<code src="./demos/demo1/index.tsx" /> -->

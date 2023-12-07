@@ -1,4 +1,7 @@
 import React from 'react'
+import ReactDOM from 'react-dom'
+import { isFunction, globalThis as root, run } from '@fexd/tools'
+
 import createFC from '../createFC'
 import { ProviderProps, ProviderRef, ProviderType } from './type'
 import GlobalSharedOverlay from '../Modal/SharedOverlay/GlobalOverlay'
@@ -20,3 +23,20 @@ const Provider = createFC<ProviderProps, ProviderRef>(function Provider({ childr
 Provider.defaultProps = {}
 
 export default Provider
+
+try {
+  if (isFunction(ReactDOM?.render)) {
+    run(() => {
+      const monted = `GLOBAL_FEXD_PROVIDER`
+      if (!root.document || root[monted]) {
+        return
+      }
+      const container = document.createElement('div')
+      container.id = monted
+      ReactDOM?.render?.(<Provider />, container)
+      root[monted] = true
+    })
+  }
+} catch (error) {
+  // console.error(error)
+}

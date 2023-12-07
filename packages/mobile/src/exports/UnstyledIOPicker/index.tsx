@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 import { classnames, run, get, isExist } from '@fexd/tools'
-import { ChevronForward } from '@fexd/icons'
+import { ChevronForwardSharp } from '@fexd/icons'
 
 import Picker from '../Picker'
 import useIOControl from '../useIOControl'
@@ -130,7 +130,7 @@ UnstyledIOPicker.defaultProps = {
   autoHeight: false,
   theme: UnstyledLabel,
   classNamePrefix: 'exd-unstyled-io-picker',
-  arrowIcon: <ChevronForward color="#bbb" />,
+  arrowIcon: <ChevronForwardSharp />,
 }
 
 export default UnstyledIOPicker

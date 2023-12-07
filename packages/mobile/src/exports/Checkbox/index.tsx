@@ -1,5 +1,6 @@
 import React, { useEffect, useContext } from 'react'
 import { run, classnames, pick } from '@fexd/tools'
+import { CheckmarkRound, CheckmarkSharp } from '@fexd/icons'
 
 import useIOControl from '../useIOControl'
 import createFC from '../createFC'
@@ -71,7 +72,9 @@ const Checkbox: CheckboxType = createFC<CheckboxProps, HTMLLabelElement>(functio
             [`${prefix}-inner--checked`]: isChecked,
             [`${prefix}-inner--disabled`]: disabled,
           })}
-        />
+        >
+          {isChecked && <CheckmarkSharp />}
+        </span>
       </span>
       <span>{run(children)}</span>
     </label>

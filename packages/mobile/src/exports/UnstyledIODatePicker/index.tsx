@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 import { classnames, run } from '@fexd/tools'
-import { ChevronForward } from '@fexd/icons'
+import { ChevronForwardSharp } from '@fexd/icons'
 import dayjs from 'dayjs'
 
 import DatePicker from '../DatePicker'
@@ -9,7 +9,7 @@ import UnstyledIOLabel from '../UnstyledIOLabel'
 import createFC from '../createFC'
 import { UnstyledIODatePickerProps, UnstyledIODatePickerRef, UnstyledIODatePickerType } from './type'
 import UnstyledLabel from '../UnstyledLabel'
-import Button from '../Button'
+// import Button from '../Button'
 // 此处不引入 style.less，目的是实现按需引用
 
 const UnstyledIODatePicker = createFC<UnstyledIODatePickerProps, UnstyledIODatePickerRef>(function UnstyledIODatePicker(
@@ -119,7 +119,7 @@ UnstyledIODatePicker.defaultProps = {
   format: 'YYYY-MM-DD',
   theme: UnstyledLabel,
   autoHeight: false,
-  arrowIcon: <ChevronForward color="#bbb" />,
+  arrowIcon: <ChevronForwardSharp />,
   classNamePrefix: 'exd-unstyled-io-date-picker',
 }
 

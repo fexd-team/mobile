@@ -17,7 +17,8 @@ const PickerView = createFC<PickerViewProps, HTMLDivElement>(function PickerView
   const contentHeight = useMemo(() => itemHeight * localRows, [itemHeight, localRows])
   const indicatorTop = useMemo(() => itemHeight * placeholderNumber, [itemHeight, placeholderNumber])
   const contentRef = useRef<HTMLDivElement>(null)
-  const indexRef = useRef<number>(0)
+  const [initialIndex = 0] = useState(() => options.findIndex((item) => item.value === (value ?? props?.defaultValue)))
+  const indexRef = useRef<number>(initialIndex)
   // 闭包问题导致 options 改变但 handleScroll() 函数里拿到的仍然是旧值
   const optionsRef = useRef(options)
   const touchingRef = useRef(false) // 记录滚动中状态
@@ -92,6 +93,14 @@ const PickerView = createFC<PickerViewProps, HTMLDivElement>(function PickerView
       contentRef.current!!.scrollTop = itemHeight * index
     }
   }, [value, options, itemHeight])
+
+  useEffect(() => {
+    optionsRef.current = options
+    const index = options.findIndex((item) => item.value === props?.defaultValue)
+    if (index > -1) {
+      contentRef.current!!.scrollTop = itemHeight * index
+    }
+  }, [])
 
   if (rows < 3 || rows % 2 === 0) {
     console.error('Warning: row 必须大于 3 且为奇数')

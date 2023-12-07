@@ -23,7 +23,7 @@
 
 .@{line-input-prefix}__input {
   &::placeholder {
-    color: #999;
+    color: @ant-color-gray-7;
   }
 }
 
@@ -37,15 +37,15 @@
   width: 100%;
   background-color: transparent;
   font-size: 14px * @size-scale;
-  color: #333;
+  color: @ant-color-gray-10;
 
   &--disabled {
-    color: #c2bcbe;
+    color: @ant-color-gray-5;
     pointer-events: none;
   }
 
   &::placeholder {
-    color: #b2b2b2;
+    color: @ant-color-gray-6;
   }
 
   opacity: 0;
@@ -61,19 +61,19 @@
 }
 
 .@{line-input-prefix}__disabled {
-  color: #c2bcbe;
+  color: @ant-color-gray-5;
 }
 
 .@{line-input-prefix}__prefix {
   line-height: 22px * @size-scale;
   font-size: 14px * @size-scale;
-  color: #c2bcbe;
+  color: @ant-color-gray-5;
 }
 
 .@{line-input-prefix}__clear {
   font-size: 17px * @size-scale;
   cursor: pointer;
-  color: #bbb;
+  color: @ant-color-gray-6;
   opacity: 0;
   transform: scale(0.8);
   transition: opacity 0.2s, transform 0.2s;
@@ -94,8 +94,8 @@
 }
 
 .@{line-input-prefix}__placeholder {
-  color: #b2b2b2;
-  
+  color: @ant-color-gray-6;
+
   &--capitalize {
     &::placeholder {
       text-transform: capitalize;

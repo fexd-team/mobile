@@ -7,7 +7,4 @@ const showDialog = createModalAPI(Dialog, {
   onConflict: modalConflict.handlers.hidden,
 })
 
-// @ts-ignore
-window.showDialog = showDialog
-
 export default showDialog

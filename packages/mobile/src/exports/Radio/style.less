@@ -1,0 +1,68 @@
+@import '../../theme/vars'; // 引入全局样式变量集，内含 @size-scale、各类色值等变量
+
+// 由于 less 变量的懒生效特性，变量命名空间存在冲突，此处 prefix 变量命名前需要加特定前缀
+// https://less.bootcss.com/features/#variables-lazy-evaluation
+@radio-prefix: ~'exd-radio';
+
+@radio-icon-area-width: 36px;
+
+.@{radio-prefix} {
+  /* 组件样式 */
+
+  &-wrapper {
+    cursor: pointer;
+    display: inline-block;
+
+    &--block {
+      display: block;
+    }
+
+    &--disabled {
+      .@{radio-prefix} {
+        &-icon {
+          color: #ccc;
+        }
+        &-content {
+          color: #ccc;
+        }
+        &-description {
+          color: #ccc;
+        }
+      }
+    }
+  }
+
+  &-label {
+    display: flex;
+    align-items: center;
+  }
+
+  &-icon {
+    width: @radio-icon-area-width * @size-scale;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: @color-gray;
+
+    .exd-icon {
+      font-size: 24px * @size-scale;
+    }
+
+    &--active {
+      color: @color-primary;
+    }
+  }
+
+  &-content {
+    display: flex;
+    align-items: center;
+    font-size: 16px * @size-scale;
+  }
+
+  &-description {
+    margin-top: 4px * @size-scale;
+    padding-left: @radio-icon-area-width * @size-scale;
+    font-size: 12px * @size-scale;
+    color: #999;
+  }
+}

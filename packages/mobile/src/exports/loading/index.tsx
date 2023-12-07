@@ -62,7 +62,4 @@ const loading = {
   getController,
 }
 
-// @ts-ignore
-window.loading = loading
-
 export default loading

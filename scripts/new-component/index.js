@@ -26,10 +26,7 @@ async function addCompoment(name) {
     if (scriptEntryContent.indexOf(`from './exports/${name}'`) === -1) {
       fs.writeFileSync(
         scriptEntryPath,
-        scriptEntryContent.replace(
-          '// components',
-          `// components${br}export { default as ${name} } from './exports/${name}'`,
-        ),
+        [`export { default as ${name} } from './exports/${name}'`, scriptEntryContent].join(br),
         { encoding: 'utf-8' },
       )
     }
@@ -37,17 +34,15 @@ async function addCompoment(name) {
     const typeEntryPath = path.resolve(cwd, './packages/mobile/src/types.ts')
     const typeEntryContent = fs.readFileSync(typeEntryPath, { encoding: 'utf-8' })
     if (typeEntryContent.indexOf(`from './exports/${name}'`) === -1) {
-      fs.writeFileSync(
-        typeEntryPath,
-        typeEntryContent.replace('// components', `// components${br}export * from './exports/${name}/type'`),
-        { encoding: 'utf-8' },
-      )
+      fs.writeFileSync(typeEntryPath, [`export * from './exports/${name}/type'`, typeEntryContent].join(br), {
+        encoding: 'utf-8',
+      })
     }
 
     const styleEntryPath = path.resolve(cwd, './packages/mobile/src/style.less')
     const styleEntryContent = fs.readFileSync(styleEntryPath, { encoding: 'utf-8' })
     if (styleEntryContent.indexOf(`exports/${name}/style`) === -1) {
-      fs.writeFileSync(styleEntryPath, `@import './exports/${name}/style';${br}${styleEntryContent}`, {
+      fs.writeFileSync(styleEntryPath, [`@import './exports/${name}/style';`, styleEntryContent].join(br), {
         encoding: 'utf-8',
       })
     }

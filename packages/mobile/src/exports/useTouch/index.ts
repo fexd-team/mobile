@@ -115,7 +115,7 @@ export default function useTouch(
     setTouches(nextTouches)
     run(restOption, lifecycle, nextTouches, currentTouches ?? nextTouches ?? [])
   }, wait)
-
+  const shouldMouseEventPreventDefaultRef = useRef(false)
   const wrapEventHandler = (handler: (e: any) => void) => (e: any) => {
     if (disabled) {
       return
@@ -125,8 +125,17 @@ export default function useTouch(
       e.stopPropagation()
     }
     // preventDefault 需要排除 touchstart、touchend 事件，否则点击行为将失效
-    if (preventDefault && !['touchstart', 'touchend'].includes(e?.type)) {
+    if (preventDefault && !['touchstart', 'touchend'].includes(e?.type) && shouldMouseEventPreventDefaultRef.current) {
       e.preventDefault()
+    }
+
+    // 鼠标按下时，不阻止默认行为，否则用户无法选中文本
+    if (e?.type === 'mousedown') {
+      shouldMouseEventPreventDefaultRef.current = true
+    }
+
+    if (e?.type === 'mouseup') {
+      shouldMouseEventPreventDefaultRef.current = false
     }
 
     const eventTouches = 'touches' in e ? [...(e.touches ?? [])] : [e]

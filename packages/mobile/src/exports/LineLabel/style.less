@@ -21,12 +21,12 @@
 
 .@{line-label-prefix}__info {
   .@{line-label-prefix}__bar {
-    border-color: #f0f0f0;
+    border-color: @ant-color-gray-4;
   }
 
   .@{line-label-prefix}__helper {
     opacity: 1;
-    color: #888;
+    color: @ant-color-gray-7;
   }
 }
 
@@ -68,16 +68,16 @@
   // opacity: 0.9;
 
   .@{line-label-prefix}__label {
-    color: #c2bcbe;
+    color: @ant-color-gray-5;
   }
 
   .@{line-label-prefix}__content {
-    color: #c2bcbe;
+    color: @ant-color-gray-5;
   }
 
   .@{line-label-prefix}__helper {
     opacity: 1;
-    color: #c2bcbe;
+    color: @ant-color-gray-5;
   }
 }
 
@@ -94,7 +94,7 @@
   position: relative;
   display: flex;
   align-items: center;
-  border-bottom: 1px solid #e6e6e6;
+  border-bottom: 1px solid @ant-color-gray-5;
   transition: border-color 0.2s;
   // border-bottom: solid 1px rgb(225, 225, 225);
   // padding: 24px * @size-scale 0 8px * @size-scale;
@@ -112,7 +112,7 @@
   height: 24px * @size-scale;
   font-size: 14px * @size-scale;
   font-weight: 400;
-  color: #333;
+  color: @ant-color-gray-10;
   input {
     height: 100%;
     line-height: 24px * @size-scale;
@@ -138,14 +138,14 @@
   pointer-events: none;
   font-size: 14px * @size-scale;
   font-weight: 400;
-  color: #666;
+  color: @ant-color-gray-8;
 
   &--active {
     bottom: 100%;
     transform: translateY(100%);
     font-size: 12px * @size-scale;
     font-weight: 400;
-    color: #666;
+    color: @ant-color-gray-8;
   }
 
   &--capitalize {
@@ -154,7 +154,7 @@
 }
 
 .@{line-label-prefix}__placeholder {
-  color: #b2b2b2;
+  color: @ant-color-gray-6;
 }
 
 .@{line-label-prefix}__suffix {

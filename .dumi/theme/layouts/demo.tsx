@@ -7,6 +7,7 @@ import flex from 'umi-hd/lib/flex'
 import vw from 'umi-hd/lib/vw'
 import vh from 'umi-hd/lib/vh'
 import { isAndroid, isIOS } from '@fexd/tools'
+
 import IThemeConfig from '../typings/config'
 
 import '@root/packages/mobile/src/style.less'

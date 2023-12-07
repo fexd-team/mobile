@@ -8,13 +8,13 @@ group:
 mobileDemoFixed: false
 ---
 
-# {{ name }} 组件 <ImportCost name="{{ name }}" />
+# Radio 单选框 <ImportCost name="Radio" />
 
 <!-- prettier-ignore -->
 ```jsx | pure
-import { {{ name }} } from '@fexd/mobile'
+import { Radio } from '@fexd/mobile'
 
-<{{ name }} />
+<Radio />
 ```
 
 ---
@@ -25,6 +25,10 @@ import { {{ name }} } from '@fexd/mobile'
 
 ---
 
-## {{ name }}
+## Radio
 
 <API hideTitle src="./type.tsx"></API>
+
+## Radio.Group
+
+TODO

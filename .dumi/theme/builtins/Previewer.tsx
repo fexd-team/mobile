@@ -3,12 +3,17 @@ import { context, useDemoUrl } from 'dumi/theme'
 import { IPreviewerProps } from 'dumi-theme-default/src/builtins/Previewer'
 import Previewer from 'dumi-theme-default/src/builtins/Previewer'
 import { isAndroid, isIOS, debounce } from '@fexd/tools'
+import { useResponsive, configResponsive } from 'ahooks'
 import './Previewer.less'
 import Device from '../components/Device'
 
 export const ACTIVE_MSG_TYPE = 'dumi:scroll-into-demo'
 
 const isMobile = isAndroid() || isIOS()
+
+configResponsive({
+  lg: 960,
+})
 
 export default (props: IPreviewerProps) => {
   const ref = useRef<HTMLDivElement>()
@@ -18,6 +23,7 @@ export default (props: IPreviewerProps) => {
   const [isActive, setIsActive] = useState(false)
   const useMobileDemo = !previewerProps ? false : meta?.mobile ?? previewerProps?.mobile ?? true
   const mobileDemoFixed = meta?.mobileDemoFixed ?? true
+  const responsive = useResponsive()
 
   useEffect(() => {
     const isFirstDemo = useMobileDemo && document.querySelector('.__dumi-default-mobile-previewer') === ref.current
@@ -44,7 +50,7 @@ export default (props: IPreviewerProps) => {
     }, 50)
 
     // only render mobile phone when screen max than 960px
-    if (window?.outerWidth > 960 && useMobileDemo) {
+    if (responsive?.lg && useMobileDemo) {
       // active source code wrapper if scroll into demo
       handler()
       window.addEventListener('scroll', handler)
@@ -64,6 +70,9 @@ export default (props: IPreviewerProps) => {
             hideActions: ['EXTERNAL'].concat(props.hideActions as any),
           },
           props,
+          {
+            children: null,
+          },
         ),
       )
     } else {
@@ -71,8 +80,10 @@ export default (props: IPreviewerProps) => {
       setPreviewerProps(props)
     }
 
-    return () => window.removeEventListener('scroll', handler)
-  }, [props, useMobileDemo])
+    return () => {
+      window.removeEventListener('scroll', handler)
+    }
+  }, [props, useMobileDemo, responsive?.lg])
 
   useEffect(() => {
     if (!isMobile) {
@@ -87,14 +98,14 @@ export default (props: IPreviewerProps) => {
       }`}
       ref={ref as any}
     >
-      {!mobileDemoFixed && (
+      {useMobileDemo && isActive && !mobileDemoFixed && (
         <Device className="__dumi-default-mobile-content-device" fixed={false} url={props.demoUrl ?? builtinDemoUrl} />
       )}
       {previewerProps && (
         <Previewer
           className={useMobileDemo && isActive ? '__dumi-default-previewer-target' : null}
           {...previewerProps}
-          defaultShowCode={window?.outerWidth > 960 && useMobileDemo}
+          defaultShowCode={responsive?.lg && useMobileDemo}
         />
       )}
     </div>

@@ -33,7 +33,7 @@ const Picker = createFC<PickerProps, PickerRef>(function Picker(props, ref) {
               ? [
                   {
                     label: <span className={`${prefix}__clear`}>---</span>,
-                    value: null,
+                    value: undefined,
                   } as any,
                   ...options,
                 ]
@@ -41,6 +41,7 @@ const Picker = createFC<PickerProps, PickerRef>(function Picker(props, ref) {
           }
           value={insideValue}
           onChange={(value) => {
+            console.log('value', value)
             setInsideValue(value)
           }}
         />,
