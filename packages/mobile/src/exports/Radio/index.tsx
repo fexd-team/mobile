@@ -1,6 +1,7 @@
 import React from 'react'
-import { classnames, pick, run } from '@fexd/tools'
+import { classnames, run } from '@fexd/tools'
 import { CheckmarkCircle, EllipseOutline } from '@fexd/icons'
+
 import createFC from '../createFC'
 import { RadioProps, RadioRef, RadioType } from './type'
 import useIOControl from '../useIOControl'
@@ -17,32 +18,20 @@ const Radio = createFC<RadioProps, RadioRef>(function Radio(
     description,
     children,
     icon: propIcon,
-    size: propSize,
     value: propValue,
     ...props
   },
   ref,
 ) {
   const groupContext = useRadioGroupContext()
-  const {
-    icon: ctxIcon,
-    block: ctxBlock,
-    size: ctxSize,
-    disabled: ctxDisabled,
-    value: ctxValue,
-    setValue: setCtxValue,
-  } = groupContext
+  const { icon: ctxIcon, block: ctxBlock, disabled: ctxDisabled, value: ctxValue, setValue: setCtxValue } = groupContext
   const block = propBlock ?? ctxBlock ?? false
   const disabled = propDisabled ?? ctxDisabled
   const icon = propIcon ?? ctxIcon ?? defaultIcon
-  const size = propSize ?? ctxSize ?? 'default'
-  const { value: ioChecked, setValue: setIOChecked } = useIOControl<boolean>(
-    pick(props, ['checked', 'defaultChecked', 'onChange']),
-    {
-      valuePropName: 'checked',
-      defaultValuePropName: 'defaultChecked',
-    },
-  )
+  const { value: ioChecked, setValue: setIOChecked } = useIOControl<boolean>(props as any, {
+    valuePropName: 'checked',
+    defaultValuePropName: 'defaultChecked',
+  })
 
   const checked = ctxValue ? ctxValue === propValue : ioChecked
 
@@ -55,7 +44,6 @@ const Radio = createFC<RadioProps, RadioRef>(function Radio(
         {
           [`${prefix}-wrapper--block`]: block,
           [`${prefix}-wrapper--disabled`]: disabled,
-          [`${prefix}-wrapper--size-${size}`]: true,
         },
         className,
       )}
@@ -88,10 +76,7 @@ const Radio = createFC<RadioProps, RadioRef>(function Radio(
   )
 }) as RadioType
 
-Radio.defaultProps = {
-  // block: false,
-  // icon: (checked) => (checked ? <CheckmarkCircle /> : <EllipseOutline />),
-}
+Radio.defaultProps = {}
 Radio.Group = RadioGroup
 
 export default Radio

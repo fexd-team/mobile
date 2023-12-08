@@ -1,5 +1,6 @@
 import React, { createContext, useMemo, useContext } from 'react'
-import { isArray, pick } from '@fexd/tools'
+import { isArray } from '@fexd/tools'
+
 import createFC from '../../createFC'
 import { RadioGroupProps, RadioGroupRef, RadioGroupType, RadioGroupSharedProps } from './type'
 import useIOControl from '../../useIOControl'
@@ -38,7 +39,9 @@ const RadioGroup = createFC<RadioGroupProps, RadioGroupRef>(function RadioGroup(
       value={{
         value,
         setValue,
-        ...pick(props, ['icon', 'block', 'size', 'disabled']),
+        icon: props?.icon,
+        block: props?.block,
+        disabled: props?.disabled,
       }}
     >
       {optionsChildren ?? children}

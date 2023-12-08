@@ -1,6 +1,5 @@
 import React, { createContext, useMemo, useContext } from 'react'
-import { isArray, pick } from '@fexd/tools'
-import { CheckmarkCircle, EllipseOutline } from '@fexd/icons'
+import { isArray } from '@fexd/tools'
 import createFC from '../../createFC'
 import { CheckboxGroupProps, CheckboxGroupRef, CheckboxGroupType, CheckboxGroupSharedProps } from './type'
 import useIOControl from '../../useIOControl'
@@ -42,7 +41,9 @@ const CheckboxGroup = createFC<CheckboxGroupProps, CheckboxGroupRef>(function Ch
       value={{
         value,
         setValue,
-        ...pick(props, ['icon', 'block', 'size', 'disabled']),
+        icon: props?.icon,
+        block: props?.block,
+        disabled: props?.disabled,
       }}
     >
       {optionsChildren ?? children}

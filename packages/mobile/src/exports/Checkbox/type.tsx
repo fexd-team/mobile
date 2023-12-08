@@ -17,11 +17,6 @@ export interface PureCheckboxProps {
   /** 自定义 icon 图标 */
   icon?: React.ReactNode | ((checked: boolean) => React.ReactNode)
   /**
-   * @description 大小
-   * @default default
-   */
-  size?: 'small' | 'default' | 'large'
-  /**
    * @description 是否垂直排列
    * @default false
    */
@@ -41,3 +36,57 @@ export interface CheckboxType extends FC<CheckboxProps> {
 }
 
 export default AUTO_API<PureCheckboxProps>()
+export interface CheckboxStyleVars {
+  /**
+   * @description 组件的 className 前缀
+   * @default 'exd-checkbox'
+   */
+  '@checkbox-prefix'?: string
+  /**
+   * @description 图标默认颜色
+   * @default color-gray
+   */
+  '@checkbox-default-color'?: string
+  /**
+   * @description 图标选中颜色
+   * @default color-primary
+   */
+  '@checkbox-active-color'?: string
+  /**
+   * @description 图标区域宽度
+   * @default 36px
+   */
+  '@checkbox-icon-area-width'?: string
+  /**
+   * @description 图标尺寸
+   * @default 24px
+   */
+  '@checkbox-icon-size'?: string
+  /**
+   * @description 禁用颜色
+   * @default ant-color-gray-5
+   */
+  '@checkbox-disabled-color'?: string
+  /**
+   * @description 描述颜色
+   * @default ant-color-gray-7
+   */
+  '@checkbox-description-color'?: string
+  /**
+   * @description 内容字体大小
+   * @default 15px
+   */
+  '@checkbox-content-font-size'?: string
+  /**
+   * @description 描述字体大小
+   * @default 12px
+   */
+  '@checkbox-description-font-size'?: string
+  /**
+   * @description 描述上边距
+   * @default 8px
+   */
+  '@checkbox-description-margin-top'?: string
+}
+
+export const DOC_CheckboxStyleVars = AUTO_API<CheckboxStyleVars>()

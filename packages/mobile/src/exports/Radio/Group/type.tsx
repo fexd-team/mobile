@@ -1,5 +1,4 @@
 import AUTO_API from '../../../helpers/AUTO_API'
-import { JSXLabelProps } from '../../../helpers/html.types'
 import { FC } from '../../createFC/type'
 import { RadioProps, PureRadioProps } from '../type'
 
@@ -12,7 +11,7 @@ export interface PureRadioGroupOption
 export interface RadioGroupOption extends PureRadioGroupOption {}
 export interface RadioGroupOption
   extends Omit<RadioProps, 'value' | 'children' | 'checked' | 'defaultChecked' | 'onChange'> {}
-export interface RadioGroupSharedProps extends Pick<PureRadioProps, 'icon' | 'block' | 'size' | 'disabled'> {}
+export interface RadioGroupSharedProps extends Pick<PureRadioProps, 'icon' | 'block' | 'disabled'> {}
 export interface PureRadioGroupProps extends RadioGroupSharedProps {
   /** 单选框组的当前值 */
   value?: any

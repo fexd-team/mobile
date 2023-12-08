@@ -1,30 +1,53 @@
-@import '../../theme/vars'; // 引入全局样式变量集，内含 @size-scale、各类色值等变量
+@import '../../theme/vars.less'; // 引入全局样式变量集，内含 @size-scale、各类色值等变量
 
 @rate-prefix: ~'exd-rate';
 
 @rate-active-color: @color-yellow;
-@rate-default-color: @color-gray;
+@rate-default-color: @ant-color-gray-4;
+
+@rate-small-size: 18px;
+@rate-default-size: 24px;
+@rate-large-size: 30px;
 
 .@{rate-prefix} {
-  --rate-active-color: @rate-active-color;
-  --rate-default-color: @rate-default-color;
-
-  font-size: 20px * @size-scale;
   display: inline-flex;
   user-select: none;
+  color: @rate-active-color;
+  cursor: pointer;
+
+  &-size {
+    &-small {
+      font-size: @rate-small-size * @size-scale;
+    }
+
+    &-default {
+      font-size: @rate-default-size * @size-scale;
+    }
+
+    &-large {
+      font-size: @rate-large-size * @size-scale;
+    }
+  }
 
   &-box {
     position: relative;
   }
 
+  &-disabled {
+    color: @ant-color-gray-7;
+    cursor: not-allowed;
+  }
+
+  &-readonly {
+    cursor: unset;
+  }
+
   &-character {
-    padding: 3px * @size-scale;
+    padding: 0 3px * @size-scale;
     font-size: inherit;
     color: @rate-default-color;
-    color: var(--rate-default-color);
     text-align: center;
     overflow: hidden;
-    cursor: pointer;
 
     &-half {
       padding-right: 0;
@@ -40,12 +63,7 @@
     }
 
     &-active {
-      color: @rate-active-color;
-      color: var(--rate-active-color);
-    }
-
-    &-readonly {
-      cursor: unset;
+      color: inherit;
     }
   }
 }

@@ -1,10 +1,11 @@
 import React from 'react'
-import { classnames, pick, run } from '@fexd/tools'
+import { classnames, run } from '@fexd/tools'
 import { Checkbox as IconCheckbox, SquareOutline } from '@fexd/icons'
 import createFC from '../createFC'
 import { CheckboxProps, CheckboxRef, CheckboxType } from './type'
 import useIOControl from '../useIOControl'
 import CheckboxGroup, { useCheckboxGroupContext } from './Group'
+
 // 此处不引入 style.less，目的是实现按需引用
 export const defaultIcon = (checked) => (checked ? <IconCheckbox /> : <SquareOutline />)
 export const prefix = 'exd-checkbox'
@@ -16,32 +17,20 @@ const Checkbox = createFC<CheckboxProps, CheckboxRef>(function Checkbox(
     description,
     children,
     icon: propIcon,
-    size: propSize,
     value: propValue,
     ...props
   },
   ref,
 ) {
   const groupContext = useCheckboxGroupContext()
-  const {
-    icon: ctxIcon,
-    block: ctxBlock,
-    size: ctxSize,
-    disabled: ctxDisabled,
-    value: ctxValue,
-    setValue: setCtxValue,
-  } = groupContext
+  const { icon: ctxIcon, block: ctxBlock, disabled: ctxDisabled, value: ctxValue, setValue: setCtxValue } = groupContext
   const block = propBlock ?? ctxBlock ?? false
   const disabled = propDisabled ?? ctxDisabled
   const icon = propIcon ?? ctxIcon ?? defaultIcon
-  const size = propSize ?? ctxSize ?? 'default'
-  const { value: ioChecked, setValue: setIOChecked } = useIOControl<boolean>(
-    pick(props, ['checked', 'defaultChecked', 'onChange']),
-    {
-      valuePropName: 'checked',
-      defaultValuePropName: 'defaultChecked',
-    },
-  )
+  const { value: ioChecked, setValue: setIOChecked } = useIOControl<boolean>(props as any, {
+    valuePropName: 'checked',
+    defaultValuePropName: 'defaultChecked',
+  })
 
   const checked = ctxValue ? ctxValue?.includes?.(propValue) : ioChecked
 
@@ -54,7 +43,6 @@ const Checkbox = createFC<CheckboxProps, CheckboxRef>(function Checkbox(
         {
           [`${prefix}-wrapper--block`]: block,
           [`${prefix}-wrapper--disabled`]: disabled,
-          [`${prefix}-wrapper--size-${size}`]: true,
         },
         className,
       )}
@@ -87,10 +75,7 @@ const Checkbox = createFC<CheckboxProps, CheckboxRef>(function Checkbox(
   )
 }) as CheckboxType
 
-Checkbox.defaultProps = {
-  // block: false,
-  // icon: (checked) => (checked ? <CheckmarkCircle /> : <EllipseOutline />),
-}
+Checkbox.defaultProps = {}
 Checkbox.Group = CheckboxGroup
 
 export default Checkbox

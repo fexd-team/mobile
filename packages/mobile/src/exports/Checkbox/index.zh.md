@@ -25,7 +25,7 @@ import { Checkbox } from '@fexd/mobile'
 
 ## Checkbox
 
-<API identifier="Checkbox" hideTitle src="./type.tsx"></API>
+<API identifier="Checkbox" hideTitle src="./type.tsx" exports='["default"]'></API>
 
 ## Checkbox.Group
 
@@ -34,3 +34,7 @@ import { Checkbox } from '@fexd/mobile'
 ## GroupOption
 
 <API identifier="CheckboxGroupOptions" hideTitle src="./Group/type.tsx" exports='["DOC_PureCheckboxGroupOption"]'></API>
+
+## less vars
+
+<API identifier="CheckboxStyleVars" hideTitle src="./type.tsx" exports='["DOC_CheckboxStyleVars"]'></API>

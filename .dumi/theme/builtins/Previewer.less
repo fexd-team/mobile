@@ -1,6 +1,14 @@
 @import (reference) '../style/variables.less';
 
 @media @v-device-show {
+  .@{prefix}-mobile-demo-pure {
+    .__dumi-default-previewer-actions,
+    .__dumi-default-device-action,
+    .__dumi-default-device-status {
+      display: none;
+    }
+  }
+
   .@{prefix}-mobile-previewer {
     &.@{prefix}-mobile-previewer-inline {
       display: flex;

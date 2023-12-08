@@ -25,7 +25,7 @@ import { Radio } from '@fexd/mobile'
 
 ## Radio
 
-<API identifier="Radio" hideTitle src="./type.tsx"></API>
+<API identifier="Radio" hideTitle src="./type.tsx" exports='["default"]'></API>
 
 ## Radio.Group
 
@@ -34,3 +34,7 @@ import { Radio } from '@fexd/mobile'
 ## GroupOption
 
 <API identifier="RadioGroupOptions" hideTitle src="./Group/type.tsx" exports='["DOC_PureRadioGroupOption"]'></API>
+
+## less vars
+
+<API identifier="RadioStyleVars" hideTitle src="./type.tsx" exports='["DOC_RadioStyleVars"]'></API>

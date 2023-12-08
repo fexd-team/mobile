@@ -1,10 +1,18 @@
-@import '../../theme/vars'; // 引入全局样式变量集，内含 @size-scale、各类色值等变量
+@import '../../theme/vars.less'; // 引入全局样式变量集，内含 @size-scale、各类色值等变量
+@import '../Space/style.less'; // 引入 Space 组件样式
 
 // 由于 less 变量的懒生效特性，变量命名空间存在冲突，此处 prefix 变量命名前需要加特定前缀
 // https://less.bootcss.com/features/#variables-lazy-evaluation
 @checkbox-prefix: ~'exd-checkbox';
-
+@checkbox-default-color: @color-gray;
+@checkbox-active-color: @color-primary;
 @checkbox-icon-area-width: 36px;
+@checkbox-icon-size: 24px;
+@checkbox-disabled-color: @ant-color-gray-5;
+@checkbox-description-color: @ant-color-gray-7;
+@checkbox-content-font-size: 15px;
+@checkbox-description-font-size: 12px;
+@checkbox-description-margin-top: 8px;
 
 .@{checkbox-prefix} {
   /* 组件样式 */
@@ -22,13 +30,15 @@
 
       .@{checkbox-prefix} {
         &-icon {
-          color: #ccc;
+          color: @checkbox-disabled-color;
         }
+
         &-content {
-          color: #ccc;
+          color: @checkbox-disabled-color;
         }
+
         &-description {
-          color: #ccc;
+          color: @checkbox-disabled-color;
         }
       }
     }
@@ -44,27 +54,27 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    color: @color-gray;
+    color: @checkbox-default-color;
 
     .exd-icon {
-      font-size: 24px * @size-scale;
+      font-size: @checkbox-icon-size * @size-scale;
     }
 
     &--active {
-      color: @color-primary;
+      color: @checkbox-active-color;
     }
   }
 
   &-content {
     display: flex;
     align-items: center;
-    font-size: 15px * @size-scale;
+    font-size: @checkbox-content-font-size * @size-scale;
   }
 
   &-description {
-    margin-top: 4px * @size-scale;
+    margin-top: @checkbox-description-margin-top * @size-scale;
     padding-left: @checkbox-icon-area-width * @size-scale;
-    font-size: 12px * @size-scale;
-    color: #999;
+    font-size: @checkbox-description-font-size * @size-scale;
+    color: @checkbox-description-color;
   }
 }

@@ -15,7 +15,7 @@ files.forEach((filepath) => {
   const hasType = fs.existsSync(path.resolve(filepath, 'type.ts')) || fs.existsSync(path.resolve(filepath, 'type.tsx'))
 
   if (hasStyle) {
-    styleContent.push(`@import './exports/${name}/style';`)
+    styleContent.push(`@import './exports/${name}/style.less';`)
   }
 
   if (hasType) {

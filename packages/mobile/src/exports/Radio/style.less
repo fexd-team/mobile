@@ -1,10 +1,18 @@
-@import '../../theme/vars'; // 引入全局样式变量集，内含 @size-scale、各类色值等变量
+@import '../../theme/vars.less'; // 引入全局样式变量集，内含 @size-scale、各类色值等变量
+@import '../Space/style.less'; // 引入 Space 组件样式
 
 // 由于 less 变量的懒生效特性，变量命名空间存在冲突，此处 prefix 变量命名前需要加特定前缀
 // https://less.bootcss.com/features/#variables-lazy-evaluation
 @radio-prefix: ~'exd-radio';
-
+@radio-default-color: @color-gray;
+@radio-active-color: @color-primary;
 @radio-icon-area-width: 36px;
+@radio-icon-size: 24px;
+@radio-disabled-color: @ant-color-gray-5;
+@radio-description-color: @ant-color-gray-7;
+@radio-content-font-size: 15px;
+@radio-description-font-size: 12px;
+@radio-description-margin-top: 8px;
 
 .@{radio-prefix} {
   /* 组件样式 */
@@ -22,13 +30,15 @@
 
       .@{radio-prefix} {
         &-icon {
-          color: #ccc;
+          color: @radio-disabled-color;
         }
+
         &-content {
-          color: #ccc;
+          color: @radio-disabled-color;
         }
+
         &-description {
-          color: #ccc;
+          color: @radio-disabled-color;
         }
       }
     }
@@ -44,27 +54,27 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    color: @color-gray;
+    color: @radio-default-color;
 
     .exd-icon {
-      font-size: 24px * @size-scale;
+      font-size: @radio-icon-size * @size-scale;
     }
 
     &--active {
-      color: @color-primary;
+      color: @radio-active-color;
     }
   }
 
   &-content {
     display: flex;
     align-items: center;
-    font-size: 15px * @size-scale;
+    font-size: @radio-content-font-size * @size-scale;
   }
 
   &-description {
-    margin-top: 4px * @size-scale;
+    margin-top: @radio-description-margin-top * @size-scale;
     padding-left: @radio-icon-area-width * @size-scale;
-    font-size: 12px * @size-scale;
-    color: #999;
+    font-size: @radio-description-font-size * @size-scale;
+    color: @radio-description-color;
   }
 }

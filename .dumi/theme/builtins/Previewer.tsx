@@ -2,7 +2,7 @@ import React, { useRef, useEffect, useState, useContext } from 'react'
 import { context, useDemoUrl } from 'dumi/theme'
 import { IPreviewerProps } from 'dumi-theme-default/src/builtins/Previewer'
 import Previewer from 'dumi-theme-default/src/builtins/Previewer'
-import { isAndroid, isIOS, debounce } from '@fexd/tools'
+import { isAndroid, isIOS, debounce, classnames } from '@fexd/tools'
 import { useResponsive, configResponsive } from 'ahooks'
 import './Previewer.less'
 import Device from '../components/Device'
@@ -93,10 +93,13 @@ export default (props: IPreviewerProps) => {
 
   return (
     <div
-      className={`${useMobileDemo ? '__dumi-default-mobile-previewer' : ''} ${
-        !mobileDemoFixed ? '__dumi-default-mobile-previewer-inline' : ''
-      }`}
+      className={classnames({
+        '__dumi-default-mobile-previewer': useMobileDemo,
+        '__dumi-default-mobile-previewer-inline': !mobileDemoFixed,
+        // '__dumi-default-mobile-demo-pure': props?.demoBlockHeight,
+      })}
       ref={ref as any}
+      style={responsive?.lg && useMobileDemo && props?.demoBlockHeight ? { height: props?.demoBlockHeight } : {}}
     >
       {useMobileDemo && isActive && !mobileDemoFixed && (
         <Device className="__dumi-default-mobile-content-device" fixed={false} url={props.demoUrl ?? builtinDemoUrl} />

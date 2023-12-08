@@ -11,7 +11,7 @@ export interface PureCheckboxGroupOption
 export interface CheckboxGroupOption extends PureCheckboxGroupOption {}
 export interface CheckboxGroupOption
   extends Omit<CheckboxProps, 'value' | 'children' | 'checked' | 'defaultChecked' | 'onChange'> {}
-export interface CheckboxGroupSharedProps extends Pick<PureCheckboxProps, 'icon' | 'block' | 'size' | 'disabled'> {}
+export interface CheckboxGroupSharedProps extends Pick<PureCheckboxProps, 'icon' | 'block' | 'disabled'> {}
 export interface PureCheckboxGroupProps extends CheckboxGroupSharedProps {
   /** 多选框组的当前值 */
   value?: CheckboxProps['value'][]
