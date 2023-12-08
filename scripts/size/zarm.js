@@ -22,7 +22,7 @@ async function size() {
   // return
   const spinner = ora('calculating size...')
   spinner.start()
-  const info = await cost('es', getContent('es'))
+  const [info, total] = await Promise.all([cost('zarm/es/*', getContent('es')), cost('zarm', `require('zarm')`)])
 
   spinner.stop()
   console.log(
@@ -31,9 +31,21 @@ async function size() {
 
   console.log('--------------------')
 
-  fs.writeFileSync(path.resolve(process.cwd(), './public/zarm-size.json'), JSON.stringify({ esm: info }), {
-    encoding: 'utf-8',
-  })
+  console.log(`[Total] ${total?.[0]?.gzip} -- zarm`)
+
+  fs.writeFileSync(
+    path.resolve(process.cwd(), './public/zarm-size.json'),
+    JSON.stringify({
+      esm: info.map((item) => ({
+        exportName: item.name.replace('zarm/es/', '').replace('/index.js', ''),
+        ...item,
+      })),
+      total,
+    }),
+    {
+      encoding: 'utf-8',
+    },
+  )
 }
 
 module.exports = size

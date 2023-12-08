@@ -19,25 +19,25 @@ const { target = 'fexd-mobile' } = argv
 
 if (target === 'ALL') {
   ;(async () => {
-    console.log('calculating fexd-mobile size...')
+    console.log('calculating fexd size...')
     await calculateFexdMobileSize()
 
-    console.log('calculating antd-mobile size...')
+    console.log('calculating antd size...')
     await calculateAntdMobileSize()
 
     console.log('calculating zarm size...')
     await calculateZarmSize()
 
-    console.log('calculating arco-mobile size...')
+    console.log('calculating arco size...')
     await calculateArcodMobileSize()
   })()
 } else {
   const calculate =
     {
-      'fexd-mobile': calculateFexdMobileSize,
-      'antd-mobile': calculateAntdMobileSize,
+      fexd: calculateFexdMobileSize,
+      antd: calculateAntdMobileSize,
       zarm: calculateZarmSize,
-      'arco-mobile': calculateArcodMobileSize,
+      arco: calculateArcodMobileSize,
     }[target] || calculateFexdMobileSize
   console.log(`calculating ${target}'s size`)
 

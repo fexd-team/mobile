@@ -19,6 +19,8 @@ function cost(fileName, fileContents) {
         rawGzip: packageInfo.gzip,
         size,
         gzip,
+        numberSize: size.replace('k', ''),
+        numberGzip: gzip.replace('k', ''),
         label: `${size} (gzipped: ${gzip})`,
       })
     })

@@ -22,7 +22,10 @@ async function antdMobileSize() {
   // return
   const spinner = ora('calculating size...')
   spinner.start()
-  const info = await cost('es/components', getContent('es/components'))
+  const [info, total] = await Promise.all([
+    cost('antd-mobile/es/*', getContent('es/components')),
+    cost('antd-mobile', `require('antd-mobile')`),
+  ])
 
   spinner.stop()
   console.log(
@@ -33,9 +36,21 @@ async function antdMobileSize() {
 
   console.log('--------------------')
 
-  fs.writeFileSync(path.resolve(process.cwd(), './public/antd-size.json'), JSON.stringify({ esm: info }), {
-    encoding: 'utf-8',
-  })
+  console.log(`[Total] ${total?.[0]?.gzip} -- antd-mobile`)
+
+  fs.writeFileSync(
+    path.resolve(process.cwd(), './public/antd-size.json'),
+    JSON.stringify({
+      esm: info.map((item) => ({
+        exportName: item.name.replace('antd-mobile/es/components/', '').replace('/index.js', ''),
+        ...item,
+      })),
+      total,
+    }),
+    {
+      encoding: 'utf-8',
+    },
+  )
 }
 
 module.exports = antdMobileSize

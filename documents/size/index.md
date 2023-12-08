@@ -6,10 +6,11 @@ nav:
   order: 3
 
 title: 组件大小
-order: 10
 mobile: false
+sidemenu: false
+toc: false
 ---
 
-# @fexd/mobile
+<!-- # @fexd/mobile -->
 
 <code src="./Size/index.tsx" />

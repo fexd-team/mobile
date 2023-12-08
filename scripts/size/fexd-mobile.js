@@ -19,9 +19,10 @@ function getContent(path) {
 async function kulaSize() {
   const spinner = ora('calculating size...')
   spinner.start()
-  const [esm, cjs] = await Promise.all([
-    cost('mobile/es/exports', getContent('mobile/es/exports')),
-    cost('mobile/lib/exports', getContent('mobile/lib/exports')),
+  const [esm, cjs, total] = await Promise.all([
+    cost('@fexd/mobile/es/*', getContent('mobile/es/exports')),
+    cost('@fexd/mobile/lib/*', getContent('mobile/lib/exports')),
+    cost('@fexd/mobile', `require('@fexd/mobile')`),
   ])
 
   spinner.stop()
@@ -44,9 +45,27 @@ async function kulaSize() {
       .join(spliter),
   )
 
-  fs.writeFileSync(path.resolve(process.cwd(), './public/size.json'), JSON.stringify({ esm, cjs }), {
-    encoding: 'utf-8',
-  })
+  console.log('--------------------')
+
+  console.log(`[Total] ${total?.[0]?.gzip} -- @fexd/mobile`)
+
+  fs.writeFileSync(
+    path.resolve(process.cwd(), './public/size.json'),
+    JSON.stringify({
+      esm: esm.map((item) => ({
+        exportName: item.name.replace('@fexd/mobile/es/exports/', '').replace('/index.js', ''),
+        ...item,
+      })),
+      cjs: cjs.map((item) => ({
+        exportName: item.name.replace('@fexd/mobile/lib/exports/', '').replace('/index.js', ''),
+        ...item,
+      })),
+      total,
+    }),
+    {
+      encoding: 'utf-8',
+    },
+  )
 }
 
 module.exports = kulaSize
