@@ -32,7 +32,7 @@ const Device: FC<IDeviceProps> = ({ fixed = true, url: rawUrl, className = '' })
    * xxx.com/mobile/export#/~demos/xxx => xxx.com/mobile/~demos/xxx
    * xxx.com/mobile/export/test#/~demos/xxx => xxx.com/~demos/xxx
    */
-  const url = /#/.test(rawUrl) ? rawUrl.replace(/\/\w{0,}#\/\~demos\//, '/~demos/') : rawUrl
+  const url = rawUrl // /#/.test(rawUrl) ? rawUrl.replace(/\/\w{0,}#\/\~demos\//, '/~demos/') : rawUrl
 
   return (
     <div
