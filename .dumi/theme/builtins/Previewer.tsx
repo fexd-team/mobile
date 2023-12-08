@@ -101,12 +101,12 @@ export default (props: IPreviewerProps) => {
       ref={ref as any}
       style={responsive?.lg && useMobileDemo && props?.demoBlockHeight ? { height: props?.demoBlockHeight } : {}}
     >
-      {useMobileDemo && isActive && !mobileDemoFixed && (
+      {useMobileDemo && (isActive || !mobileDemoFixed) && (
         <Device className="__dumi-default-mobile-content-device" fixed={false} url={props.demoUrl ?? builtinDemoUrl} />
       )}
       {previewerProps && (
         <Previewer
-          className={useMobileDemo && isActive ? '__dumi-default-previewer-target' : null}
+          className={useMobileDemo && (isActive || !mobileDemoFixed) ? '__dumi-default-previewer-target' : null}
           {...previewerProps}
           defaultShowCode={responsive?.lg && useMobileDemo}
         />

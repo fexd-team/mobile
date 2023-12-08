@@ -11,7 +11,7 @@ export default defineConfig({
   publicPath: process.env.NODE_ENV === 'production' ? '/mobile/' : '/',
   mode: 'site',
   locales: [['zh-CN', '中文']],
-  history: { type: 'hash' },
+  // history: { type: 'hash' },
   resolve: {
     includes: ['documents', 'packages/mobile/src', 'packages/mobile-router5/src'],
   },
@@ -64,7 +64,7 @@ export default defineConfig({
               libraryName: '@fexd/mobile',
               libraryDirectory: 'src/exports',
               camel2DashComponentName: false,
-              style: (name) => `${name}/style.less`,
+              style: false // () => '@root/packages/mobile/src/style.less',
             },
             '@fexd/mobile',
           ],

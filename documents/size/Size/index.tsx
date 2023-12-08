@@ -1,27 +1,13 @@
 /**
  * inline: true
  */
-import React from 'react'
+import React, { useMemo } from 'react'
 import { groupBy, source } from '@fexd/tools'
-import { Space } from 'antd'
+import { useDebounce } from 'ahooks'
 
-source.css('https://bundlephobia.com/_next/static/css/92720c07f6756c10.css')
+import './index.scss'
 
-const requirePublicSize = (fileName) => {
-  let reports: any = {
-    esm: [],
-    cjs: [],
-    total: [],
-  }
-
-  try {
-    reports = require(`@root/public/${fileName}`)
-  } catch (err) {
-    // development 下可能不存在 size.json 文件
-  }
-
-  return reports
-}
+// source.css('https://bundlephobia.com/_next/static/css/92720c07f6756c10.css')
 
 function getBGClass(ratio) {
   if (ratio < 0.05) {
@@ -57,66 +43,144 @@ const formatSize = (value) => {
   return { unit, size }
 }
 
-function Size({ fileName }: { fileName: string }) {
-  const [reports] = React.useState(() => requirePublicSize(fileName))
-  const totalSize = Number(reports.total?.[0]?.rawGzip)
-  const options = reports.esm.map((item: any) => ({
-    // ...item,
-    name: item.exportName,
-    // rawGzip: item.rawGzip,
-    gzip: Number(item.rawGzip),
-  }))
+function Size({ libName, version }: { libName: keyof typeof sizeInfo; version?: string }) {
+  const [reports] = React.useState(() => getSizeInfo(libName))
+  const [search, setSearch] = React.useState('')
+  const debouncedSearch = useDebounce(search, { wait: 300 })
+  const packages = useMemo(
+    () =>
+      reports.esm
+        .filter(
+          libName === '@fexd/mobile'
+            ? (item) => Number(item?.rawGzip) < 660 || Number(item?.rawGzip) > 700
+            : () => true,
+        )
+        .filter((item) => item.exportName?.toLowerCase?.()?.includes?.(debouncedSearch?.toLowerCase?.()))
+        .map((item: any) => ({
+          // ...item,
+          name: item.exportName,
+          // rawGzip: item.rawGzip,
+          gzip: Number(item.rawGzip),
+        })),
+    [libName, reports, debouncedSearch],
+  )
+  const { groups, totalSize } = useMemo(() => {
+    const totalSize = Number(reports.total?.[0]?.rawGzip)
 
-  const groups = groupBy((item) => item?.name?.[0]?.toLowerCase?.(), options)
+    const groups = groupBy((item) => item?.name?.[0]?.toLowerCase?.(), packages)
+
+    return {
+      groups,
+      totalSize,
+    }
+  }, [reports, packages])
+
+  const shouldShowLabels = packages.length > 20
 
   return (
-    <ul className="export-analysis-section__list" style={{ border: 'solid 1px #f0f0f0', padding: 20 }}>
-      {Object.entries(groups)
-        .sort((prev, next) => (prev?.[0] > next?.[0] ? 1 : -1))
-        .map(([groupName, list]) => (
-          <div key={groupName} className="export-analysis-section__letter-group">
-            <div className="export-analysis-section__dont-break">
-              <h3 className="export-analysis-section__letter-heading">{groupName}</h3>
-            </div>
+    <div>
+      <h1 className="flex justify-center">
+        <span>
+          {libName}
+          <span className="text-gray-400 ml-2 text-lg">{version ? `@${version}` : ''}</span>
+        </span>
+      </h1>
+      <h3 className="flex justify-between">
+        <div className="flex items-center">
+          总包体积：{formatSize(totalSize).size.toFixed(1)}
+          <span className="export-analysis-section__pill-size-unit">{formatSize(totalSize).unit}</span>
+        </div>
 
-            {list.map((item: any) => (
-              <li key={item?.name} className="export-analysis-section__pill export-analysis-section__dont-break">
-                <div
-                  className={`export-analysis-section__pill-fill ${`export-analysis-section__pill-fill--${getBGClass(
-                    item?.gzip / totalSize,
-                  )}`}`}
-                  style={{ transform: `scaleX(${Math.min((item?.gzip || 0) / totalSize, 1)})` }}
-                />
-                <div className="export-analysis-section__pill-name"> {item?.name} </div>
-                <div className="export-analysis-section__pill-size">
-                  {formatSize(item?.gzip).size.toFixed(1)}
-                  <span className="export-analysis-section__pill-size-unit">{formatSize(item?.gzip).unit}</span>
+        <div
+          className="export-analysis-section__filter-input-container"
+          style={{ position: 'relative', marginRight: 0 }}
+        >
+          <input
+            placeholder="Filter methods"
+            className="export-analysis-section__filter-input"
+            type="text"
+            value={search}
+            onChange={(e) => setSearch(e?.target?.value)}
+          />
+          <svg
+            width="90"
+            height="90"
+            viewBox="0 0 90 90"
+            xmlns="http://www.w3.org/2000/svg"
+            className="export-analysis-section__filter-input-search-icon"
+          >
+            <path d="M89.32 86.5L64.25 61.4C77.2 47 76.75 24.72 62.87 10.87 55.93 3.92 46.7.1 36.87.1s-19.06 3.82-26 10.77C3.92 17.8.1 27.05.1 36.87s3.82 19.06 10.77 26c6.94 6.95 16.18 10.77 26 10.77 9.15 0 17.8-3.32 24.55-9.4l25.08 25.1c.38.4.9.57 1.4.57.52 0 1.03-.2 1.42-.56.78-.78.78-2.05 0-2.83zM36.87 69.63c-8.75 0-16.98-3.4-23.17-9.6-6.2-6.2-9.6-14.42-9.6-23.17 0-8.75 3.4-16.98 9.6-23.17 6.2-6.2 14.42-9.6 23.17-9.6 8.75 0 16.98 3.4 23.18 9.6 12.77 12.75 12.77 33.55 0 46.33-6.2 6.2-14.43 9.6-23.18 9.6z"></path>
+          </svg>
+        </div>
+      </h3>
+      <ul className="export-analysis-section__list" style={{ border: 'solid 1px #f0f0f0', padding: '6px 12px 6px' }}>
+        {Object.entries(groups)
+          .sort((prev, next) => (prev?.[0] > next?.[0] ? 1 : -1))
+          .map(([groupName, list]) => (
+            <div key={groupName} className="export-analysis-section__letter-group">
+              {shouldShowLabels && (
+                <div className="export-analysis-section__dont-break">
+                  <h3 className="export-analysis-section__letter-heading">{groupName?.toUpperCase?.()}</h3>
                 </div>
-              </li>
-            ))}
-          </div>
-        ))}
-    </ul>
+              )}
+
+              {list.map((item: any) => (
+                <li key={item?.name} className="export-analysis-section__pill export-analysis-section__dont-break">
+                  <div
+                    className={`export-analysis-section__pill-fill ${`export-analysis-section__pill-fill--${getBGClass(
+                      item?.gzip / totalSize,
+                    )}`}`}
+                    style={{ transform: `scaleX(${Math.min((item?.gzip || 0) / totalSize, 1)})` }}
+                  />
+                  <div className="export-analysis-section__pill-name"> {item?.name} </div>
+                  <div className="export-analysis-section__pill-size">
+                    {formatSize(item?.gzip).size.toFixed(1)}
+                    <span className="export-analysis-section__pill-size-unit">{formatSize(item?.gzip).unit}</span>
+                  </div>
+                </li>
+              ))}
+            </div>
+          ))}
+      </ul>
+    </div>
   )
 }
 
+const fexdPackageJson = require('@root/packages/mobile/package.json')
+const antdPackageJson = require('antd-mobile/package.json')
+const arcoPackageJson = require('@arco-design/mobile-react/package.json')
+const zarmPackageJson = require('zarm/package.json')
+
 export default () => (
-  <Space direction="vertical" size={60}>
-    <div>
-      <h1>@fexd/mobile</h1>
-      <Size fileName="size.json" />
-    </div>
-    <div>
-      <h1>antd-mobile</h1>
-      <Size fileName="antd-size.json" />
-    </div>
-    <div>
-      <h1>@arco-design/mobile-react</h1>
-      <Size fileName="arco-size.json" />
-    </div>
-    <div>
-      <h1>zarm</h1>
-      <Size fileName="zarm-size.json" />
-    </div>
-  </Space>
+  <div className="flex flex-col gap-16">
+    <Size libName="@fexd/mobile" version={fexdPackageJson?.version} />
+    <Size libName="antd-mobile" version={antdPackageJson?.version} />
+    <Size libName="@arco-design/mobile-react" version={arcoPackageJson?.version} />
+    <Size libName="zarm" version={zarmPackageJson?.version} />
+  </div>
 )
+
+let sizeInfo = {
+  '@fexd/mobile': {},
+  'antd-mobile': {},
+  '@arco-design/mobile-react': {},
+  zarm: {},
+}
+
+try {
+  sizeInfo = {
+    '@fexd/mobile': require('@root/public/size.json'),
+    'antd-mobile': require('@root/public/antd-size.json'),
+    '@arco-design/mobile-react': require('@root/public/arco-size.json'),
+    zarm: require('@root/public/zarm-size.json'),
+  }
+} catch (err) {
+  // development 下可能不存在 size.json 文件
+}
+
+function getSizeInfo(packageName: keyof typeof sizeInfo) {
+  return sizeInfo?.[packageName] as any as {
+    esm: any[]
+    total: any[]
+  }
+}

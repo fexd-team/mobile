@@ -12,7 +12,7 @@ interface IDeviceProps {
   fixed?: boolean
 }
 
-const Device: FC<IDeviceProps> = ({ fixed = true, url, className = '' }) => {
+const Device: FC<IDeviceProps> = ({ fixed = true, url: rawUrl, className = '' }) => {
   const [renderKey, setRenderKey] = useState(Math.random())
   const [color] = usePrefersColor()
   const {
@@ -24,6 +24,15 @@ const Device: FC<IDeviceProps> = ({ fixed = true, url, className = '' }) => {
   useEffect(() => {
     setRenderKey(Math.random())
   }, [color])
+
+  /**
+   *  用正则去除多余的路径，但要保留 /mobile/
+   * xxx.com/export#/~demos/xxx => xxx.com/~demos/xxx
+   * xxx.com/export/test#/~demos/xxx => xxx.com/~demos/xxx
+   * xxx.com/mobile/export#/~demos/xxx => xxx.com/mobile/~demos/xxx
+   * xxx.com/mobile/export/test#/~demos/xxx => xxx.com/~demos/xxx
+   */
+  const url = /#/.test(rawUrl) ? rawUrl.replace(/\/\w{0,}#\/\~demos\//, '/~demos/') : rawUrl
 
   return (
     <div

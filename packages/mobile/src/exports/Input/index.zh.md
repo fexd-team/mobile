@@ -2,6 +2,8 @@
 group:
   title: 输入
   path: /data
+
+mobileDemoFixed: false
 ---
 
 # Input 输入框
@@ -11,56 +13,41 @@ group:
 - LineInput <ImportCost name="LineInput" />
 - BlockInput <ImportCost name="BlockInput" />
 
-待补充
+---
 
-<!-- prettier-ignore -->
-```jsx | pure
-import { Input, TextArea, LineInput, BlockInput } from '@fexd/mobile'
+## 演示 - LineInput
 
-<Input />
-<TextArea />
-<LineInput />
-<BlockInput />
-```
+<code src="./demos/LineInputDemo.tsx" />
 
 ---
 
-## 使用说明
+## 演示 - BlockInput
 
-### 基础
-
-待补充
-
-<!-- prettier-ignore -->
-```jsx | pure
-import { Input } from '@fexd/mobile'
-
-<Input />
-```
-
-### 进阶
-
-待补充
-
-<!-- prettier-ignore -->
-```jsx | pure
-import { Input } from '@fexd/mobile'
-
-<Input />
-```
+<code src="./demos/BlockInputDemo.tsx" />
 
 ---
 
-## LineInput API
+## BasicInput
 
-<API hideTitle src="../LineInput/type.tsx"></API>
+<API identifier="BasicInput" hideTitle src="../BasicInput/type.tsx" exports='["default"]'></API>
 
-## API
+---
 
-| 属性                                         | 说明 | 类型 | 默认值 |
-| :------------------------------------------- | :--- | :--- | :----- |
-| 必传参数 <span style="color: red;">\*</span> | -    | -    | -      |
-| 可选参数                                     | -    | -    | -      |
+## BasicTextArea
+
+<API identifier="BasicTextArea" hideTitle src="../BasicTextArea/type.tsx" exports='["default"]'></API>
+
+---
+
+## LineInput
+
+<API identifier="LineInput" hideTitle src="../LineInput/type.tsx" exports='["default"]'></API>
+
+---
+
+## BlockInput
+
+<API identifier="BlockInput" hideTitle src="../BlockInput/type.tsx" exports='["default"]'></API>
 
 ---
 

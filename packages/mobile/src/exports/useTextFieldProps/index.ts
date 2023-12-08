@@ -4,17 +4,7 @@ import { useMemoizedFn, usePrevious } from 'ahooks'
 
 import { JSXInputProps } from '../../helpers/html.types'
 import useIOControl from '../useIOControl'
-import { IOProps } from '../useIOControl/type'
-
-export interface TextFieldProps<T = any> extends Omit<JSXInputProps, keyof IOProps<string> | 'ref'> {
-  ref?: React.Ref<T>
-}
-export interface TextFieldProps<T> extends IOProps<string> {
-  ref?: React.Ref<T>
-  normalize?: (value: string, prevValue?: string) => string
-  normalizeTrigger?: 'onChange' | 'onBlur'
-  format?: (value: string) => string
-}
+import { TextFieldProps } from './type'
 
 export function identity<T>(value: T): T {
   return value

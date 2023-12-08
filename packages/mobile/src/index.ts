@@ -1,3 +1,4 @@
+export { default as BasicTextArea } from './exports/BasicTextArea'
 export { default as ActionSheet } from './exports/ActionSheet'
 export { default as Alert } from './exports/Alert'
 export { default as Avatar } from './exports/Avatar'

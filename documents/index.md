@@ -27,7 +27,7 @@ footer: Open-source MIT Licensed | Copyright © 2020<br />Powered by [dumi](http
 
 移动端组件库
 
-<code src="@documents/preview-demo/index.tsx" />
+<code src="./preview-demo/index.tsx" />
 
 ## 安装
 
@@ -97,7 +97,7 @@ export default () => (
 
 ```jsx
 /**
- * style: { display: 'none' }
+ * inline: true
  */
 import React, { useState, useEffect } from 'react'
 import ParticlesBg from 'particles-bg'

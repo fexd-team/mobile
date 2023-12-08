@@ -32,7 +32,7 @@ import { Form } from '@fexd/mobile'
 <Form>...</Form>
 ```
 
-<API identifier="Form" hideTitle src="./type.tsx"></API>
+<API identifier="Form" hideTitle src="./type.tsx" exports='["default"]'></API>
 
 ---
 

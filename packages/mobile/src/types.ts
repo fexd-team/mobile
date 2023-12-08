@@ -1,3 +1,4 @@
+export * from './exports/BasicTextArea/type'
 export * from './exports/ActionSheet/type'
 export * from './exports/Alert/type'
 export * from './exports/Avatar/type'

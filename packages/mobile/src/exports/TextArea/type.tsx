@@ -1,11 +1,14 @@
+import React from 'react'
 import AUTO_API from '../../helpers/AUTO_API'
-import { JSXTextAreaProps, JSXInputProps } from '../../helpers/html.types'
-import { TextFieldProps } from '../useTextFieldProps'
+import { FC } from '../createFC/type'
+import { BasicTextAreaProps, PureBasicTextAreaProps } from '../BasicTextArea/type'
 
-export interface TextAreaProps extends Omit<JSXTextAreaProps, keyof JSXInputProps> {}
-export interface TextAreaProps extends TextFieldProps<any> {
-  ref?: TextFieldProps['ref']
-  height?: number | 'auto'
+export type TextAreaRef = any
+export interface PureTextAreaProps extends PureBasicTextAreaProps {
+  ref?: React.Ref<TextAreaRef>
 }
+export interface TextAreaProps extends PureTextAreaProps {}
+export interface TextAreaProps extends BasicTextAreaProps {}
+export interface TextAreaType extends FC<TextAreaProps> {}
 
-export default AUTO_API<TextAreaProps>()
+export default AUTO_API<PureTextAreaProps>()
