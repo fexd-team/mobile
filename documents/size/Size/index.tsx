@@ -79,14 +79,14 @@ function Size({ libName, version }: { libName: keyof typeof sizeInfo; version?: 
 
   return (
     <div>
-      <h1 className="flex justify-center">
+      <h1 style={{ display: 'flex', justifyContent: 'center' }}>
         <span>
           {libName}
-          <span className="text-gray-400 ml-2 text-lg">{version ? `@${version}` : ''}</span>
+          <span style={{ color: '#9ca3af', marginLeft: 8, fontSize: 18 }}>{version ? `@${version}` : ''}</span>
         </span>
       </h1>
-      <h3 className="flex justify-between">
-        <div className="flex items-center">
+      <h3 style={{ display: 'flex', justifyContent: 'space-between' }}>
+        <div style={{ display: 'flex', alignItems: 'center' }}>
           总包体积：{formatSize(totalSize).size.toFixed(1)}
           <span className="export-analysis-section__pill-size-unit">{formatSize(totalSize).unit}</span>
         </div>
@@ -152,7 +152,7 @@ const arcoPackageJson = require('@arco-design/mobile-react/package.json')
 const zarmPackageJson = require('zarm/package.json')
 
 export default () => (
-  <div className="flex flex-col gap-16">
+  <div style={{ display: 'flex', flexDirection: 'column', gap: 64 }}>
     <Size libName="@fexd/mobile" version={fexdPackageJson?.version} />
     <Size libName="antd-mobile" version={antdPackageJson?.version} />
     <Size libName="@arco-design/mobile-react" version={arcoPackageJson?.version} />
