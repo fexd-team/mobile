@@ -21,9 +21,27 @@ mobileDemoFixed: false
 
 ---
 
+## LineInput
+
+<API identifier="LineInput" hideTitle src="../LineInput/type.tsx" exports='["default"]'></API>
+
+---
+
 ## 演示 - BlockInput
 
 <code src="./demos/BlockInputDemo.tsx" />
+
+---
+
+## BlockInput
+
+<API identifier="BlockInput" hideTitle src="../BlockInput/type.tsx" exports='["default"]'></API>
+
+---
+
+## 演示 - BasicInput / BasicTextArea
+
+<code src="./demos/basic.tsx" />
 
 ---
 
@@ -39,18 +57,6 @@ mobileDemoFixed: false
 
 ---
 
-## LineInput
+## 继承自 input 的属性
 
-<API identifier="LineInput" hideTitle src="../LineInput/type.tsx" exports='["default"]'></API>
-
----
-
-## BlockInput
-
-<API identifier="BlockInput" hideTitle src="../BlockInput/type.tsx" exports='["default"]'></API>
-
----
-
-## 演示代码
-
-<code src="./demos/demo1/index.tsx" />
+<API identifier="DOC_PureExtendFromJSXInput" hideTitle src="../BasicInput/type.tsx" exports='["DOC_PureExtendFromJSXInput"]'></API>

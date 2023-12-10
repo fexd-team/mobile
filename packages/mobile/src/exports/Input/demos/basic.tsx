@@ -1,7 +1,7 @@
-import React, { useState, useRef } from 'react'
+import React, { useState } from 'react'
 import BigNumber from 'bignumber.js'
 
-import { BasicInput, TextArea } from '@fexd/mobile'
+import { BasicInput, BasicTextArea } from '@fexd/mobile'
 import DemoBlock from '@documents/components/DemoBlock'
 
 export default () => {
@@ -25,15 +25,15 @@ export default () => {
         />
       </DemoBlock>
 
-      <DemoBlock title="TextArea">
-        <TextArea
+      <DemoBlock title="BasicTextArea">
+        <BasicTextArea
           format={(value) => BigNumber(value).toFormat({ decimalSeparator: '.', groupSeparator: ',', groupSize: 3 })}
           normalize={(value) => value.replace(/\D/g, '')}
         />
       </DemoBlock>
 
-      <DemoBlock title="TextArea 自动高度">
-        <TextArea height="auto" />
+      <DemoBlock title="BasicTextArea 自动高度">
+        <BasicTextArea height="auto" />
       </DemoBlock>
     </>
   )

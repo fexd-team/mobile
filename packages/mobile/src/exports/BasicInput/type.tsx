@@ -5,10 +5,8 @@ import { PureTextFieldProps, TextFieldProps } from '../useTextFieldProps/type'
 import { JSXInputProps } from '../../helpers/html.types'
 
 export type BasicInputRef = any
-export interface PureBasicInputProps extends PureTextFieldProps<any> {
-  ref?: React.Ref<BasicInputRef>
-}
-export interface PureBasicInputProps
+
+export interface PureExtendFromJSXInput
   extends Pick<
     JSXInputProps,
     | 'maxLength'
@@ -30,6 +28,9 @@ export interface PureBasicInputProps
     | 'onClick'
     | 'step'
   > {}
+export interface PureBasicInputProps extends PureTextFieldProps<any> {
+  ref?: React.Ref<BasicInputRef>
+}
 
 export interface BasicInputProps extends Omit<JSXInputProps, 'value' | 'defaultValue' | 'onChange' | 'ref'> {}
 export interface BasicInputProps extends PureBasicInputProps {}
@@ -37,3 +38,4 @@ export interface BasicInputProps extends TextFieldProps<any> {}
 export interface BasicInputType extends FC<BasicInputProps> {}
 
 export default AUTO_API<PureBasicInputProps>()
+export const DOC_PureExtendFromJSXInput = AUTO_API<PureExtendFromJSXInput>()
