@@ -51,7 +51,8 @@ yarn dev
 4. 输入类 - `/docs/documents/exports/data`
 5. 反馈类 - `/docs/documents/exports/feedback`
 6. 其他类 - `/docs/documents/exports/other`
-7. 实验类 - `/docs/documents/exports/experimental` 快捷命令创建的文档默认为实验类
+7. 实验类 - `/docs/documents/exports/experimental`
+8. 开发中 - `/docs/documents/exports/developing` 快捷命令创建的文档默认为开发中
 
 在确定了组件的归类后，在对应文件夹下，新建对应的 `markdown` 文件，例如
 

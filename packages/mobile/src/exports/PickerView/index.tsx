@@ -2,12 +2,20 @@ import React, { useState, useEffect, useMemo, useRef, useCallback } from 'react'
 import { classnames, run, debounce, Tween } from '@fexd/tools'
 import { PickerViewProps } from './type'
 import createFC from '../createFC'
+import useIOControl from '../useIOControl'
 
 const prefix = 'exd-picker-view'
 const PickerView = createFC<PickerViewProps, HTMLDivElement>(function PickerView(
-  { options = [], value, rows = 3, onChange, className, ...props },
+  { options = [], rows = 3, className, scaleSelected, ...props },
   forwardedRef,
 ) {
+  const { value, setValue, ...restProps } = useIOControl({
+    ...props,
+    onChange(value) {
+      // eslint-disable-next-line @typescript-eslint/no-use-before-define
+      run(props, 'onChange', value, indexRef.current)
+    },
+  })
   const localRows = rows < 3 ? 3 : rows % 2 === 0 ? rows - 1 : rows
   const placeholderNumber = useMemo((): number => Math.floor(localRows / 2), [localRows])
   const itemRef = useRef<HTMLDivElement>(null)
@@ -57,7 +65,7 @@ const PickerView = createFC<PickerViewProps, HTMLDivElement>(function PickerView
 
       if (prevIndex !== index) {
         // 3. 触发 onChange
-        run(onChange, undefined, optionsRef.current?.[index]?.value, index)
+        run(setValue, undefined, optionsRef.current?.[index]?.value)
       }
     }, 120),
     [],
@@ -107,7 +115,7 @@ const PickerView = createFC<PickerViewProps, HTMLDivElement>(function PickerView
   }
 
   return (
-    <div {...props} className={classnames(prefix, className)} ref={forwardedRef}>
+    <div {...restProps} className={classnames(prefix, className)} ref={forwardedRef}>
       <div className={`${prefix}-mask-top`} style={{ height: indicatorTop }} />
       <div className={`${prefix}-mask-bottom`} style={{ height: indicatorTop }} />
       <div className={`${prefix}-indicator`} style={{ top: indicatorTop }} />
@@ -132,7 +140,12 @@ const PickerView = createFC<PickerViewProps, HTMLDivElement>(function PickerView
           <div key={index} className={`${prefix}-item`} />
         ))}
         {options.map((item) => (
-          <div key={item.value} className={`${prefix}-item`}>
+          <div
+            key={item.value}
+            className={classnames(`${prefix}-item`, {
+              [`${prefix}-item--active`]: scaleSelected && String(item.value) === String(value),
+            })}
+          >
             {item.label}
           </div>
         ))}
@@ -144,6 +157,8 @@ const PickerView = createFC<PickerViewProps, HTMLDivElement>(function PickerView
   )
 })
 
-PickerView.defaultProps = {}
+PickerView.defaultProps = {
+  scaleSelected: true,
+}
 
 export default PickerView

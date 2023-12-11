@@ -2,8 +2,8 @@
 hide: true
 
 group:
-  title: 实验性
-  path: /experimental
+  title: 开发中
+  path: /developing
 ---
 
 # TreeSelect 属性选择器 <ImportCost name="TreeSelect" />

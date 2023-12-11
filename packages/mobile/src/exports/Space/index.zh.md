@@ -2,44 +2,17 @@
 group:
   title: 布局
   path: /layout
+
+mobileDemoFixed: false
 ---
 
 # Space 间隔布局 <ImportCost name="Space" />
 
-待补充
-
-<!-- prettier-ignore -->
-```jsx | pure
-import { Space } from '@fexd/mobile'
-
-<Space />
-```
-
 ---
 
-## 使用说明
+## 效果演示
 
-### 基础
-
-待补充
-
-<!-- prettier-ignore -->
-```jsx | pure
-import { Space } from '@fexd/mobile'
-
-<Space />
-```
-
-### 进阶
-
-待补充
-
-<!-- prettier-ignore -->
-```jsx | pure
-import { Space } from '@fexd/mobile'
-
-<Space />
-```
+<code src="./demos/demo1/index.tsx" />
 
 ---
 
@@ -66,7 +39,3 @@ import { Space } from '@fexd/mobile'
 | @space-prefix | 组件样式前缀 | `'exd-space'` |
 
 --- -->
-
-## 演示代码
-
-<code src="./demos/demo1/index.tsx" />

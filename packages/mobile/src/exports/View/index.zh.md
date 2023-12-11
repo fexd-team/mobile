@@ -1,7 +1,10 @@
 ---
+# group:
+#   title: 布局
+#   path: /layout
 group:
-  title: 布局
-  path: /layout
+  title: 实验性
+  path: /experimental
 ---
 
 # View 基础视图 <ImportCost name="View" />

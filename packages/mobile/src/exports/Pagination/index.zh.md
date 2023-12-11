@@ -2,8 +2,8 @@
 hide: true
 
 group:
-  title: 实验性
-  path: /experimental
+  title: 开发中
+  path: /developing
 ---
 
 # Pagination 分页器 <ImportCost name="Pagination" />

@@ -2,6 +2,8 @@
 group:
   title: 反馈
   path: /feedback
+
+mobileDemoFixed: false
 ---
 
 # loading 加载中 <ImportCost name="loading" />
@@ -10,8 +12,8 @@ group:
 ```jsx | pure
 import { loading } from '@fexd/mobile'
 
-loading.show()
-loading.hide()
+loading.show(config?: LoadingMethodConfig)
+loading.hide(forceClose?: boolean)
 ```
 
 **注意：show 调用为计数制，一个 show 一定需要有一个与之对应的 hide 方法**
@@ -22,13 +24,18 @@ loading.hide()
 
 通过 `loading.hide(true)` 来强制清零关闭
 
-## API
+---
 
-| 属性 | 说明 | 类型 | 默认值 |
-| :--- | :--- | :--- | :----- |
-
-## 演示代码
+## 效果演示
 
 <!-- ### 预览 -->
 
 <code src="./demos/demo1/index.tsx" />
+
+---
+
+## LoadingMethodConfig
+
+<API identifier="LoadingMethodConfig" hideTitle src="./type.tsx" exports='["DOC_PureLoadingMethodConfig"]'></API>
+
+---

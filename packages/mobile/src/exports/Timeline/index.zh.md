@@ -1,7 +1,10 @@
 ---
+# group:
+#   title: 展示
+#   path: /display
 group:
-  title: 展示
-  path: /display
+  title: 实验性
+  path: /experimental
 ---
 
 # Timeline 时间线 <ImportCost name="Timeline" />
@@ -20,20 +23,20 @@ group:
 
 <!-- prettier-ignore -->
 ```jsx | pure
-import { Timeline } from '@fexd/mobile'
+import { Timeline, } from '@fexd/mobile'
 
 const data = [
   {
     title: 'Place the order and successful payment',
     content: '',
     time: 'Today',
-    dot: <Icon type="amicon-round_like_fill" style={{ color: 'pink' }} />,
+    dot: <Icon type="round_like_fill" style={{ color: 'pink' }} />,
   },
   {
     title: 'Place the order and successful payment',
     content: '',
     time: '2021-01-01',
-    dot: <Icon type="amicon-time" />,
+    dot: <Icon type="time" />,
   },
   {
     title: 'Calculate Interest, you can apply withdrawal with flexibility',
@@ -83,8 +86,8 @@ import { Timeline } from '@fexd/mobile'
 import { Timeline } from '@fexd/mobile'
 
 <Timeline>
-  <Timeline.Item title="1" time="Today" dot={<Icon type="amicon-round_like_fill" style={{ color: 'pink' }} />}></Timeline.Item>
-  <Timeline.Item title="2" time="2021-01-01" dot={<Icon type="amicon-time" />}></Timeline.Item>
+  <Timeline.Item title="1" time="Today" dot={<Icon type="round_like_fill" style={{ color: 'pink' }} />}></Timeline.Item>
+  <Timeline.Item title="2" time="2021-01-01" dot={<Icon type="time" />}></Timeline.Item>
   <Timeline.Item title="3" time="2018-04-13"></Timeline.Item>
 </Timeline>
 ```

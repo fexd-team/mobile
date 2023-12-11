@@ -1,5 +1,5 @@
 import React from 'react'
-import { classnames, clamp } from '@fexd/tools'
+import { classnames, clamp, isNumber } from '@fexd/tools'
 import { useMemoizedFn } from 'ahooks'
 import { Plus, Minus } from '@fexd/icons-bytesize'
 
@@ -21,7 +21,13 @@ const Stepper = createFC<StepperProps, StepperRef>(function Stepper(
   { className, step, min, max, size, block, onFocus, onBlur, ...props },
   ref,
 ) {
-  const { value, setValue } = useIOControl<number>(props)
+  console.log('default', clamp(props?.defaultValue ?? 1, min ?? -99999999, max ?? 99999999))
+  const { value, setValue } = useIOControl<number>({
+    ...props,
+    defaultValue: isNumber(props?.defaultValue)
+      ? clamp(props?.defaultValue ?? 1, min ?? -99999999, max ?? 99999999)
+      : undefined,
+  })
   const buttonSize = block ? size : inlineStepperSize2ButtonSize[size!]
   const clampValue = (value: number) => clamp(value, min ?? -Number.MAX_VALUE, max)
   /* 组件逻辑实现 */

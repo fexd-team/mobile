@@ -1,14 +1,12 @@
 ---
-hide: true
-
 group:
-  title: 实验性
-  path: /experimental
+  title: 其他
+  path: /other
 
 mobileDemoFixed: false
 ---
 
-# DemoBlock 组件 <ImportCost name="DemoBlock" />
+# DemoBlock 示例容器 <ImportCost name="DemoBlock" />
 
 用来展示各类 Demo 用例
 

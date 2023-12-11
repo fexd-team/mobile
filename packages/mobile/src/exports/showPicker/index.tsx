@@ -1,22 +1,12 @@
 import React from 'react'
 import { CheckmarkOutline, CloseOutline } from '@fexd/icons'
+import { run } from '@fexd/tools'
 
 import Button from '../Button'
 import PickerView from '../PickerView'
-import { PickerViewProps, PickerOptionValue } from '../PickerView/type'
+import { PickerOptionValue } from '../PickerView/type'
 import showPopup from '../showPopup'
-import { PopupProps } from '../Popup/type'
-import { run } from '@fexd/tools'
-
-// import './style.module.less'
-
-interface ShowPickerConfig extends PickerViewProps {
-  defaultValue?: PickerOptionValue
-  clearable?: boolean
-  popupProps?: Omit<PopupProps, 'visible' | 'children'>
-  headerRight?: React.ReactNode
-  headerLeft?: React.ReactNode
-}
+import { ShowPickerConfig } from './type'
 
 const showPicker = async ({
   clearable = true,

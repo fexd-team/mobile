@@ -1,17 +1,19 @@
 import React from 'react'
 import AUTO_API from '../../helpers/AUTO_API'
-import { BasicPickerProps, BasicPickerRef } from '../usePickerProps/type'
+import { PureBasicPickerProps, BasicPickerProps, BasicPickerRef } from '../usePickerProps/type'
 import { PickerViewProps, PickerOptionValue, PickerOption } from '../PickerView/type'
 
 export type PickerRef = BasicPickerRef
 
-export interface PickerProps<T = PickerViewProps['value']>
-  extends Omit<BasicPickerProps<T>, 'defaultValue' | 'value' | 'onChange'> {}
-export interface PickerProps extends Omit<PickerViewProps, 'onChange'> {
+export interface PurePickerProps<T = PickerViewProps['value']>
+  extends Omit<PureBasicPickerProps<T>, 'defaultValue' | 'value' | 'onChange'> {}
+
+export interface PurePickerProps extends Omit<PickerViewProps, 'onChange'> {
+  /** 是否可清除，将会显示 "---" 选项 */
   clearable?: boolean
+  /** 值改变的回调，只有在确认选中后触发 */
   onChange?: (value: PickerOptionValue, item: PickerOption) => void
-}
-export interface PickerProps {
+  /** Picker 的触发内容 */
   children?:
     | React.ReactNode
     | ((
@@ -21,4 +23,8 @@ export interface PickerProps {
       ) => React.ReactNode)
 }
 
-export default AUTO_API<PickerProps>()
+export interface PickerProps<T = PickerViewProps['value']>
+  extends Omit<BasicPickerProps<T>, 'defaultValue' | 'value' | 'onChange'> {}
+export interface PickerProps<T = PickerViewProps['value']> extends PurePickerProps<T> {}
+
+export default AUTO_API<PurePickerProps>()

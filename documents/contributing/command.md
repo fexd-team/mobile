@@ -10,7 +10,7 @@ order: 21
 
 使用 `yarn new:component` 命令创建一个组件目录及初始文件，将自动进行组件导出
 
-并会同时生成对应文档，默认为 `experimental` 实验类型
+并会同时生成对应文档，默认为 `developing` 开发中类型
 
 ```bash
 yarn new:component --name=<组件名>
@@ -25,9 +25,9 @@ $ node ./scripts/new-component/index.js --name=Form
 Write: packages\mobile\src\exports\Form\index.tsx
 Write: packages\mobile\src\exports\Form\style.less
 Write: packages\mobile\src\exports\Form\type.ts
-Write: docs\documents\exports\experimental\Form\demo\index.tsx
-Write: docs\documents\exports\experimental\Form\demo\style.module.less
-Write: docs\documents\exports\experimental\Form\index.md
+Write: docs\documents\exports\developing\Form\demo\index.tsx
+Write: docs\documents\exports\developing\Form\demo\style.module.less
+Write: docs\documents\exports\developing\Form\index.md
 Done in 0.46s.
 ```
 

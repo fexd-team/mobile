@@ -4,10 +4,7 @@ import Loading from './Loading'
 import { LoadingProps } from './Loading/type'
 import { ModalMethodController } from '../createModalAPI/type'
 import createModalAPI from '../createModalAPI'
-
-interface LoadingMethodConfig extends Omit<LoadingProps, 'visible' | 'children'> {
-  content?: React.ReactNode
-}
+import { LoadingMethodConfig } from './type'
 
 let loadingCount = 0
 let loadingController: ModalMethodController<LoadingProps>

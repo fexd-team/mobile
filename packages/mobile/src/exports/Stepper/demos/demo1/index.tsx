@@ -1,16 +1,18 @@
 import React from 'react'
 import { Stepper, Space, DemoBlock } from '@fexd/mobile'
 
-import './style.module.less'
-
 export default () => (
-  <div className="demo">
+  <>
     <DemoBlock title="基础">
       <Stepper />
     </DemoBlock>
 
-    <DemoBlock title="进阶">
+    <DemoBlock title="步长">
       <Stepper defaultValue={10} step={10} />
+    </DemoBlock>
+
+    <DemoBlock title="最大值 / 最小值">
+      <Stepper min={5} max={10} />
     </DemoBlock>
 
     <DemoBlock title="尺寸">
@@ -23,5 +25,5 @@ export default () => (
       <Stepper block size="normal" />
       <Stepper block size="large" />
     </DemoBlock>
-  </div>
+  </>
 )

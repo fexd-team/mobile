@@ -51,6 +51,7 @@
 
   &-item {
     width: 100%;
+    font-size: 14px * @size-scale;
     height: @picker-view-item-height * @size-scale;
     line-height: @picker-view-item-height * @size-scale;
     text-align: center;
@@ -58,5 +59,11 @@
     text-overflow: ellipsis;
     white-space: nowrap;
     padding: 0 14px * @size-scale;
+    transition: font-size 0.1s;
+
+    &--active {
+      font-size: 17px * @size-scale;
+      // font-weight: 700;
+    }
   }
 }

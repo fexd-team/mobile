@@ -6,7 +6,7 @@
     "init": "npx pnpm@6 i --shamefully-hoist",
     "dev": "dumi dev",
     "start": "dumi dev",
-    "build": "npm run -C ./packages/mobile build && npm run -C ./packages/mobile-router5 build && npm run less2css && npm run size -- --fresh",
+    "build": "npm run entries && npm run -C ./packages/mobile build && npm run -C ./packages/mobile-router5 build && npm run less2css && npm run size -- --fresh && npm run entries -- --noDeveloping=false",
     "less2css": "npx pnpm@6 run --filter=!root --parallel less2css",
     "clean:build": "rimraf ./packages/*/lib ./packages/*/es",
     "clean:all": "npm run clean:build && rimraf .umi .umi-production docs-dist node_modules/ ./**/node_modules",
@@ -19,7 +19,8 @@
     "stylelint": "stylelint \"./{packages,docs}/**/*.{css,less}\"",
     "release": "changeset publish",
     "size": "node ./scripts/size/index.js",
-    "new:component": "node ./scripts/new-component/index.js"
+    "new:component": "node ./scripts/new-component/index.js",
+    "entries": "node ./scripts/updateEntry.js"
   },
   "devDependencies": {
     "@arco-design/mobile-react": "^2.29.4",

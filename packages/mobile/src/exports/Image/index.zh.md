@@ -1,6 +1,4 @@
 ---
-hide: true
-
 group:
   title: 实验性
   path: /experimental

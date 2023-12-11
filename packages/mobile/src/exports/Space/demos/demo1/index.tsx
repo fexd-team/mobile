@@ -1,10 +1,8 @@
 import React from 'react'
-import { Space, Button, Card, DemoBlock } from '@fexd/mobile'
-
-import './style.module.less'
+import { Space, Button, DemoBlock } from '@fexd/mobile'
 
 export default () => (
-  <div className="demo">
+  <>
     <DemoBlock title="基础">
       <Space align="center">
         <Button>Button</Button>
@@ -56,33 +54,17 @@ export default () => (
     </DemoBlock>
 
     <DemoBlock title="设置间距方向">
-      <Card
-        title="title"
-        titleExtra={<a href="#">titleExtra</a>}
-        footer="footer"
-        footerExtra={<a href="#">footerExtra</a>}
-        // after={null}
-      >
-        <Space>
-          <span>Card Content</span>
-          <span>Card Content</span>
-          <span>Card Content</span>
-        </Space>
-      </Card>
+      <Space>
+        <Button>Content</Button>
+        <Button>Content</Button>
+        <Button>Content</Button>
+      </Space>
 
-      <Card
-        title="title"
-        titleExtra={<a href="#">titleExtra</a>}
-        footer="footer"
-        footerExtra={<a href="#">footerExtra</a>}
-        // after={null}
-      >
-        <Space direction="vertical">
-          <span>Card Content</span>
-          <span>Card Content</span>
-          <span>Card Content</span>
-        </Space>
-      </Card>
+      <Space direction="vertical">
+        <Button>Content</Button>
+        <Button>Content</Button>
+        <Button>Content</Button>
+      </Space>
     </DemoBlock>
 
     <DemoBlock title="设置拆分">
@@ -107,5 +89,5 @@ export default () => (
         <Button>Button</Button>
       </Space>
     </DemoBlock>
-  </div>
+  </>
 )

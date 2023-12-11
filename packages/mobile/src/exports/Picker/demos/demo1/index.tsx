@@ -19,8 +19,6 @@ import {
   DemoBlock,
 } from '@fexd/mobile'
 
-import './style.module.less'
-
 export default () => {
   const data = Array.from(new Array(12)).map((item, index) => ({
     label: `${index + 1}月`,

@@ -1,8 +1,8 @@
 import React from 'react'
-import { Timeline, Iconfont as Icon, DemoBlock } from '@fexd/mobile'
+import { Timeline, Iconfont, DemoBlock } from '@fexd/mobile'
 import { source } from '@fexd/tools'
 
-import './style.module.less'
+// import './style.module.less'
 
 source.css('https://at.alicdn.com/t/font_622014_wkh62u19ggs.css')
 
@@ -13,13 +13,13 @@ export default () => {
       title: 'Place the order and successful payment',
       content: '',
       time: 'Today',
-      dot: <Icon type="amicon-round_like_fill" style={{ color: 'pink' }} />,
+      dot: <Iconfont prefix="amicon" type="round_like_fill" style={{ color: 'pink' }} />,
     },
     {
       title: 'Place the order and successful payment',
       content: '',
       time: '2021-01-01',
-      dot: <Icon type="amicon-time" />,
+      dot: <Iconfont prefix="amicon" type="time" />,
     },
     {
       title: 'Calculate Interest, you can apply withdrawal with flexibility',
@@ -59,9 +59,9 @@ export default () => {
           <Timeline.Item
             title="1"
             time="Today"
-            dot={<Icon type="amicon-round_like_fill" style={{ color: 'pink' }} />}
+            dot={<Iconfont prefix="amicon" type="round_like_fill" style={{ color: 'pink' }} />}
           />
-          <Timeline.Item title="2" time="2021-01-01" dot={<Icon type="amicon-time" />} />
+          <Timeline.Item title="2" time="2021-01-01" dot={<Iconfont prefix="amicon" type="time" />} />
           <Timeline.Item title="3" time="2018-04-13" />
         </Timeline>
       </DemoBlock>

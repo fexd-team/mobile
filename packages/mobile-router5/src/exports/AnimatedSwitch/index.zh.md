@@ -1,7 +1,11 @@
 ---
+# group:
+#   title: 导航
+#   path: /navigation
+
 group:
-  title: 导航
-  path: /navigation
+  title: 实验性
+  path: /experimental
 ---
 
 # AnimatedSwitch 路由动画 <ImportCost name="AnimatedSwitch" />
