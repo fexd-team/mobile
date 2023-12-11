@@ -1,6 +1,5 @@
 import React from 'react'
-import DemoBlock from '@documents/components/DemoBlock'
-import { Avatar, Badge, Iconfont } from '@fexd/mobile'
+import { Avatar, Badge, Iconfont, DemoBlock } from '@fexd/mobile'
 import { Icon, LocationOutline } from '@fexd/icons'
 
 import './style.module.less'

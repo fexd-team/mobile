@@ -21,8 +21,8 @@ import {
   TransitionSlideUp,
   TransitionSlideDown,
   TransitionFadeSlideUp,
-  TransitionFadeSlideDown,
-} from '@fexd/mobile'
+  TransitionFadeSlideDown
+,DemoBlock} from '@fexd/mobile'
 
 <TransitionNone in={show}>None</TransitionNone>
 <TransitionFade in={fadeIn}>Fade</TransitionFade>

@@ -1,6 +1,5 @@
 import React from 'react'
-import { Button, BlockInput, toast } from '@fexd/mobile'
-import DemoBlock from '@documents/components/DemoBlock'
+import { Button, BlockInput, toast, DemoBlock } from '@fexd/mobile'
 
 export default () => (
   <>

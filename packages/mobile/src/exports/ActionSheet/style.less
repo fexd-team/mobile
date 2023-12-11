@@ -8,4 +8,27 @@
 
 .@{action-sheet-prefix} {
   /* 组件样式 */
+
+  &-action {
+    &.@{btn-prefix}-plain.@{btn-prefix}-fill-none,
+    &.@{btn-prefix}-fill-none {
+      border-bottom: solid 1px @ant-color-gray-3;
+    }
+
+    &.@{btn-prefix}-large {
+      height: 1.2 * @btn-block-size-base * @btn-size-scale-large * @size-scale;
+    }
+
+    &.@{btn-prefix}-normal {
+      height: 1.2 * @btn-block-size-base * @btn-size-scale-normal * @size-scale;
+    }
+
+    &.@{btn-prefix}-small {
+      height: 1.2 * @btn-block-size-base * @btn-size-scale-small * @size-scale;
+    }
+
+    &.@{btn-prefix}-mini {
+      height: 1.2 * @btn-block-size-base * @btn-size-scale-mini * @size-scale;
+    }
+  }
 }

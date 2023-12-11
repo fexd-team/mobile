@@ -19,9 +19,9 @@ function outQuad(pos: number) {
 
 /**
  * 循环模式下对有序数组按当前坐标进行调整，例如
- * [0,1,2,3] 当前为 0 时，应得到 [2,3,0,1]，保证 0 左侧为尾值
- * 类似地，[0,1,2] 当前为 0 时，应得到 [2,0,1]
- * [0,1,2,3,4] 当前为 0 时，应得到 [3,4,0,1,2]
+ * [0, 1, 2, 3] 当前为 0 时，应得到 [2, 3, 0, 1]，保证 0 左侧为尾值
+ * 类似地，[0, 1, 2] 当前为 0 时，应得到 [2, 0, 1]
+ * [0, 1, 2, 3, 4] 当前为 0 时，应得到 [3, 4, 0, 1, 2]
  */
 function loopSort(length: number, currentIdx: number) {
   const middle = length / 2
@@ -79,14 +79,13 @@ const Swiper = createFC<SwiperProps, SwiperRef>(function Swiper(
   const valueLoopOffset = useRef(0)
   const dragging = useRef(false)
 
-  // 受控状态下，prevPropValue 变化时，计算动画方向
-  useMemo(() => {
+  const calcValueLoopOffset = useMemoizedFn((prevValue, nextValue) => {
     // 非循环模式不计算、触摸滑动时不计算
     if (!loop || dragging.current) {
       return
     }
 
-    const valueCross = [prevPropValue, value].join('')
+    const valueCross = [prevValue, nextValue].join('')
 
     // 如果是首 -> 尾，则动画方向为 ←（纵向时为 ↑）
     if (valueCross === `0${childrenLength - 1}`) {
@@ -97,7 +96,10 @@ const Swiper = createFC<SwiperProps, SwiperRef>(function Swiper(
     if (valueCross === `${childrenLength - 1}0`) {
       valueLoopOffset.current = valueLoopOffset.current + childrenLength
     }
-  }, [prevPropValue])
+  })
+
+  // 受控状态下，prevPropValue 变化时，计算动画方向
+  useMemo(() => calcValueLoopOffset(prevPropValue, value), [prevPropValue])
 
   // 内部 value，与外部 value 有所不同，参考 valueLoopOffset 的说明
   const stateValue = value + valueLoopOffset.current
@@ -184,7 +186,7 @@ const Swiper = createFC<SwiperProps, SwiperRef>(function Swiper(
 
       // 非循环状态下，不可越界，循环状态下不做限制
       if (shouldUpdate && (loop || (nextStateValue >= 0 && nextStateValue <= childrenLength - 1))) {
-        valueLoopOffset.current = loop ? nextStateValue - nextValue : 0
+        calcValueLoopOffset(getValue(), nextValue)
         setValue(nextValue)
       } else {
         // 不更新则退回到当前的目标位置

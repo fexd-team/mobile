@@ -1,6 +1,6 @@
 import React from 'react'
-import DemoBlock from '@documents/components/DemoBlock'
 import { TabBarLayout } from '@fexd/mobile-router5'
+import { DemoBlock } from '@fexd/mobile'
 
 import './style.module.less'
 

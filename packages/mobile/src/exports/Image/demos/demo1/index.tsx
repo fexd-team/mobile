@@ -1,6 +1,5 @@
 import React from 'react'
-import DemoBlock from '@documents/components/DemoBlock'
-import { Image } from '@fexd/mobile'
+import { Image, DemoBlock } from '@fexd/mobile'
 
 import './style.module.less'
 

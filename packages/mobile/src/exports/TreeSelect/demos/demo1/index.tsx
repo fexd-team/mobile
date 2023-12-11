@@ -1,6 +1,5 @@
 import React from 'react'
-import DemoBlock from '@documents/components/DemoBlock'
-import { TreeSelect } from '@fexd/mobile'
+import { TreeSelect, DemoBlock } from '@fexd/mobile'
 
 import './style.module.less'
 

@@ -6,8 +6,6 @@ group:
 
 # ScrollView 滚动区域 <ImportCost name="ScrollView" />
 
-更详细文档与 demo 请进入这里：[CJY0208/tiny-scroll-listener](https://github.com/CJY0208/tiny-scroll-listener)
-
 ## 属性说明
 
 | 属性 | 说明 | 类型 | 默认值 | 提供的值 |

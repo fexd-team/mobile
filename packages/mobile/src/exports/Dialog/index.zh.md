@@ -2,54 +2,34 @@
 group:
   title: 反馈
   path: /feedback
+
+mobileDemoFixed: false
 ---
 
 # Dialog 对话框 <ImportCost name="Dialog" />
 
-<!-- prettier-ignore -->
-```jsx | pure
-import { Dialog, showDialog } from '@fexd/mobile'
+## 效果演示
 
-<Dialog visible>声明式</Dialog>
+## <code src="./demos/demo1/index.tsx" />
 
-showDialog({
-  content: '命令式' // 通过 content 属性来设置内容，其余参数与 Dialog API 一致
-})
-```
+---
 
-## API
+## showDialog
 
-<!-- | 属性 | 说明 | 类型 | 默认值 |
-| :--- | :--- | :--- | :----- | -->
+`showDialog` 的属性和 `<Dialog />` 几乎完全相同，只是不需要手动定义 `visible`、`onClose`
 
-```tsx | pure
-import React from 'react'
-import { ModalProps } from '@fexd/mobile/es/exports/Modal/type'
-import { BasicButtonProps } from '@fexd/mobile/es/exports/BasicButton/type'
+而且 `children` 属性替换为了 `content`
 
-export interface DialogAction extends BasicButtonProps {
-  content: React.ReactNode | (() => React.ReactNode)
-  onClick?: () => void
-}
+具体可以参考 [命令式调用（函数式）](/#/exports/feedback/api-method-call)
 
-export type DialogTheme = 'normal' | 'iOS' | 'Android'
+---
 
-export interface DialogProps extends Omit<ModalProps, 'placement' | 'transition' | 'type'> {
-  title?: string // 标题
-  theme?: DialogTheme // 风格，有三种：'normal' | 'iOS' | 'Android'
-  actions?: DialogAction[] // 动作集
-  prefix?: React.ReactNode // 前缀，显示在内容 box 的下方
-  suffix?: React.ReactNode // 后缀，显示在内容 box 的下方
-  buttonFactory?: React.FC<BasicButtonProps> // 按钮的组件类型，默认是 mobile 的 Button
-  buttonType?: BasicButtonProps['type'] | ((theme: DialogTheme, idx: number) => BasicButtonProps['type'])
-  buttonSize?: BasicButtonProps['size'] | ((theme: DialogTheme, idx: number) => BasicButtonProps['size'])
-  buttonFill?: BasicButtonProps['fill'] | ((theme: DialogTheme, idx: number) => BasicButtonProps['fill'])
-  buttonShape?: BasicButtonProps['shape'] | ((theme: DialogTheme, idx: number) => BasicButtonProps['shape'])
-}
-```
+## Dialog
 
-## 演示代码
+<API identifier="Dialog" hideTitle src="./type.tsx" exports='["default"]'></API>
 
-<!-- ### 预览 -->
+---
 
-<code src="./demos/demo1/index.tsx" />
+## DialogAction
+
+<API identifier="DialogAction" hideTitle src="./type.tsx" exports='["DOC_PureDialogAction"]'></API>

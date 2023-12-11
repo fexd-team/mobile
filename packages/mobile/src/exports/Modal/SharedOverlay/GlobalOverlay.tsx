@@ -1,6 +1,6 @@
 import React, { useState, useEffect, useRef } from 'react'
 // import { render } from 'react-dom'
-// import { globalThis as root } from '@fexd/tools'
+// import { run, globalThis as root } from '@fexd/tools'
 
 import { OverlayClassNamePrefix as prefix } from '../../Overlay'
 import BasicModal from '../../BasicModal'

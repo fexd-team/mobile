@@ -1,6 +1,5 @@
 import React, { useState } from 'react'
-import DemoBlock from '@documents/components/DemoBlock'
-import { Video } from '@fexd/mobile'
+import { Video, DemoBlock } from '@fexd/mobile'
 
 import './style.module.less'
 

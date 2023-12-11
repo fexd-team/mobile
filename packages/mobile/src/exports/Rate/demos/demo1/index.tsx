@@ -1,6 +1,5 @@
 import React from 'react'
-import DemoBlock from '@documents/components/DemoBlock'
-import { Rate, toast } from '@fexd/mobile'
+import { Rate, toast, DemoBlock } from '@fexd/mobile'
 import { Heart } from '@fexd/icons'
 
 export default () => {

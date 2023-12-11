@@ -17,8 +17,9 @@ import {
   toast,
   loading,
   notify,
+  DemoBlock,
 } from '@fexd/mobile'
-import DemoBlock from '@documents/components/DemoBlock'
+
 import './style.module.less'
 
 // Modal.defaultProps.transitionSpeed = 'slowest'

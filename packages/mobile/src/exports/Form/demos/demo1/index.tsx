@@ -1,8 +1,7 @@
 import React from 'react'
-import DemoBlock from '@documents/components/DemoBlock'
 // import createForm from 'formini'
 import { first, pickBy, isExist } from '@fexd/tools'
-import { Form, LineInput, LinePicker, Button, toast } from '@fexd/mobile'
+import { Form, LineInput, LinePicker, Button, toast, DemoBlock } from '@fexd/mobile'
 
 import './style.module.less'
 

@@ -7,7 +7,7 @@ export type ModalIdType = string
 export type ModalLevel = 'low' | 'normal' | 'high' | 'highest'
 export type ModalPlacement = 'center' | 'top' | 'bottom'
 
-export interface BasicModalProps extends Omit<JSXDivProps, 'prefix' | 'children' | 'title' | 'content'> {
+export interface PureBasicModalProps {
   /** 模态框 id，基础模态框必传，用于区分模态框 */
   modalId: ModalIdType
 
@@ -19,7 +19,6 @@ export interface BasicModalProps extends Omit<JSXDivProps, 'prefix' | 'children'
   /** 行为意图钩子，尝试关闭时，用于控制外部 visible 变量 */
   onClose?: React.ReactEventHandler<HTMLElement>
 
-  // className?: string // 内容容器的类名
   /** 模态框类型，仅用作互斥标识使用，无其他用途 */
   type?: string
 
@@ -75,7 +74,13 @@ export interface BasicModalProps extends Omit<JSXDivProps, 'prefix' | 'children'
   onDestroyed?: () => void
 
   ref?: React.Ref<HTMLDivElement>
+
+  /**
+   * @description 存储到 modalStore 中的 props
+   * @default 当前弹窗的 props
+   */
   storeProps?: any
+
   /** 退场后是否销毁内容 */
   destroyOnExit?: boolean
 
@@ -83,4 +88,7 @@ export interface BasicModalProps extends Omit<JSXDivProps, 'prefix' | 'children'
   portalTo?: any
 }
 
-export default AUTO_API<BasicModalProps>()
+export interface BasicModalProps extends Omit<JSXDivProps, 'prefix' | 'children' | 'title' | 'content' | 'ref'> {}
+export interface BasicModalProps extends PureBasicModalProps {}
+
+export default AUTO_API<PureBasicModalProps>()

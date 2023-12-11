@@ -1,6 +1,5 @@
 import React, { useRef } from 'react'
-import DemoBlock from '@documents/components/DemoBlock'
-import { Flex } from '@fexd/mobile'
+import { Flex, DemoBlock } from '@fexd/mobile'
 
 import './style.module.less'
 

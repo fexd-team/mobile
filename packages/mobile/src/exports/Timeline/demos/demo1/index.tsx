@@ -1,6 +1,5 @@
 import React from 'react'
-import DemoBlock from '@documents/components/DemoBlock'
-import { Timeline, Iconfont as Icon } from '@fexd/mobile'
+import { Timeline, Iconfont as Icon, DemoBlock } from '@fexd/mobile'
 import { source } from '@fexd/tools'
 
 import './style.module.less'

@@ -1,0 +1,48 @@
+@import '../../theme/vars.less'; // 引入全局样式变量集，内含 @size-scale、各类色值等变量
+
+// 由于 less 变量的懒生效特性，变量命名空间存在冲突，此处 prefix 变量命名前需要加特定前缀
+// https://less.bootcss.com/features/#variables-lazy-evaluation
+@demo-block-prefix: ~'exd-demo-block';
+
+.@{demo-block-prefix} {
+  /* 组件样式 */
+  background: #fff;
+  overflow: hidden;
+  padding: 1px;
+
+  & + .@{demo-block-prefix} {
+    margin-top: 12px;
+  }
+
+  &-title {
+    margin: 0;
+    font-size: 16px;
+    color: #666;
+    width: 100%;
+    padding: 12px 16px 0;
+  }
+
+  &-content {
+    margin: 0;
+    padding: 16px;
+    list-style: none;
+  }
+
+  &--plain {
+    background: transparent;
+
+    & + & {
+      margin-top: 0;
+    }
+
+    .@{demo-block-prefix}-title {
+      color: #999;
+      padding: 12px 16px;
+      font-size: 14px;
+    }
+
+    .@{demo-block-prefix}-content {
+      padding: 0;
+    }
+  }
+}

@@ -1,6 +1,14 @@
 import React from 'react'
-import DemoBlock from '@documents/components/DemoBlock'
-import { Alert, AlertProps, Iconfont, Button, showModal, TransitionSlideDown, modalConflict } from '@fexd/mobile'
+import {
+  Alert,
+  AlertProps,
+  Iconfont,
+  Button,
+  showModal,
+  TransitionSlideDown,
+  modalConflict,
+  DemoBlock,
+} from '@fexd/mobile'
 
 import styles from './style.module.less'
 

@@ -1,8 +1,7 @@
 import React, { useState } from 'react'
 import BigNumber from 'bignumber.js'
 
-import { BasicInput, BasicTextArea } from '@fexd/mobile'
-import DemoBlock from '@documents/components/DemoBlock'
+import { BasicInput, BasicTextArea, DemoBlock } from '@fexd/mobile'
 
 export default () => {
   const [value, setValue] = useState<any>('124567')

@@ -1,6 +1,5 @@
 import React from 'react'
-import DemoBlock from '@documents/components/DemoBlock'
-import { Calendar } from '@fexd/mobile'
+import { Calendar, DemoBlock } from '@fexd/mobile'
 
 import './style.module.less'
 

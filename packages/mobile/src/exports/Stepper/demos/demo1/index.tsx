@@ -1,6 +1,5 @@
 import React from 'react'
-import DemoBlock from '@documents/components/DemoBlock'
-import { Stepper, Space } from '@fexd/mobile'
+import { Stepper, Space, DemoBlock } from '@fexd/mobile'
 
 import './style.module.less'
 

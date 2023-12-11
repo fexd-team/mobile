@@ -1,6 +1,5 @@
 import React, { useState } from 'react'
-import DemoBlock from '@documents/components/DemoBlock'
-import { ErrorBoundary, Button } from '@fexd/mobile'
+import { ErrorBoundary, Button, DemoBlock } from '@fexd/mobile'
 
 import './style.module.less'
 

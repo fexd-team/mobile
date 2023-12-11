@@ -1,7 +1,6 @@
 import React from 'react'
-import DemoBlock from '@documents/components/DemoBlock'
 import { AlbumsOutline } from '@fexd/icons'
-import { Empty, Button, toast } from '@fexd/mobile'
+import { Empty, Button, toast, DemoBlock } from '@fexd/mobile'
 import './style.module.less'
 
 import emptyImage from './emptyImg.png'

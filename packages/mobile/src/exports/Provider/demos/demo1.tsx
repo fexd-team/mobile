@@ -1,6 +1,5 @@
 import React from 'react'
-import DemoBlock from '@documents/components/DemoBlock'
-import { Provider } from '@fexd/mobile'
+import { Provider, DemoBlock } from '@fexd/mobile'
 
 export default () => (
   <>

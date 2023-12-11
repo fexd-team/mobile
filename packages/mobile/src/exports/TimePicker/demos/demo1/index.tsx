@@ -1,7 +1,6 @@
 import React, { useState } from 'react'
 import { MemoryRouter, Route, Redirect } from 'react-router-dom'
 import dayjs from 'dayjs'
-import DemoBlock from '@documents/components/DemoBlock'
 import { CheckmarkOutline, CloseOutline } from '@fexd/icons'
 import {
   LineTimePicker,
@@ -15,6 +14,7 @@ import {
   BlockLabel,
   BlockTimePicker,
   ScrollView,
+  DemoBlock,
 } from '@fexd/mobile'
 
 // import './style.module.less'

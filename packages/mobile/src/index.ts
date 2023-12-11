@@ -1,3 +1,4 @@
+export { default as DemoBlock } from './exports/DemoBlock'
 export { default as ActionSheet } from './exports/ActionSheet'
 export { default as Alert } from './exports/Alert'
 export { default as Avatar } from './exports/Avatar'

@@ -32,9 +32,11 @@ import { Divider } from '@fexd/mobile'
 
 通过 `vertical` 属性切换分割线的方向，默认为 `false` ，即水平方向分割。
 
+<!-- prettier-ignore -->
 ```jsx | pure
 import { Divider } from '@fexd/mobile'
-;<Divider vertical={true} />
+
+<Divider vertical={true} />
 ```
 
 ## API 说明

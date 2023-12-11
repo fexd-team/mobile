@@ -1,6 +1,5 @@
 import React, { useState } from 'react'
 import { MemoryRouter, Route, useHistory, Redirect } from 'react-router-dom'
-import DemoBlock from '@documents/components/DemoBlock'
 
 import { CheckmarkOutline, CloseOutline } from '@fexd/icons'
 import {
@@ -17,6 +16,7 @@ import {
   showPicker,
   Hook,
   Space,
+  DemoBlock,
 } from '@fexd/mobile'
 
 import './style.module.less'

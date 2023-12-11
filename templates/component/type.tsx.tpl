@@ -8,7 +8,7 @@ export interface Pure{{ name }}Props {
 }
 
 export interface {{ name }}Props extends Pure{{ name }}Props {}
-export interface {{ name }}Props extends JSXDivProps {}
+export interface {{ name }}Props extends  Omit<JSXDivProps, 'ref'> {}
 
 export type {{ name }}Ref = HTMLDivElement
 export interface {{ name }}Type extends FC<{{ name }}Props> {}

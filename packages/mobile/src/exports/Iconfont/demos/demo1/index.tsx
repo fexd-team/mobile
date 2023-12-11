@@ -1,7 +1,6 @@
 import React from 'react'
-import DemoBlock from '@documents/components/DemoBlock'
 import { copy } from '@fexd/tools'
-import { Grid, Iconfont } from '@fexd/mobile'
+import { Grid, Iconfont, DemoBlock } from '@fexd/mobile'
 import iconfontList from './iconfont-list'
 
 import './style.module.less'

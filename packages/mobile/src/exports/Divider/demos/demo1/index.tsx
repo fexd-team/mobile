@@ -1,6 +1,5 @@
 import React from 'react'
-import DemoBlock from '@documents/components/DemoBlock'
-import { Divider } from '@fexd/mobile'
+import { Divider, DemoBlock } from '@fexd/mobile'
 
 export default () => {
   return (

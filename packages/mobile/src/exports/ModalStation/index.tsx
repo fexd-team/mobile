@@ -4,7 +4,7 @@ import { isFunction } from '@fexd/tools'
 import { ModalStationProps, IStationMap } from './type'
 
 export const stationMap: IStationMap = {}
-export default function ModalStation({ id }: ModalStationProps) {
+export default function ModalStation({ id, deleteStationMapKeyAfterUnmount = true }: ModalStationProps) {
   const [modalMap, setModalMap] = useState<any>({})
 
   useEffect(() => {
@@ -22,7 +22,9 @@ export default function ModalStation({ id }: ModalStationProps) {
     }
 
     return () => {
-      delete stationMap[id]
+      if (deleteStationMapKeyAfterUnmount) {
+        delete stationMap[id]
+      }
     }
   }, [])
 

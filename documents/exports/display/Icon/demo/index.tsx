@@ -1,6 +1,5 @@
 import React, { useState, useEffect, useMemo, useRef } from 'react'
 import { useSetState, usePrevious } from 'ahooks'
-import DemoBlock from '@documents/components/DemoBlock'
 import { copy, run, pick, isFunction, memoize } from '@fexd/tools'
 import {
   Grid,
@@ -16,6 +15,7 @@ import {
   TextArea,
   MaterialInput,
   toast,
+  DemoBlock,
 } from '@fexd/mobile'
 import * as MobileIonicIcons from '@fexd/icons'
 import * as MobileAntdIcons from '@fexd/icons-antd'

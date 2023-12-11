@@ -1,6 +1,5 @@
 import React from 'react'
-import DemoBlock from '@documents/components/DemoBlock'
-import { Button, loading } from '@fexd/mobile'
+import { Button, loading, DemoBlock } from '@fexd/mobile'
 
 export default () => (
   <>

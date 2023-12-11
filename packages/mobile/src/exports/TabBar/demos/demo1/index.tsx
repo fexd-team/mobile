@@ -1,5 +1,5 @@
 import React from 'react'
-import { TabBar, TransitionSwitch, View } from '@fexd/mobile'
+import { TabBar, TransitionSwitch, View, DemoBlock } from '@fexd/mobile'
 
 function usePrevious(value: any) {
   const previous = React.useRef(value)

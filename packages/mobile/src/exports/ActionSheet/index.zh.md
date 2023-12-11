@@ -2,64 +2,34 @@
 group:
   title: 反馈
   path: /feedback
+
+mobileDemoFixed: false
 ---
 
 # ActionSheet 动作面板 <ImportCost name="ActionSheet" />
 
-待补充
+---
 
-<!-- prettier-ignore -->
-```jsx | pure
-import { ActionSheet } from '@fexd/mobile'
+## 效果演示
 
-<ActionSheet />
-```
+## <code src="./demos/demo1/index.tsx" />
 
 ---
 
-## 使用说明
+## showActionSheet
 
-### 基础
+`showActionSheet` 的属性和 `<ActionSheet />` 几乎完全相同，只是不需要手动定义 `visible`、`onClose`
 
-待补充
-
-<!-- prettier-ignore -->
-```jsx | pure
-import { ActionSheet } from '@fexd/mobile'
-
-<ActionSheet />
-```
-
-### 进阶
-
-待补充
-
-<!-- prettier-ignore -->
-```jsx | pure
-import { ActionSheet } from '@fexd/mobile'
-
-<ActionSheet />
-```
+具体可以参考 [命令式调用（函数式）](/#/exports/feedback/api-method-call)
 
 ---
 
-## API
+## ActionSheet
 
-| 属性                                         | 说明 | 类型 | 默认值 |
-| :------------------------------------------- | :--- | :--- | :----- |
-| 必传参数 <span style="color: red;">\*</span> | -    | -    | -      |
-| 可选参数                                     | -    | -    | -      |
+<API identifier="ActionSheet" hideTitle src="./type.tsx" exports='["default"]'></API>
 
 ---
 
-## 样式变量
+## ActionSheetAction
 
-| 变量名               | 说明         | 默认值               |
-| :------------------- | :----------- | :------------------- |
-| @action-sheet-prefix | 组件样式前缀 | `'exd-action-sheet'` |
-
----
-
-## 演示代码
-
-<code src="./demos/demo1/index.tsx" />
+<API identifier="ActionSheetAction" hideTitle src="./type.tsx" exports='["DOC_PureActionSheetAction"]'></API>

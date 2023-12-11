@@ -1,6 +1,15 @@
 import React from 'react'
-import DemoBlock from '@documents/components/DemoBlock'
-import { Button, toast, notify, loading, showDialog, showModal, showPopup, showActionSheet } from '@fexd/mobile'
+import {
+  Button,
+  toast,
+  notify,
+  loading,
+  showDialog,
+  showModal,
+  showPopup,
+  showActionSheet,
+  DemoBlock,
+} from '@fexd/mobile'
 import { delay } from '@fexd/tools'
 
 export default () => (

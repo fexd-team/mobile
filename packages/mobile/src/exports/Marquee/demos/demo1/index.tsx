@@ -1,6 +1,5 @@
 import React from 'react'
-import DemoBlock from '@documents/components/DemoBlock'
-import { Marquee } from '@fexd/mobile'
+import { Marquee, DemoBlock } from '@fexd/mobile'
 
 import './style.module.less'
 

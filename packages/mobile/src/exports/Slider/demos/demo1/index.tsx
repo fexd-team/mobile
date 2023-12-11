@@ -1,8 +1,7 @@
 import React from 'react'
-import DemoBlock from '@documents/components/DemoBlock'
 import { useUpdateEffect } from 'ahooks'
 import { source, run, isAndroid, isDesktop } from '@fexd/tools'
-import { View, ScrollView, Slider, toast, Space, notify } from '@fexd/mobile'
+import { View, ScrollView, Slider, toast, Space, notify, DemoBlock } from '@fexd/mobile'
 
 import './style.module.less'
 

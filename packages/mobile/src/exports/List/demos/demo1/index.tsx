@@ -1,6 +1,5 @@
 import React from 'react'
-import DemoBlock from '@documents/components/DemoBlock'
-import { List, toast } from '@fexd/mobile'
+import { List, toast, DemoBlock } from '@fexd/mobile'
 
 import './style.module.less'
 

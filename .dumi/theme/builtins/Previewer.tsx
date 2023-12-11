@@ -101,7 +101,7 @@ export default (props: IPreviewerProps) => {
       ref={ref as any}
       style={responsive?.lg && useMobileDemo && props?.demoBlockHeight ? { height: props?.demoBlockHeight } : {}}
     >
-      {useMobileDemo && (isActive || !mobileDemoFixed) && (
+      {useMobileDemo && !mobileDemoFixed && (
         <Device className="__dumi-default-mobile-content-device" fixed={false} url={props.demoUrl ?? builtinDemoUrl} />
       )}
       {previewerProps && (

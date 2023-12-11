@@ -1,6 +1,5 @@
 import React from 'react'
-import DemoBlock from '@documents/components/DemoBlock'
-import { ProgressBar, Button } from '@fexd/mobile'
+import { ProgressBar, Button, DemoBlock } from '@fexd/mobile'
 import { Add, Remove } from '@fexd/icons'
 
 export default () => {

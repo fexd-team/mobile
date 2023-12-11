@@ -1,6 +1,5 @@
 import React from 'react'
-import DemoBlock from '@documents/components/DemoBlock'
-import { SwipeAction } from '@fexd/mobile'
+import { SwipeAction, DemoBlock } from '@fexd/mobile'
 
 import './style.module.less'
 

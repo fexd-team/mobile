@@ -1,6 +1,5 @@
 import React from 'react'
-import DemoBlock from '@documents/components/DemoBlock'
-import { Waterfall } from '@fexd/mobile'
+import { Waterfall, DemoBlock } from '@fexd/mobile'
 
 import './style.module.less'
 

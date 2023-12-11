@@ -1,8 +1,7 @@
 import React, { useState, useEffect } from 'react'
 import { sample } from '@fexd/tools'
 import { MdFlame } from '@fexd/icons'
-import { Button, toast, TransitionFade } from '@fexd/mobile'
-import DemoBlock from '@documents/components/DemoBlock'
+import { Button, toast, TransitionFade, DemoBlock } from '@fexd/mobile'
 
 import './style.module.less'
 import modalConflict from '../../../modalConflict'

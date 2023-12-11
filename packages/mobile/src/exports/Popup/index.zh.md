@@ -2,40 +2,28 @@
 group:
   title: 反馈
   path: /feedback
+
+mobileDemoFixed: false
 ---
 
 # Popup 弹出层 <ImportCost name="Popup" />
 
-<!-- prettier-ignore -->
-```jsx | pure
-import { Popup, showPopup } from '@fexd/mobile'
+## 效果演示
 
-<Popup visible>声明式</Popup>
+## <code src="./demos/demo1/index.tsx" />
 
-showPopup({
-  content: '命令式' // 通过 content 属性来设置内容，其余参数与 Popup API 一致
-})
-```
+---
 
-## API
+## showPopup
 
-<!-- | 属性 | 说明 | 类型 | 默认值 |
-| :--- | :--- | :--- | :----- | -->
+`showPopup` 的属性和 `<Popup />` 几乎完全相同，只是不需要手动定义 `visible`、`onClose`
 
-```tsx | pure
-import { ModalProps } from '@fexd/mobile/es/esports/Modal/type'
+而且 `children` 属性替换为了 `content`
 
-export interface PopupProps extends Omit<ModalProps, 'placement' | 'transition' | 'type'> {
-  title?: string
-  header?: React.ReactNode | (() => React.ReactNode)
-  headerRight?: React.ReactNode | (() => React.ReactNode)
-  headerLeft?: React.ReactNode | (() => React.ReactNode)
-  round?: boolean
-}
-```
+具体可以参考 [命令式调用（函数式）](/#/exports/feedback/api-method-call)
 
-## 演示代码
+---
 
-<!-- ### 预览 -->
+## Popup
 
-<code src="./demos/demo1/index.tsx" />
+<API identifier="Popup" hideTitle src="./type.tsx" exports='["default"]'></API>

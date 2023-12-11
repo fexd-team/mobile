@@ -1,6 +1,5 @@
 import React, { useState } from 'react'
-import DemoBlock from '@documents/components/DemoBlock'
-import { Switch } from '@fexd/mobile'
+import { Switch, DemoBlock } from '@fexd/mobile'
 import './style.module.less'
 
 const Demo = () => {

@@ -1,6 +1,5 @@
 import React, { useState } from 'react'
 import { run } from '@fexd/tools'
-import DemoBlock from '@documents/components/DemoBlock'
 import {
   Button,
   Modal,
@@ -10,6 +9,7 @@ import {
   modalConflict,
   showModal,
   modalStore,
+  DemoBlock,
 } from '@fexd/mobile'
 
 import './style.module.less'

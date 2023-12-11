@@ -1,6 +1,5 @@
 import React from 'react'
-import DemoBlock from '@documents/components/DemoBlock'
-import { Footer } from '@fexd/mobile'
+import { Footer, DemoBlock } from '@fexd/mobile'
 
 import './style.module.less'
 

@@ -1,6 +1,5 @@
 import React from 'react'
-import DemoBlock from '@documents/components/DemoBlock'
-import { Pagination } from '@fexd/mobile'
+import { Pagination, DemoBlock } from '@fexd/mobile'
 
 import './style.module.less'
 

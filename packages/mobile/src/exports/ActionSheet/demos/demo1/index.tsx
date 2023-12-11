@@ -1,22 +1,15 @@
 import React from 'react'
-import DemoBlock from '@documents/components/DemoBlock'
-import { Button, showActionSheet, toast, Iconfont } from '@fexd/mobile'
-
-import './style.module.less'
+import { Button, showActionSheet, toast, Iconfont, DemoBlock } from '@fexd/mobile'
 
 export default () => (
-  <div className="demo">
-    <DemoBlock title="基础">
+  <>
+    <DemoBlock title="基础" inline>
       <Button
         onClick={() => {
           const { close } = showActionSheet({
             actions: [
               {
                 content: '动作一',
-                // onClick: () => {
-                //   toast.info('动作一')
-                //   close()
-                // },
               },
               {
                 content: '动作二',
@@ -37,6 +30,41 @@ export default () => (
         }}
       >
         基础
+      </Button>
+      <Button
+        onClick={() => {
+          const { close } = showActionSheet({
+            actions: [
+              {
+                content: '动作一',
+              },
+              {
+                content: '动作二',
+                onClick: () => {
+                  toast.info('动作二')
+                  close()
+                },
+              },
+              {
+                content: '动作三',
+                onClick: () => {
+                  toast.info('动作三')
+                  close()
+                },
+              },
+              <div key="split" style={{ borderTop: '6px solid #f5f5f5' }} />,
+              {
+                content: '取消',
+                onClick: () => {
+                  toast.info('取消')
+                  close()
+                },
+              },
+            ],
+          })
+        }}
+      >
+        带取消按钮
       </Button>
     </DemoBlock>
     <DemoBlock title="进阶" inline>
@@ -110,6 +138,25 @@ export default () => (
       >
         带标题
       </Button>
+      <Button
+        onClick={() => {
+          const { close } = showActionSheet({
+            actions: [
+              <div key="1" onClick={() => close()}>
+                按钮一
+              </div>,
+              <div key="2" onClick={() => close()}>
+                按钮二
+              </div>,
+              <div key="3" onClick={() => close()}>
+                按钮三
+              </div>,
+            ],
+          })
+        }}
+      >
+        自定义元素
+      </Button>
     </DemoBlock>
-  </div>
+  </>
 )

@@ -1,6 +1,5 @@
 import React, { useState } from 'react'
-import DemoBlock from '@documents/components/DemoBlock'
-import { FullpageSpinner, Spinner, Button } from '@fexd/mobile'
+import { FullpageSpinner, Spinner, Button, DemoBlock } from '@fexd/mobile'
 
 import './style.module.less'
 

@@ -125,11 +125,11 @@ export default function useTouch(
       if (stopPropagation) {
         e.stopPropagation()
       }
+
       // preventDefault 需要排除 touchstart、touchend 事件，否则点击行为将失效
       if (
         preventDefault &&
-        !['touchstart', 'touchend'].includes(e?.type) &&
-        shouldMouseEventPreventDefaultRef.current
+        (!['touchstart', 'touchend'].includes(e?.type) || shouldMouseEventPreventDefaultRef.current)
       ) {
         e.preventDefault()
       }

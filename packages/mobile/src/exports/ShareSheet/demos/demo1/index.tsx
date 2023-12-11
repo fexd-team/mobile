@@ -1,6 +1,5 @@
 import React from 'react'
-import DemoBlock from '@documents/components/DemoBlock'
-import { ShareSheet } from '@fexd/mobile'
+import { ShareSheet, DemoBlock } from '@fexd/mobile'
 
 import './style.module.less'
 

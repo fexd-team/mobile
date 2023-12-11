@@ -1,5 +1,4 @@
 import React, { useState } from 'react'
-import DemoBlock from '@documents/components/DemoBlock'
 import {
   Button,
   TransitionFade,
@@ -9,6 +8,7 @@ import {
   TransitionFadeSlideDown,
   TransitionNone,
   Grid,
+  DemoBlock,
 } from '@fexd/mobile'
 import './style.module.less'
 

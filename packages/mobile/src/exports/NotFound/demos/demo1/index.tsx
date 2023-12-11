@@ -1,6 +1,5 @@
 import React from 'react'
-import DemoBlock from '@documents/components/DemoBlock'
-import { NotFound } from '@fexd/mobile'
+import { NotFound, DemoBlock } from '@fexd/mobile'
 import { HelpCircleOutline } from '@fexd/icons'
 
 import './style.module.less'

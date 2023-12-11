@@ -1,6 +1,5 @@
 import React from 'react'
-import DemoBlock from '@documents/components/DemoBlock'
-import { Watermark, View } from '@fexd/mobile'
+import { Watermark, View, DemoBlock } from '@fexd/mobile'
 
 import './style.module.less'
 

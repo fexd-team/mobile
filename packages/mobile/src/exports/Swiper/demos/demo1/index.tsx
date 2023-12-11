@@ -1,8 +1,7 @@
 /* eslint-disable react-hooks/exhaustive-deps */
 import React from 'react'
-import DemoBlock from '@documents/components/DemoBlock'
 import { run } from '@fexd/tools'
-import { Swiper, View, Button, showPopup, Space } from '@fexd/mobile'
+import { Swiper, View, Button, showPopup, Space, DemoBlock } from '@fexd/mobile'
 
 import './style.module.less'
 

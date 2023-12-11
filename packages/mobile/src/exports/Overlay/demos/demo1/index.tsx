@@ -1,6 +1,5 @@
 import React, { useState } from 'react'
-import { Button, Overlay, TransitionSlideUp } from '@fexd/mobile'
-import DemoBlock from '@documents/components/DemoBlock'
+import { Button, Overlay, TransitionSlideUp, DemoBlock } from '@fexd/mobile'
 
 function OverlayDemo({ buttonText, ...props }: any) {
   const [show, setShow] = useState(false)

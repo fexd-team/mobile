@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from 'react'
 import { isFunction, sample, random } from '@fexd/tools'
-import { Button, notify, TransitionFade } from '@fexd/mobile'
-import DemoBlock from '@documents/components/DemoBlock'
+import { Button, notify, TransitionFade, DemoBlock } from '@fexd/mobile'
 
 import './style.module.less'
 

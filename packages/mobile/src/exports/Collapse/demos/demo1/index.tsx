@@ -1,6 +1,5 @@
 import React from 'react'
-import DemoBlock from '@documents/components/DemoBlock'
-import { Collapse } from '@fexd/mobile'
+import { Collapse, DemoBlock } from '@fexd/mobile'
 import { Icon, EllipsisHorizontal } from '@fexd/icons'
 
 import './style.module.less'

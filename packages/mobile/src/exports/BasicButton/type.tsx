@@ -7,30 +7,63 @@ export type BasicButtonShapes = 'square' | 'round' | 'unset'
 export type BasicButtonSizeTypes = 'large' | 'normal' | 'small' | 'mini'
 export type BasicButtonFillTypes = 'solid' | 'outline' | 'none'
 
-export interface BasicButtonProps extends JSXButtonProps {
-  /** 类型，可选值为 plain primary success warning danger */
+export interface PureBasicButtonProps {
+  /**
+   * @description 类型，可选值为 'plain' | 'primary' | 'info' | 'success' | 'warning' | 'danger'
+   * @default 'plain'
+   */
   type?: BasicButtonTypes
 
-  /** 尺寸，可选值为 large normal small mini */
+  /**
+   * @description 尺寸，可选值为 'large' | 'normal' | 'small' | 'mini'
+   * @default 'normal'
+   */
   size?: BasicButtonSizeTypes
 
-  /** 形状，可选值为 square round */
+  /**
+   * @description 形状，可选值为 'square' | 'round' | 'unset'
+   * @default 'square'
+   */
   shape?: BasicButtonShapes
 
-  /** 填充模式，可选值为 solid outline none */
+  /**
+   * @description 填充类型，可选值为 'solid' | 'outline' | 'none'
+   * @default 'solid'
+   */
   fill?: BasicButtonFillTypes
 
-  /** 是否为块级元素 */
+  /**
+   * @description 是否为块级元素
+   * @default false
+   */
   block?: boolean
 
-  /** 是否为禁用状态 */
+  /**
+   * @description 是否禁用
+   * @default false
+   */
   disabled?: boolean
 
-  // className?: string // 类名
-  children?: React.ReactNode // 子元素
-  onClick?: React.MouseEventHandler<HTMLElement>
+  /** 类名 */
+  className?: string
+
+  /** 子元素 */
+  children?: React.ReactNode
+
+  /** 点击事件 */
+  onClick?: JSXButtonProps['onClick']
+
+  /**
+   * @description 标签类型
+   * @default 'button'
+   */
   as?: string | React.ComponentFactory<any, any> | React.FunctionComponentFactory<any>
+
+  /** ref */
   ref?: React.Ref<any>
 }
+
+export interface BasicButtonProps extends Omit<JSXButtonProps, 'ref' | 'onClick'> {}
+export interface BasicButtonProps extends PureBasicButtonProps {}
 
 export default AUTO_API<BasicButtonProps>()

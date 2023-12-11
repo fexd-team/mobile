@@ -1,6 +1,5 @@
 import React from 'react'
-import DemoBlock from '@documents/components/DemoBlock'
-import { Cascader } from '@fexd/mobile'
+import { Cascader, DemoBlock } from '@fexd/mobile'
 
 import './style.module.less'
 

@@ -1,6 +1,5 @@
 import React from 'react'
-import DemoBlock from '@documents/components/DemoBlock'
-import { NumberKeyboard } from '@fexd/mobile'
+import { NumberKeyboard, DemoBlock } from '@fexd/mobile'
 
 import './style.module.less'
 

@@ -1,7 +1,6 @@
 import React, { useState } from 'react'
-import DemoBlock from '@documents/components/DemoBlock'
 import ControlPanel from '@documents/components/ControlPanel'
-import { Steps, Iconfont } from '@fexd/mobile'
+import { Steps, Iconfont, DemoBlock } from '@fexd/mobile'
 
 const data = Array.from(new Array(3)).map((item, index) => ({
   title: index + 1,

@@ -1,7 +1,6 @@
 import React, { useState, useRef } from 'react'
-import DemoBlock from '@documents/components/DemoBlock'
 
-import { View, ScrollView, toast, Button, Iconfont } from '@fexd/mobile'
+import { View, ScrollView, toast, Button, Iconfont, DemoBlock } from '@fexd/mobile'
 
 import './style.module.less'
 

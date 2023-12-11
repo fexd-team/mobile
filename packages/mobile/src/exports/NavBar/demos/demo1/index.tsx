@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 import { ChevronBack, EllipsisHorizontal } from '@fexd/icons'
-import { NavBar } from '@fexd/mobile'
+import { NavBar, DemoBlock } from '@fexd/mobile'
 
 import './style.module.less'
 

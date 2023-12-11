@@ -1,7 +1,6 @@
 import React, { useState, useRef } from 'react'
 import BigNumber from 'bignumber.js'
 
-import DemoBlock from '@documents/components/DemoBlock'
 import {
   BasicInput,
   Button,
@@ -14,6 +13,7 @@ import {
   Space,
   BlockInput,
   ScrollView,
+  DemoBlock,
 } from '@fexd/mobile'
 
 // import './style.module.less'

@@ -14,6 +14,7 @@ import {
   Slider,
   Rate,
   toast,
+  DemoBlock,
 } from '@fexd/mobile'
 
 function Demo() {

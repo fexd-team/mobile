@@ -1,8 +1,7 @@
 import React from 'react'
-import DemoBlock from '@documents/components/DemoBlock'
 import { useMount } from 'ahooks'
 import { source, run } from '@fexd/tools'
-import { Drag, useTouch, View, Space } from '@fexd/mobile'
+import { Drag, useTouch, View, Space, DemoBlock } from '@fexd/mobile'
 
 import './style.module.less'
 

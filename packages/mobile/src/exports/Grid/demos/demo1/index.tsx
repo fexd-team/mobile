@@ -1,6 +1,5 @@
 import React from 'react'
-import DemoBlock from '@documents/components/DemoBlock'
-import { Grid, toast } from '@fexd/mobile'
+import { Grid, toast, DemoBlock } from '@fexd/mobile'
 import { ImageOutline } from '@fexd/icons'
 
 import './style.module.less'

@@ -1,6 +1,5 @@
 import React from 'react'
-import DemoBlock from '@documents/components/DemoBlock'
-import { CountDown } from '@fexd/mobile'
+import { CountDown, DemoBlock } from '@fexd/mobile'
 
 import './style.module.less'
 

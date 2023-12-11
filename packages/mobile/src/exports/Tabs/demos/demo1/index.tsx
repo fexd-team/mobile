@@ -1,6 +1,5 @@
 import React, { useState } from 'react'
-import DemoBlock from '@documents/components/DemoBlock'
-import { Tabs, Iconfont } from '@fexd/mobile'
+import { Tabs, Iconfont, DemoBlock } from '@fexd/mobile'
 // import { ValueType } from '@fexd/mobile/es/exports/Tabs/type'
 
 type ValueType = string | number

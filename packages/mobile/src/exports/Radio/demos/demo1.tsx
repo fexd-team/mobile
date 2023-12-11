@@ -1,7 +1,6 @@
 import React from 'react'
-import DemoBlock from '@documents/components/DemoBlock'
 import { ExtensionPuzzle, ExtensionPuzzleOutline } from '@fexd/icons'
-import { Radio, Space } from '@fexd/mobile'
+import { Radio, Space, DemoBlock } from '@fexd/mobile'
 
 export default () => (
   <>

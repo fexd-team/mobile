@@ -1,6 +1,5 @@
 import React from 'react'
-import DemoBlock from '@documents/components/DemoBlock'
-import { SegmentedControl } from '@fexd/mobile'
+import { SegmentedControl, DemoBlock } from '@fexd/mobile'
 
 import './style.module.less'
 
