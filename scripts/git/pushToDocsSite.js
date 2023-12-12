@@ -12,8 +12,6 @@ const command = [
   'git checkout docs-site',
   'git pull',
   `git merge ${currentBranch}`,
-  'npm run build',
-  'npm run size',
   'git add --all',
   'git commit -am "docs: auto merge main"',
   'git push',
