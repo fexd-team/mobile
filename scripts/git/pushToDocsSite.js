@@ -13,7 +13,7 @@ const command = [
   'git pull',
   `git merge ${currentBranch}`,
   'git add --all',
-  'git commit -am "docs: auto merge main"',
+  'git commit -am "docs: auto merge main" --no-verify',
   'git push',
   `git checkout ${currentBranch}`,
   'git pull',
