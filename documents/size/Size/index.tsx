@@ -1,4 +1,3 @@
-/* eslint-disable @typescript-eslint/no-use-before-define */
 /**
  * inline: true
  */
@@ -48,6 +47,7 @@ function Size({ libName, version }: { libName: keyof typeof sizeInfo; version?: 
   const [reports] = React.useState(() => getSizeInfo(libName))
   const [search, setSearch] = React.useState('')
   const debouncedSearch = useDebounce(search, { wait: 300 })
+  // eslint-disable-next-line @typescript-eslint/no-use-before-define
   const bigestExports = useMemo(() => getBiggestExports(), [])
   console.log('bigestExports', bigestExports)
   const packages = useMemo(
