@@ -58,7 +58,7 @@ order: 40
 
      如 [Input](/documents/exports/data/input) 与 `InputTrim`
 
-- 参考[组件规划](https://www.processon.com/view/link/60599b2c7d9c08555e4f448c)进行命名
+- 参考[组件规划](https://www.processon.com/view/link/655eb550d1fe402d6d1a995a)进行命名
 
 ## 属性设计
 

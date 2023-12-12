@@ -33,7 +33,7 @@
   },
   "files": ["es", "lib", "types.d.ts"],
   "sideEffects": false,
-  "homepage": "https://fexd-team.github.io/mobile",
+  "homepage": "https://fexd-mobile.pages.dev/",
   "repository": {
     "type": "git",
     "url": "https://github.com/fexd-team/mobile.git"

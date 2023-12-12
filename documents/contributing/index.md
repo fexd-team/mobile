@@ -80,7 +80,7 @@ https://www.processon.com/view/link/655eb550d1fe402d6d1a995a
 
 ### 技术文档
 
-- [x] 将使用 dumi 进行组件文档制作，例如 https://fexd-team.github.io/mobile
+- [x] 将使用 dumi 进行组件文档制作，例如 https://fexd-mobile.pages.dev/
 - [x] 业务线中的已适配组件陈列
 - [ ] 在组件文档中将体现不同主题定制（待实现）
 
