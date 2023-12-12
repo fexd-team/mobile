@@ -11,6 +11,7 @@
     "clean:build": "rimraf ./packages/*/lib ./packages/*/es",
     "clean:all": "npm run clean:build && rimraf .umi .umi-production docs-dist node_modules/ ./**/node_modules",
     "build:docs": "dumi build",
+    "release:docs": "node ./scripts/git/pushToDocsSite",
     "prettier": "prettier --write \"**/*.{js,jsx,ts,tsx,css,scss,less,md,json}\"",
     "eslint": "eslint --cache \"./{packages,docs}/**/*.{js,jsx,ts,tsx}\"",
     "eslint:error": "npm run eslint -- --quiet",
