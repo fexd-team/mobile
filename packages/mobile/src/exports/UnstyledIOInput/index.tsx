@@ -35,6 +35,7 @@ const UnstyledIOInput = createFC<UnstyledIOInputProps, UnstyledIOInputRef>(funct
     labelType,
     hideErrorWhenFocusing,
     keepHelperPlaceholder,
+    useLabelWrapper,
     onClick,
     onChange,
     theme,
@@ -100,6 +101,7 @@ const UnstyledIOInput = createFC<UnstyledIOInputProps, UnstyledIOInputRef>(funct
         helperProps,
       }}
       theme={theme}
+      useLabelWrapper={useLabelWrapper}
       autoHeight={multipleLines}
       className={classnames(`${classNamePrefix}__label`, className, {
         [`${classNamePrefix}__label--multiple`]: multipleLines,
@@ -162,7 +164,7 @@ const UnstyledIOInput = createFC<UnstyledIOInputProps, UnstyledIOInputRef>(funct
 UnstyledIOInput.defaultProps = {
   disabled: false,
   clearable: true,
-  autoHeight: false,
+  multipleLines: false,
   useLabelWrapper: true,
   clearIcon: MdCloseCircle,
   scrollIntoView: false,

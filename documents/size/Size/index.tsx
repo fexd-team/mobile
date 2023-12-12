@@ -1,8 +1,9 @@
+/* eslint-disable @typescript-eslint/no-use-before-define */
 /**
  * inline: true
  */
 import React, { useMemo } from 'react'
-import { groupBy, source } from '@fexd/tools'
+import { groupBy, flatten, memoize } from '@fexd/tools'
 import { useDebounce } from 'ahooks'
 
 import './index.scss'
@@ -47,6 +48,8 @@ function Size({ libName, version }: { libName: keyof typeof sizeInfo; version?: 
   const [reports] = React.useState(() => getSizeInfo(libName))
   const [search, setSearch] = React.useState('')
   const debouncedSearch = useDebounce(search, { wait: 300 })
+  const bigestExports = useMemo(() => getBiggestExports(), [])
+  console.log('bigestExports', bigestExports)
   const packages = useMemo(
     () =>
       reports.esm
@@ -128,9 +131,9 @@ function Size({ libName, version }: { libName: keyof typeof sizeInfo; version?: 
                 <li key={item?.name} className="export-analysis-section__pill export-analysis-section__dont-break">
                   <div
                     className={`export-analysis-section__pill-fill ${`export-analysis-section__pill-fill--${getBGClass(
-                      item?.gzip / totalSize,
+                      item?.gzip / bigestExports?.rawGzip,
                     )}`}`}
-                    style={{ transform: `scaleX(${Math.min((item?.gzip || 0) / totalSize, 1)})` }}
+                    style={{ transform: `scaleX(${Math.min((item?.gzip || 0) / bigestExports?.rawGzip, 1)})` }}
                   />
                   <div className="export-analysis-section__pill-name"> {item?.name} </div>
                   <div className="export-analysis-section__pill-size">
@@ -177,6 +180,12 @@ try {
 } catch (err) {
   // development 下可能不存在 size.json 文件
 }
+
+const getBiggestExports = memoize(() => {
+  return flatten(Object.values(sizeInfo).map((pkg: any) => pkg.esm)).sort((prev: any, next: any) =>
+    prev?.rawGzip > next?.rawGzip ? -1 : 1,
+  )?.[0]
+})
 
 function getSizeInfo(packageName: keyof typeof sizeInfo) {
   return sizeInfo?.[packageName] as any as {

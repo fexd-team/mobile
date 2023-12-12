@@ -141,7 +141,7 @@ export default () => {
   return (
     <ScrollView className="gap-y-4">
       <DemoBlock title="基础">
-        <DatePicker>
+        <DatePicker min={new Date('2023-12-10')} max={new Date('2023-12-15')}>
           {(value) => <Button>点击选择日期: {value ? dayjs(value).format('YYYY年MM月DD日') : '--'}</Button>}
         </DatePicker>
 

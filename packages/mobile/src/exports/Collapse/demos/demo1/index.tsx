@@ -2,10 +2,8 @@ import React from 'react'
 import { Collapse, DemoBlock } from '@fexd/mobile'
 import { Icon, EllipsisHorizontal } from '@fexd/icons'
 
-import './style.module.less'
-
 export default () => (
-  <div className="demo">
+  <>
     <DemoBlock plain title="基础">
       <Collapse defaultActiveKey={['1']}>
         <Collapse.Panel title="第一项" key="1">
@@ -68,5 +66,5 @@ export default () => (
         </Collapse.Panel>
       </Collapse>
     </DemoBlock>
-  </div>
+  </>
 )

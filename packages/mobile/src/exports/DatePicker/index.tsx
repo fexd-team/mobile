@@ -18,6 +18,7 @@ const DatePicker = createFC<DatePickerProps, DatePickerRef>(function DatePicker(
       {renderTrigger(run(children, undefined, value))}
       {renderPopup(
         <DatePickerView
+          {...restProps}
           rows={5}
           value={insideValue}
           onChange={(value) => {
