@@ -6,9 +6,9 @@ import { version } from './packages/mobile/package.json'
 export default defineConfig({
   title: 'Fexd Mobile',
   favicon: './logo.png',
-  logo: process.env.NODE_ENV === 'production' ? '/mobile/logo.png' : '/logo.png',
-  outputPath: 'docs',
-  publicPath: process.env.NODE_ENV === 'production' ? '/mobile/' : '/',
+  logo: '/logo.png',
+  outputPath: 'docs-dist',
+  publicPath: '/',
   mode: 'site',
   locales: [['zh-CN', '中文']],
   history: { type: 'hash' },
