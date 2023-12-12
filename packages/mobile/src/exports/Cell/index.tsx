@@ -43,7 +43,7 @@ const Cell = createFC<CellProps, CellRef>(function Cell(
           <Spinner />
         </div>
       ) : tapable ? (
-        <ChevronForward />
+        <ChevronForward className={`${prefix}-arrow`} />
       ) : null),
     [propSuffix, loading, tapable],
   )

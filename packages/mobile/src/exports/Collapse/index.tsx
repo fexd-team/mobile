@@ -13,27 +13,25 @@ interface CollapseType extends React.FC<CollapseProps> {
 }
 
 const Collapse = createFC<CollapseProps, CollapseRef>(function Collapse(
-  { children, className, accordion, expandIcon, iconRotate, ...props },
+  { children, className, accordion, expandIcon, iconRotate, defaultActiveKey, ...props },
   ref,
 ) {
-  const {
-    value,
-    setValue: setActiveKey,
-    getValue: __drop_getValue,
-    defaultActiveKey: __drop_defaultActiveKey,
-    getFocused: __drop_getFocused,
-    setFocused: __drop_setFocused,
-    focused: __drop_focused,
-    ...restProps
-  } = useIOControl<any>(props, {
-    defaultValuePropName: 'defaultActiveKey',
-    valuePropName: 'activeKey',
-  }) as any
+  const { value, setValue: setActiveKey } = useIOControl<any>(
+    {
+      defaultActiveKey,
+      ...props,
+    } as any,
+    {
+      defaultValuePropName: 'defaultActiveKey',
+      valuePropName: 'activeKey',
+    },
+  )
   const activeKey: ActiveKeyType[] = flatten([value])
 
   return (
     <div
-      {...(restProps as any)}
+      {...props}
+      onChange={undefined}
       className={classnames(prefix, {
         className,
       })}

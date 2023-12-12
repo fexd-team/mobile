@@ -3,8 +3,6 @@ import { run, delay } from '@fexd/tools'
 import { Cell, toast, Avatar, DemoBlock } from '@fexd/mobile'
 import { ImageOutline } from '@fexd/icons'
 
-import './style.module.less'
-
 export default () => {
   return (
     <>

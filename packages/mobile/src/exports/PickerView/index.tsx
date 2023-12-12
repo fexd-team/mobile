@@ -9,7 +9,7 @@ const PickerView = createFC<PickerViewProps, HTMLDivElement>(function PickerView
   { options = [], rows = 3, className, scaleSelected, ...props },
   forwardedRef,
 ) {
-  const { value, setValue, ...restProps } = useIOControl({
+  const { value, setValue } = useIOControl({
     ...props,
     onChange(value) {
       // eslint-disable-next-line @typescript-eslint/no-use-before-define
@@ -115,7 +115,7 @@ const PickerView = createFC<PickerViewProps, HTMLDivElement>(function PickerView
   }
 
   return (
-    <div {...restProps} className={classnames(prefix, className)} ref={forwardedRef}>
+    <div {...props} onChange={undefined} className={classnames(prefix, className)} ref={forwardedRef}>
       <div className={`${prefix}-mask-top`} style={{ height: indicatorTop }} />
       <div className={`${prefix}-mask-bottom`} style={{ height: indicatorTop }} />
       <div className={`${prefix}-indicator`} style={{ top: indicatorTop }} />
