@@ -3,8 +3,8 @@ const { getCurrentBranch } = require('./helpers')
 
 const currentBranch = getCurrentBranch()
 
-if (currentBranch !== 'master') {
-  console.log('该命令仅支持从 master 合入 docs-site 分支')
+if (currentBranch !== 'main') {
+  console.log('该命令仅支持从 main 合入 docs-site 分支')
   process.exit(0)
 }
 
@@ -15,7 +15,7 @@ const command = [
   'npm run build',
   'npm run size',
   'git add --all',
-  'git commit -am "docs: auto merge master"',
+  'git commit -am "docs: auto merge main"',
   'git push',
   `git checkout ${currentBranch}`,
   'git pull',
