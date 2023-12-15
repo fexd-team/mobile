@@ -13,11 +13,11 @@
     "build:docs": "dumi build",
     "release:docs": "node ./scripts/git/pushToDocsSite",
     "prettier": "prettier --write \"**/*.{js,jsx,ts,tsx,css,scss,less,md,json}\"",
-    "eslint": "eslint --cache \"./{packages,docs}/**/*.{js,jsx,ts,tsx}\"",
+    "eslint": "eslint --cache \"./{packages,documents}/**/*.{js,jsx,ts,tsx}\"",
     "eslint:error": "npm run eslint -- --quiet",
     "test": "jest --silent",
     "tsc:lint": "tsc --noEmit --isolatedModules",
-    "stylelint": "stylelint \"./{packages,docs}/**/*.{css,less}\"",
+    "stylelint": "stylelint \"./{packages,documents}/**/*.{css,less}\"",
     "release": "changeset publish",
     "size": "node ./scripts/size/index.js",
     "new:component": "node ./scripts/new-component/index.js",
@@ -95,7 +95,7 @@
   },
   "lint-staged": {
     "*.{md,json}": ["prettier --write"],
-    "*.{css,less}": ["stylelint", "prettier --write"],
+    "*.{css,less}": ["prettier --write"],
     "*.js?(x)": ["eslint --cache", "prettier --write"],
     "*.ts?(x)": ["eslint --cache", "prettier --parser=typescript --write"]
   },

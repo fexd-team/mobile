@@ -125,7 +125,9 @@ const Tabs = createFC<TabsProps, any>(function Tabs(
               key={index}
               display={display}
               tabIndex={index}
-              {...tab}
+              disabled={tab.disabled}
+              value={tab.value}
+              // {...tab}
               isActive={value === tab.value}
               onClick={onTabItemClick}
               onOffsetChange={onOffsetChange}
@@ -156,6 +158,7 @@ const Tabs = createFC<TabsProps, any>(function Tabs(
                   display="scroll"
                   tabIndex={index}
                   disabled={tab.disabled}
+                  value={tab.value}
                   // {...tab}
                   isActive={value === tab.value}
                   onClick={onTabItemClick}

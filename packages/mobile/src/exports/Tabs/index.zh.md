@@ -74,7 +74,7 @@ const tabsData = [
   },
 ]
 
-<Tabs data={tabsData} defaultValue="first" display="scroll" />
+<Tabs data={tabsData} defaultValue="first" display="flex" />
 ```
 
 #### display="scroll"
@@ -104,7 +104,7 @@ const tabsData = [
   },
 ]
 
-<Tabs data={tabsData} defaultValue={1} display="flex" />
+<Tabs data={tabsData} defaultValue={1} display="scroll" />
 ```
 
 ### 受控模式
