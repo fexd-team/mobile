@@ -68,9 +68,12 @@ export default function Test() {
         <Tabs data={tabsData2} defaultValue={1} />
       </DemoBlock>
 
-      <DemoBlock plain title={`示例：display="scroll"、display="flex"`}>
-        <Tabs data={tabsData} defaultValue="first" display="scroll" />
-        <Tabs data={tabsData2} defaultValue={1} display="flex" />
+      <DemoBlock plain title={`示例：display="flex"`}>
+        <Tabs data={tabsData} defaultValue="first" display="flex" />
+      </DemoBlock>
+
+      <DemoBlock plain title={`示例：display="scroll"`}>
+        <Tabs data={tabsData2} defaultValue={1} display="scroll" />
       </DemoBlock>
 
       <DemoBlock plain title="示例：受控模式">
