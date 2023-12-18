@@ -6,9 +6,10 @@ import useIOControl from '../useIOControl'
 import { TabsProps, ValueType } from './type'
 
 const Tabs = createFC<TabsProps, any>(function Tabs(
-  { display: defaultDisplay, data = [], ellipsis = false, className, ...props },
+  { display: defaultDisplay, ellipsis = false, className, ...props },
   forwardRef,
 ) {
+  const options = props?.options ?? props?.data ?? []
   const { value, setValue } = useIOControl(props)
   const [currentIndex, setCurrentIndex] = useState(-1)
   const [transformActive, setTransformActive] = useState(0)
@@ -19,10 +20,10 @@ const Tabs = createFC<TabsProps, any>(function Tabs(
   const flexTabsRef = useRef<HTMLDivElement>(null)
   const scrollTabsRef = useRef<HTMLDivElement>(null)
 
-  const display = defaultDisplay ?? (data.length > 3 ? 'scroll' : 'flex')
+  const display = defaultDisplay ?? (options.length > 3 ? 'scroll' : 'flex')
 
   const getTransform = (value: ValueType) => {
-    const index = data.findIndex((tab) => tab.value === value)
+    const index = options.findIndex((tab) => tab.value === value)
 
     if (index === -1) {
       setCurrentIndex(index)
@@ -120,7 +121,7 @@ const Tabs = createFC<TabsProps, any>(function Tabs(
       {/* 当选项数量小于等于3 */}
       {display === 'flex' && (
         <div ref={flexTabsRef} className="exd-tabs--flex">
-          {data.map((tab, index) => (
+          {options.map((tab, index) => (
             <TabItem
               key={index}
               display={display}
@@ -152,7 +153,7 @@ const Tabs = createFC<TabsProps, any>(function Tabs(
         <div className={'exd-tabs--scroll'}>
           <div ref={scrollTabsRef} className="exd-tabs--scroll__overflow">
             <div className="exd-tabs--scroll__container">
-              {data.map((tab, index) => (
+              {options.map((tab, index) => (
                 <TabItem
                   key={index}
                   display="scroll"

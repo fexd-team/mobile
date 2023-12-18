@@ -42,7 +42,7 @@ export const subEventExecuteFun = (domId: string, callBack: (ev: Event) => void)
 
   const dom = document.getElementById(domId)
 
-  console.log(domId, dom)
+  // console.log(domId, dom)
 
   if (!dom) {
     return

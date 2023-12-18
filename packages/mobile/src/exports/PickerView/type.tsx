@@ -2,7 +2,7 @@ import AUTO_API from '../../helpers/AUTO_API'
 export type PickerOptionValue = string | number
 
 export interface PickerOption {
-  [key: string]: PickerOptionValue
+  [key: string]: any
   /** 选项的值，类型为 string | number */
   value: PickerOptionValue
   /** 选项的名称 */

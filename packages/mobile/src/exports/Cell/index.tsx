@@ -59,7 +59,8 @@ const Cell = createFC<CellProps, CellRef>(function Cell(
       ref={forwardedRef}
       className={classnames(prefix, className, {
         [`${prefix}-${size}`]: !!size,
-        [`${prefix}-border`]: border,
+        [`${prefix}-border`]: border === true,
+        [`${prefix}-border-always`]: border === 'always',
         [`${prefix}-tapable`]: tapable,
       })}
       onClick={(...args) => {

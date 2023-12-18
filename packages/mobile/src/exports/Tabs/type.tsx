@@ -18,6 +18,7 @@ export interface TabsProps<T = ValueType> extends Omit<JSXDivProps, 'defaultValu
   value?: T
   onChange?: (value: T) => void
   data?: TabItemConfig<T>[]
+  options?: TabItemConfig<T>[]
   ref?: React.Ref<any>
 }
 

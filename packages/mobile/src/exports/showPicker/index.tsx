@@ -22,27 +22,17 @@ const showPicker = async ({
   const { close, promise } = showPopup({
     title: ' ',
     ...popupProps,
-    headerRight: (
-      <Button
-        type="primary"
-        fill="none"
+    headerRight: () => (
+      <span
         onClick={() => {
           value = tempValue
           close()
         }}
-        // size="large"
-        icon={run(headerRight) as any}
-      />
+      >
+        {run(headerRight)}
+      </span>
     ),
-    headerLeft: (
-      <Button
-        type="primary"
-        fill="none"
-        // size="large"
-        onClick={() => close()}
-        icon={run(headerLeft) as any}
-      />
-    ),
+    headerLeft: () => <span onClick={() => close()}>{run(headerLeft)}</span>,
     content: (
       <PickerView
         defaultValue={value}

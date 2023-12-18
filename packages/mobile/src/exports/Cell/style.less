@@ -14,7 +14,8 @@
   background-color: #fff;
 
   &-border {
-    & + & {
+    & + &,
+    &-always {
       &::before {
         position: absolute;
         box-sizing: border-box;

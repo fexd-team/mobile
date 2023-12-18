@@ -22,7 +22,7 @@ export interface PureCellProps {
    */
   loading?: boolean | 'auto'
   /** 是否显示边框 */
-  border?: boolean
+  border?: boolean | 'always'
   /** 前缀 */
   prefix?: ReactNode
   /** 后缀 */
