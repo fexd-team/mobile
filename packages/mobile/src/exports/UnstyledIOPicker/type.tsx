@@ -15,6 +15,7 @@ export interface PureUnstyledIOPickerProps extends PurePickerProps {}
 export interface PureUnstyledIOPickerProps {
   classNamePrefix?: string
   className?: string
+  /** 当前控件的名称 */
   label?: React.ReactNode
   /** 当前控件的提示状态 */
   labelType?: UnstyledIOLabelProps['type']

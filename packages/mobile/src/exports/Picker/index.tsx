@@ -19,7 +19,9 @@ const Picker = createFC<PickerProps, PickerRef>(function Picker(props, ref) {
   const selectedItem = getItem(value)
 
   useEffect(() => {
-    setInsideValue(first<any>(options)?.value)
+    if (insideValue === undefined) {
+      setInsideValue(first<any>(options)?.value)
+    }
   }, [])
 
   return (
@@ -41,7 +43,6 @@ const Picker = createFC<PickerProps, PickerRef>(function Picker(props, ref) {
           }
           value={insideValue}
           onChange={(value) => {
-            console.log('value', value)
             setInsideValue(value)
           }}
         />,

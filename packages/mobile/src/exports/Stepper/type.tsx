@@ -8,10 +8,10 @@ export interface PureStepperProps extends Omit<PureBasicInputProps, keyof IOProp
 export interface PureStepperProps extends IOProps {}
 export interface PureStepperProps {
   /**
-   * @description 步长
+   * @description 步长，当 step 为数组时，第一个值为减少步长，第二个值为增加步长
    * @default 1
    */
-  step?: number
+  step?: number | [number, number]
   /** 最小值 */
   min?: number
   /** 最大值 */
