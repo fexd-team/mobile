@@ -53,10 +53,10 @@ async function supplyDefaultFile(globPattern) {
 }
 
 async function start() {
-  await supplyDefaultFile('./es/exports/*')
-  await supplyDefaultFile('./lib/exports/*')
-  await less2css('./es/**/*.less')
-  await less2css('./lib/**/*.less')
+  await supplyDefaultFile('./src/exports/*')
+  // await supplyDefaultFile('./lib/exports/*')
+  // await less2css('./es/**/*.less')
+  // await less2css('./lib/**/*.less')
 }
 
 start()
