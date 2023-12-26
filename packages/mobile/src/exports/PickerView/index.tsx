@@ -1,5 +1,5 @@
 import React, { useState, useEffect, useMemo, useRef, useCallback } from 'react'
-import { classnames, run, debounce, Tween } from '@fexd/tools'
+import { classnames, run, debounce, Tween, globalThis as root } from '@fexd/tools'
 import { PickerViewProps } from './type'
 import createFC from '../createFC'
 import useIOControl from '../useIOControl'
@@ -73,7 +73,7 @@ const PickerView = createFC<PickerViewProps, HTMLDivElement>(function PickerView
 
   useEffect(() => {
     const handleResize = debounce(() => {
-      const height = itemRef.current?.getBoundingClientRect()?.height
+      const height = itemRef.current?.getBoundingClientRect?.()?.height
       if (!height) {
         return
       }
@@ -85,11 +85,15 @@ const PickerView = createFC<PickerViewProps, HTMLDivElement>(function PickerView
       }, 120)
     }, 120)
 
-    window.addEventListener('resize', handleResize, false)
     handleResize()
 
+    if (!root.addEventListener) {
+      return
+    }
+    root.addEventListener('resize', handleResize, false)
+
     return () => {
-      window.removeEventListener('resize', handleResize)
+      root.removeEventListener('resize', handleResize)
     }
   }, [])
 

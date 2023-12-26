@@ -135,7 +135,8 @@
     .@{dialog-prefix}-actions-vertical {
       .@{dialog-prefix}-action {
         &:first-child {
-          border-left: solid 1px @color-gray-divider;
+          border-left: solid 1px;
+          border-left-color: @color-gray-divider;
         }
       }
     }
@@ -146,7 +147,9 @@
     }
 
     .@{dialog-prefix}-action {
-      border-top: solid 1px @color-gray-divider;
+      border: 0;
+      border-top: solid 1px;
+      border-top-color: @color-gray-divider;
     }
   }
 

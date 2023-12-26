@@ -21,7 +21,7 @@ const Stepper = createFC<StepperProps, StepperRef>(function Stepper(
   { className, step, min, max, size, block, onFocus, onBlur, ...props },
   ref,
 ) {
-  const { value, setValue } = useIOControl<number>({
+  const { value = 0, setValue } = useIOControl<number>({
     ...props,
     defaultValue: isNumber(props?.defaultValue)
       ? clamp(props?.defaultValue ?? 1, min ?? -99999999, max ?? 99999999)
@@ -48,7 +48,7 @@ const Stepper = createFC<StepperProps, StepperRef>(function Stepper(
           size={buttonSize}
           icon={<Minus />}
           disabled={value <= (min ?? -Number.MAX_VALUE)}
-          onClick={useMemoizedFn(() => setValue((value) => clampValue(value - (step?.[0] ?? step ?? 1))))}
+          onClick={useMemoizedFn(() => setValue((value = 0) => clampValue(value - (step?.[0] ?? step ?? 1))))}
         />
         <Input
           className={`${prefix}-input`}
@@ -75,7 +75,7 @@ const Stepper = createFC<StepperProps, StepperRef>(function Stepper(
           size={buttonSize}
           icon={<Plus />}
           disabled={value >= (max ?? Number.MAX_VALUE)}
-          onClick={useMemoizedFn(() => setValue((value) => clampValue(value + (step?.[1] ?? step ?? 1))))}
+          onClick={useMemoizedFn(() => setValue((value = 0) => clampValue(value + (step?.[1] ?? step ?? 1))))}
         />
       </div>
     </div>

@@ -14,7 +14,7 @@ export default () => {
           <Cell
             title="标题"
             value="很长的内容很长的内容很长的内容很长的内容很长的内容很长的内容"
-            description="很长的描述很长的描述很长的描述很长的描述很长的描述"
+            description={<div style={{ width: 130 }}>很长的描述很长的描述很长的描述很长的描述很长的描述</div>}
           />
         </Cell.Group>
       </DemoBlock>

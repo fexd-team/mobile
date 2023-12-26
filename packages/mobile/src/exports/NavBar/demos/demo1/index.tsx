@@ -3,6 +3,7 @@ import { ChevronBack, EllipsisHorizontal } from '@fexd/icons'
 import { NavBar, DemoBlock } from '@fexd/mobile'
 
 import './style.module.less'
+import Space from '../../../Space'
 
 export default () => {
   return (
@@ -32,7 +33,13 @@ export default () => {
             返回
           </div>
         }
-        right="更多"
+        right={
+          <Space>
+            <EllipsisHorizontal />
+            <span>更多</span>
+            <EllipsisHorizontal />
+          </Space>
+        }
       >
         自定义左右侧
       </NavBar>

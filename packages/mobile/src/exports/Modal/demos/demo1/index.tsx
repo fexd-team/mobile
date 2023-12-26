@@ -49,7 +49,7 @@ export default () => (
           <>
             <div className="modal-content modal-content-center">遮罩不可关闭，需要自定义点击元素来关闭</div>
             <Iconfont
-              type="close_circle"
+              type="close-circle"
               onClick={() => setShow(false)}
               style={{ marginTop: 12, color: '#fff', fontSize: 32 }}
             />
