@@ -29,5 +29,6 @@ const Form: FormType = createFC<FormProps, FormRef>(function Form({ form: custom
 Form.defaultProps = {}
 Form.Field = Field
 Form.useForm = useForm
+Form.createForm = createForm
 
 export default Form
