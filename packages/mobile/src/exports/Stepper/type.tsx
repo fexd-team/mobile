@@ -20,6 +20,12 @@ export interface PureStepperProps {
   size?: 'normal' | 'small' | 'large'
   /** 是否块级元素 */
   block?: boolean
+  /** 是否允许为空 */
+  allowEmpty?: boolean
+  /** 是否禁用 */
+  disabled?: boolean
+  /** 输入框是否只读 */
+  readOnly?: boolean
   ref?: React.Ref<StepperRef>
 }
 

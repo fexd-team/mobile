@@ -5,9 +5,12 @@ import { IOProps } from '../useIOControl/type'
 import { JSXInputProps } from '../../helpers/html.types'
 
 export interface PureTextFieldProps<T> extends IOProps<string> {
-  /** onChange 前对值进行序列化 */
+  /** 对值进行序列化 */
   normalize?: (value: string, prevValue?: string) => string
-  /** 序列化值的触发时机 */
+  /**
+   * @description 序列化值的触发时机
+   * @default 'onChange'
+   */
   normalizeTrigger?: 'onChange' | 'onBlur'
   /** 展示到输入框上的格式化 */
   format?: (value: string) => string
