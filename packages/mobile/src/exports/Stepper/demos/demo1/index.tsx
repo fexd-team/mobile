@@ -55,5 +55,9 @@ export default () => (
       <Stepper block size="normal" />
       <Stepper block size="large" />
     </DemoBlock>
+
+    <DemoBlock title="自定义加减">
+      <Stepper onPlus={(value) => value + 666} onMinus={(value) => value - 666} />
+    </DemoBlock>
   </>
 )

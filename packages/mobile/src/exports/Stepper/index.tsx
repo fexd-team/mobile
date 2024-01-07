@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react'
+import React, { useEffect, useImperativeHandle, useRef } from 'react'
 import { classnames, clamp, isNumber, isExist } from '@fexd/tools'
 import { useMemoizedFn } from 'ahooks'
 import { Plus, Minus } from '@fexd/icons-bytesize'
@@ -16,6 +16,7 @@ const inlineStepperSize2ButtonSize: Record<string, BasicButtonSizeTypes> = {
   normal: 'small',
   small: 'mini',
 }
+
 export const prefix = 'exd-stepper'
 const Stepper = createFC<StepperProps, StepperRef>(function Stepper(
   {
@@ -27,6 +28,8 @@ const Stepper = createFC<StepperProps, StepperRef>(function Stepper(
     block,
     onFocus,
     onBlur,
+    onPlus,
+    onMinus,
     allowEmpty,
     width,
     style,
@@ -43,6 +46,7 @@ const Stepper = createFC<StepperProps, StepperRef>(function Stepper(
   })
   const inputRef = React.useRef<HTMLInputElement>(null)
   const buttonSize = block ? size : inlineStepperSize2ButtonSize[size!]
+  const wrapperRef = useRef<HTMLDivElement>(null)
 
   useEffect(() => {
     if (focused && !props.readOnly) {
@@ -50,12 +54,27 @@ const Stepper = createFC<StepperProps, StepperRef>(function Stepper(
     }
   }, [focused, props.readOnly])
 
+  const minus = useMemoizedFn(
+    onMinus ?? ((value) => (isExist(value) ? clampValue(Number(value) - (step?.[0] ?? step ?? 1)) : min ?? 0)),
+  )
+
+  const plus = useMemoizedFn(
+    onPlus ?? ((value) => (isExist(value) ? clampValue(Number(value) + (step?.[1] ?? step ?? 1)) : max ?? 0)),
+  )
+
+  useImperativeHandle(ref, () => ({
+    inputRef,
+    wrapperRef,
+    minus,
+    plus,
+  }))
+
   /* 组件逻辑实现 */
   return (
     <div
       style={style}
       onChange={undefined}
-      ref={ref}
+      ref={wrapperRef}
       className={classnames(prefix, className, {
         [`${prefix}-${size}`]: !!size,
         [`${prefix}-block`]: block,
@@ -69,9 +88,7 @@ const Stepper = createFC<StepperProps, StepperRef>(function Stepper(
           size={buttonSize}
           icon={<Minus />}
           disabled={propDisabled ?? value <= (min ?? -Number.MAX_VALUE)}
-          onClick={useMemoizedFn(() =>
-            setValue((value) => (isExist(value) ? clampValue(Number(value) - (step?.[0] ?? step ?? 1)) : min ?? 0)),
-          )}
+          onClick={useMemoizedFn(() => setValue((value) => minus(value)))}
         />
         <Input
           {...props}
@@ -118,9 +135,7 @@ const Stepper = createFC<StepperProps, StepperRef>(function Stepper(
           size={buttonSize}
           icon={<Plus />}
           disabled={propDisabled ?? value >= (max ?? Number.MAX_VALUE)}
-          onClick={useMemoizedFn(() =>
-            setValue((value) => (isExist(value) ? clampValue(Number(value) + (step?.[1] ?? step ?? 1)) : max ?? 0)),
-          )}
+          onClick={useMemoizedFn(() => setValue((value) => plus(value)))}
         />
       </div>
     </div>

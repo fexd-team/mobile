@@ -2,7 +2,12 @@ import AUTO_API from '../../helpers/AUTO_API'
 import { BasicInputProps, PureBasicInputProps } from '../BasicInput/type'
 import { IOProps } from '../useIOControl/type'
 
-export type StepperRef = any
+export type StepperRef = {
+  inputRef: React.RefObject<HTMLInputElement>
+  wrapperRef: React.RefObject<HTMLDivElement>
+  minus: (value: number) => number
+  plus: (value: number) => number
+}
 
 export interface PureStepperProps extends Omit<PureBasicInputProps, keyof IOProps | 'size'> {}
 export interface PureStepperProps extends IOProps {}
@@ -27,9 +32,18 @@ export interface PureStepperProps {
   /** 输入框是否只读 */
   readOnly?: boolean
   ref?: React.Ref<StepperRef>
+
+  /**
+   * @description 增加时的回调
+   **/
+  onPlus?: (value: number) => number
+  /**
+   * @description 减少时的回调
+   **/
+  onMinus?: (value: number) => number
 }
 
-export interface StepperProps extends Omit<BasicInputProps, keyof IOProps | 'size' | 'max' | 'min' | 'step'> {}
+export interface StepperProps extends Omit<BasicInputProps, keyof IOProps | 'size' | 'max' | 'min' | 'step' | 'ref'> {}
 export interface StepperProps extends PureStepperProps {}
 
 export default AUTO_API<PureStepperProps>()
