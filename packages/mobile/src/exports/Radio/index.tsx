@@ -42,6 +42,7 @@ const Radio = createFC<RadioProps, RadioRef>(function Radio(
       className={classnames(
         `${prefix}-wrapper`,
         {
+          [`${prefix}--active`]: checked,
           [`${prefix}-wrapper--block`]: block,
           [`${prefix}-wrapper--disabled`]: disabled,
         },

@@ -41,6 +41,7 @@ const Checkbox = createFC<CheckboxProps, CheckboxRef>(function Checkbox(
       className={classnames(
         `${prefix}-wrapper`,
         {
+          [`${prefix}--active`]: checked,
           [`${prefix}-wrapper--block`]: block,
           [`${prefix}-wrapper--disabled`]: disabled,
         },
