@@ -5,6 +5,8 @@ import { Provider } from './context'
 import createFC from '../createFC'
 import { FormProps, FormRef } from './type'
 import Field from './Field'
+import useRelative from './useRelative'
+import useValue from './useValue'
 // 此处不引入 style.less，目的是实现按需引用
 
 type BasicFormType = React.FC<FormProps>
@@ -12,6 +14,8 @@ interface FormType extends BasicFormType {
   Field: typeof Field
   useForm: typeof useForm
   createForm: typeof createForm
+  useRelative: typeof useRelative
+  useValue: typeof useValue
 }
 
 function useForm(customizedForm?: FormProps['form']) {
@@ -28,7 +32,9 @@ const Form: FormType = createFC<FormProps, FormRef>(function Form({ form: custom
 
 Form.defaultProps = {}
 Form.Field = Field
-Form.useForm = useForm
 Form.createForm = createForm
+Form.useForm = useForm
+Form.useRelative = useRelative
+Form.useValue = useValue
 
 export default Form

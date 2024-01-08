@@ -10,39 +10,8 @@ import Hook from '../../Hook'
 import { FieldController, FormFieldProps, FormFieldRef } from './type'
 
 import { context } from '../context'
+import useRelative from '../useRelative'
 // 此处不引入 style.less，目的是实现按需引用
-
-type Relative<T = any> = T
-type ComputeRelative<T = any> = (values: FormValues, errors: FormErrors) => Relative<T>
-
-function useRelative(relativeCompute?: ComputeRelative) {
-  const form = useContext(context)!
-  const [relativeName] = useState(() => String(random(10000, 99999)))
-  const listenerStopList = useRef<FormStopWatch[]>([])
-  useMemo(() => {
-    if (!isFunction(relativeCompute)) {
-      return
-    }
-
-    form.addRelative(relativeName, relativeCompute!)
-    listenerStopList.current.forEach((stop) => stop())
-    listenerStopList.current.push(
-      form.watchRelative(relativeName, (fieldRelative: any) => {
-        setRelative(fieldRelative)
-      }),
-    )
-  }, [relativeCompute])
-  const [relative, setRelative] = useState<Relative>(() => form.getRelative(relativeName))
-
-  useEffect(
-    () => () => {
-      listenerStopList.current.forEach((stop) => stop())
-    },
-    [],
-  )
-
-  return relative
-}
 
 export const prefix = 'exd-form-field'
 const FormField = createFC<FormFieldProps, FormFieldRef>(function FormField({
