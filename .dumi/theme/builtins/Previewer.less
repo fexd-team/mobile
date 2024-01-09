@@ -9,7 +9,13 @@
     }
   }
 
+  // class="__dumi-default-mobile-previewer __dumi-default-mobile-previewer-inline"
+
   .@{prefix}-mobile-previewer {
+    & + .@{prefix}-mobile-previewer {
+      margin-top: 24px;
+    }
+
     &.@{prefix}-mobile-previewer-inline {
       display: flex;
       width: 100%;
