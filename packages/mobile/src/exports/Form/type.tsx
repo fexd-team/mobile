@@ -1,6 +1,6 @@
 import { ReactNode } from 'react'
 import AUTO_API from '../../helpers/AUTO_API'
-import { Form } from '../createForm'
+import { FormValues, FormErrors, Form } from '../createForm'
 
 export interface FormProps {
   /** form 实例 */

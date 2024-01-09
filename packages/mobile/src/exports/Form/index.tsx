@@ -1,12 +1,13 @@
-import React, { useState } from 'react'
+/* eslint-disable react-hooks/exhaustive-deps */
+import React, { useMemo, useState } from 'react'
 
 import createForm from '../createForm'
 import { Provider } from './context'
 import createFC from '../createFC'
 import { FormProps, FormRef } from './type'
 import Field from './Field'
-import useRelative from './useRelative'
-import useValue from './useValue'
+import useRelative, { createUseRelative } from './useRelative'
+import useValue, { createUseValue } from './useValue'
 // 此处不引入 style.less，目的是实现按需引用
 
 type BasicFormType = React.FC<FormProps>
@@ -20,7 +21,13 @@ interface FormType extends BasicFormType {
 
 function useForm(customizedForm?: FormProps['form']) {
   const [form] = useState(() => customizedForm ?? createForm())
-  return customizedForm ?? form
+  const useValue = useMemo(() => createUseValue(form), [])
+  const useRelative = useMemo(() => createUseRelative(form), [])
+
+  return Object.assign(customizedForm ?? form, {
+    useValue,
+    useRelative,
+  })
 }
 
 export const prefix = 'exd-form'

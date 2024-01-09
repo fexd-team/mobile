@@ -3,29 +3,34 @@
 /* eslint-disable react-hooks/exhaustive-deps */
 import { useState, useEffect, useContext, useMemo, useRef } from 'react'
 
-import { FormStopWatch } from '../createForm'
+import { FormStopWatch, Form } from '../createForm'
 import { context } from './context'
 // 此处不引入 style.less，目的是实现按需引用
 
-export default function useValue(fieldName: string) {
-  const form = useContext(context)!
-  const listenerStopList = useRef<FormStopWatch[]>([])
-  useMemo(() => {
-    listenerStopList.current.forEach((stop) => stop())
-    listenerStopList.current.push(
-      form.watchValue(fieldName, (value: any) => {
-        setValue(value)
-      }),
-    )
-  }, [])
-  const [value, setValue] = useState<any>(() => form.getValue(fieldName))
-
-  useEffect(
-    () => () => {
+export function createUseValue(insetForm?: Form) {
+  return function useValue(fieldName: string) {
+    const ctxForm = useContext(context)!
+    const form = insetForm || ctxForm
+    const listenerStopList = useRef<FormStopWatch[]>([])
+    useMemo(() => {
       listenerStopList.current.forEach((stop) => stop())
-    },
-    [],
-  )
+      listenerStopList.current.push(
+        form.watchValue(fieldName, (value: any) => {
+          setValue(value)
+        }),
+      )
+    }, [])
+    const [value, setValue] = useState<any>(() => form.getValue(fieldName))
 
-  return value
+    useEffect(
+      () => () => {
+        listenerStopList.current.forEach((stop) => stop())
+      },
+      [],
+    )
+
+    return value
+  }
 }
+
+export default createUseValue()

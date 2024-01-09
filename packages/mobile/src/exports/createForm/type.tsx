@@ -30,9 +30,9 @@ export type FormValue = any
 export type FormValues = Record<string, FormValue>
 export type FormError = any
 export type FormErrors = Record<string, FormError>
-export type FormRelative = any
+export type FormRelative<T = any> = T
 export type FormRelatives = Record<string, FormRelative>
-export type FormComputeRelative = (values: FormValues, errors: FormErrors) => FormRelative
+export type FormComputeRelative<T = any> = (values: FormValues, errors: FormErrors) => FormRelative<T>
 
 export interface Form {
   /** 获取对应字段名的值 */

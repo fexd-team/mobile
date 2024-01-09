@@ -1,8 +1,6 @@
 import AUTO_API from '../../../helpers/AUTO_API'
 import { FormRule, FormValue, FormError, FormValues, FormErrors, Form } from '../../createForm'
-
-export type FormRelative<T = any> = T
-export type FormComputeRelative<T = any> = (values: FormValues, errors: FormErrors) => FormRelative<T>
+import { FormRelative, FormComputeRelative } from '../../createForm/type'
 
 export interface FieldController {
   /** 当前域字段的值 */

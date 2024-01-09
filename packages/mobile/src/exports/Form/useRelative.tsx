@@ -5,37 +5,43 @@ import { useState, useEffect, useContext, useMemo, useRef, isValidElement } from
 import { random, isFunction, run } from '@fexd/tools'
 import { useMemoizedFn } from 'ahooks'
 
-import { FormStopWatch } from '../createForm'
+import { Form, FormStopWatch } from '../createForm'
+import { FormRelative, FormComputeRelative } from '../createForm/type'
 import { context } from './context'
-import { FormRelative, FormComputeRelative } from './Field/type'
+
 // 此处不引入 style.less，目的是实现按需引用
 
-export default function useRelative(relativeCompute?: FormComputeRelative) {
-  const form = useContext(context)!
-  const [relativeName] = useState(() => String(random(10000, 99999)))
-  const computedRelative = useMemoizedFn((...args) => run(relativeCompute, undefined, ...args))
-  const listenerStopList = useRef<FormStopWatch[]>([])
-  useMemo(() => {
-    if (!isFunction(relativeCompute)) {
-      return
-    }
+export function createUseRelative(insetForm?: Form) {
+  return function useRelative(relativeCompute?: FormComputeRelative) {
+    const ctxForm = useContext(context)!
+    const form = insetForm || ctxForm
+    const [relativeName] = useState(() => String(random(10000, 99999)))
+    const computedRelative = useMemoizedFn((...args) => run(relativeCompute, undefined, ...args))
+    const listenerStopList = useRef<FormStopWatch[]>([])
+    useMemo(() => {
+      if (!isFunction(relativeCompute)) {
+        return
+      }
 
-    form.addRelative(relativeName, computedRelative!)
-    listenerStopList.current.forEach((stop) => stop())
-    listenerStopList.current.push(
-      form.watchRelative(relativeName, (fieldRelative: any) => {
-        setRelative(fieldRelative)
-      }),
-    )
-  }, [])
-  const [relative, setRelative] = useState<FormRelative>(() => form.getRelative(relativeName))
-
-  useEffect(
-    () => () => {
+      form.addRelative(relativeName, computedRelative!)
       listenerStopList.current.forEach((stop) => stop())
-    },
-    [],
-  )
+      listenerStopList.current.push(
+        form.watchRelative(relativeName, (fieldRelative: any) => {
+          setRelative(fieldRelative)
+        }),
+      )
+    }, [])
+    const [relative, setRelative] = useState<FormRelative>(() => form.getRelative(relativeName))
 
-  return relative
+    useEffect(
+      () => () => {
+        listenerStopList.current.forEach((stop) => stop())
+      },
+      [],
+    )
+
+    return relative
+  }
 }
+
+export default createUseRelative()

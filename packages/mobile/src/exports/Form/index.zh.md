@@ -21,6 +21,8 @@ import { Form } from '@fexd/mobile'
 
 <code src="./demos/basic.tsx" />
 
+<code src="./demos/relative.tsx" />
+
 ---
 
 ## Form
