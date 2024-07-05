@@ -7,10 +7,17 @@ import flex from 'umi-hd/lib/flex'
 import vw from 'umi-hd/lib/vw'
 import vh from 'umi-hd/lib/vh'
 import { isAndroid, isIOS } from '@fexd/tools'
+// import ResizeObserver from 'resize-observer-polyfill/src'
 
 import IThemeConfig from '../typings/config'
 
 import '@root/packages/mobile/src/style.less'
+
+console.log('raw', window.ResizeObserver)
+delete window.ResizeObserver
+console.log('delete', window.ResizeObserver)
+window.ResizeObserver = window._ResizeObserver
+console.log('polyfill', window.ResizeObserver)
 
 const isMobile = isAndroid() || isIOS()
 

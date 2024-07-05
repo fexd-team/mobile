@@ -50,11 +50,12 @@ importers:
       prettier: ^2.6.2
       qrcode.react: ^1.0.1
       react: ^18.1.0
-      react-activation: ^0.9.7
+      react-activation: ^0.12.4
       react-dom: ^18.1.0
-      react-node-key: ^0.2.0
+      react-node-key: ^0.4.0
       react-router-dom: ^5.3.0
       react-sticky: ^6.0.3
+      resize-observer-polyfill: ^1.5.1
       rimraf: ^3.0.2
       sass: ^1.43.4
       sass-loader: ^12.3.0
@@ -105,11 +106,12 @@ importers:
       prettier: 2.8.8
       qrcode.react: 1.0.1_react@18.2.0
       react: 18.2.0
-      react-activation: 0.9.12_react@18.2.0
+      react-activation: 0.12.4_react@18.2.0
       react-dom: 18.2.0_react@18.2.0
-      react-node-key: 0.2.0_react@18.2.0
+      react-node-key: 0.4.0_react@18.2.0
       react-router-dom: 5.3.4_react@18.2.0
       react-sticky: 6.0.3_react-dom@18.2.0+react@18.2.0
+      resize-observer-polyfill: 1.5.1
       rimraf: 3.0.2
       sass: 1.69.5
       sass-loader: 12.6.0_sass@1.69.5
@@ -15850,15 +15852,15 @@ packages:
       strip-json-comments: 2.0.1
     dev: true
 
-  /react-activation/0.9.12_react@18.2.0:
-    resolution: {integrity: sha512-xxKfQWuyQ6MSRnsXNaN2gONNr1yyKEbKVrrFMFRFAEhms+7vPCwVnUFXHOXocPZBmKqQ1G4YReVRwVhKnwbNRQ==}
+  /react-activation/0.12.4_react@18.2.0:
+    resolution: {integrity: sha512-6jJtnUnQBKCrWgvHkzCJP3QZAtthnhDuoPa5LJnj1+1TxS5qkh3Z74zdNZY40wMbkTsLbo6CYoS51Fx/bTM3/w==}
     peerDependencies:
       react: '>=16'
     dependencies:
       create-react-context: 0.3.0_react@18.2.0
       hoist-non-react-statics: 3.3.2
       react: 18.2.0
-      react-node-key: 0.3.2_react@18.2.0
+      react-node-key: 0.4.0_react@18.2.0
       szfe-tools: 0.0.0-beta.7
     transitivePeerDependencies:
       - prop-types
@@ -15914,18 +15916,8 @@ packages:
     resolution: {integrity: sha1-sRf9OiuQEtzM7hJhqbxCcia41tI=}
     dev: true
 
-  /react-node-key/0.2.0_react@18.2.0:
-    resolution: {integrity: sha512-fC5ZVz3TwhSY0o1hw08R/V/Ze/exfhaeDllRucuvEH2Xj1qT4Y4IoSr93BftcVJHJFt3fmmTCV/mGk+LX5x20w==}
-    peerDependencies:
-      react: '>=16'
-    dependencies:
-      jsx-ast-utils: 2.4.1
-      react: 18.2.0
-      szfe-tools: 0.0.0-beta.7
-    dev: true
-
-  /react-node-key/0.3.2_react@18.2.0:
-    resolution: {integrity: sha512-RizO8ziMC/xX+x8fwqaMMmpaMo/3mUFv7REcUjwd2gSyY00wKzlxMpthJ8daOTOr1ZmptSqAZO1o+cqLt3PjSA==}
+  /react-node-key/0.4.0_react@18.2.0:
+    resolution: {integrity: sha512-puiuP2QYEuNBVVvcjpUE8d8/jdAhiXHBHMmjZzQT4+fe276RMYea/tY7JoZoYlrhAX8DORLPvjySjXYJZ1m6/A==}
     peerDependencies:
       react: '>=16'
     dependencies:

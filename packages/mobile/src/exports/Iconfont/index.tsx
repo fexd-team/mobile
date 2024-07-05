@@ -2,9 +2,7 @@ import React from 'react'
 import { classnames, source } from '@fexd/tools'
 
 import createFC from '../createFC'
-
-source.css('https://at.alicdn.com/t/c/font_3629196_pifvlm76us.css')
-source.js('https://at.alicdn.com/t/c/font_3629196_pifvlm76us.js')
+import { FC } from '../createFC/type'
 
 const classNamePrefix = 'mc-iconfont'
 
@@ -18,7 +16,7 @@ export interface IconfontProps {
 }
 
 const Iconfont = createFC<IconfontProps, any>(function Iconfont(
-  { type: iconType, prefix = 'mc', svg: isSvg = false, className, ...props },
+  { type: iconType, prefix, svg: isSvg = false, className, ...props },
   forwardedRef,
 ) {
   const type = `${prefix}-${iconType}`
@@ -36,10 +34,18 @@ const Iconfont = createFC<IconfontProps, any>(function Iconfont(
       ref={forwardedRef}
     />
   )
-})
+}) as FC<IconfontProps> & {
+  loadIconfont: () => void
+}
 
 Iconfont.defaultProps = {
-  prefix: undefined,
+  prefix: 'mc',
+  svg: false,
+}
+
+Iconfont.loadIconfont = () => {
+  source.css('https://at.alicdn.com/t/c/font_3629196_pifvlm76us.css')
+  source.js('https://at.alicdn.com/t/c/font_3629196_pifvlm76us.js')
 }
 
 export default Iconfont
