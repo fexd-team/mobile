@@ -24,11 +24,11 @@ export interface FormFieldProps {
   defaultValue?: any
   /** 校验规则 */
   rules?: FormRule[]
-  /** 相对值，当值变化时，会自动计算出相对值 */
+  /** 关联值，当值变化时，会自动计算出关联值 */
   relative?: FormComputeRelative
   children?: (fieldController: FieldController) => JSX.Element
   /**
-   * @description 当值变化时，是否自动校验
+   * @description 当值或关联值变化时，是否自动校验
    * @default true
    */
   validateOnChange?: boolean

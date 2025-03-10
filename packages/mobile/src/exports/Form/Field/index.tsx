@@ -3,6 +3,7 @@
 /* eslint-disable react-hooks/exhaustive-deps */
 import React, { useState, useEffect, useContext, useMemo, useRef, isValidElement } from 'react'
 import { run, random, isFunction } from '@fexd/tools'
+import { useUpdateEffect } from 'ahooks'
 
 import { FormStopWatch, FormError, FormValues, FormErrors } from '../../createForm'
 import createFC from '../../createFC'
@@ -37,6 +38,12 @@ const FormField = createFC<FormFieldProps, FormFieldRef>(function FormField({
       validate()
     }
   }
+
+  useUpdateEffect(() => {
+    if (validateOnChange) {
+      validate()
+    }
+  }, [validateOnChange, relative])
 
   useEffect(() => {
     const listenerStopList: FormStopWatch[] = []
