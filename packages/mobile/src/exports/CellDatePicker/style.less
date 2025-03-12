@@ -1,0 +1,34 @@
+@import '../../theme/vars.less'; // 引入全局样式变量集，内含 @size-scale、各类色值等变量
+@import '../UnstyledIODatePicker/style.less';
+@import '../CellIOLabel/style.less';
+
+// 由于 less 变量的懒生效特性，变量命名空间存在冲突，此处 prefix 变量命名前需要加特定前缀
+// https://less.bootcss.com/features/#variables-lazy-evaluation
+@cell-date-picker-prefix: ~'exd-cell-date-picker';
+
+// .@{cell-date-picker-prefix} {
+//   /* 组件样式 */
+// }
+
+.@{cell-date-picker-prefix}__disabled {
+  color: @ant-color-gray-7;
+
+  .@{cell-date-picker-prefix}__value {
+    color: @ant-color-gray-7;
+  }
+}
+
+.@{cell-date-picker-prefix}__clear {
+  color: @ant-color-gray-5;
+}
+
+.@{cell-date-picker-prefix}__arrow {
+  display: flex;
+  align-items: center;
+
+  .exd-icon,
+  .exd-iconfont {
+    font-size: 18px * @size-scale;
+    color: @ant-color-gray-6;
+  }
+}

@@ -10,18 +10,18 @@ mobileDemoFixed: false
 
 - Picker <ImportCost name="Picker" />
 - LinePicker <ImportCost name="LinePicker" />
-- BlockPicker <ImportCost name="LinePicker" />
+- BlockPicker <ImportCost name="BlockPicker" />
+- CellPicker <ImportCost name="CellPicker" />
 - PickerView <ImportCost name="PickerView" />
-
-待补充
 
 <!-- prettier-ignore -->
 ```jsx | pure
-import { Picker, LinePicker, BlockPicker, PickerView } from '@fexd/mobile'
+import { Picker, LinePicker, BlockPicker, CellPicker, PickerView } from '@fexd/mobile'
 
 <Picker />
 <LinePicker />
 <BlockPicker />
+<CellPicker />
 <PickerView />
 ```
 
@@ -48,6 +48,18 @@ import { Picker, LinePicker, BlockPicker, PickerView } from '@fexd/mobile'
 ## BlockPicker
 
 <API identifier="BlockPicker" hideTitle src="../BlockPicker/type.tsx" exports='["default"]'></API>
+
+---
+
+## 演示 - CellPicker
+
+<code src="./demos/CellPickerDemo.tsx" />
+
+---
+
+## CellPicker
+
+<API identifier="CellPicker" hideTitle src="../CellPicker/type.tsx" exports='["default"]'></API>
 
 ---
 

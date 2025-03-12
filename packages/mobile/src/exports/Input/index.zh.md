@@ -12,6 +12,18 @@ mobileDemoFixed: false
 - TextArea <ImportCost name="TextArea" />
 - LineInput <ImportCost name="LineInput" />
 - BlockInput <ImportCost name="BlockInput" />
+- CellInput <ImportCost name="CellInput" />
+
+<!-- prettier-ignore -->
+```jsx | pure
+import { Input, TextArea, LineInput, BlockInput, CellInput } from '@fexd/mobile'
+
+<Input />
+<TextArea />
+<LineInput />
+<BlockInput />
+<CellInput />
+```
 
 ---
 
@@ -36,6 +48,18 @@ mobileDemoFixed: false
 ## BlockInput
 
 <API identifier="BlockInput" hideTitle src="../BlockInput/type.tsx" exports='["default"]'></API>
+
+---
+
+## 演示 - CellInput
+
+<code src="./demos/CellInputDemo.tsx" />
+
+---
+
+## CellInput
+
+<API identifier="CellInput" hideTitle src="../CellInput/type.tsx" exports='["default"]'></API>
 
 ---
 

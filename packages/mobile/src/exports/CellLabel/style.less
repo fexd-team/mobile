@@ -1,0 +1,206 @@
+@import '../../theme/vars.less';
+@import '../UnstyledLabel/style.less';
+
+@cell-label-prefix: ~'exd-cell-label';
+
+.@{cell-label-prefix}__wrapper {
+  // background-color: rgba(red, .2);
+  // margin: 0;
+  // padding: 12px * @size-scale 0;
+  // text-align: left;
+
+  padding: 12px * @size-scale 0;
+  border-bottom: 1px solid @ant-color-gray-4;
+
+  &--auto-height {
+    .@{cell-label-prefix}__content {
+      height: auto;
+      min-height: 24px * @size-scale;
+    }
+
+    .@{cell-label-prefix}__label {
+      height: auto;
+      min-height: 24px * @size-scale;
+    }
+  }
+}
+
+.@{cell-label-prefix}__prefix {
+  height: 24px * @size-scale;
+  display: flex;
+  align-items: center;
+  padding-right: 4px * @size-scale;
+}
+
+.@{cell-label-prefix}__bar {
+  display: flex;
+  // gap: 2px * @size-scale;
+  padding: 0 12px * @size-scale;
+  // border-bottom: 1px solid @ant-color-gray-4;
+  // justify-content: space-between;
+  // background-color: rgba(green, .2);
+  // margin-bottom: 4px * @size-scale;
+  // padding: 24px * @size-scale 0 8px * @size-scale;
+  // position: relative;
+  // display: flex;
+  // align-items: center;
+  // border-bottom: 1px solid @ant-color-gray-5;
+  // transition: border-color 0.2s;
+
+  // border-bottom: solid 1px rgb(225, 225, 225);
+  // padding: 24px * @size-scale 0 8px * @size-scale;
+  // margin-bottom: 8px * @size-scale;
+  .@{cell-label-prefix}__content {
+    // flex: 1;
+  }
+}
+
+.@{cell-label-prefix}__content {
+  // background-color: rgba(blue, .2);
+  // position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: end;
+  flex: 1.3;
+  padding-left: 4px * @size-scale;
+
+  overflow: hidden;
+  height: 24px * @size-scale;
+  font-size: 14px * @size-scale;
+  font-weight: 400;
+  color: @ant-color-gray-10;
+  padding-right: 8px * @size-scale;
+
+  .@{cell-label-prefix}__placeholder + & {
+    flex: 0;
+  }
+
+  input {
+    text-align: right;
+    // padding-right: 8px * @size-scale;
+    height: 100%;
+    line-height: 24px * @size-scale;
+    caret-color: @color-primary;
+  }
+
+  textarea {
+    text-align: right;
+  }
+}
+
+.@{cell-label-prefix}__label {
+  flex: 1;
+  // white-space: nowrap;
+  // text-overflow: ellipsis;
+  overflow: hidden;
+  min-height: 24px * @size-scale;
+  line-height: 24px * @size-scale;
+  // position: absolute;
+  // left: 0;
+  // right: 0;
+  // // top: 50%;
+  // bottom: 8px * @size-scale;
+  // transform-origin: left;
+  // transform: translateY(0);
+  // // transition: transform 0.2s, bottom 0.2s, left 0.2s, color 0.2s, font-size 0.2s;
+  // // will-change: transform, bottom, left;
+  pointer-events: none;
+  font-size: 14px * @size-scale;
+  font-weight: 400;
+  // color: @ant-color-gray-8;
+
+  &--active {
+    // bottom: 100%;
+    // transform: translateY(100%);
+    // font-size: 12px * @size-scale;
+    // font-weight: 400;
+    // color: @ant-color-gray-8;
+  }
+
+  &--capitalize {
+    text-transform: capitalize;
+  }
+}
+
+.@{cell-label-prefix}__placeholder {
+  color: @ant-color-gray-6;
+  height: 24px * @size-scale;
+  line-height: 24px * @size-scale;
+}
+
+.@{cell-label-prefix}__suffix {
+  display: flex;
+  align-items: center;
+  overflow: visible;
+  height: 24px * @size-scale;
+}
+
+.@{cell-label-prefix}__helper {
+  opacity: 0;
+  transition: opacity 0.2s, color 0.2s;
+  min-height: 18px * @size-scale;
+  font-size: 12px * @size-scale;
+  padding: 2px * @size-scale 12px * @size-scale 0;
+}
+
+.@{cell-label-prefix}__info {
+  .@{cell-label-prefix}__bar {
+    border-color: @ant-color-gray-4;
+  }
+
+  .@{cell-label-prefix}__helper {
+    opacity: 1;
+    color: @ant-color-gray-7;
+  }
+}
+
+.@{cell-label-prefix}__success {
+  .@{cell-label-prefix}__bar {
+    border-color: @color-green;
+  }
+
+  .@{cell-label-prefix}__helper {
+    opacity: 1;
+    color: @color-green;
+  }
+}
+
+.@{cell-label-prefix}__warn {
+  .@{cell-label-prefix}__bar {
+    border-color: @color-orange;
+  }
+
+  .@{cell-label-prefix}__helper {
+    opacity: 1;
+    color: @color-orange;
+  }
+}
+
+.@{cell-label-prefix}__error {
+  .@{cell-label-prefix}__bar {
+    border-color: @color-red;
+  }
+
+  .@{cell-label-prefix}__helper {
+    opacity: 1;
+    color: @color-red;
+  }
+}
+
+.@{cell-label-prefix}__disabled {
+  pointer-events: none;
+  // opacity: 0.9;
+
+  .@{cell-label-prefix}__label {
+    color: @ant-color-gray-5;
+  }
+
+  .@{cell-label-prefix}__content {
+    color: @ant-color-gray-5;
+  }
+
+  .@{cell-label-prefix}__helper {
+    opacity: 1;
+    color: @ant-color-gray-5;
+  }
+}
