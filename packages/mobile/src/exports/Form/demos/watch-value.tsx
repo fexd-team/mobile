@@ -18,7 +18,7 @@ export default () => (
           }}
           watchValue={{
             // 当 input2 变化时，触发 input1 自身的 equal 校验
-            input2: (input2, fieldController) => fieldController?.validate(['equal']),
+            input2: (input2, { validate }) => validate(['equal']),
           }}
         >
           {({ value, setValue, error }) => (
@@ -40,7 +40,7 @@ export default () => (
           }}
           watchValue={{
             // 当 input1 变化时，触发 input2 自身的 equal 校验
-            input1: (input1, fieldController) => fieldController?.validate(['equal']),
+            input1: (input1, { validate }) => validate(['equal']),
           }}
         >
           {({ value, setValue, error }) => (

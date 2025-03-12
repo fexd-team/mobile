@@ -125,7 +125,7 @@ import { Form } from '@fexd/mobile'
     equal: (value, values) => value !== values?.input1 ? '不能相等' : undefined,
   }}
   watchValue={{
-    input1: (input1, fieldController) => fieldController?.validate(['equal'])
+    input1: (input1, { validate }) => validate(['equal'])
   }}
 >
   {...}
