@@ -14,10 +14,11 @@ export type FormRule = (value: any, values: any, field: FormField) => Promise<an
 interface FormOverridedField {
   name?: string
   defaultValue?: any
-  rules?: FormRule[]
+  rules?: FormRule[] | Record<string, FormRule>
 }
 
 export interface FormOptions {
+  strict?: boolean
   fields?: FormField[]
   relatives?: {
     [key: string]: (values: any, errors: any) => any
@@ -90,9 +91,11 @@ export interface Form {
   /** 监听表单的所有变化，包括关联关系、值、错误的变化 */
   watch: (listener: () => void) => FormStopWatch
   /** 触发表单验证，默认触发全部表单验证，可以指定触发的字段 */
-  validate: (filedNames?: string[] | string) => Promise<boolean>
+  validate: (filedNames?: string[] | string, ruleNames?: (number | string)[]) => Promise<boolean>
   /** 重置表单 */
   reset: () => void
+  /** 调整严格模式 */
+  setStrict: (strict: boolean) => void
 }
 
 export default AUTO_API<Form>()

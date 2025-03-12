@@ -7,13 +7,13 @@ import { useMemoizedFn } from 'ahooks'
 
 import { Form, FormStopWatch } from '../createForm'
 import { FormRelative, FormComputeRelative } from '../createForm/type'
-import { context } from './context'
+import { useContextForm } from './context'
 
 // 此处不引入 style.less，目的是实现按需引用
 
 export function createUseRelative(insetForm?: Form) {
   return function useRelative(relativeCompute?: FormComputeRelative) {
-    const ctxForm = useContext(context)!
+    const ctxForm = useContextForm()!
     const form = insetForm || ctxForm
     const [relativeName] = useState(() => String(random(10000, 99999)))
     const computedRelative = useMemoizedFn((...args) => run(relativeCompute, undefined, ...args))

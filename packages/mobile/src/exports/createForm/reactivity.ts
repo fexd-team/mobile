@@ -1,3 +1,4 @@
+import { isObject } from '@fexd/tools'
 import { createEventBus, objectAssign, isFunction } from './helpers'
 
 const eventBus = createEventBus()
@@ -53,7 +54,7 @@ export const watch = (watcher: any, callback: any, lazy?: any) => {
     // console.log('compute 了')
 
     const value = effect()
-    callback(value)
+    callback(isObject(value) ? { ...value } : value)
     canTrigger = false
     return value
   }

@@ -34,45 +34,6 @@ export default () => (
       </Form>
     </DemoBlock>
 
-    <DemoBlock title="关联 rules">
-      <Form>
-        <Form.Field
-          name="input1"
-          relative={(values) => [values?.input2]}
-          rules={[
-            (value, values) => (value?.length > 0 && value === values?.input2 ? '不能和 input2 相等' : undefined),
-          ]}
-        >
-          {({ value, setValue, error }) => (
-            <BlockInput
-              label="input1"
-              placeholder="请输入，不能和 input2 相等"
-              value={value}
-              onChange={setValue}
-              error={error}
-            />
-          )}
-        </Form.Field>
-        <Form.Field
-          name="input2"
-          relative={(values) => [values?.input1]}
-          rules={[
-            (value, values) => (value?.length > 0 && value === values?.input1 ? '不能和 input1 相等' : undefined),
-          ]}
-        >
-          {({ value, setValue, error }) => (
-            <BlockInput
-              label="input2"
-              placeholder="请输入，不能和 input1 相等"
-              value={value}
-              onChange={setValue}
-              error={error}
-            />
-          )}
-        </Form.Field>
-      </Form>
-    </DemoBlock>
-
     <DemoBlock title="关联 hook">
       <Form>
         <Form.Field name="input">

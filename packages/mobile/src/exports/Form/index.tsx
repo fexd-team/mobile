@@ -1,47 +1,47 @@
 /* eslint-disable react-hooks/exhaustive-deps */
 import React, { useMemo, useState } from 'react'
 
-import createForm from '../createForm'
-import { Provider } from './context'
 import createFC from '../createFC'
-import { FormProps, FormRef } from './type'
+import { FormProps, FormRef, FormType } from './type'
+import createForm from './createForm'
+import { Provider, useContextForm } from './context'
 import Field from './Field'
-import useRelative, { createUseRelative } from './useRelative'
-import useValue, { createUseValue } from './useValue'
+import useRelative from './useRelative'
+import useValue from './useValue'
+import useError from './useError'
+import useForm from './useForm'
+import useWatchValue from './useWatchValue'
 // 此处不引入 style.less，目的是实现按需引用
 
-type BasicFormType = React.FC<FormProps>
-interface FormType extends BasicFormType {
-  Field: typeof Field
-  useForm: typeof useForm
-  createForm: typeof createForm
-  useRelative: typeof useRelative
-  useValue: typeof useValue
-}
-
-function useForm(customizedForm?: FormProps['form']) {
-  const [form] = useState(() => customizedForm ?? createForm())
-  const useValue = useMemo(() => createUseValue(form), [])
-  const useRelative = useMemo(() => createUseRelative(form), [])
-
-  return Object.assign(customizedForm ?? form, {
-    useValue,
-    useRelative,
-  })
-}
-
 export const prefix = 'exd-form'
-const Form: FormType = createFC<FormProps, FormRef>(function Form({ form: customizedForm, children }, ref) {
-  const form = useForm(customizedForm)
+const Form: FormType = createFC<FormProps, FormRef>(function Form(
+  { form: customizedForm, validateOnChange, children, strict },
+  ref,
+) {
+  const form = useForm(customizedForm, { strict })
   /* 组件逻辑实现 */
-  return <Provider value={form}>{children}</Provider>
+  const ctxValue = useMemo(
+    () => ({
+      form,
+      validateOnChange,
+    }),
+    [form, validateOnChange],
+  )
+
+  return <Provider value={ctxValue}>{children}</Provider>
 }) as FormType
 
-Form.defaultProps = {}
+Form.defaultProps = {
+  strict: true,
+  validateOnChange: true,
+}
 Form.Field = Field
 Form.createForm = createForm
+Form.useContextForm = useContextForm
 Form.useForm = useForm
 Form.useRelative = useRelative
 Form.useValue = useValue
+Form.useError = useError
+Form.useWatchValue = useWatchValue
 
 export default Form

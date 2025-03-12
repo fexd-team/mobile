@@ -1,6 +1,6 @@
 /* eslint-disable no-param-reassign */
 /* eslint-disable @typescript-eslint/no-use-before-define */
-import { flatten, isUndefined, globalThis } from '@fexd/tools'
+import { flatten, isUndefined, globalThis, isArray } from '@fexd/tools'
 // @ts-ignore
 import getProxyPolyfill from 'proxy-polyfill/src/proxy'
 import { reactive, computed, watch as watchReactivity } from './reactivity'
@@ -24,6 +24,7 @@ const ProxyPolyfill = getProxyPolyfill()
 
 export default function createForm(formOptions: FormOptions = {}): Form {
   // formOptions = formOptions || {}
+  let strict = formOptions.strict || false
   const initalFields = formOptions.fields || []
   const initialRelativeConfigs = formOptions.relatives || {}
   const initialFieldsData = getFieldsData(initalFields)
@@ -33,7 +34,7 @@ export default function createForm(formOptions: FormOptions = {}): Form {
   const buildReactivityData = (sourceData: any) => {
     const values: any = supportProxy() ? reactive(sourceData) : { ...sourceData }
     const getValue = (key: any) => {
-      if (!keys.includes(key)) {
+      if (strict && !keys.includes(key)) {
         return undefined
       }
 
@@ -42,12 +43,14 @@ export default function createForm(formOptions: FormOptions = {}): Form {
     const getValues = () => {
       const data = objectAssign({}, values)
 
-      // 过滤掉未在 fields 内声明的数据
-      Object.keys(data).forEach((key) => {
-        if (!keys.includes(key)) {
-          delete data[key]
-        }
-      })
+      if (strict) {
+        // 过滤掉未在 fields 内声明的数据
+        Object.keys(data).forEach((key) => {
+          if (!keys.includes(key)) {
+            delete data[key]
+          }
+        })
+      }
 
       return data
     }
@@ -63,8 +66,22 @@ export default function createForm(formOptions: FormOptions = {}): Form {
 
       objectAssign(data, update)
     }
-    const setValue = (key: any, value: any) => setReactivityData(values, defineProperty({}, key, value))
+    const setValue = (key: any, value: any) => {
+      if (strict && !keys.includes(key)) {
+        return values
+      }
+      return setReactivityData(values, defineProperty({}, key, value))
+    }
     const setValues = (update: any) => {
+      if (strict) {
+        // 过滤掉未在 fields 内声明的数据
+        Object.keys(update).forEach((key) => {
+          if (!keys.includes(key)) {
+            delete update[key]
+          }
+        })
+      }
+
       if (!supportProxy()) {
         eventBus.emit('UPDATE-ALL', values)
       }
@@ -290,7 +307,7 @@ export default function createForm(formOptions: FormOptions = {}): Form {
     }
   }
 
-  const validate = (filedKeys: any = keys) => {
+  const validate = (filedKeys: any = keys, ruleKeys?: (number | string)[]) => {
     // filedKeys = filedKeys || keys
     if (typeof filedKeys === 'string') {
       filedKeys = [filedKeys]
@@ -303,9 +320,8 @@ export default function createForm(formOptions: FormOptions = {}): Form {
     return Promise.all(
       fields.map((field: any) => {
         const key = field.name
-        const rules = field.rules || []
+        const rules = Object.entries(field.rules || [])
         const value = values[key]
-        setError(key, undefined)
 
         const applyRule = (rule: any) =>
           Promise.resolve(rule(value, values, field)).then((result) =>
@@ -313,8 +329,24 @@ export default function createForm(formOptions: FormOptions = {}): Form {
             typeof result !== 'undefined' ? Promise.reject({ error: result, field }) : undefined,
           )
 
-        return rules
+        const ruleKeyFilter = isArray(ruleKeys)
+          ? ([key, rule]) => {
+              const result = ruleKeys.includes(rule?.name || key)
+
+              return result
+            }
+          : () => true
+
+        const validateRules = rules
+          .filter(ruleKeyFilter)
+          .map(([key, rule]) => rule)
           .filter(isFunction)
+
+        if (validateRules?.length > 0) {
+          setError(key, undefined)
+        }
+
+        return validateRules
           .reduce((task: any, rule: any) => task.then(() => applyRule(rule)), Promise.resolve())
           .catch((error: any) => {
             setError(key, [...(errors[key] || []), error])
@@ -332,6 +364,10 @@ export default function createForm(formOptions: FormOptions = {}): Form {
     const fieldsData = getFieldsData(fields)
     setValues(fieldsData.values)
     setErrors(fieldsData.errors)
+  }
+
+  const setStrict = (nextStrict: boolean) => {
+    strict = nextStrict
   }
   // ----------------------- 其他 ----------------------------
 
@@ -370,5 +406,6 @@ export default function createForm(formOptions: FormOptions = {}): Form {
     watch,
     validate,
     reset,
+    setStrict,
   }
 }
