@@ -14,6 +14,10 @@ export interface PureNavBarProps {
   left?: React.ReactNode | (() => React.ReactNode)
   /** 右侧内容 */
   right?: React.ReactNode | (() => React.ReactNode)
+  /** 左侧点击事件 */
+  onLeftClick?: (e: React.MouseEvent<HTMLDivElement>) => void
+  /** 右侧点击事件 */
+  onRightClick?: (e: React.MouseEvent<HTMLDivElement>) => void
   /** 内容类名 */
   contentClassName?: string
   /** ref */

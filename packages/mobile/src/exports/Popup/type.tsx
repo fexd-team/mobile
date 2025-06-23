@@ -17,6 +17,10 @@ export interface PurePopupProps extends Omit<PureModalProps, 'placement' | 'tran
   headerRight?: React.ReactNode | (() => React.ReactNode)
   /** 标题栏右侧 */
   headerLeft?: React.ReactNode | (() => React.ReactNode)
+  /** 标题栏左侧点击事件 */
+  onHeaderLeftClick?: (e: React.MouseEvent<HTMLDivElement>) => void
+  /** 标题栏右侧点击事件 */
+  onHeaderRightClick?: (e: React.MouseEvent<HTMLDivElement>) => void
   /**
    * @description 是否圆角
    * @default false

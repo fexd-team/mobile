@@ -19,10 +19,18 @@ const Popup = createFC<PopupProps, HTMLDivElement>(function Popup(
     contentClassName,
     onClose,
     round,
+    onHeaderLeftClick,
+    onHeaderRightClick,
     headerRight = <CloseOutline onClick={onClose as any} />,
     headerLeft,
     header = isExist(title) ? (
-      <NavBar className={`${prefix}-header`} right={headerRight} left={headerLeft}>
+      <NavBar
+        className={`${prefix}-header`}
+        right={headerRight}
+        left={headerLeft}
+        onRightClick={onHeaderRightClick}
+        onLeftClick={onHeaderLeftClick}
+      >
         {title}
       </NavBar>
     ) : null,

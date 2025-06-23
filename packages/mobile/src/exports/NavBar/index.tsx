@@ -8,7 +8,7 @@ import createFC from '../createFC'
 
 const prefix = 'exd-nav-bar'
 const NavBar: React.FC<NavBarProps> = createFC<NavBarProps, HTMLDivElement>(function NavBar(
-  { left, right, children, className, contentClassName, alignCenter, ...props },
+  { left, right, children, className, contentClassName, alignCenter, onLeftClick, onRightClick, ...props },
   forwardedRef,
 ) {
   const containerRef = useRef<HTMLDivElement>(null)
@@ -73,13 +73,21 @@ const NavBar: React.FC<NavBarProps> = createFC<NavBarProps, HTMLDivElement>(func
   return (
     <div {...props} className={classnames(prefix, className)} ref={containerRef}>
       <div className={`${prefix}-wrapper`}>
-        {left && <div className={`${prefix}-left`}>{run(left)}</div>}
+        {left && (
+          <div className={`${prefix}-left`} onClick={onLeftClick}>
+            {run(left)}
+          </div>
+        )}
         <div className={`${prefix}-center`} ref={headerContainerRef}>
           <span ref={headerContentRef} className={classnames(`${prefix}-content`, contentClassName)}>
             {run(children)}
           </span>
         </div>
-        {right && <div className={`${prefix}-right`}>{run(right)}</div>}
+        {right && (
+          <div className={`${prefix}-right`} onClick={onRightClick}>
+            {run(right)}
+          </div>
+        )}
       </div>
     </div>
   )

@@ -1,5 +1,5 @@
 import React from 'react'
-import { LinePicker, DemoBlock } from '@fexd/mobile'
+import { LinePicker, DemoBlock, toast } from '@fexd/mobile'
 
 const options = [
   {
@@ -25,7 +25,18 @@ export default () => {
   return (
     <div className="gap-4">
       <DemoBlock title="LinePicker 基础">
-        <LinePicker options={options} placeholder="基础用法" value={value} onChange={(value) => setValue(value)} />
+        <LinePicker
+          options={options}
+          placeholder="基础用法"
+          value={value}
+          onChange={(value) => setValue(value)}
+          onConfirm={() => {
+            toast.info('确认')
+          }}
+          onCancel={() => {
+            toast.info('取消')
+          }}
+        />
         <LinePicker
           options={options}
           placeholder="受控状态，上边那个也是受控的"

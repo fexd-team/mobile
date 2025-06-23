@@ -1,5 +1,5 @@
 import React from 'react'
-import { BlockPicker, DemoBlock } from '@fexd/mobile'
+import { BlockPicker, DemoBlock, toast } from '@fexd/mobile'
 
 const options = [
   {
@@ -25,7 +25,18 @@ export default () => {
   return (
     <div className="gap-4">
       <DemoBlock title="BlockPicker 基础">
-        <BlockPicker options={options} placeholder="基础用法" value={value} onChange={(value) => setValue(value)} />
+        <BlockPicker
+          options={options}
+          placeholder="基础用法"
+          value={value}
+          onChange={(value) => setValue(value)}
+          onConfirm={() => {
+            toast.info('确认')
+          }}
+          onCancel={() => {
+            toast.info('取消')
+          }}
+        />
         <BlockPicker
           options={options}
           placeholder="受控状态，上边那个也是受控的"

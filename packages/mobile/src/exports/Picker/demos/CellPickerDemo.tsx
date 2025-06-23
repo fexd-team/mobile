@@ -1,5 +1,5 @@
 import React from 'react'
-import { CellPicker, DemoBlock } from '@fexd/mobile'
+import { CellPicker, DemoBlock, toast } from '@fexd/mobile'
 
 const options = [
   {
@@ -25,7 +25,18 @@ export default () => {
   return (
     <div className="gap-4">
       <DemoBlock title="CellPicker 基础">
-        <CellPicker options={options} placeholder="基础用法" value={value} onChange={(value) => setValue(value)} />
+        <CellPicker
+          options={options}
+          placeholder="基础用法"
+          value={value}
+          onChange={(value) => setValue(value)}
+          onConfirm={() => {
+            toast.info('确认')
+          }}
+          onCancel={() => {
+            toast.info('取消')
+          }}
+        />
         <CellPicker
           options={options}
           placeholder="受控状态，上边那个也是受控的"

@@ -12,6 +12,8 @@ export default function usePickerProps<T = string>(props: BasicPickerProps<T>) {
     onEnter,
     onExit,
     onExited,
+    onConfirm,
+    onCancel,
     disabled = false,
     popupProps = {} as BasicPickerProps['popupProps'],
     headerRight = popupProps?.headerRight ?? <CheckmarkOutline />,
@@ -44,7 +46,13 @@ export default function usePickerProps<T = string>(props: BasicPickerProps<T>) {
       title=""
       {...popupProps}
       visible={visible}
-      onClose={() => setVisible(false)}
+      onClose={async () => {
+        const canCancel = (await run(onCancel)) ?? true
+        if (!canCancel) {
+          return
+        }
+        setVisible(false)
+      }}
       onExited={() => {
         setVisible(false)
         if (value) {
@@ -54,7 +62,11 @@ export default function usePickerProps<T = string>(props: BasicPickerProps<T>) {
       }}
       headerRight={() => (
         <span
-          onClick={() => {
+          onClick={async () => {
+            const canConfirm = (await run(onConfirm, undefined, insideValue)) ?? true
+            if (!canConfirm) {
+              return
+            }
             setValue(insideValue)
             setVisible(false)
           }}
@@ -64,7 +76,11 @@ export default function usePickerProps<T = string>(props: BasicPickerProps<T>) {
       )}
       headerLeft={() => (
         <span
-          onClick={() => {
+          onClick={async () => {
+            const canCancel = (await run(onCancel)) ?? true
+            if (!canCancel) {
+              return
+            }
             setVisible(false)
           }}
         >

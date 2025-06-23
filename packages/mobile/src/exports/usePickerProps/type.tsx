@@ -9,6 +9,10 @@ export type BasicPickerRef = HTMLDivElement
 export interface PureBasicPickerProps extends Pick<PurePopupProps, 'onEnter' | 'onExit' | 'onExited'> {
   /** 弹出层的 props */
   popupProps?: Omit<PopupProps, 'visible'>
+  /** 确认事件 */
+  onConfirm?: (value: string) => (boolean | void) | Promise<boolean | void>
+  /** 取消事件 */
+  onCancel?: () => (boolean | void) | Promise<boolean | void>
   /** 头部右侧内容 */
   headerRight?: React.ReactNode
   /** 头部左侧内容 */

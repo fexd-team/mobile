@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 import { ChevronBack, EllipsisHorizontal } from '@fexd/icons'
-import { NavBar, DemoBlock } from '@fexd/mobile'
+import { NavBar, DemoBlock, toast } from '@fexd/mobile'
 
 import './style.module.less'
 import Space from '../../../Space'
@@ -50,6 +50,14 @@ export default () => {
       </NavBar>
       <NavBar alignCenter={false} right={<EllipsisHorizontal />}>
         右侧内容标题不居中
+      </NavBar>
+      <NavBar
+        left={<ChevronBack />}
+        right={<EllipsisHorizontal />}
+        onRightClick={() => toast.info('右侧点击')}
+        onLeftClick={() => toast.info('左侧点击')}
+      >
+        点击事件钩子
       </NavBar>
     </div>
   )
