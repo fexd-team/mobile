@@ -1,4 +1,5 @@
 import { useEffect, useState } from 'react'
+import ResizeObserver from 'resize-observer-polyfill'
 import { run } from '@fexd/tools'
 
 type Size = { width: number; height: number }
