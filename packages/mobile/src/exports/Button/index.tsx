@@ -39,7 +39,19 @@ const Button = createFC<ButtonProps, any>(function Button(
       disabled={(loading as boolean) || disabled}
       onClick={(...args) => {
         setLoadingInside(true)
-        Promise.resolve(run(onClick, undefined, ...args)).finally(() => setLoadingInside(false))
+        Promise.resolve(
+          run(
+            () => {
+              try {
+                return run(onClick, undefined, ...args)
+              } catch (error) {
+                console.error(error)
+              }
+            },
+            undefined,
+            ...args,
+          ),
+        ).finally(() => setLoadingInside(false))
       }}
     >
       <div className={`${prefix}-container`}>{iconPosition === 'right' ? content.reverse() : content}</div>
