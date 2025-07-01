@@ -72,7 +72,10 @@ export default function createForm(formOptions: FormOptions = {}): Form {
       }
       return setReactivityData(values, defineProperty({}, key, value))
     }
-    const setValues = (update: any) => {
+    const setValues = (rawUpdate: any) => {
+      // 避免直接修改原始数据
+      const update = objectAssign({}, rawUpdate)
+
       if (strict) {
         // 过滤掉未在 fields 内声明的数据
         Object.keys(update).forEach((key) => {
