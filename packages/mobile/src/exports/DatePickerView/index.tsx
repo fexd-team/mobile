@@ -1,4 +1,4 @@
-import React, { useState, useCallback, useEffect, useMemo } from 'react'
+import React, { useState, useCallback, useEffect, useMemo, HTMLProps } from 'react'
 import { classnames, run } from '@fexd/tools'
 import dayjs from 'dayjs'
 import { useDebounceEffect } from 'ahooks'
@@ -9,20 +9,7 @@ import createFC from '../createFC'
 
 const prefix = 'exd-date-picker-view'
 const DatePickerView = createFC<DatePickerViewProps, HTMLDivElement>(function DatePickerView(
-  {
-    defaultValue,
-    value,
-    onChange,
-    format,
-    min = new Date('2000/03/01'),
-    max = new Date('2050/07/31'),
-    yearLabel = 'YYYY',
-    monthLabel = 'MM',
-    dayLabel = 'DD',
-    rows = 3,
-    className,
-    ...props
-  },
+  { defaultValue, value, onChange, format, min, max, yearLabel, monthLabel, dayLabel, rows, className, ...props },
   forwardedRef,
 ) {
   const [currentDate, setCurrentDate] = useState(value ? new Date(value) : new Date())
@@ -174,7 +161,7 @@ const DatePickerView = createFC<DatePickerViewProps, HTMLDivElement>(function Da
   )
 
   return (
-    <div {...props} className={classnames(prefix, className)} ref={forwardedRef}>
+    <div style={props.style} onClick={props.onClick} className={classnames(prefix, className)} ref={forwardedRef}>
       <PickerView options={years} rows={rows} value={currentYear} onChange={handleYearChange} />
       <PickerView options={months} rows={rows} value={currentMonth} onChange={handleMonthChange} />
       <PickerView options={days} rows={rows} value={currentDay} onChange={handleDayChange} />
@@ -182,6 +169,13 @@ const DatePickerView = createFC<DatePickerViewProps, HTMLDivElement>(function Da
   )
 })
 
-DatePickerView.defaultProps = {}
+DatePickerView.defaultProps = {
+  min: new Date('1950/01/01'),
+  max: new Date('2050/12/31'),
+  yearLabel: 'YYYY',
+  monthLabel: 'MM',
+  dayLabel: 'DD',
+  rows: 3,
+}
 
 export default DatePickerView

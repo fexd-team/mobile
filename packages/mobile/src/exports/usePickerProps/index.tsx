@@ -21,8 +21,15 @@ export default function usePickerProps<T = string>(props: BasicPickerProps<T>) {
     ref,
     ...restProps
   } = props
-  const { value, setValue, insideValue, setInsideValue, ...restSelectionFieldProps } = useSelectionFieldProps(props)
-  const [visible, setVisible] = useState(false)
+  const {
+    value,
+    setValue,
+    insideValue,
+    setInsideValue,
+    selecting: visible,
+    setSelecting: setVisible,
+    ...restSelectionFieldProps
+  } = useSelectionFieldProps(props)
 
   const renderTrigger = (content: React.ReactNode): JSX.Element => (
     <div

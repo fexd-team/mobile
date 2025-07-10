@@ -48,7 +48,7 @@
     "babel-plugin-jsx-css-modules": "^0.1.1",
     "chalk": "^2.4.2",
     "dumi": "^1.1.30",
-    "father": "^4.1.6",
+    "father": "^4.6.1",
     "filesize": "^8.0.3",
     "gh-pages": "^3.0.0",
     "hox": "1.0.2",
