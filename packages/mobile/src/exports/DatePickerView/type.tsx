@@ -15,6 +15,7 @@ export interface DatePickerViewProps extends Omit<JSXDivProps, 'onChange' | 'def
   monthLabel?: string
   dayLabel?: string
   rows?: number
+  pickerSort?: ('year' | 'month' | 'day')[]
 }
 
 export default AUTO_API<DatePickerViewProps>()

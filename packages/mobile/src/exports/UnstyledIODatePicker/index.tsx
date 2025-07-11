@@ -4,7 +4,7 @@ import { ChevronForwardSharp } from '@fexd/icons'
 import dayjs from 'dayjs'
 import { useMemoizedFn } from 'ahooks'
 
-import DatePicker from '../DatePicker'
+import DatePicker, { usePickerSortFromFormat } from '../DatePicker'
 import useIOControl from '../useIOControl'
 import UnstyledIOLabel from '../UnstyledIOLabel'
 import createFC from '../createFC'
@@ -63,8 +63,11 @@ const UnstyledIODatePicker = createFC<UnstyledIODatePickerProps, UnstyledIODateP
   const hasLabelAndPlaceholder = Boolean(label && placeholder) && label !== placeholder
   const active = propActive ?? (focused || hasValue || hasLabelAndPlaceholder)
 
+  const pickerSort = usePickerSortFromFormat(format)
+
   return (
     <DatePicker
+      pickerSort={pickerSort}
       {...restProps}
       value={value as any}
       disabled={disabled}

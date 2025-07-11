@@ -9,7 +9,21 @@ import createFC from '../createFC'
 
 const prefix = 'exd-date-picker-view'
 const DatePickerView = createFC<DatePickerViewProps, HTMLDivElement>(function DatePickerView(
-  { defaultValue, value, onChange, format, min, max, yearLabel, monthLabel, dayLabel, rows, className, ...props },
+  {
+    defaultValue,
+    value,
+    onChange,
+    format,
+    min,
+    max,
+    yearLabel,
+    monthLabel,
+    dayLabel,
+    rows,
+    className,
+    pickerSort: propPickerSort,
+    ...props
+  },
   forwardedRef,
 ) {
   const getValidDate = useMemoizedFn((value: any) => {
@@ -165,11 +179,24 @@ const DatePickerView = createFC<DatePickerViewProps, HTMLDivElement>(function Da
     { wait: 96 },
   )
 
+  const pickerSort = useMemo(() => {
+    return [...(propPickerSort ?? [])]?.sort?.()?.join('-') === 'day-month-year'
+      ? propPickerSort
+      : ['year', 'month', 'day']
+  }, [propPickerSort])
+
   return (
     <div style={props.style} onClick={props.onClick} className={classnames(prefix, className)} ref={forwardedRef}>
-      <PickerView options={years} rows={rows} value={currentYear} onChange={handleYearChange} />
-      <PickerView options={months} rows={rows} value={currentMonth} onChange={handleMonthChange} />
-      <PickerView options={days} rows={rows} value={currentDay} onChange={handleDayChange} />
+      {pickerSort?.map(
+        (layout) =>
+          ({
+            year: <PickerView key="year" options={years} rows={rows} value={currentYear} onChange={handleYearChange} />,
+            month: (
+              <PickerView key="month" options={months} rows={rows} value={currentMonth} onChange={handleMonthChange} />
+            ),
+            day: <PickerView key="day" options={days} rows={rows} value={currentDay} onChange={handleDayChange} />,
+          }[layout]),
+      )}
     </div>
   )
 })
@@ -181,6 +208,7 @@ DatePickerView.defaultProps = {
   monthLabel: 'MM',
   dayLabel: 'DD',
   rows: 3,
+  pickerSort: ['year', 'month', 'day'],
 }
 
 export default DatePickerView
