@@ -2,6 +2,7 @@ import React, { useState } from 'react'
 import { classnames, run } from '@fexd/tools'
 import { ChevronForwardSharp } from '@fexd/icons'
 import dayjs from 'dayjs'
+import { useMemoizedFn } from 'ahooks'
 
 import DatePicker from '../DatePicker'
 import useIOControl from '../useIOControl'
@@ -43,10 +44,21 @@ const UnstyledIODatePicker = createFC<UnstyledIODatePickerProps, UnstyledIODateP
     prefixProps,
     suffixProps,
     helperProps,
+    filterInvalidDate: needFilterInvalidDate,
     ...restProps
   } = props
+  const filterInvalidDate = useMemoizedFn((value) => {
+    try {
+      return dayjs(value).isValid()
+    } catch (error) {
+      return false
+    }
+  })
   const [focused, setFocused] = useState(false)
-  const { value, setValue } = useIOControl(props as any)
+  const { value, setValue } = useIOControl({
+    filterIOValue: needFilterInvalidDate ? filterInvalidDate : undefined,
+    ...props,
+  } as any)
   const hasValue = !!value
   const hasLabelAndPlaceholder = Boolean(label && placeholder) && label !== placeholder
   const active = propActive ?? (focused || hasValue || hasLabelAndPlaceholder)

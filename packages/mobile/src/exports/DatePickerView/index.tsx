@@ -1,7 +1,7 @@
 import React, { useState, useCallback, useEffect, useMemo, HTMLProps } from 'react'
 import { classnames, run } from '@fexd/tools'
 import dayjs from 'dayjs'
-import { useDebounceEffect } from 'ahooks'
+import { useDebounceEffect, useMemoizedFn } from 'ahooks'
 
 import PickerView from '../PickerView'
 import { DatePickerViewProps } from './type'
@@ -12,7 +12,12 @@ const DatePickerView = createFC<DatePickerViewProps, HTMLDivElement>(function Da
   { defaultValue, value, onChange, format, min, max, yearLabel, monthLabel, dayLabel, rows, className, ...props },
   forwardedRef,
 ) {
-  const [currentDate, setCurrentDate] = useState(value ? new Date(value) : new Date())
+  const getValidDate = useMemoizedFn((value: any) => {
+    const date = value ? new Date(value) : new Date()
+    return dayjs(date).isValid() ? date : new Date()
+  }) as (value: any) => Date
+
+  const [currentDate, setCurrentDate] = useState(() => getValidDate(value ?? defaultValue))
   const [currentYear, setCurrentYear] = useState(() => {
     return Number(dayjs(currentDate).format('YYYY'))
   })
@@ -136,7 +141,7 @@ const DatePickerView = createFC<DatePickerViewProps, HTMLDivElement>(function Da
 
   useDebounceEffect(
     () => {
-      const currentDate = value ? new Date(value) : new Date()
+      const currentDate = getValidDate(value)
       setCurrentDate(currentDate)
       setCurrentYear(Number(dayjs(currentDate).format('YYYY')))
       setCurrentMonth(Number(dayjs(currentDate).format('MM')))

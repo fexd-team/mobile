@@ -1,13 +1,19 @@
-import { useRef, useState } from 'react'
-import { useControllableValue, useMemoizedFn, useGetState } from 'ahooks'
+import { useRef } from 'react'
+import { useMemoizedFn, useGetState } from 'ahooks'
 import { Options } from 'ahooks/es/useControllableValue'
 import { run, pick } from '@fexd/tools'
 
 import { IOProps } from './type'
+import useControllableValue from './useControllableValue'
 
 export default function useIOControl<T>(props: IOProps<T>, options?: Options<T>) {
   const { valuePropName = 'value', defaultValuePropName = 'defaultValue', trigger = 'onChange' } = options || {}
-  const controllableValueOptions = pick(props, [valuePropName, defaultValuePropName, trigger]) as IOProps
+  const controllableValueOptions = pick(props, [
+    valuePropName,
+    defaultValuePropName,
+    trigger,
+    'filterIOValue',
+  ]) as IOProps
   const hasValueKey = valuePropName in controllableValueOptions
   const [focused, setFocused, getFocused] = useGetState(false)
 
