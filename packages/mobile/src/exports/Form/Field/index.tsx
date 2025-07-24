@@ -27,7 +27,7 @@ const FormField = createFC<FormFieldProps, FormFieldRef>(function FormField({
   const ctxValue = useContext()!
   const form = ctxValue.form!
   const validateOnChange = propValidateOnChange ?? ctxValue?.validateOnChange
-  const [value, setFieldValue] = useState(defaultValue)
+  const [value, setFieldValue] = useState(() => defaultValue ?? form.getValue(name!))
   const [error, setError] = useState<FormError>()
 
   const fieldRef = useRef<any>({ name, rules, defaultValue })
@@ -48,6 +48,11 @@ const FormField = createFC<FormFieldProps, FormFieldRef>(function FormField({
 
     if (!name) {
       return
+    }
+
+    const formDefaultValue = form.getValue(name!)
+    if (formDefaultValue !== value) {
+      setFieldValue(defaultValue ?? formDefaultValue)
     }
 
     listenerStopList.push(

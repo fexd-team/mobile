@@ -27,7 +27,10 @@ export default function createForm(formOptions: FormOptions = {}): Form {
   let strict = formOptions.strict || false
   const initalFields = formOptions.fields || []
   const initialRelativeConfigs = formOptions.relatives || {}
+  const initialDefaultValues = formOptions.defaultValues || {}
   const initialFieldsData = getFieldsData(initalFields)
+  // 合并字段默认值和 defaultValues 参数
+  const mergedDefaultValues = objectAssign({}, initialFieldsData.values, initialDefaultValues)
   let { keys } = initialFieldsData
 
   // 创建响应式数据相关函数
@@ -109,9 +112,8 @@ export default function createForm(formOptions: FormOptions = {}): Form {
   }
 
   // +++++++++++++++++++++++ values 相关 begin ++++++++++++++++++++++++++++
-  const [values, getValue, getValues, setValue, setValues, watchValues, watchValue] = buildReactivityData(
-    initialFieldsData.values,
-  )
+  const [values, getValue, getValues, setValue, setValues, watchValues, watchValue] =
+    buildReactivityData(mergedDefaultValues)
   // ----------------------- values 相关 end ------------------------------
 
   // +++++++++++++++++++++++ errors 相关 begin ++++++++++++++++++++++++++++
@@ -365,7 +367,9 @@ export default function createForm(formOptions: FormOptions = {}): Form {
 
   const reset = () => {
     const fieldsData = getFieldsData(fields)
-    setValues(fieldsData.values)
+    // 合并字段默认值和 defaultValues 参数
+    const resetValues = objectAssign({}, fieldsData.values, initialDefaultValues)
+    setValues(resetValues)
     setErrors(fieldsData.errors)
   }
 
@@ -375,6 +379,8 @@ export default function createForm(formOptions: FormOptions = {}): Form {
   // ----------------------- 其他 ----------------------------
 
   return {
+    __isFormInstance: true,
+
     getValue,
     getValues,
     setValue,

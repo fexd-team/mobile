@@ -20,6 +20,8 @@ interface FormOverridedField {
 export interface FormOptions {
   strict?: boolean
   fields?: FormField[]
+  /** 表单字段的默认值 */
+  defaultValues?: Record<string, any>
   relatives?: {
     [key: string]: (values: any, errors: any) => any
   }
@@ -96,6 +98,8 @@ export interface Form {
   reset: () => void
   /** 调整严格模式 */
   setStrict: (strict: boolean) => void
+
+  __isFormInstance: true
 }
 
 export default AUTO_API<Form>()

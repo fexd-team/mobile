@@ -36,7 +36,7 @@ function Demo() {
               field.setValue(value)
               field.validate()
             }}
-            onBlur={field.validate}
+            onBlur={() => field.validate()}
             error={field.error}
           />
         )}
@@ -50,7 +50,7 @@ function Demo() {
             placeholder="回车自动换行"
             value={field.value}
             onChange={field.setValue}
-            onBlur={field.validate}
+            onBlur={() => field.validate()}
             error={field.error}
           />
         )}
