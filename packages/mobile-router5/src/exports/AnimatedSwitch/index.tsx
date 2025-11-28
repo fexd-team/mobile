@@ -1,6 +1,5 @@
 import React, { Suspense, useMemo } from 'react'
 import { Switch, useLocation, useHistory, matchPath } from 'react-router-dom'
-import { CacheSwitch, CacheSwitchProps } from 'react-router-cache-route'
 import { get, run, isString } from '@fexd/tools'
 import { usePrevious } from 'ahooks'
 import { Spinner, TransitionSwitch, TransitionSwitchProps, createFC, FC } from '@fexd/mobile'
@@ -16,26 +15,10 @@ export interface AnimatedSwitchProps extends Omit<TransitionSwitchProps, 'direct
   renderWrapper?: (routes: any) => React.ReactNode
 }
 
-export interface AnimatedSwitchProps extends CacheSwitchProps {
-  cache?: boolean
-}
-
 const AnimatedSwitch: FC<AnimatedSwitchProps> & {
   renderLayout: typeof renderLayout
 } = createFC<AnimatedSwitchProps, any>(function AnimatedSwitch(
-  {
-    children: propChildren,
-    direction,
-    renderWrapper,
-    always,
-    location: propLocation,
-    animate,
-    speed,
-    cache = false,
-    which,
-    autoFreeze,
-    ...props
-  },
+  { children: propChildren, direction, renderWrapper, always, location: propLocation, animate, speed, ...props },
   forwardedRef,
 ) {
   const children = useMemo<any>(() => React.Children.map(propChildren, (child) => child), [propChildren])
@@ -77,15 +60,9 @@ const AnimatedSwitch: FC<AnimatedSwitchProps> & {
       ref={forwardedRef}
     >
       {renderWrapper?.(
-        cache ? (
-          <CacheSwitch location={location} which={which} autoFreeze={autoFreeze} {...(props as any)}>
-            {children}
-          </CacheSwitch>
-        ) : (
-          <Switch location={location} {...(props as any)}>
-            {children}
-          </Switch>
-        ),
+        <Switch location={location} {...(props as any)}>
+          {children}
+        </Switch>,
       )}
     </TransitionSwitch>
   )

@@ -1,6 +1,6 @@
 {
   "name": "@fexd/mobile",
-  "version": "0.1.26",
+  "version": "0.1.27",
   "main": "lib/index.js",
   "module": "es/index.js",
   "types": "types.d.ts",
@@ -16,7 +16,7 @@
     "@fexd/icons": "^0.1.0",
     "@fexd/icons-bytesize": "^0.1.0",
     "@babel/runtime": "^7.13.10",
-    "@fexd/tools": "^0.1.0",
+    "@fexd/tools": "^0.1.7",
     "@pansy/react-watermark": "^2.1.1",
     "@types/hoist-non-react-statics": "^3.3.1",
     "@types/react-transition-group": "4.4.1",

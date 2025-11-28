@@ -19,7 +19,7 @@ export default defineConfig({
         libraryName: '@fexd/mobile',
         libraryDirectory: 'es/exports', // or 'es/exports'
         camel2DashComponentName: false,
-        style: (name) => `${name}/style.less`, // or `${name}/style.css`
+        // style: (name) => `${name}/style.less`, // or `${name}/style.css`
       },
       '@fexd/mobile',
     ],

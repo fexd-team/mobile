@@ -89,20 +89,36 @@ notify.info('无互斥行为', { onConflict: null })
 
 ### 修改默认属性
 
-通过修改 `notify.defaultConfig` 来调整各种默认值，**注意不要变更其引用**
+配置有三层优先级，**注意不要变更其引用**
+
+1. **全局默认配置** `notify.defaultConfig` - 影响所有方法
+2. **方法默认配置** `notify.xxx.defaultConfig` - 只影响对应方法
+3. **调用时配置** - 优先级最高
 
 <!-- prettier-ignore -->
 ```jsx | pure
 import { TransitionFade } from '@fexd/mobile'
 
+// 修改全局默认配置（影响所有方法）
 notify.defaultConfig.transition = TransitionFade
-notify.defaultConfig.duration = 2000
-// or
-Object.assign(notify.defaultConfig, {
-  transition: TransitionFade,
+notify.defaultConfig.duration = 3000
+
+// 单独修改某个方法的默认配置（只影响该方法）
+notify.success.defaultConfig.duration = 2000  // success 方法专用
+notify.error.defaultConfig.duration = 4000    // error 方法专用
+
+// 批量修改（推荐）
+Object.assign(notify.info.defaultConfig, {
   transitionSpeed: 'fastest',
   touchable: true,
 })
+
+// 优先级示例
+notify.defaultConfig.duration = 3000 // 全局 3s
+notify.success.defaultConfig.duration = 2000 // success 方法 2s
+notify.success('成功') // 使用 2s (方法配置优先)
+notify.success('成功', { duration: 1000 }) // 使用 1s (调用配置优先)
+notify.info('通知') // 使用 3s (继承全局配置)
 ```
 
 ## API

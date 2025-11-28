@@ -122,20 +122,36 @@ toast.info('偏移互斥', {
 
 ### 修改默认属性
 
-通过修改 `toast.defaultConfig` 来调整各种默认值，**注意不要变更其引用**
+配置有三层优先级，**注意不要变更其引用**
+
+1. **全局默认配置** `toast.defaultConfig` - 影响所有方法
+2. **方法默认配置** `toast.xxx.defaultConfig` - 只影响对应方法
+3. **调用时配置** - 优先级最高
 
 <!-- prettier-ignore -->
 ```jsx | pure
 import { TransitionFade } from '@fexd/mobile'
 
+// 修改全局默认配置（影响所有方法）
 toast.defaultConfig.transition = TransitionFade
 toast.defaultConfig.duration = 2000
-// or
-Object.assign(toast.defaultConfig, {
-  transition: TransitionFade,
+
+// 单独修改某个方法的默认配置（只影响该方法）
+toast.success.defaultConfig.duration = 3000
+toast.fail.defaultConfig.placement = 'top'
+
+// 批量修改（推荐）
+Object.assign(toast.info.defaultConfig, {
   transitionSpeed: 'fastest',
   touchable: true,
 })
+
+// 优先级示例
+toast.defaultConfig.duration = 2000 // 全局 2s
+toast.success.defaultConfig.duration = 3000 // success 方法 3s
+toast.success('提示') // 使用 3s (方法配置优先)
+toast.success('提示', { duration: 1000 }) // 使用 1s (调用配置优先)
+toast.info('提示') // 使用 2s (继承全局配置)
 ```
 
 ## API

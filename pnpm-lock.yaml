@@ -129,7 +129,7 @@ importers:
       '@babel/runtime': ^7.13.10
       '@fexd/icons': ^0.1.0
       '@fexd/icons-bytesize': ^0.1.0
-      '@fexd/tools': ^0.1.0
+      '@fexd/tools': ^0.1.7
       '@pansy/react-watermark': ^2.1.1
       '@types/hoist-non-react-statics': ^3.3.1
       '@types/react-transition-group': 4.4.1
@@ -146,7 +146,7 @@ importers:
       '@babel/runtime': 7.23.4
       '@fexd/icons': 0.1.0_react@18.2.0
       '@fexd/icons-bytesize': 0.1.0_react@18.2.0
-      '@fexd/tools': 0.1.0
+      '@fexd/tools': 0.1.7
       '@pansy/react-watermark': 2.1.1_react-dom@18.2.0+react@18.2.0
       '@types/hoist-non-react-statics': 3.3.5
       '@types/react-transition-group': 4.4.1
@@ -165,20 +165,18 @@ importers:
     specifiers:
       '@babel/runtime': ^7.13.10
       '@fexd/icons': ^0.1.0
-      '@fexd/mobile': ^0.1.18
-      '@fexd/tools': ^0.1.6
+      '@fexd/mobile': ^0.1.26
+      '@fexd/tools': ^0.1.7
       ahooks: ^3
       less: ^3.12.2
       less-plugin-import-node-modules: ^1.0.0
-      react-router-cache-route: ^1.13.0
       react-router-dom: ^5
     dependencies:
       '@babel/runtime': 7.23.4
       '@fexd/icons': 0.1.0_react@18.2.0
       '@fexd/mobile': link:../mobile
-      '@fexd/tools': 0.1.6
+      '@fexd/tools': 0.1.7
       ahooks: 3.7.8_react@18.2.0
-      react-router-cache-route: 1.13.0_4d439b591d68d4853e3a0101eea03334
       react-router-dom: 5.3.4_react@18.2.0
     devDependencies:
       less: 3.13.1
@@ -1774,7 +1772,6 @@ packages:
     engines: {node: '>=6.9.0'}
     dependencies:
       regenerator-runtime: 0.14.0
-    dev: true
 
   /@babel/template/7.22.15:
     resolution: {integrity: sha512-QPErUVm4uyJa60rkI73qneDacvdvzxshT3kksGqlGWYdOTIUOwJ7RDUL8sGqslY1uXWSL6xMFKEXDS3ox2uF0w==}
@@ -2901,11 +2898,12 @@ packages:
     dependencies:
       '@babel/runtime': 7.23.4
       classnames: 2.3.2
+    dev: true
 
-  /@fexd/tools/0.1.6:
-    resolution: {integrity: sha512-fisAOuSCJYI4tuldymKljMrFIa7gd0k1ChXaL/NPEaZS25U7MO/7qKLr+JhHomGf3rP/DcH1lVMZzm3u7MuG1g==}
+  /@fexd/tools/0.1.7:
+    resolution: {integrity: sha512-8nD2M1rawsdRWDmunAz0avoMtfCzAA2BUh4B6/2U2ZoG468CBBSpEkpNcYpMB45HqmsyJ5EQTmCv7YptKrJvgQ==}
     dependencies:
-      '@babel/runtime': 7.23.4
+      '@babel/runtime': 7.23.6
       classnames: 2.3.2
     dev: false
 
@@ -5998,7 +5996,7 @@ packages:
       caniuse-lite: 1.0.30001564
       fraction.js: 4.3.7
       normalize-range: 0.1.2
-      picocolors: 1.0.0
+      picocolors: 1.1.1
       postcss: 8.4.31
       postcss-value-parser: 4.2.0
     dev: true
@@ -10268,7 +10266,7 @@ packages:
   /history/4.10.0:
     resolution: {integrity: sha512-w5dPeWoxlMyl4zKMXWT3zRxSt1dSblRCtrOoxxinK1fhYQ4Fwm5TPef8hNUYTVVu5Hwxr2nS0uaCX3JJFUeabA==}
     dependencies:
-      '@babel/runtime': 7.23.4
+      '@babel/runtime': 7.23.6
       loose-envify: 1.4.0
       resolve-pathname: 3.0.0
       tiny-invariant: 1.3.1
@@ -12587,7 +12585,7 @@ packages:
       graceful-fs: 4.2.11
       image-size: 0.5.5
       make-dir: 2.1.0
-      mime: 1.4.1
+      mime: 1.6.0
       native-request: 1.1.0
       source-map: 0.6.1
     dev: true
@@ -12605,7 +12603,7 @@ packages:
       graceful-fs: 4.2.11
       image-size: 0.5.5
       make-dir: 2.1.0
-      mime: 1.4.1
+      mime: 1.6.0
       needle: 3.3.1
       source-map: 0.6.1
     dev: true
@@ -13468,18 +13466,6 @@ packages:
       tiny-warning: 1.0.3
     dev: true
 
-  /mini-create-react-context/0.4.1_react@18.2.0:
-    resolution: {integrity: sha512-YWCYEmd5CQeHGSAKrYvXgmzzkrvssZcuuQDDeqkT+PziKGMgE+0MCCtcKbROzocGBG1meBLl2FotlRwf4gAzbQ==}
-    deprecated: Package no longer supported. Contact Support at https://www.npmjs.com/support for more info.
-    peerDependencies:
-      prop-types: ^15.0.0
-      react: ^0.14.0 || ^15.0.0 || ^16.0.0 || ^17.0.0
-    dependencies:
-      '@babel/runtime': 7.23.4
-      react: 18.2.0
-      tiny-warning: 1.0.3
-    dev: false
-
   /minimalistic-assert/1.0.1:
     resolution: {integrity: sha512-UtJcAD4yEaGtjPezWuO9wC4nwUnVH/8/Im3yEHQP4b67cXlD/Qr9hdITCU1xDbSEXg2XKNaP8jsReV7vQd00/A==}
     dev: true
@@ -13618,12 +13604,6 @@ packages:
 
   /nanoid/3.3.11:
     resolution: {integrity: sha512-N8SpfPUnUp1bK+PMYW8qSWdl9U+wwNWI4QKxOYDy9JAro3WMX7p2OeVRF9v+347pnakNevPmiHhNmZ2HbFA76w==}
-    engines: {node: ^10 || ^12 || ^13.7 || ^14 || >=15.0.1}
-    hasBin: true
-    dev: true
-
-  /nanoid/3.3.7:
-    resolution: {integrity: sha512-eSRppjcPIatRIMC1U6UngP8XFcz8MQWGQdt1MTBQ7NaAmvXDfvNxbvWV3x2y6CdEUciCSsDHDQZbhYaB8QEo2g==}
     engines: {node: ^10 || ^12 || ^13.7 || ^14 || >=15.0.1}
     hasBin: true
     dev: true
@@ -14415,10 +14395,6 @@ packages:
 
   /picocolors/0.2.1:
     resolution: {integrity: sha512-cMlDqaLEqfSaW8Z7N5Jw+lyIW869EzT73/F5lhtY9cLGoVxSXznfgfXMO0Z5K0o0Q2TkTXq+0KFsdnSe3jDViA==}
-    dev: true
-
-  /picocolors/1.0.0:
-    resolution: {integrity: sha512-1fygroTLlHu66zi26VoTDv8yRgm0Fccecssto+MhsZ0D/DGW2sm8E8AjW7NU5VVTRt5GxbeZ5qBuJr+HyLYkjQ==}
     dev: true
 
   /picocolors/1.1.1:
@@ -15636,8 +15612,8 @@ packages:
     resolution: {integrity: sha512-PS08Iboia9mts/2ygV3eLpY5ghnUcfLV/EXTOW1E2qYxJKGGBUtNjN76FYHnMs36RmARn41bC0AZmn+rR0OVpQ==}
     engines: {node: ^10 || ^12 || >=14}
     dependencies:
-      nanoid: 3.3.7
-      picocolors: 1.0.0
+      nanoid: 3.3.11
+      picocolors: 1.1.1
       source-map-js: 1.0.2
     dev: true
 
@@ -16650,15 +16626,6 @@ packages:
     resolution: {integrity: sha512-nQTTcUu+ATDbrSD1BZHr5kgSD4oF8OFjxun8uAaL8RwPBacGBNPf/yAuVVdx17N8XNzRDMrZ9XcKZHCjPW+9ew==}
     dev: true
 
-  /react-freeze/1.0.4_react@18.2.0:
-    resolution: {integrity: sha512-r4F0Sec0BLxWicc7HEyo2x3/2icUTrRmDjaaRyzzn+7aDyFZliszMDOgLVwSnQnYENOlL1o569Ze2HZefk8clA==}
-    engines: {node: '>=10'}
-    peerDependencies:
-      react: '>=17.0.0'
-    dependencies:
-      react: 18.2.0
-    dev: false
-
   /react-is/16.13.1:
     resolution: {integrity: sha512-24e6ynE2H+OKt4kqsOvNd8kBpV65zoxbA4BVsEOB3ARVWQki/DHzaUoC5KuON/BiccDaCCTZBuOcfZs70kR8bQ==}
 
@@ -16698,19 +16665,6 @@ packages:
     resolution: {integrity: sha512-wViHqhAd8OHeLS/IRMJjTSDHF3U9eWi62F/MledQGPdJGDhodXJ9PBLNGr6WWL7qlH12Mt3TyTpbS+hGXMjCzQ==}
     engines: {node: '>=0.10.0'}
     dev: true
-
-  /react-router-cache-route/1.13.0_4d439b591d68d4853e3a0101eea03334:
-    resolution: {integrity: sha512-08E6juMWmBfG/UzUWQEyeVkisoJSHZvR1bfkkWBHmF6ewU3wmKzJuJ5aKNCAdqBrTHn2a9k988LwxQGe1QZcsA==}
-    peerDependencies:
-      prop-types: '>=15'
-      react: '>=15'
-      react-router-dom: '>=4'
-    dependencies:
-      mini-create-react-context: 0.4.1_react@18.2.0
-      react: 18.2.0
-      react-freeze: 1.0.4_react@18.2.0
-      react-router-dom: 5.3.4_react@18.2.0
-    dev: false
 
   /react-router-config/5.1.1_react-router@5.2.0+react@18.2.0:
     resolution: {integrity: sha512-DuanZjaD8mQp1ppHjgnnUnyOlqYXZVjnov/JzFhjLEwd3Z4dYjMSnqrEzzGThH47vpCOqPPwJM2FtthLeJ8Pbg==}
@@ -16785,7 +16739,7 @@ packages:
     peerDependencies:
       react: '>=15'
     dependencies:
-      '@babel/runtime': 7.23.4
+      '@babel/runtime': 7.23.6
       history: 4.10.0
       hoist-non-react-statics: 3.3.2
       loose-envify: 1.4.0
@@ -18568,7 +18522,7 @@ packages:
       css-select: 4.3.0
       css-tree: 1.1.3
       csso: 4.2.0
-      picocolors: 1.0.0
+      picocolors: 1.1.1
       stable: 0.1.8
     dev: true
 
@@ -19425,7 +19379,7 @@ packages:
     dependencies:
       browserslist: 4.22.1
       escalade: 3.1.1
-      picocolors: 1.0.0
+      picocolors: 1.1.1
     dev: true
 
   /update-notifier/2.5.0:
