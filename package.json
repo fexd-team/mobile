@@ -10,7 +10,7 @@
     "less2css": "npx pnpm@6 run --filter=!root --parallel less2css",
     "clean:build": "rimraf ./packages/*/lib ./packages/*/es",
     "clean:all": "npm run clean:build && rimraf .umi .umi-production docs-dist node_modules/ ./**/node_modules",
-    "build:docs": "npm run entries -- --noDeveloping=false && dumi build && npm run entries",
+    "build:docs": "npm run entries -- --noDeveloping=false && dumi build && npm run entries && node ./scripts/fix-demos-path.js",
     "release:docs": "node ./scripts/git/pushToDocsSite",
     "prettier": "prettier --write \"**/*.{js,jsx,ts,tsx,css,scss,less,md,json}\"",
     "eslint": "eslint --cache \"./{packages,documents}/**/*.{js,jsx,ts,tsx}\"",

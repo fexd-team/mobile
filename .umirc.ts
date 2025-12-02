@@ -13,7 +13,7 @@ export default defineConfig({
   locales: [['zh-CN', '中文']],
   history: { type: 'browser' },
   exportStatic: {
-    htmlSuffix: true,
+    htmlSuffix: false,
     dynamicRoot: true,
   },
   resolve: {
