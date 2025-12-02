@@ -7,9 +7,22 @@
       content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no"
     />
     <link rel="shortcut icon" type="image/x-icon" href="./logo.png" />
-    <link rel="stylesheet" href="/mobile/umi.bd40ea51.css" />
+    <link rel="stylesheet" href="../../umi.bd40ea51.css" />
     <script>
-      window.routerBase = "/";
+      window.routerBase = location.pathname
+        .split("/")
+        .slice(0, -3)
+        .concat("")
+        .join("/");
+    </script>
+    <script>
+      window.publicPath =
+        window.resourceBaseUrl ||
+        location.protocol +
+          "//" +
+          location.hostname +
+          (location.port ? ":" + location.port : "") +
+          window.routerBase;
     </script>
     <script>
       //! umi version: 3.5.41
@@ -28,10 +41,11 @@
         );
       })();
     </script>
+    <title>TabBar 标签栏 - Fexd Mobile</title>
   </head>
   <body>
     <div id="root"></div>
 
-    <script src="/mobile/umi.52d54349.js"></script>
+    <script src="../../umi.64add1a8.js"></script>
   </body>
 </html>
