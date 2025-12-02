@@ -95,10 +95,10 @@
     }
   },
   "lint-staged": {
-    "*.{md,json}": ["prettier --write"],
-    "*.{css,less}": ["prettier --write"],
-    "*.js?(x)": ["eslint --cache", "prettier --write"],
-    "*.ts?(x)": ["eslint --cache", "prettier --parser=typescript --write"]
+    "!(docs)/**/*.{md,json}": ["prettier --write"],
+    "!(docs)/**/*.{css,less}": ["prettier --write"],
+    "!(docs)/**/*.js?(x)": ["eslint --cache", "prettier --write"],
+    "!(docs)/**/*.ts?(x)": ["eslint --cache", "prettier --parser=typescript --write"]
   },
   "husky": {
     "hooks": {
