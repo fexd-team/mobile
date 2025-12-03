@@ -32,6 +32,12 @@ group:
 
 ---
 
+## 样式变量
+
+<API identifier="BadgeStyleVars" hideTitle src="./type.tsx" exports='["DOC_BadgeStyleVars"]'></API>
+
+---
+
 ## 演示代码
 
 <code src="./demos/demo1/index.tsx" />

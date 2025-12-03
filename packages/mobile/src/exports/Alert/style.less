@@ -3,82 +3,136 @@
 
 // 由于 less 变量的懒生效特性，变量命名空间存在冲突，此处 prefix 变量命名前需要加特定前缀
 // https://less.bootcss.com/features/#variables-lazy-evaluation
+// @no-cssvar: 用于生成选择器名称
 @alert-prefix: ~'exd-alert';
+
+// 基础样式变量
+@alert-padding-vertical: 6px;
+@alert-padding-horizontal: 14px;
+@alert-border-radius: 4px;
+@alert-border-width: 1px;
+
+// 图标样式变量
+@alert-icon-margin-right: 6px;
+@alert-icon-padding-vertical: 4px;
+@alert-icon-font-size: 22px;
+@alert-icon-opacity: 0.9;
+
+// 内容样式变量
+@alert-content-padding: 4px;
+@alert-content-font-size: 14px;
+@alert-content-title-font-size: 15px;
+@alert-content-title-font-weight: 500;
+
+// 关闭按钮样式变量
+@alert-close-padding: 2px;
+@alert-close-font-size: 16px;
+
+// Info 类型颜色变量
+@alert-info-background: rgb(229, 246, 253);
+@alert-info-color: rgb(1, 67, 97);
+@alert-info-icon-color: rgb(3, 169, 244);
+@alert-info-outlined-border-color: rgb(3, 169, 244);
+@alert-info-filled-background: rgb(2, 136, 209);
+@alert-info-filled-color: rgb(255, 255, 255);
+
+// Success 类型颜色变量
+@alert-success-background: rgb(237, 247, 237);
+@alert-success-color: rgb(30, 70, 32);
+@alert-success-icon-color: rgb(76, 175, 80);
+@alert-success-outlined-border-color: rgb(76, 175, 80);
+@alert-success-filled-background: rgb(46, 125, 50);
+@alert-success-filled-color: rgb(255, 255, 255);
+
+// Warning 类型颜色变量
+@alert-warning-background: rgb(255, 244, 229);
+@alert-warning-color: rgb(102, 60, 0);
+@alert-warning-icon-color: rgb(255, 152, 0);
+@alert-warning-outlined-border-color: rgb(255, 152, 0);
+@alert-warning-filled-background: rgb(237, 108, 2);
+@alert-warning-filled-color: rgb(255, 255, 255);
+
+// Error 类型颜色变量
+@alert-error-background: rgb(253, 237, 237);
+@alert-error-color: rgb(95, 33, 32);
+@alert-error-icon-color: rgb(239, 83, 80);
+@alert-error-outlined-border-color: rgb(239, 83, 80);
+@alert-error-filled-background: rgb(211, 47, 47);
+@alert-error-filled-color: rgb(255, 255, 255);
 
 .@{alert-prefix} {
   /* 组件样式 */
   display: flex;
   align-items: flex-start;
-  padding: 6px 14px;
-  border-radius: 4px;
+  padding: @alert-padding-vertical @alert-padding-horizontal;
+  border-radius: @alert-border-radius;
 
   &-info {
-    background-color: rgb(229, 246, 253);
-    color: rgb(1, 67, 97);
+    background-color: @alert-info-background;
+    color: @alert-info-color;
   }
   &-info &-icon {
-    color: rgb(3, 169, 244);
+    color: @alert-info-icon-color;
   }
   &-info&-outlined {
     background-color: transparent;
-    border: 1px solid rgb(3, 169, 244);
-    color: rgb(1, 67, 97);
+    border: @alert-border-width solid @alert-info-outlined-border-color;
+    color: @alert-info-color;
   }
   &-info&-filled {
-    background-color: rgb(2, 136, 209);
-    color: rgb(255, 255, 255);
+    background-color: @alert-info-filled-background;
+    color: @alert-info-filled-color;
   }
 
   &-success {
-    background-color: rgb(237, 247, 237);
-    color: rgb(30, 70, 32);
+    background-color: @alert-success-background;
+    color: @alert-success-color;
   }
   &-success &-icon {
-    color: rgb(76, 175, 80);
+    color: @alert-success-icon-color;
   }
   &-success&-outlined {
     background-color: transparent;
-    border: 1px solid rgb(76, 175, 80);
-    color: rgb(30, 70, 32);
+    border: @alert-border-width solid @alert-success-outlined-border-color;
+    color: @alert-success-color;
   }
   &-success&-filled {
-    background-color: rgb(46, 125, 50);
-    color: rgb(255, 255, 255);
+    background-color: @alert-success-filled-background;
+    color: @alert-success-filled-color;
   }
 
   &-warning {
-    background-color: rgb(255, 244, 229);
-    color: rgb(102, 60, 0);
+    background-color: @alert-warning-background;
+    color: @alert-warning-color;
   }
   &-warning &-icon {
-    color: rgb(255, 152, 0);
+    color: @alert-warning-icon-color;
   }
   &-warning&-outlined {
     background-color: transparent;
-    border: 1px solid rgb(255, 152, 0);
-    color: rgb(102, 60, 0);
+    border: @alert-border-width solid @alert-warning-outlined-border-color;
+    color: @alert-warning-color;
   }
   &-warning&-filled {
-    background-color: transparent;
-    background-color: rgb(237, 108, 2);
-    color: rgb(255, 255, 255);
+    background-color: @alert-warning-filled-background;
+    color: @alert-warning-filled-color;
   }
 
   &-error {
-    background-color: rgb(253, 237, 237);
-    color: rgb(95, 33, 32);
+    background-color: @alert-error-background;
+    color: @alert-error-color;
   }
   &-error &-icon {
-    color: rgb(239, 83, 80);
+    color: @alert-error-icon-color;
   }
   &-error&-outlined {
     background-color: transparent;
-    border: 1px solid rgb(239, 83, 80);
-    color: rgb(95, 33, 32);
+    border: @alert-border-width solid @alert-error-outlined-border-color;
+    color: @alert-error-color;
   }
   &-error&-filled {
-    background-color: rgb(211, 47, 47);
-    color: rgb(255, 255, 255);
+    background-color: @alert-error-filled-background;
+    color: @alert-error-filled-color;
   }
 
   &-filled &-icon {
@@ -86,24 +140,24 @@
   }
 
   &-icon {
-    margin-right: 6px;
-    padding: 4px 0;
+    margin-right: @alert-icon-margin-right;
+    padding: @alert-icon-padding-vertical 0;
     display: flex;
-    font-size: 22px;
-    opacity: 0.9;
+    font-size: @alert-icon-font-size;
+    opacity: @alert-icon-opacity;
   }
   &-content {
     flex: 1 0 0;
-    padding: 4px;
-    font-size: 14px;
+    padding: @alert-content-padding;
+    font-size: @alert-content-font-size;
     text-align: left;
     &-title {
-      font-size: 15px;
-      font-weight: 500;
+      font-size: @alert-content-title-font-size;
+      font-weight: @alert-content-title-font-weight;
     }
   }
   &-close {
-    padding: 2px;
-    font-size: 16px;
+    padding: @alert-close-padding;
+    font-size: @alert-close-font-size;
   }
 }

@@ -27,3 +27,9 @@ mobileDemoFixed: false
 ## Popup
 
 <API identifier="Popup" hideTitle src="./type.tsx" exports='["default"]'></API>
+
+---
+
+## 样式变量
+
+<API identifier="Popup-StyleVars" hideTitle src="./type.tsx" exports='["DOC_PopupStyleVars"]'></API>

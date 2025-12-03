@@ -144,9 +144,7 @@ import { Avatar } from '@fexd/mobile'
 
 ## 样式变量
 
-| 变量名         | 说明         | 默认值         |
-| :------------- | :----------- | :------------- |
-| @avatar-prefix | 组件样式前缀 | `'exd-avatar'` |
+<API identifier="AvatarStyleVars" hideTitle src="./type.tsx" exports='["DOC_AvatarStyleVars"]'></API>
 
 ---
 

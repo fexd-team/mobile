@@ -25,6 +25,8 @@ import { Input, TextArea, LineInput, BlockInput, CellInput } from '@fexd/mobile'
 <CellInput />
 ```
 
+> **设计说明**：Input 组件采用分层设计，通过组合 IOLabel 和 Label 实现样式与逻辑分离。详细了解请参考 [IO 组件的分层设计](/documents/exports/data/io-layered-design)。
+
 ---
 
 ## 演示 - LineInput
@@ -84,3 +86,45 @@ import { Input, TextArea, LineInput, BlockInput, CellInput } from '@fexd/mobile'
 ## 继承自 input 的属性
 
 <API identifier="DOC_PureExtendFromJSXInput" hideTitle src="../BasicInput/type.tsx" exports='["DOC_PureExtendFromJSXInput"]'></API>
+
+---
+
+## 样式变量
+
+组件提供了以下 Less 变量，可用于自定义样式。三种输入框类型（Block/Line/Cell）的变量前缀分别为 `@block-`、`@line-`、`@cell-`。
+
+### BlockLabel / BlockInput 样式变量
+
+<API identifier="BlockLabel-StyleVars" hideTitle src="../BlockLabel/type.tsx" exports='["DOC_BlockLabelStyleVars"]'></API>
+
+<API identifier="BlockInput-StyleVars" hideTitle src="../BlockInput/type.tsx" exports='["DOC_BlockInputStyleVars"]'></API>
+
+### LineLabel / LineInput 样式变量
+
+<API identifier="LineLabel-StyleVars" hideTitle src="../LineLabel/type.tsx" exports='["DOC_LineLabelStyleVars"]'></API>
+
+<API identifier="LineInput-StyleVars" hideTitle src="../LineInput/type.tsx" exports='["DOC_LineInputStyleVars"]'></API>
+
+### CellLabel / CellInput 样式变量
+
+<API identifier="CellLabel-StyleVars" hideTitle src="../CellLabel/type.tsx" exports='["DOC_CellLabelStyleVars"]'></API>
+
+<API identifier="CellInput-StyleVars" hideTitle src="../CellInput/type.tsx" exports='["DOC_CellInputStyleVars"]'></API>
+
+---
+
+**全局变量说明**
+
+| 变量名               | 说明                      | 默认值 |
+| :------------------- | :------------------------ | :----- |
+| `@size-scale`        | 全局尺寸缩放比例          | `1`    |
+| `@color-primary`     | 主题色                    | -      |
+| `@color-green`       | 成功状态颜色              | -      |
+| `@color-orange`      | 警告状态颜色              | -      |
+| `@color-red`         | 错误状态颜色              | -      |
+| `@ant-color-gray-4`  | Ant Design 灰色色板 4 级  | -      |
+| `@ant-color-gray-5`  | Ant Design 灰色色板 5 级  | -      |
+| `@ant-color-gray-6`  | Ant Design 灰色色板 6 级  | -      |
+| `@ant-color-gray-7`  | Ant Design 灰色色板 7 级  | -      |
+| `@ant-color-gray-8`  | Ant Design 灰色色板 8 级  | -      |
+| `@ant-color-gray-10` | Ant Design 灰色色板 10 级 | -      |

@@ -2,7 +2,30 @@
 @import '../Spinner/style.less';
 @import './Group/style.less';
 
+// @no-cssvar: 用于生成选择器名称
 @cell-prefix: ~'exd-cell';
+@cell-background: #fff;
+@cell-border-color: #f2f2f2;
+@cell-label-color: #333;
+@cell-description-color: #969799;
+@cell-active-background: #f8f8f8;
+@cell-padding-x: 16px;
+@cell-border-left: 16px;
+@cell-label-margin-right: 8px;
+@cell-prefix-margin-right: 16px;
+@cell-suffix-margin-left: 10px;
+@cell-loading-size: 20px;
+
+// 尺寸相关变量
+@cell-padding-y-normal: 10px;
+@cell-padding-y-small: 8px;
+@cell-padding-y-large: 12px;
+@cell-font-size-normal: 14px;
+@cell-font-size-small: 12px;
+@cell-font-size-large: 16px;
+@cell-description-font-size-normal: 12px;
+@cell-description-font-size-small: 10px;
+@cell-description-font-size-large: 14px;
 
 .@{cell-prefix} {
   position: relative;
@@ -11,7 +34,7 @@
   align-items: center;
   box-sizing: border-box;
   width: 100%;
-  background-color: #fff;
+  background-color: @cell-background;
 
   &-border {
     & + &,
@@ -23,8 +46,8 @@
         pointer-events: none;
         right: 0;
         top: 0;
-        left: 16px * @size-scale;
-        border-top: 1px solid #f2f2f2;
+        left: @cell-border-left * @size-scale;
+        border-top: 1px solid @cell-border-color;
         transform: scaleY(1);
       }
     }
@@ -39,8 +62,8 @@
   &-label {
     flex: 1;
     justify-content: flex-start;
-    margin-right: 8px * @size-scale;
-    color: #333;
+    margin-right: @cell-label-margin-right * @size-scale;
+    color: @cell-label-color;
 
     &-content {
       width: 100%;
@@ -48,7 +71,7 @@
   }
 
   &-description {
-    color: #969799;
+    color: @cell-description-color;
   }
 
   &-value {
@@ -63,17 +86,17 @@
 
     &.@{cell-prefix}-value-only {
       flex: 1;
-      color: #333;
+      color: @cell-label-color;
       justify-content: flex-start;
     }
   }
 
   &-prefix {
-    margin-right: 16px * @size-scale;
+    margin-right: @cell-prefix-margin-right * @size-scale;
   }
 
   &-suffix {
-    margin-left: 10px * @size-scale;
+    margin-left: @cell-suffix-margin-left * @size-scale;
   }
 
   &-value,
@@ -93,12 +116,12 @@
     cursor: pointer;
 
     &:active {
-      background-color: #f8f8f8;
+      background-color: @cell-active-background;
     }
   }
 
   &-loading {
-    width: 20px * @size-scale;
+    width: @cell-loading-size * @size-scale;
     height: 0;
     overflow: visible;
     position: relative;
@@ -106,11 +129,11 @@
     .exd-spin {
       position: absolute;
       left: 0;
-      top: -10px * @size-scale;
-      width: 20px * @size-scale;
-      height: 20px * @size-scale;
-      max-width: 20px * @size-scale;
-      max-height: 20px * @size-scale;
+      top: -@cell-loading-size / 2 * @size-scale;
+      width: @cell-loading-size * @size-scale;
+      height: @cell-loading-size * @size-scale;
+      max-width: @cell-loading-size * @size-scale;
+      max-height: @cell-loading-size * @size-scale;
     }
   }
 }
@@ -118,43 +141,43 @@
 // 尺寸相关
 .@{cell-prefix} {
   &-normal {
-    padding: 10px * @size-scale 16px * @size-scale;
+    padding: @cell-padding-y-normal * @size-scale @cell-padding-x * @size-scale;
 
     .@{cell-prefix} {
       &-label,
       &-value {
-        font-size: 14px * @size-scale;
+        font-size: @cell-font-size-normal * @size-scale;
       }
 
       &-description {
-        font-size: 12px * @size-scale;
+        font-size: @cell-description-font-size-normal * @size-scale;
       }
     }
   }
 
   &-small {
-    padding: 8px * @size-scale 16px * @size-scale;
+    padding: @cell-padding-y-small * @size-scale @cell-padding-x * @size-scale;
 
     .@{cell-prefix}-label,
     .@{cell-prefix}-value {
-      font-size: 12px * @size-scale;
+      font-size: @cell-font-size-small * @size-scale;
     }
 
     .@{cell-prefix}-description {
-      font-size: 10px * @size-scale;
+      font-size: @cell-description-font-size-small * @size-scale;
     }
   }
 
   &-large {
-    padding: 12px * @size-scale 16px * @size-scale;
+    padding: @cell-padding-y-large * @size-scale @cell-padding-x * @size-scale;
 
     .@{cell-prefix}-label,
     .@{cell-prefix}-value {
-      font-size: 16px * @size-scale;
+      font-size: @cell-font-size-large * @size-scale;
     }
 
     .@{cell-prefix}-description {
-      font-size: 14px * @size-scale;
+      font-size: @cell-description-font-size-large * @size-scale;
     }
   }
 }

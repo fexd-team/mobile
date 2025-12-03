@@ -19,3 +19,23 @@ export interface StepsProps extends Omit<JSXDivProps, 'children'> {
 }
 
 export default AUTO_API<StepsProps>()
+
+export interface StepsStyleVars {
+  /**
+   * @description 组件的 className 前缀
+   * @default 'exd-steps'
+   */
+  '@steps-prefix'?: string
+  /**
+   * @description Steps 背景颜色
+   * @default #fff
+   */
+  '@steps-background'?: string
+  /**
+   * @description Steps flex 模式最大宽度
+   * @default 96px
+   */
+  '@steps-flex-max-width'?: string
+}
+
+export const DOC_StepsStyleVars = AUTO_API<StepsStyleVars>()

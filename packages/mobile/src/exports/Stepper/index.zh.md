@@ -15,3 +15,9 @@ mobileDemoFixed: false
 ## Stepper
 
 <API identifier="Stepper" hideTitle src="./type.tsx" exports='["default"]'></API>
+
+---
+
+## 样式变量
+
+<API identifier="StepperStyleVars" hideTitle src="./type.tsx" exports='["DOC_StepperStyleVars"]'></API>

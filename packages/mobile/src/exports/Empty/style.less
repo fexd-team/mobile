@@ -2,7 +2,15 @@
 
 // 由于 less 变量的懒生效特性，变量命名空间存在冲突，此处 prefix 变量命名前需要加特定前缀
 // https://less.bootcss.com/features/#variables-lazy-evaluation
+// @no-cssvar: 用于生成选择器名称
 @empty-prefix: ~'exd-empty';
+@empty-padding: 32px;
+@empty-icon-size: 60px;
+@empty-icon-color: #ccc;
+@empty-image-width: 120px;
+@empty-text-color: #999;
+@empty-text-margin-top: 12px;
+@empty-text-margin-bottom: 16px;
 
 .@{empty-prefix} {
   /* 组件样式 */
@@ -13,22 +21,22 @@
   align-items: center;
   justify-content: center;
   width: 100%;
-  padding: 32px * @size-scale;
+  padding: @empty-padding * @size-scale;
 
   &-icon {
-    font-size: 60px * @size-scale;
-    color: #ccc;
+    font-size: @empty-icon-size * @size-scale;
+    color: @empty-icon-color;
     display: flex;
     align-items: center;
 
     > img {
-      width: 120px * @size-scale;
+      width: @empty-image-width * @size-scale;
     }
   }
 
   &-text {
-    margin: 12px * @size-scale 0 16px * @size-scale;
-    color: #999;
+    margin: @empty-text-margin-top * @size-scale 0 @empty-text-margin-bottom * @size-scale;
+    color: @empty-text-color;
     text-align: center;
   }
 }

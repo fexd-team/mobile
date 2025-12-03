@@ -1,11 +1,17 @@
 @import '../../TransitionSlideDown/style.less';
 @import '../../Modal/style.less';
 
+// @no-cssvar: 用于生成选择器名称
 @notify-prefix: ~'exd-notify';
+@notify-opacity: 0.92;
+@notify-font-size: 14px;
+@notify-padding-x: 16px;
+@notify-padding-y: 12px;
+@notify-color: #fff;
 
 .@{notify-prefix} {
   width: 100%;
-  opacity: 0.92;
+  opacity: @notify-opacity;
 
   &-untouchable {
     pointer-events: none;
@@ -15,10 +21,10 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    color: #fff;
+    color: @notify-color;
     box-sizing: border-box;
-    font-size: 14px * @size-scale;
-    padding: 12px * @size-scale 16px * @size-scale;
+    font-size: @notify-font-size * @size-scale;
+    padding: @notify-padding-y * @size-scale @notify-padding-x * @size-scale;
   }
 
   &-info {

@@ -39,3 +39,9 @@ loading.hide(forceClose?: boolean)
 <API identifier="LoadingMethodConfig" hideTitle src="./type.tsx" exports='["DOC_PureLoadingMethodConfig"]'></API>
 
 ---
+
+## 样式变量
+
+<API identifier="LoadingStyleVars" hideTitle src="./type.tsx" exports='["DOC_LoadingStyleVars"]'></API>
+
+---

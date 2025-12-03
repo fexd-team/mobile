@@ -1,20 +1,29 @@
 @import '../../../theme/vars';
 
+// @no-cssvar: 用于生成选择器名称
 @grid-item-prefix: ~'exd-grid-item';
+@grid-item-icon-size: 20px;
+@grid-item-text-font-size: 12px;
+@grid-item-text-margin-top: 8px;
+@grid-item-text-margin-left: 8px;
+@grid-item-padding-y: 16px;
+@grid-item-padding-x: 8px;
+@grid-item-background: #fff;
+@grid-item-active-background: #f2f3f5;
 
 .@{grid-item-prefix} {
   position: relative;
   box-sizing: border-box;
 
   &-icon {
-    font-size: 20px * @size-scale;
+    font-size: @grid-item-icon-size * @size-scale;
   }
 
   &-text {
-    font-size: 12px * @size-scale;
+    font-size: @grid-item-text-font-size * @size-scale;
     line-height: 1.5 * @size-scale;
     word-break: break-all;
-    margin-top: 8px * @size-scale;
+    margin-top: @grid-item-text-margin-top * @size-scale;
   }
 
   &-line {
@@ -36,11 +45,11 @@
     position: relative;
     display: flex;
     height: 100%;
-    padding: 16px * @size-scale 8px * @size-scale;
+    padding: @grid-item-padding-y * @size-scale @grid-item-padding-x * @size-scale;
     flex-flow: column;
     flex-direction: column;
     box-sizing: border-box;
-    background-color: #fff;
+    background-color: @grid-item-background;
 
     &::after {
       z-index: 1;
@@ -85,7 +94,7 @@
 
       &-text {
         margin-top: 0;
-        margin-left: 8px;
+        margin-left: @grid-item-text-margin-left;
       }
     }
   }
@@ -93,7 +102,7 @@
   &-active {
     cursor: pointer;
     &:active {
-      background-color: #f2f3f5;
+      background-color: @grid-item-active-background;
     }
   }
 }

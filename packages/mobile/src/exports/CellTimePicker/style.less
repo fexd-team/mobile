@@ -4,18 +4,25 @@
 
 // 由于 less 变量的懒生效特性，变量命名空间存在冲突，此处 prefix 变量命名前需要加特定前缀
 // https://less.bootcss.com/features/#variables-lazy-evaluation
+// @no-cssvar: 用于生成选择器名称
 @cell-time-picker-prefix: ~'exd-cell-time-picker';
 
+// CellTimePicker 样式变量
+@cell-time-picker-disabled-color: @ant-color-gray-7;
+@cell-time-picker-clear-color: @ant-color-gray-5;
+@cell-time-picker-arrow-font-size: 18px;
+@cell-time-picker-arrow-color: @ant-color-gray-6;
+
 .@{cell-time-picker-prefix}__disabled {
-  color: @ant-color-gray-7;
+  color: @cell-time-picker-disabled-color;
 
   .@{cell-time-picker-prefix}__value {
-    color: @ant-color-gray-7;
+    color: @cell-time-picker-disabled-color;
   }
 }
 
 .@{cell-time-picker-prefix}__clear {
-  color: @ant-color-gray-5;
+  color: @cell-time-picker-clear-color;
 }
 
 .@{cell-time-picker-prefix}__arrow {
@@ -24,7 +31,7 @@
 
   .exd-icon,
   .exd-iconfont {
-    font-size: 18px * @size-scale;
-    color: @ant-color-gray-6;
+    font-size: @cell-time-picker-arrow-font-size * @size-scale;
+    color: @cell-time-picker-arrow-color;
   }
 }

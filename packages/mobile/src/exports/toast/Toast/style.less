@@ -3,11 +3,24 @@
 @import '../../TransitionSlideUp/style.less';
 @import '../../Modal/style.less';
 
+// @no-cssvar: 用于生成选择器名称
 @toast-prefix: ~'exd-toast';
+@toast-padding: 16px;
+@toast-offset: 16px;
+@toast-offset-top: @toast-offset;
+@toast-offset-bottom: @toast-offset;
+@toast-content-padding-x: 16px;
+@toast-content-padding-y: 8px;
+@toast-content-background: rgba(0, 0, 0, 0.8);
+@toast-content-color: #fff;
+@toast-content-font-size: 14px;
+@toast-content-border-radius: 4px;
+@toast-icon-size-center: 38px;
+@toast-icon-size-edge: 18px;
 
 .@{toast-prefix} {
   box-sizing: border-box;
-  padding: 16px * @size-scale;
+  padding: @toast-padding * @size-scale;
 
   &.@{modal-prefix}-center {
     width: 100%;
@@ -17,25 +30,25 @@
     }
 
     .@{toast-prefix}-icon {
-      font-size: 38px * @size-scale;
+      font-size: @toast-icon-size-center * @size-scale;
       margin-bottom: 6px * @size-scale;
     }
   }
 
   &.@{modal-prefix}-top {
-    margin-top: 16px * @size-scale;
+    margin-top: @toast-offset-top * @size-scale;
     padding-bottom: 0;
   }
 
   &.@{modal-prefix}-bottom {
-    margin-bottom: 16px * @size-scale;
+    margin-bottom: @toast-offset-bottom * @size-scale;
     padding-top: 0;
   }
 
   &.@{modal-prefix}-top,
   &.@{modal-prefix}-bottom {
     .@{toast-prefix}-icon {
-      font-size: 18px * @size-scale;
+      font-size: @toast-icon-size-edge * @size-scale;
       margin-right: 6px * @size-scale;
     }
   }
@@ -44,12 +57,12 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    border-radius: 4px;
-    background: rgba(0, 0, 0, 0.8);
-    color: #fff;
+    border-radius: @toast-content-border-radius;
+    background: @toast-content-background;
+    color: @toast-content-color;
     box-sizing: border-box;
-    font-size: 14px * @size-scale;
-    padding: 8px * @size-scale 16px * @size-scale;
+    font-size: @toast-content-font-size * @size-scale;
+    padding: @toast-content-padding-y * @size-scale @toast-content-padding-x * @size-scale;
   }
 
   &-untouchable {

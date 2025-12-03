@@ -3,7 +3,14 @@
 
 // 由于 less 变量的懒生效特性，变量命名空间存在冲突，此处 prefix 变量命名前需要加特定前缀
 // https://less.bootcss.com/features/#variables-lazy-evaluation
+// @no-cssvar: 用于生成选择器名称
 @badge-prefix: ~'exd-badge';
+@badge-color: #fff;
+@badge-background: #ff411c;
+@badge-min-width: 16px;
+@badge-padding-x: 4px;
+@badge-font-size: 9px;
+@badge-dot-size: 10px;
 
 .@{badge-prefix}-wrap {
   display: inline-block;
@@ -12,16 +19,16 @@
 
 .@{badge-prefix} {
   display: inline-block;
-  color: #fff;
-  background-color: #ff411c;
+  color: @badge-color;
+  background-color: @badge-background;
   font-weight: normal;
   text-align: center;
   vertical-align: middle;
   box-sizing: border-box;
-  min-width: 16px;
+  min-width: @badge-min-width;
   border-radius: 100px;
-  padding: 0 4px;
-  font-size: 9px;
+  padding: 0 @badge-padding-x;
+  font-size: @badge-font-size;
   line-height: 1.2;
   white-space: nowrap;
 
@@ -34,10 +41,10 @@
   }
 
   &-dot {
-    min-width: 10px;
-    width: 10px;
-    height: 10px;
-    border-radius: 5px;
+    min-width: @badge-dot-size;
+    width: @badge-dot-size;
+    height: @badge-dot-size;
+    border-radius: @badge-dot-size / 2;
   }
 
   &-hidden {

@@ -6,7 +6,19 @@
 
 // 由于 less 变量的懒生效特性，变量命名空间存在冲突，此处 prefix 变量命名前需要加特定前缀
 // https://less.bootcss.com/features/#variables-lazy-evaluation
+// @no-cssvar: 用于生成选择器名称
 @block-input-prefix: ~'exd-block-input';
+
+// BlockInput 样式变量
+@block-input-font-size: 14px;
+@block-input-color: #333;
+@block-input-placeholder-color: #999;
+@block-input-disabled-color: #c2bcbe;
+@block-input-prefix-line-height: 22px;
+@block-input-clear-size: 17px;
+@block-input-clear-color: #bbb;
+@block-input-suffix-margin-left: 6px;
+@block-input-no-label-padding-y: 8px;
 
 // .@{block-input-prefix} {
 //   /* 组件样式 */
@@ -23,8 +35,8 @@
   &--no-label {
     &.@{block-label-prefix}__wrapper--auto-height {
       .@{block-label-prefix}__content {
-        padding-top: 8px * @size-scale;
-        padding-bottom: 8px * @size-scale;
+        padding-top: @block-input-no-label-padding-y * @size-scale;
+        padding-bottom: @block-input-no-label-padding-y * @size-scale;
       }
     }
   }
@@ -32,7 +44,7 @@
 
 .@{block-input-prefix}__input {
   &::placeholder {
-    color: #999;
+    color: @block-input-placeholder-color;
   }
 }
 
@@ -45,11 +57,11 @@
   resize: none;
   width: 100%;
   background-color: transparent;
-  font-size: 14px * @size-scale;
-  color: #333;
+  font-size: @block-input-font-size * @size-scale;
+  color: @block-input-color;
 
   &--disabled {
-    color: #c2bcbe;
+    color: @block-input-disabled-color;
     pointer-events: none;
   }
 
@@ -66,19 +78,19 @@
 }
 
 .@{block-input-prefix}__disabled {
-  color: #c2bcbe;
+  color: @block-input-disabled-color;
 }
 
 .@{block-input-prefix}__prefix {
-  line-height: 22px * @size-scale;
-  font-size: 14px * @size-scale;
-  color: #c2bcbe;
+  line-height: @block-input-prefix-line-height * @size-scale;
+  font-size: @block-input-font-size * @size-scale;
+  color: @block-input-disabled-color;
 }
 
 .@{block-input-prefix}__clear {
-  font-size: 17px * @size-scale;
+  font-size: @block-input-clear-size * @size-scale;
   cursor: pointer;
-  color: #bbb;
+  color: @block-input-clear-color;
   opacity: 0;
   transform: scale(0.8);
   transition: opacity 0.2s, transform 0.2s;
@@ -94,7 +106,7 @@
   align-items: center;
 
   .@{block-input-prefix}__suffix {
-    margin-left: 6px * @size-scale;
+    margin-left: @block-input-suffix-margin-left * @size-scale;
   }
 }
 

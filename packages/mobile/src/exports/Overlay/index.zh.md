@@ -36,6 +36,12 @@ import { Overlay } from '@fexd/mobile'
 | className | 遮罩类名 | `string` | - |
 | children | 遮罩内容 | `jsx` | - |
 
+---
+
+## 样式变量
+
+<API identifier="Overlay-StyleVars" hideTitle src="./type.tsx" exports='["DOC_OverlayStyleVars"]'></API>
+
 ## 演示代码
 
 <!-- ### 预览 -->

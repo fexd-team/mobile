@@ -23,3 +23,48 @@ export interface TabsProps<T = ValueType> extends Omit<JSXDivProps, 'defaultValu
 }
 
 export default AUTO_API<TabsProps>()
+
+export interface TabsStyleVars {
+  /**
+   * @description 组件的 className 前缀
+   * @default 'exd-tabs'
+   */
+  '@tabs-prefix'?: string
+  /**
+   * @description Tabs 高度
+   * @default 50px
+   */
+  '@tabs-height'?: string
+  /**
+   * @description Tabs 背景颜色
+   * @default #fff
+   */
+  '@tabs-background'?: string
+  /**
+   * @description Tabs 边框颜色
+   * @default #efeff4
+   */
+  '@tabs-border-color'?: string
+  /**
+   * @description Tabs 指示器宽度
+   * @default 24px
+   */
+  '@tabs-indicator-width'?: string
+  /**
+   * @description Tabs 指示器高度
+   * @default 4px
+   */
+  '@tabs-indicator-height'?: string
+  /**
+   * @description Tabs 指示器颜色
+   * @default @color-primary
+   */
+  '@tabs-indicator-color'?: string
+  /**
+   * @description Tabs 滚动模式底部内边距
+   * @default 20px
+   */
+  '@tabs-scroll-padding-bottom'?: string
+}
+
+export const DOC_TabsStyleVars = AUTO_API<TabsStyleVars>()

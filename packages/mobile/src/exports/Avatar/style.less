@@ -2,7 +2,9 @@
 
 // 由于 less 变量的懒生效特性，变量命名空间存在冲突，此处 prefix 变量命名前需要加特定前缀
 // https://less.bootcss.com/features/#variables-lazy-evaluation
+// @no-cssvar: 用于生成选择器名称
 @avatar-prefix: ~'exd-avatar';
+// @no-cssvar: 用于生成选择器名称
 @avatar-group-prefix: ~'exd-avatar-group';
 
 @avatar-large-size: 56px;
@@ -11,6 +13,14 @@
 @avatar-normal-font-size: 16px;
 @avatar-small-size: 24px;
 @avatar-small-font-size: 12px;
+@avatar-background: @ant-color-gray-4;
+@avatar-color: @ant-color-cyan-4;
+@avatar-square-border-radius: 3px;
+@avatar-group-overlap: -8px;
+@avatar-group-border-width: 2px;
+@avatar-group-border-color: #fff;
+@avatar-group-extra-background: rgb(253, 227, 207);
+@avatar-group-extra-color: rgb(245, 106, 0);
 
 #mixin-avatar-size (@size, @fontSize) {
   width: @size;
@@ -24,8 +34,8 @@
   justify-content: center;
   align-items: center;
   overflow: hidden;
-  background-color: @ant-color-gray-4;
-  color: @ant-color-cyan-4;
+  background-color: @avatar-background;
+  color: @avatar-color;
   text-align: center;
   user-select: none;
   #mixin-avatar-size(@avatar-normal-size, @avatar-normal-font-size);
@@ -34,7 +44,7 @@
     border-radius: 50%;
   }
   &-square {
-    border-radius: 3px;
+    border-radius: @avatar-square-border-radius;
   }
   &-large {
     #mixin-avatar-size(@avatar-large-size, @avatar-large-font-size);
@@ -55,12 +65,12 @@
   display: flex;
   flex-direction: row-reverse;
   &-extra .exd-avatar {
-    background-color: rgb(253, 227, 207);
+    background-color: @avatar-group-extra-background;
     font-size: 14px;
-    color: rgb(245, 106, 0);
+    color: @avatar-group-extra-color;
   }
   .exd-avatar {
-    margin-right: -8px;
-    border: 2px solid #fff;
+    margin-right: @avatar-group-overlap;
+    border: @avatar-group-border-width solid @avatar-group-border-color;
   }
 }

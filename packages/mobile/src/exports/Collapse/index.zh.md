@@ -32,6 +32,10 @@ group:
 
 ---
 
+## 样式变量
+
+<API identifier="CollapseStyleVars" hideTitle src="./type.tsx" exports='["DOC_CollapseStyleVars"]'></API>
+
 ## 演示代码
 
 <code src="./demos/demo1/index.tsx" />

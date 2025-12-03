@@ -44,12 +44,12 @@ export interface CheckboxStyleVars {
   '@checkbox-prefix'?: string
   /**
    * @description 图标默认颜色
-   * @default color-gray
+   * @default @color-gray
    */
   '@checkbox-default-color'?: string
   /**
    * @description 图标选中颜色
-   * @default color-primary
+   * @default @color-primary
    */
   '@checkbox-active-color'?: string
   /**
@@ -64,12 +64,12 @@ export interface CheckboxStyleVars {
   '@checkbox-icon-size'?: string
   /**
    * @description 禁用颜色
-   * @default ant-color-gray-5
+   * @default @ant-color-gray-5
    */
   '@checkbox-disabled-color'?: string
   /**
    * @description 描述颜色
-   * @default ant-color-gray-7
+   * @default @ant-color-gray-7
    */
   '@checkbox-description-color'?: string
   /**

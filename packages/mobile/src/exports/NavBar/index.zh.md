@@ -16,3 +16,9 @@ mobileDemoFixed: false
 ## NavBar
 
 <API identifier="NavBar" hideTitle src="./type.tsx" exports='["default"]'></API>
+
+---
+
+## 样式变量
+
+<API identifier="NavBar-StyleVars" hideTitle src="./type.tsx" exports='["DOC_NavBarStyleVars"]'></API>

@@ -54,3 +54,48 @@ export interface RateProps extends Omit<JSXDivProps, 'value' | 'defaultValue' | 
 export type RateRef = any
 
 export default AUTO_API<PureRateProps>()
+
+export interface RateStyleVars {
+  /**
+   * @description 组件的 className 前缀
+   * @default 'exd-rate'
+   */
+  '@rate-prefix'?: string
+  /**
+   * @description 激活态颜色
+   * @default @color-yellow
+   */
+  '@rate-active-color'?: string
+  /**
+   * @description 默认颜色
+   * @default @ant-color-gray-4
+   */
+  '@rate-default-color'?: string
+  /**
+   * @description 禁用态颜色
+   * @default @ant-color-gray-7
+   */
+  '@rate-disabled-color'?: string
+  /**
+   * @description 小尺寸图标大小
+   * @default 18px
+   */
+  '@rate-small-size'?: string
+  /**
+   * @description 默认尺寸图标大小
+   * @default 24px
+   */
+  '@rate-default-size'?: string
+  /**
+   * @description 大尺寸图标大小
+   * @default 30px
+   */
+  '@rate-large-size'?: string
+  /**
+   * @description 字符间距
+   * @default 3px
+   */
+  '@rate-character-spacing'?: string
+}
+
+export const DOC_RateStyleVars = AUTO_API<RateStyleVars>()

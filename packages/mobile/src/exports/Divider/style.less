@@ -1,19 +1,25 @@
 @import '../../theme/vars.less';
 
+// @no-cssvar: 用于生成选择器名称
 @divider-prefix: ~'exd-divider';
+@divider-margin-x: 16px;
+@divider-font-size: 10px;
+@divider-line-min-width: 48px;
+@divider-text-padding-x: 16px;
+@divider-vertical-margin-x: 8px;
 
 .@{divider-prefix} {
-  margin: 0 16px * @size-scale;
+  margin: 0 @divider-margin-x * @size-scale;
   display: flex;
   justify-content: center;
   align-items: center;
   color: @color-gray-primary;
-  font-size: 10px * @size-scale;
+  font-size: @divider-font-size * @size-scale;
   border-width: 0;
 
   &::before,
   &::after {
-    min-width: 48px * @size-scale;
+    min-width: @divider-line-min-width * @size-scale;
     content: '';
     flex: 1;
     border-top: 0;
@@ -23,14 +29,14 @@
     border-color: @color-gray-border;
   }
   &-text {
-    padding: 0 16px * @size-scale;
+    padding: 0 @divider-text-padding-x * @size-scale;
     text-align: center;
     line-height: 1.5em;
   }
 }
 
 .@{divider-prefix}-vertical {
-  margin: 0 8px * @size-scale;
+  margin: 0 @divider-vertical-margin-x * @size-scale;
   border-left: 1px solid @color-gray-border;
   // 自适应高度
   height: auto;

@@ -46,6 +46,12 @@ import { Divider } from '@fexd/mobile'
 | children | 文本内容               | `ReactNode \| (() => ReactNode)` | `null`  |
 | vertical | 将分割线渲染成垂直形状 | `boolean`                        | `false` |
 
+---
+
+## 样式变量
+
+<API identifier="DividerStyleVars" hideTitle src="./type.tsx" exports='["DOC_DividerStyleVars"]'></API>
+
 ## 演示代码
 
 <!-- ### 预览 -->

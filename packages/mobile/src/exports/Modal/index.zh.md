@@ -156,6 +156,12 @@ Modal.defaultProps.shareMask = true
 | contentMaskTransition | 内容蒙层的[动画类型](/documents/exports/display/transition)，用于互斥控制 | `Transition` | `TransitionFade` |
 | onConflict | 互斥事件响应器，待详细文档做解释 | `ConflictHandler` | - |
 
+---
+
+## 样式变量
+
+<API identifier="ModalStyleVars" hideTitle src="./type.tsx" exports='["DOC_ModalStyleVars"]'></API>
+
 ## 演示代码
 
 <!-- ### 预览 -->

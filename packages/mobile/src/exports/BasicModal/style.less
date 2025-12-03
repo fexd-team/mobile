@@ -3,23 +3,28 @@
 @import '../Portal/style.less';
 @import '../../theme/vars.less';
 
+// @no-cssvar: 用于生成选择器名称
 @modal-prefix: ~'exd-modal';
+@modal-z-index-low: 999;
+@modal-z-index-normal: 9999;
+@modal-z-index-high: 99999;
+@modal-z-index-highest: 999999;
 
 .@{modal-prefix}-level {
   &-low {
-    z-index: 999;
+    z-index: @modal-z-index-low;
   }
 
   &-normal {
-    z-index: 9999;
+    z-index: @modal-z-index-normal;
   }
 
   &-high {
-    z-index: 99999;
+    z-index: @modal-z-index-high;
   }
 
   &-highest {
-    z-index: 999999;
+    z-index: @modal-z-index-highest;
   }
 }
 

@@ -1,7 +1,9 @@
 @import '../useScrollLock/style.less';
 @import '../TransitionFade/style.less';
 
+// @no-cssvar: 用于生成选择器名称
 @overlay-prefix: ~'exd-overlay';
+@overlay-background: rgba(0, 0, 0, 0.5);
 
 .@{overlay-prefix} {
   position: fixed;
@@ -12,7 +14,7 @@
   z-index: 1;
   width: 100%;
   height: 100%;
-  background-color: rgba(0, 0, 0, 0.5);
+  background-color: @overlay-background;
   display: flex;
   align-items: center;
   justify-content: center;

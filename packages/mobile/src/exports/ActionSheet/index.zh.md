@@ -33,3 +33,11 @@ mobileDemoFixed: false
 ## ActionSheetAction
 
 <API identifier="ActionSheetAction" hideTitle src="./type.tsx" exports='["DOC_PureActionSheetAction"]'></API>
+
+---
+
+## 样式变量
+
+<API identifier="ActionSheet-StyleVars" hideTitle src="./type.tsx" exports='["DOC_ActionSheetStyleVars"]'></API>
+
+**注意**：ActionSheet 的按钮样式还会继承 Button 组件的相关变量，如 `@btn-block-size-base`、`@btn-size-scale-*` 等。

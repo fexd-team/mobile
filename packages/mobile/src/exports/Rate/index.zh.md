@@ -15,3 +15,9 @@ mobileDemoFixed: false
 ## Rate
 
 <API identifier="Rate" hideTitle src="./type.tsx"></API>
+
+---
+
+## 样式变量
+
+<API identifier="RateStyleVars" hideTitle src="./type.tsx" exports='["DOC_RateStyleVars"]'></API>

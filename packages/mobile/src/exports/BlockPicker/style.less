@@ -4,37 +4,42 @@
 
 // 由于 less 变量的懒生效特性，变量命名空间存在冲突，此处 prefix 变量命名前需要加特定前缀
 // https://less.bootcss.com/features/#variables-lazy-evaluation
+// @no-cssvar: 用于生成选择器名称
 @block-picker-prefix: ~'exd-block-picker';
 
-// .@{block-picker-prefix} {
-//   /* 组件样式 */
-// }
+// BlockPicker 样式变量
+@block-picker-value-font-size: 14px;
+@block-picker-disabled-color: #999;
+@block-picker-disabled-arrow-color: #ccc;
+@block-picker-clear-color: #ccc;
+@block-picker-arrow-font-size: 18px;
+@block-picker-arrow-color: #a5a0a1;
 
 .@{block-picker-prefix}__value {
   width: 100%;
   background-color: transparent;
-  font-size: 14px * @size-scale;
+  font-size: @block-picker-value-font-size * @size-scale;
   overflow: hidden;
   text-overflow: ellipsis;
   white-space: nowrap;
 }
 
 .@{block-picker-prefix}__disabled {
-  color: #999;
+  color: @block-picker-disabled-color;
   .@{block-picker-prefix}__value {
-    color: #999;
+    color: @block-picker-disabled-color;
   }
 
   .@{block-picker-prefix}__arrow {
     .exd-icon,
     .exd-iconfont {
-      color: #ccc;
+      color: @block-picker-disabled-arrow-color;
     }
   }
 }
 
 .@{block-picker-prefix}__clear {
-  color: #ccc;
+  color: @block-picker-clear-color;
 }
 
 .@{block-picker-prefix}__arrow {
@@ -43,7 +48,7 @@
 
   .exd-icon,
   .exd-iconfont {
-    font-size: 18px * @size-scale;
-    color: #a5a0a1;
+    font-size: @block-picker-arrow-font-size * @size-scale;
+    color: @block-picker-arrow-color;
   }
 }

@@ -2,16 +2,13 @@
 group:
   title: 展示
   path: /display
+
+mobileDemoFixed: false
 ---
 
 # Alert 警告 <ImportCost name="Alert" />
 
-<!-- prettier-ignore -->
-```jsx | pure
-import { Alert } from '@fexd/mobile'
-
-<Alert>This is an alert!</Alert>
-```
+<code src="./demos/demo1/index.tsx" />
 
 ---
 
@@ -145,9 +142,7 @@ import { Alert } from '@fexd/mobile'
 
 ## 样式变量
 
-| 变量名        | 说明         | 默认值        |
-| :------------ | :----------- | :------------ |
-| @alert-prefix | 组件样式前缀 | `'exd-alert'` |
+<API identifier="AlertStyleVars" hideTitle src="./type.tsx" exports='["DOC_AlertStyleVars"]'></API>
 
 ---
 
@@ -156,7 +151,3 @@ import { Alert } from '@fexd/mobile'
 | 事件名  | 说明           | 回调参数 |
 | ------- | -------------- | -------- |
 | onClose | 关闭信息框触发 | -        |
-
-## 演示代码
-
-<code src="./demos/demo1/index.tsx" />

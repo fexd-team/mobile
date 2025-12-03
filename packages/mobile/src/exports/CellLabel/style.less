@@ -1,7 +1,38 @@
 @import '../../theme/vars.less';
 @import '../UnstyledLabel/style.less';
 
+// @no-cssvar: 用于生成选择器名称
 @cell-label-prefix: ~'exd-cell-label';
+
+// Cell 样式变量
+@cell-label-wrapper-padding-y: 12px;
+@cell-label-wrapper-border-color: @ant-color-gray-4;
+@cell-label-bar-padding-x: 12px;
+@cell-label-content-height: 24px;
+@cell-label-content-font-size: 14px;
+@cell-label-content-color: @ant-color-gray-10;
+@cell-label-content-padding-left: 4px;
+@cell-label-content-padding-right: 8px;
+@cell-label-label-height: 24px;
+@cell-label-label-font-size: 14px;
+@cell-label-placeholder-color: @ant-color-gray-6;
+@cell-label-helper-font-size: 12px;
+@cell-label-helper-min-height: 18px;
+@cell-label-helper-padding-top: 2px;
+@cell-label-helper-padding-x: 12px;
+@cell-label-prefix-padding-right: 4px;
+@cell-label-caret-color: @color-primary;
+
+// 状态颜色变量
+@cell-label-info-border-color: @ant-color-gray-4;
+@cell-label-info-helper-color: @ant-color-gray-7;
+@cell-label-success-border-color: @color-green;
+@cell-label-success-helper-color: @color-green;
+@cell-label-warn-border-color: @color-orange;
+@cell-label-warn-helper-color: @color-orange;
+@cell-label-error-border-color: @color-red;
+@cell-label-error-helper-color: @color-red;
+@cell-label-disabled-color: @ant-color-gray-5;
 
 .@{cell-label-prefix}__wrapper {
   // background-color: rgba(red, .2);
@@ -9,33 +40,33 @@
   // padding: 12px * @size-scale 0;
   // text-align: left;
 
-  padding: 12px * @size-scale 0;
-  border-bottom: 1px solid @ant-color-gray-4;
+  padding: @cell-label-wrapper-padding-y * @size-scale 0;
+  border-bottom: 1px solid @cell-label-wrapper-border-color;
 
   &--auto-height {
     .@{cell-label-prefix}__content {
       height: auto;
-      min-height: 24px * @size-scale;
+      min-height: @cell-label-content-height * @size-scale;
     }
 
     .@{cell-label-prefix}__label {
       height: auto;
-      min-height: 24px * @size-scale;
+      min-height: @cell-label-label-height * @size-scale;
     }
   }
 }
 
 .@{cell-label-prefix}__prefix {
-  height: 24px * @size-scale;
+  height: @cell-label-label-height * @size-scale;
   display: flex;
   align-items: center;
-  padding-right: 4px * @size-scale;
+  padding-right: @cell-label-prefix-padding-right * @size-scale;
 }
 
 .@{cell-label-prefix}__bar {
   display: flex;
   // gap: 2px * @size-scale;
-  padding: 0 12px * @size-scale;
+  padding: 0 @cell-label-bar-padding-x * @size-scale;
   // border-bottom: 1px solid @ant-color-gray-4;
   // justify-content: space-between;
   // background-color: rgba(green, .2);
@@ -62,14 +93,14 @@
   align-items: center;
   justify-content: end;
   flex: 1.3;
-  padding-left: 4px * @size-scale;
+  padding-left: @cell-label-content-padding-left * @size-scale;
 
   overflow: hidden;
-  height: 24px * @size-scale;
-  font-size: 14px * @size-scale;
+  height: @cell-label-content-height * @size-scale;
+  font-size: @cell-label-content-font-size * @size-scale;
   font-weight: 400;
-  color: @ant-color-gray-10;
-  padding-right: 8px * @size-scale;
+  color: @cell-label-content-color;
+  padding-right: @cell-label-content-padding-right * @size-scale;
 
   .@{cell-label-prefix}__placeholder + & {
     flex: 0;
@@ -79,8 +110,8 @@
     text-align: right;
     // padding-right: 8px * @size-scale;
     height: 100%;
-    line-height: 24px * @size-scale;
-    caret-color: @color-primary;
+    line-height: @cell-label-content-height * @size-scale;
+    caret-color: @cell-label-caret-color;
   }
 
   textarea {
@@ -93,8 +124,8 @@
   // white-space: nowrap;
   // text-overflow: ellipsis;
   overflow: hidden;
-  min-height: 24px * @size-scale;
-  line-height: 24px * @size-scale;
+  min-height: @cell-label-label-height * @size-scale;
+  line-height: @cell-label-label-height * @size-scale;
   // position: absolute;
   // left: 0;
   // right: 0;
@@ -105,7 +136,7 @@
   // // transition: transform 0.2s, bottom 0.2s, left 0.2s, color 0.2s, font-size 0.2s;
   // // will-change: transform, bottom, left;
   pointer-events: none;
-  font-size: 14px * @size-scale;
+  font-size: @cell-label-label-font-size * @size-scale;
   font-weight: 400;
   // color: @ant-color-gray-8;
 
@@ -123,67 +154,67 @@
 }
 
 .@{cell-label-prefix}__placeholder {
-  color: @ant-color-gray-6;
-  height: 24px * @size-scale;
-  line-height: 24px * @size-scale;
+  color: @cell-label-placeholder-color;
+  height: @cell-label-label-height * @size-scale;
+  line-height: @cell-label-label-height * @size-scale;
 }
 
 .@{cell-label-prefix}__suffix {
   display: flex;
   align-items: center;
   overflow: visible;
-  height: 24px * @size-scale;
+  height: @cell-label-content-height * @size-scale;
 }
 
 .@{cell-label-prefix}__helper {
   opacity: 0;
   transition: opacity 0.2s, color 0.2s;
-  min-height: 18px * @size-scale;
-  font-size: 12px * @size-scale;
-  padding: 2px * @size-scale 12px * @size-scale 0;
+  min-height: @cell-label-helper-min-height * @size-scale;
+  font-size: @cell-label-helper-font-size * @size-scale;
+  padding: @cell-label-helper-padding-top * @size-scale @cell-label-helper-padding-x * @size-scale 0;
 }
 
 .@{cell-label-prefix}__info {
   .@{cell-label-prefix}__bar {
-    border-color: @ant-color-gray-4;
+    border-color: @cell-label-info-border-color;
   }
 
   .@{cell-label-prefix}__helper {
     opacity: 1;
-    color: @ant-color-gray-7;
+    color: @cell-label-info-helper-color;
   }
 }
 
 .@{cell-label-prefix}__success {
   .@{cell-label-prefix}__bar {
-    border-color: @color-green;
+    border-color: @cell-label-success-border-color;
   }
 
   .@{cell-label-prefix}__helper {
     opacity: 1;
-    color: @color-green;
+    color: @cell-label-success-helper-color;
   }
 }
 
 .@{cell-label-prefix}__warn {
   .@{cell-label-prefix}__bar {
-    border-color: @color-orange;
+    border-color: @cell-label-warn-border-color;
   }
 
   .@{cell-label-prefix}__helper {
     opacity: 1;
-    color: @color-orange;
+    color: @cell-label-warn-helper-color;
   }
 }
 
 .@{cell-label-prefix}__error {
   .@{cell-label-prefix}__bar {
-    border-color: @color-red;
+    border-color: @cell-label-error-border-color;
   }
 
   .@{cell-label-prefix}__helper {
     opacity: 1;
-    color: @color-red;
+    color: @cell-label-error-helper-color;
   }
 }
 
@@ -192,15 +223,15 @@
   // opacity: 0.9;
 
   .@{cell-label-prefix}__label {
-    color: @ant-color-gray-5;
+    color: @cell-label-disabled-color;
   }
 
   .@{cell-label-prefix}__content {
-    color: @ant-color-gray-5;
+    color: @cell-label-disabled-color;
   }
 
   .@{cell-label-prefix}__helper {
     opacity: 1;
-    color: @ant-color-gray-5;
+    color: @cell-label-disabled-color;
   }
 }

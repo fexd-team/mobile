@@ -5,7 +5,7 @@ nav:
 
 group:
   title: 预览
-  order: 1
+  order: 0
 
 title: 预览
 ---

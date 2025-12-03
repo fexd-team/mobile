@@ -1,5 +1,6 @@
 @import '../../theme/vars.less';
 
+// @no-cssvar: 用于生成选择器名称
 @btn-prefix: ~'exd-btn';
 @btn-inline-size-base: 38px;
 @btn-block-size-base: 42px;
@@ -8,11 +9,42 @@
 @btn-size-scale-small: 0.8;
 @btn-size-scale-mini: 0.6;
 
+// 边框配置
+@btn-border-width: 1px;
+@btn-border-color-plain: @color-gray-border;
+
+// 字体配置
+@btn-font-size-base: 14px;
+@btn-line-height: 1;
+
+// 内边距配置
+@btn-padding-horizontal-base: 14px;
+
+// 圆角配置
+@btn-border-radius-square: 2px;
+@btn-border-radius-round: 999px;
+
+// 过渡动画配置
+@btn-transition-duration: 0.2s;
+@btn-transition-timing-function: ease;
+
+// 禁用态配置
+@btn-disabled-opacity: 0.5;
+
+// 激活态配置
+@btn-active-mask-color: #000;
+@btn-active-opacity-solid: 0.18;
+@btn-active-opacity-light: 0.06;
+
+// 颜色配置
+@btn-color-white: @color-white;
+@btn-background-transparent: transparent;
+
 .@{btn-prefix} {
   -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
   border: 0;
   outline: 0;
-  transition: all 0.2s;
+  transition: all @btn-transition-duration @btn-transition-timing-function;
   text-align: center;
   position: relative;
   display: inline-block;
@@ -20,7 +52,7 @@
   overflow: hidden;
   cursor: pointer;
   user-select: none;
-  line-height: 1;
+  line-height: @btn-line-height;
 
   &::after {
     content: '';
@@ -31,8 +63,8 @@
     top: 0;
     left: 0;
     pointer-events: none;
-    transition: opacity 0.2s;
-    background: #000;
+    transition: opacity @btn-transition-duration @btn-transition-timing-function;
+    background: @btn-active-mask-color;
     opacity: 0;
   }
 }
@@ -45,7 +77,7 @@
 
   &-disabled {
     cursor: not-allowed;
-    opacity: 0.5;
+    opacity: @btn-disabled-opacity;
     // pointer-events: none;
     &::after {
       content: none;
@@ -54,7 +86,7 @@
 
   &:active {
     &::after {
-      opacity: 0.18;
+      opacity: @btn-active-opacity-solid;
     }
   }
 
@@ -63,7 +95,7 @@
   &-fill-none {
     &:active {
       &::after {
-        opacity: 0.06;
+        opacity: @btn-active-opacity-light;
       }
     }
   }
@@ -72,8 +104,8 @@
 // 以下是颜色配置
 .@{btn-prefix} {
   &-plain {
-    border: solid 1px @color-gray-border;
-    background-color: transparent;
+    border: solid @btn-border-width @btn-border-color-plain;
+    background-color: @btn-background-transparent;
 
     &.@{btn-prefix}-fill-none {
       border-color: transparent;
@@ -82,18 +114,18 @@
 
   .colorful-btn(@color) {
     &.@{btn-prefix}-fill-solid {
-      color: @color-white;
+      color: @btn-color-white;
       background-color: @color;
-      border: solid 1px @color;
+      border: solid @btn-border-width @color;
 
       &:hover {
-        color: @color-white;
+        color: @btn-color-white;
       }
     }
 
     &.@{btn-prefix}-fill-outline,
     &.@{btn-prefix}-fill-none {
-      background-color: transparent;
+      background-color: @btn-background-transparent;
       color: @color;
 
       &:hover {
@@ -102,7 +134,7 @@
     }
 
     &.@{btn-prefix}-fill-outline {
-      border: solid 1px @color;
+      border: solid @btn-border-width @color;
     }
   }
 
@@ -132,8 +164,8 @@
   .scalable-btn(@scale: 1) {
     // line-height: (38px - 2px) * @size-scale * @scale;
     height: @btn-inline-size-base * @size-scale * @scale;
-    padding: 0 14px * @size-scale * @scale;
-    font-size: 14px * @size-scale * @scale;
+    padding: 0 @btn-padding-horizontal-base * @size-scale * @scale;
+    font-size: @btn-font-size-base * @size-scale * @scale;
 
     // &.@{btn-prefix}-block {
     //   // line-height: (42px - 2px) * @size-scale * (@scale + 0.15);
@@ -161,10 +193,10 @@
 // 以下是形状配置
 .@{btn-prefix} {
   &-square {
-    border-radius: 2px;
+    border-radius: @btn-border-radius-square;
   }
 
   &-round {
-    border-radius: 999px;
+    border-radius: @btn-border-radius-round;
   }
 }

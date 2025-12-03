@@ -34,5 +34,58 @@ export interface PickerViewProps {
   className?: string
 }
 
+/**
+ * PickerView 样式变量
+ */
+export interface PickerViewStyleVars {
+  /**
+   * @description 选项高度
+   * @default 50px
+   */
+  '@picker-view-item-height'?: string
+  /**
+   * @description 背景颜色
+   * @default #fff
+   */
+  '@picker-view-bg-color'?: string
+  /**
+   * @description 遮罩背景颜色
+   * @default rgba(255, 255, 255, 0.5)
+   */
+  '@picker-view-mask-bg-color'?: string
+  /**
+   * @description 指示器边框颜色
+   * @default #ddd
+   */
+  '@picker-view-indicator-border-color'?: string
+  /**
+   * @description 指示器边框宽度
+   * @default 1px
+   */
+  '@picker-view-indicator-border-width'?: string
+  /**
+   * @description 选项字体大小
+   * @default 14px
+   */
+  '@picker-view-item-font-size'?: string
+  /**
+   * @description 选项内边距
+   * @default 14px
+   */
+  '@picker-view-item-padding'?: string
+  /**
+   * @description 选中项字体大小
+   * @default 16px
+   */
+  '@picker-view-item-active-font-size'?: string
+  /**
+   * @description 选中项字体粗细
+   * @default 500
+   */
+  '@picker-view-item-active-font-weight'?: string
+}
+
+export const DOC_PickerViewStyleVars = AUTO_API<PickerViewStyleVars>()
+
 export default AUTO_API<PickerViewProps>()
 export const DOC_PickerOption = AUTO_API<PickerOption>()

@@ -1,28 +1,41 @@
 @import '../../../theme/vars';
 
+// @no-cssvar: 用于生成选择器名称
 @step-prefix: ~'exd-step';
+@step-width: 84px;
+@step-icon-size: 24px;
+@step-icon-color: #999;
+@step-line-width: 28px;
+@step-line-color: #e9e9e9;
+@step-line-thickness: 2px;
+@step-circle-font-size: 12px;
+@step-circle-background: #fff;
+@step-content-font-size: 14px;
+@step-content-margin-top: 6px;
+@step-title-color: #333;
+@step-description-color: #999;
 
 .@{step-prefix} {
   flex: 0;
   padding-bottom: 0;
   display: inline-block;
-  width: 84px * @size-scale;
+  width: @step-width * @size-scale;
   box-sizing: initial;
 
   &-header {
     position: relative;
-    width: 84px * @size-scale;
-    height: 24px * @size-scale;
+    width: @step-width * @size-scale;
+    height: @step-icon-size * @size-scale;
     text-align: center;
 
     &::before {
       position: absolute;
       left: 0;
       top: 50%;
-      width: 28px * @size-scale;
+      width: @step-line-width * @size-scale;
       height: 0;
       transform: translateY(-50%);
-      border-top: 2px * @size-scale solid #e9e9e9;
+      border-top: @step-line-thickness * @size-scale solid @step-line-color;
       content: '';
     }
 
@@ -30,10 +43,10 @@
       position: absolute;
       right: 0;
       top: 50%;
-      width: 28px * @size-scale;
+      width: @step-line-width * @size-scale;
       height: 0;
       transform: translateY(-50%);
-      border-top: 2px * @size-scale solid #e9e9e9;
+      border-top: @step-line-thickness * @size-scale solid @step-line-color;
       content: '';
     }
 
@@ -41,9 +54,9 @@
       position: absolute;
       left: 30px * @size-scale;
       top: 0;
-      width: 24px * @size-scale;
-      height: 24px * @size-scale;
-      color: #999;
+      width: @step-icon-size * @size-scale;
+      height: @step-icon-size * @size-scale;
+      color: @step-icon-color;
 
       i,
       i.exd-icon {
@@ -52,7 +65,7 @@
         right: 0;
         top: 0;
         bottom: 0;
-        font-size: 24px * @size-scale;
+        font-size: @step-icon-size * @size-scale;
       }
 
       &-circle {
@@ -61,13 +74,13 @@
         left: 0;
         top: 0;
         width: 100%;
-        height: 24px * @size-scale;
+        height: @step-icon-size * @size-scale;
         line-height: 20px * @size-scale;
         border-radius: 100%;
-        font-size: 12px * @size-scale;
+        font-size: @step-circle-font-size * @size-scale;
         font-weight: 500;
-        border: 2px * @size-scale solid #e9e9e9;
-        background-color: #fff;
+        border: @step-line-thickness * @size-scale solid @step-line-color;
+        background-color: @step-circle-background;
       }
     }
   }
@@ -76,26 +89,26 @@
     display: flex;
     justify-content: center;
     text-align: center;
-    font-size: 14px * @size-scale;
+    font-size: @step-content-font-size * @size-scale;
     line-height: 16px * @size-scale;
     &-container {
       width: 100%;
     }
 
     &-title {
-      margin-top: 6px * @size-scale;
-      max-width: 84px * @size-scale;
+      margin-top: @step-content-margin-top * @size-scale;
+      max-width: @step-width * @size-scale;
       word-break: break-all;
       font-weight: 500;
-      color: #333;
+      color: @step-title-color;
     }
 
     &-description {
-      margin-top: 6px * @size-scale;
-      max-width: 84px * @size-scale;
+      margin-top: @step-content-margin-top * @size-scale;
+      max-width: @step-width * @size-scale;
       word-break: break-all;
       font-weight: 400;
-      color: #999;
+      color: @step-description-color;
     }
   }
 

@@ -1,11 +1,13 @@
 @import './Item/style.less';
 @import '../../theme/vars.less';
 
+// @no-cssvar: 用于生成选择器名称
 @steps-prefix: ~'exd-steps';
-@step-prefix: ~'exd-step';
+@steps-background: #fff;
+@steps-flex-max-width: 96px;
 
 .@{steps-prefix} {
-  background: #fff;
+  background: @steps-background;
 
   // box-shadow: 0 2px * @size-scale 6px * @size-scale 0 rgba(0, 0, 0, 0.05);
   &-container {
@@ -18,7 +20,7 @@
     &-flex {
       .@{step-prefix} {
         flex: 1;
-        max-width: 96px * @size-scale;
+        max-width: @steps-flex-max-width * @size-scale;
 
         .@{step-prefix}-header {
           width: 100%;
@@ -38,7 +40,7 @@
         .@{step-prefix}-content {
           &-title,
           &-description {
-            max-width: 96px * @size-scale;
+            max-width: @steps-flex-max-width * @size-scale;
           }
         }
 

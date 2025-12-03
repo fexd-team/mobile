@@ -19,3 +19,9 @@ mobileDemoFixed: false
 ## TabBar.Item
 
 <API identifier="TabBar.Item" hideTitle src="./Item/type.tsx" exports='["default"]'></API>
+
+---
+
+## 样式变量
+
+<API identifier="TabBar-StyleVars" hideTitle src="./type.tsx" exports='["DOC_TabBarStyleVars"]'></API>

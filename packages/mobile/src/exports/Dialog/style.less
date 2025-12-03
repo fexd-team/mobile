@@ -1,28 +1,41 @@
 @import '../BasicButton/style.less';
 @import '../Modal/style.less';
 
+// @no-cssvar: 用于生成选择器名称
 @dialog-prefix: ~'exd-dialog';
+@dialog-background: #fff;
+@dialog-border-radius: 6px;
+@dialog-min-width: 68%;
+@dialog-max-width: 88%;
+@dialog-max-height: 90%;
+@dialog-padding: 24px;
+@dialog-title-font-size: 18px;
+@dialog-title-color: #333;
+@dialog-title-margin-bottom: 16px;
+@dialog-content-font-size: 14px;
+@dialog-content-color: #666;
+@dialog-action-min-height: 50px;
 
 .@{dialog-prefix} {
   flex: 1;
   display: flex;
   flex-direction: column;
-  background-color: #fff;
+  background-color: @dialog-background;
   width: 100%;
   height: 100%;
   overflow: hidden;
-  border-radius: 6px;
+  border-radius: @dialog-border-radius;
 
   &-modal {
     display: flex;
     flex-direction: column;
-    min-width: 68%;
-    max-width: 88%;
-    max-height: 90%;
+    min-width: @dialog-min-width;
+    max-width: @dialog-max-width;
+    max-height: @dialog-max-height;
 
     .@{modal-prefix}-content {
       overflow: hidden;
-      border-radius: 6px;
+      border-radius: @dialog-border-radius;
       display: flex;
       flex-direction: column;
 
@@ -37,25 +50,25 @@
     flex: 1;
     display: flex;
     flex-direction: column;
-    padding: 24px * @size-scale;
+    padding: @dialog-padding * @size-scale;
     height: 100%;
     overflow: auto;
   }
 
   &-title {
-    font-size: 18px * @size-scale;
-    color: #333;
+    font-size: @dialog-title-font-size * @size-scale;
+    color: @dialog-title-color;
     font-weight: bold;
     margin-top: 0;
-    margin-bottom: 16px * @size-scale;
+    margin-bottom: @dialog-title-margin-bottom * @size-scale;
   }
 
   &-content {
     flex: 1;
     display: flex;
     flex-direction: column;
-    font-size: 14px * @size-scale;
-    color: #666;
+    font-size: @dialog-content-font-size * @size-scale;
+    color: @dialog-content-color;
   }
 
   &-action {
@@ -143,7 +156,7 @@
 
     .@{dialog-prefix}-actions,
     .@{dialog-prefix}-action {
-      min-height: 50px * @size-scale;
+      min-height: @dialog-action-min-height * @size-scale;
     }
 
     .@{dialog-prefix}-action {

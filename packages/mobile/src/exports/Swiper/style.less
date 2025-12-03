@@ -3,7 +3,12 @@
 
 // 由于 less 变量的懒生效特性，变量命名空间存在冲突，此处 prefix 变量命名前需要加特定前缀
 // https://less.bootcss.com/features/#variables-lazy-evaluation
+// @no-cssvar: 用于生成选择器名称
 @swiper-prefix: ~'exd-swiper';
+@swiper-indicator-offset: 16px;
+@swiper-indicator-size: 8px;
+@swiper-indicator-color: rgba(0, 0, 0, 0.2);
+@swiper-indicator-active-color: #fff;
 
 .@{swiper-prefix} {
   // height: 160px;
@@ -27,7 +32,7 @@
       }
 
       &-indicator {
-        left: 16px * @size-scale;
+        left: @swiper-indicator-offset * @size-scale;
         top: 50%;
         bottom: auto;
       }
@@ -58,16 +63,16 @@
     position: absolute;
     transform: translate(-50%, -50%);
     left: 50%;
-    bottom: 16px * @size-scale;
+    bottom: @swiper-indicator-offset * @size-scale;
 
     &-item {
-      height: 8px * @size-scale;
-      width: 8px * @size-scale;
+      height: @swiper-indicator-size * @size-scale;
+      width: @swiper-indicator-size * @size-scale;
       border-radius: 50%;
-      background-color: rgba(0, 0, 0, 0.2);
+      background-color: @swiper-indicator-color;
 
       &-active {
-        background-color: #fff;
+        background-color: @swiper-indicator-active-color;
       }
     }
   }

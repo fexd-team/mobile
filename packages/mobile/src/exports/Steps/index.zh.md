@@ -180,6 +180,34 @@ interface Step {
 | status | 此步骤的状态，可为： `"default"` 、`"process"` 、 `"completed"` 、 `"error"` | `string` | `"default"` |
 | icon | 自定义步骤 Icon | `<Iconfont />` | `null` |
 
+---
+
+## 样式变量
+
+组件提供了以下 Less 变量，可用于自定义样式：
+
+| 变量名                     | 说明                        | 默认值             |
+| :------------------------- | :-------------------------- | :----------------- |
+| `@steps-prefix`            | Steps 组件样式前缀          | `'exd-steps'`      |
+| `@steps-background`        | 背景色                      | `#fff`             |
+| `@steps-flex-max-width`    | flex 布局时最大宽度         | `96px`             |
+| `@step-prefix`             | Step.Item 组件样式前缀      | `'exd-step'`       |
+| `@step-width`              | 步骤项宽度                  | `84px`             |
+| `@step-icon-size`          | 图标大小                    | `24px`             |
+| `@step-icon-color`         | 默认图标颜色                | `#999`             |
+| `@step-line-width`         | 连接线宽度                  | `28px`             |
+| `@step-line-color`         | 连接线颜色                  | `#e9e9e9`          |
+| `@step-line-thickness`     | 连接线粗细                  | `2px`              |
+| `@step-circle-font-size`   | 圆圈内字号                  | `12px`             |
+| `@step-circle-background`  | 圆圈背景色                  | `#fff`             |
+| `@step-content-font-size`  | 内容字号                    | `14px`             |
+| `@step-content-margin-top` | 内容上外边距                | `6px`              |
+| `@step-title-color`        | 标题颜色                    | `#333`             |
+| `@step-description-color`  | 描述颜色                    | `#999`             |
+| `@size-scale`              | 全局尺寸缩放比例            | `1`                |
+| `@color-primary`           | 主色调（进行中/已完成状态） | `@color-blue`      |
+| `@color-red`               | 错误状态颜色                | `@ant-color-red-6` |
+
 ## 演示代码
 
 <code src="./demos/demo1/index.tsx" />

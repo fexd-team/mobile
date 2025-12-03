@@ -1,29 +1,40 @@
 @import '../../theme/vars.less';
 
+// @no-cssvar: 用于生成选择器名称
 @nav-bar-prefix: ~'exd-nav-bar';
-@nav-bar-height: 48px * @size-scale;
+@nav-bar-height: 48px;
+@nav-bar-padding-x: 16px;
+@nav-bar-background: #fff;
+@nav-bar-font-size: 14px;
+@nav-bar-icon-size: 18px;
+@nav-bar-side-color: @color-primary;
+@nav-bar-icon-color: @nav-bar-side-color;
+@nav-bar-side-gap: 12px;
+@nav-bar-border-width: 0;
+@nav-bar-border-color: @color-gray-divider;
 
 .@{nav-bar-prefix} {
-  height: @nav-bar-height;
+  height: @nav-bar-height * @size-scale;
   line-height: 1;
   max-width: 100%;
   overflow: hidden;
-  // border-bottom: solid 1px #f8f8f8;
+  border-bottom: solid @nav-bar-border-width @nav-bar-border-color;
 
   &-wrapper {
-    height: @nav-bar-height;
+    height: @nav-bar-height * @size-scale;
     position: relative;
     display: flex;
     align-items: center;
     justify-items: center;
-    padding: 0 16px * @size-scale;
-    background-color: #fff;
-    font-size: 14px * @size-scale;
+    padding: 0 @nav-bar-padding-x * @size-scale;
+    background-color: @nav-bar-background;
+    font-size: @nav-bar-font-size * @size-scale;
   }
 
   .exd-iconfont,
   .exd-icon {
-    font-size: 18px * @size-scale;
+    font-size: @nav-bar-icon-size * @size-scale;
+    color: @nav-bar-icon-color;
   }
 
   &-center {
@@ -35,7 +46,7 @@
 
   &-left,
   &-right {
-    color: @color-primary;
+    color: @nav-bar-side-color;
     font-size: inherit;
     // cursor: pointer;
     // transition: opacity 0.3s;
@@ -46,11 +57,11 @@
   }
 
   &-left {
-    margin-right: 12px * @size-scale;
+    margin-right: @nav-bar-side-gap * @size-scale;
   }
 
   &-right {
-    margin-left: 12px * @size-scale;
+    margin-left: @nav-bar-side-gap * @size-scale;
   }
 
   &-content {

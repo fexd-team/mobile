@@ -47,3 +47,43 @@ export interface StepperProps extends Omit<BasicInputProps, keyof IOProps | 'siz
 export interface StepperProps extends PureStepperProps {}
 
 export default AUTO_API<PureStepperProps>()
+
+export interface StepperStyleVars {
+  /**
+   * @description 组件的 className 前缀
+   * @default 'exd-stepper'
+   */
+  '@stepper-prefix'?: string
+  /**
+   * @description 边框颜色
+   * @default #e6e6e6
+   */
+  '@stepper-border-color'?: string
+  /**
+   * @description 边框宽度
+   * @default 1px
+   */
+  '@stepper-border-width'?: string
+  /**
+   * @description 圆角大小
+   * @default 4px
+   */
+  '@stepper-border-radius'?: string
+  /**
+   * @description 输入框边框颜色
+   * @default #e6e6e6
+   */
+  '@stepper-input-border-color'?: string
+  /**
+   * @description 基础宽度
+   * @default 126px
+   */
+  '@stepper-width'?: string
+  /**
+   * @description 块级模式额外高度增量
+   * @default 8px
+   */
+  '@stepper-block-height-extra'?: string
+}
+
+export const DOC_StepperStyleVars = AUTO_API<StepperStyleVars>()

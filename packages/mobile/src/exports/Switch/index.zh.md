@@ -2,18 +2,16 @@
 group:
   title: 输入
   path: /data
+
+mobileDemoFixed: false
 ---
 
 # Switch 开关 <ImportCost name="Switch" />
 
 开关用于两个状态之间的切换。
 
-<!-- prettier-ignore -->
-```jsx | pure
-import { Switch } from '@fexd/mobile'
-
-<Switch/>
-```
+<!-- ### 预览 -->
+<code src="./demos/demo1/index.tsx" />
 
 ## API
 
@@ -22,7 +20,8 @@ import { Switch } from '@fexd/mobile'
 | checked  | 是否选中                     | `boolean`                    | `false` |
 | onChange | 当值发生改变时触发的回调函数 | `(checked: boolean) => void` | -       |
 
-## 演示代码
+---
 
-<!-- ### 预览 -->
-<code src="./demos/demo1/index.tsx" />
+## 样式变量
+
+<API identifier="SwitchStyleVars" hideTitle src="./type.tsx" exports='["DOC_SwitchStyleVars"]'></API>

@@ -2,18 +2,15 @@
 group:
   title: 展示
   path: /display
+
+mobileDemoFixed: false
 ---
 
 # Empty 缺省页 <ImportCost name="Empty" />
 
 ## 使用说明
 
-<!-- prettier-ignore -->
-```jsx | pure
-import { Empty } from '@fexd/mobile'
-
-<Empty />
-```
+<code src="./demos/demo1/index.tsx" />
 
 ---
 
@@ -30,12 +27,6 @@ import { Empty } from '@fexd/mobile'
 
 ## 样式变量
 
-| 变量名        | 说明         | 默认值        |
-| :------------ | :----------- | :------------ |
-| @empty-prefix | 组件样式前缀 | `'exd-empty'` |
+<API identifier="EmptyStyleVars" hideTitle src="./type.tsx" exports='["DOC_EmptyStyleVars"]'></API>
 
 ---
-
-## 演示代码
-
-<code src="./demos/demo1/index.tsx" />

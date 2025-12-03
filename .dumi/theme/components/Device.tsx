@@ -10,9 +10,10 @@ interface IDeviceProps {
   className?: string
   url: string
   fixed?: boolean
+  pureView?: boolean
 }
 
-const Device: FC<IDeviceProps> = ({ fixed = true, url: rawUrl, className = '' }) => {
+const Device: FC<IDeviceProps> = ({ fixed = true, url: rawUrl, className = '', pureView = false }) => {
   const [renderKey, setRenderKey] = useState(Math.random())
   const [color] = usePrefersColor()
   const {
@@ -36,26 +37,34 @@ const Device: FC<IDeviceProps> = ({ fixed = true, url: rawUrl, className = '' })
 
   return (
     <div
-      className={['__dumi-default-device', fixed ? '__dumi-default-device-fixed' : ''].concat(className).join(' ')}
+      className={[
+        '__dumi-default-device',
+        fixed ? '__dumi-default-device-fixed' : '',
+        pureView ? '__dumi-default-device-pure' : '',
+      ]
+        .concat(className)
+        .join(' ')}
       data-device-type="iOS"
       data-mode={mode}
     >
-      {true && (
+      {!pureView && (
         <div className="__dumi-default-device-status">
           <span>FEXD</span>
           <span>10:24</span>
         </div>
       )}
       <iframe title="dumi-previewer" src={url} key={renderKey} />
-      <div className="__dumi-default-device-action">
-        <button className="__dumi-default-icon" role="refresh" onClick={() => setRenderKey(Math.random())} />
-        {isString(url) && url.length > 0 && (
-          <button className="__dumi-default-icon" role="qrcode">
-            <QRCode value={url} size={96} />
-          </button>
-        )}
-        <a href={url} target="_blank" rel="noreferrer" className="__dumi-default-icon" role="open-demo" />
-      </div>
+      {!pureView && (
+        <div className="__dumi-default-device-action">
+          <button className="__dumi-default-icon" role="refresh" onClick={() => setRenderKey(Math.random())} />
+          {isString(url) && url.length > 0 && (
+            <button className="__dumi-default-icon" role="qrcode">
+              <QRCode value={url} size={96} />
+            </button>
+          )}
+          <a href={url} target="_blank" rel="noreferrer" className="__dumi-default-icon" role="open-demo" />
+        </div>
+      )}
     </div>
   )
 }

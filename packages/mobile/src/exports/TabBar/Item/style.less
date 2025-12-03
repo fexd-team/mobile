@@ -1,7 +1,14 @@
 @import '../../../theme/vars';
 @import '../../Iconfont/style.less';
 
-.exd-tab-bar-item {
+// @no-cssvar: 用于生成选择器名称
+@tab-bar-item-prefix: ~'exd-tab-bar-item';
+@tab-bar-item-active-color: @color-primary;
+@tab-bar-item-icon-size: 22px;
+@tab-bar-item-name-font-size: 12px;
+@tab-bar-item-name-margin-top: 3px;
+
+.@{tab-bar-item-prefix} {
   flex: 1;
   display: flex;
   flex-direction: column;
@@ -13,18 +20,18 @@
   cursor: pointer;
 
   &--active {
-    color: @color-primary;
+    color: @tab-bar-item-active-color;
   }
 
   &__icon {
     .exd-icon,
     .exd-iconfont {
-      font-size: 22px * @size-scale;
+      font-size: @tab-bar-item-icon-size * @size-scale;
     }
   }
 
   &__name {
-    margin-top: 3px * @size-scale;
-    font-size: 12px * @size-scale;
+    margin-top: @tab-bar-item-name-margin-top * @size-scale;
+    font-size: @tab-bar-item-name-font-size * @size-scale;
   }
 }

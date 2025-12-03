@@ -1,7 +1,9 @@
 @import '../../../theme/vars';
 
+// @no-cssvar: 用于生成选择器名称，不能用 CSS 变量
 @flex-item-prefix: ~'exd-flex-item';
 
+// @no-cssvar: 用于 when 条件和循环，不能用 CSS 变量
 @flex-columns: 12;
 
 .loop(@index, @class: ~'') when (@index > 0) {
@@ -9,22 +11,27 @@
     display: block;
     width: percentage((@index / @flex-columns));
   }
+
   .@{flex-item-prefix}@{class}-push-@{index} {
     left: percentage((@index / @flex-columns));
   }
+
   .@{flex-item-prefix}@{class}-pull-@{index} {
     right: percentage((@index / @flex-columns));
   }
+
   .@{flex-item-prefix}@{class}-offset-@{index} {
     margin-left: percentage((@index / @flex-columns));
   }
+
   .@{flex-item-prefix}@{class}-order-@{index} {
     order: @index;
   }
+
   .loop(@index - 1, @class);
 }
 
-.loop(@index, @class: ~'') when (@index = 0) {
+.loop(@index, @class: ~'') when (@index =0) {
   .@{flex-item-prefix}@{class}-@{index} {
     display: none;
   }

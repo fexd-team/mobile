@@ -4,30 +4,34 @@
 
 // 由于 less 变量的懒生效特性，变量命名空间存在冲突，此处 prefix 变量命名前需要加特定前缀
 // https://less.bootcss.com/features/#variables-lazy-evaluation
+// @no-cssvar: 用于生成选择器名称
 @line-picker-prefix: ~'exd-line-picker';
 
-// .@{line-picker-prefix} {
-//   /* 组件样式 */
-// }
+// LinePicker 样式变量
+@line-picker-value-font-size: 14px;
+@line-picker-disabled-color: @ant-color-gray-7;
+@line-picker-clear-color: @ant-color-gray-5;
+@line-picker-arrow-font-size: 18px;
+@line-picker-arrow-color: @ant-color-gray-6;
 
 .@{line-picker-prefix}__value {
   width: 100%;
   background-color: transparent;
-  font-size: 14px * @size-scale;
+  font-size: @line-picker-value-font-size * @size-scale;
   overflow: hidden;
   text-overflow: ellipsis;
   white-space: nowrap;
 }
 
 .@{line-picker-prefix}__disabled {
-  color: @ant-color-gray-7;
+  color: @line-picker-disabled-color;
   .@{line-picker-prefix}__value {
-    color: @ant-color-gray-7;
+    color: @line-picker-disabled-color;
   }
 }
 
 .@{line-picker-prefix}__clear {
-  color: @ant-color-gray-5;
+  color: @line-picker-clear-color;
 }
 
 .@{line-picker-prefix}__arrow {
@@ -36,7 +40,7 @@
 
   .exd-icon,
   .exd-iconfont {
-    font-size: 18px * @size-scale;
-    color: @ant-color-gray-6;
+    font-size: @line-picker-arrow-font-size * @size-scale;
+    color: @line-picker-arrow-color;
   }
 }

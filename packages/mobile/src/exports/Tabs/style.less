@@ -1,15 +1,23 @@
 @import './Item/style.less';
 @import '../../theme/vars.less';
 
-@height: 50px;
+// @no-cssvar: 用于生成选择器名称
+@tabs-prefix: ~'exd-tabs';
+@tabs-height: 50px;
+@tabs-background: #fff;
+@tabs-border-color: #efeff4;
+@tabs-indicator-width: 24px;
+@tabs-indicator-height: 4px;
+@tabs-indicator-color: @color-primary;
+@tabs-scroll-padding-bottom: 20px;
 
-.exd-tabs {
+.@{tabs-prefix} {
   position: relative;
   width: 100%;
-  height: @height;
+  height: @tabs-height;
   overflow: hidden;
-  background: #fff;
-  border: 1px solid #efeff4;
+  background: @tabs-background;
+  border: 1px solid @tabs-border-color;
   border-left: none;
   border-right: none;
 
@@ -21,10 +29,10 @@
     position: absolute;
     left: 0;
     bottom: 0;
-    width: 24px * @size-scale;
-    height: 4px * @size-scale;
-    background: @color-primary;
-    border-radius: 4px * @size-scale;
+    width: @tabs-indicator-width * @size-scale;
+    height: @tabs-indicator-height * @size-scale;
+    background: @tabs-indicator-color;
+    border-radius: @tabs-indicator-height * @size-scale;
     z-index: 1;
     transition: transform 0.3s cubic-bezier(0.645, 0.045, 0.355, 1);
     opacity: 0;
@@ -41,10 +49,10 @@
       position: absolute;
       left: 0;
       bottom: 0;
-      width: 24px * @size-scale;
-      height: 4px * @size-scale;
-      background: @color-primary;
-      border-radius: 4px * @size-scale;
+      width: @tabs-indicator-width * @size-scale;
+      height: @tabs-indicator-height * @size-scale;
+      background: @tabs-indicator-color;
+      border-radius: @tabs-indicator-height * @size-scale;
       z-index: 1;
       transition: transform 0.3s cubic-bezier(0.645, 0.045, 0.355, 1);
 
@@ -66,7 +74,7 @@
       top: 0;
       width: 100%;
       height: 100%;
-      padding-bottom: 20px * @size-scale;
+      padding-bottom: @tabs-scroll-padding-bottom * @size-scale;
       overflow-x: auto;
       overflow-y: hidden;
       box-sizing: content-box;
@@ -78,7 +86,7 @@
       top: 0;
       display: flex;
       width: 100%;
-      height: @height;
+      height: @tabs-height;
       align-items: center;
 
       &::-webkit-scrollbottom {
@@ -89,13 +97,13 @@
     &__indicator {
       position: absolute;
       left: 0;
-      width: 24px * @size-scale;
-      height: 4px * @size-scale;
-      background: @color-primary;
-      border-radius: 4px * @size-scale;
+      width: @tabs-indicator-width * @size-scale;
+      height: @tabs-indicator-height * @size-scale;
+      background: @tabs-indicator-color;
+      border-radius: @tabs-indicator-height * @size-scale;
       z-index: 1;
       transition: transform 0.3s cubic-bezier(0.645, 0.045, 0.355, 1);
-      top: (@height - 4px - 2px) * @size-scale;
+      top: (@tabs-height - @tabs-indicator-height - 2px) * @size-scale;
 
       &--hidden {
         display: none;

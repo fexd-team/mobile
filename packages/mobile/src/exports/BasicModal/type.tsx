@@ -91,4 +91,32 @@ export interface PureBasicModalProps {
 export interface BasicModalProps extends Omit<JSXDivProps, 'prefix' | 'children' | 'title' | 'content' | 'ref'> {}
 export interface BasicModalProps extends PureBasicModalProps {}
 
+/**
+ * BasicModal 样式变量
+ */
+export interface BasicModalStyleVars {
+  /**
+   * @description 低层级 z-index
+   * @default 999
+   */
+  '@modal-z-index-low'?: string
+  /**
+   * @description 普通层级 z-index
+   * @default 9999
+   */
+  '@modal-z-index-normal'?: string
+  /**
+   * @description 高层级 z-index
+   * @default 99999
+   */
+  '@modal-z-index-high'?: string
+  /**
+   * @description 最高层级 z-index
+   * @default 999999
+   */
+  '@modal-z-index-highest'?: string
+}
+
+export const DOC_BasicModalStyleVars = AUTO_API<BasicModalStyleVars>()
+
 export default AUTO_API<PureBasicModalProps>()

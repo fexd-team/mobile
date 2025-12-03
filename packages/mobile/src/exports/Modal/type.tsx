@@ -77,3 +77,33 @@ export interface ModalConflictProps
 export default AUTO_API<PureModalProps>()
 export const DOC_ModalConflictProps = AUTO_API<ModalConflictProps>()
 export const DOC_ModalConflictParams = AUTO_API<ModalConflictParams>()
+
+export interface ModalStyleVars {
+  /**
+   * @description 组件的 className 前缀
+   * @default 'exd-modal'
+   */
+  '@modal-prefix'?: string
+  /**
+   * @description 低层级 z-index
+   * @default 999
+   */
+  '@modal-z-index-low'?: number
+  /**
+   * @description 普通层级 z-index
+   * @default 9999
+   */
+  '@modal-z-index-normal'?: number
+  /**
+   * @description 高层级 z-index
+   * @default 99999
+   */
+  '@modal-z-index-high'?: number
+  /**
+   * @description 最高层级 z-index
+   * @default 999999
+   */
+  '@modal-z-index-highest'?: number
+}
+
+export const DOC_ModalStyleVars = AUTO_API<ModalStyleVars>()

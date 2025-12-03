@@ -35,6 +35,6 @@ import { Radio } from '@fexd/mobile'
 
 <API identifier="RadioGroupOptions" hideTitle src="./Group/type.tsx" exports='["DOC_PureRadioGroupOption"]'></API>
 
-## less vars
+## 样式变量
 
 <API identifier="RadioStyleVars" hideTitle src="./type.tsx" exports='["DOC_RadioStyleVars"]'></API>

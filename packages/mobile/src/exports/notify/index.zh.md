@@ -139,6 +139,12 @@ notify.info('通知') // 使用 3s (继承全局配置)
 | onDestroyed | 生命周期，模态框销毁后 | `function` | - |
 | onConflict | 互斥事件响应器，待详细文档做解释 | `ConflictHandler` | - |
 
+---
+
+## 样式变量
+
+<API identifier="NotifyStyleVars" hideTitle src="./type.tsx" exports='["DOC_NotifyStyleVars"]'></API>
+
 ## 演示代码
 
 <!-- ### 预览 -->

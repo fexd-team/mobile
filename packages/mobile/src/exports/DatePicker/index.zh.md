@@ -2,6 +2,8 @@
 group:
   title: 输入
   path: /data
+
+mobileDemoFixed: false
 ---
 
 # DatePicker 日期选择器
@@ -25,130 +27,57 @@ import { DatePicker, LineDatePicker, BlockDatePicker, DatePickerView } from '@fe
 
 ---
 
-## 使用说明
+## 基础用法
 
-### 受控模式
+<code src="./demos/basic.tsx" />
 
-通过 `value`、`onChange` 管理受控状态。
+---
 
-<!-- prettier-ignore -->
-```jsx | pure
-import React, { useState } from 'react'
-import { DatePicker } from '@fexd/mobile'
-
-const [date, setDate] = useState(null)
-
-<DatePicker value={date} onChange={setDate} />
-```
-
-### 格式化选中的值
+## 格式化选中的值
 
 通过 `format` 属性转换值，经过处理的值（`formatValue`）将作为 `onChange(value, formatValue)` 的第二个参数返回。
 
-<!-- prettier-ignore -->
-```jsx | pure
-import React, { useState } from 'react'
-import { DatePicker } from '@fexd/mobile'
+<code src="./demos/format.tsx" />
 
-const [date1, setDate1] = useState(null)
-const [formatDate1, setFormatDate1] = useState(null)
-const [date2, setDate2] = useState(null)
-const [formatDate2, setFormatDate2] = useState(null)
+---
 
-<DatePicker 
-  value={date2}
-  format="YYYY年MM月DD日"
-  onChange={(value, formatValue) => {
-    setDate1(value)
-    setFormatDate1(formatValue)
-  }}
-/>
-<DatePicker 
-  value={date2}
-  format="YYYY/MM/DD"
-  onChange={(value, formatValue) => {
-    setDate2(value)
-    setFormatDate2(formatValue)
-  }}
-/>
-```
+## 限制日期范围
 
-### 最小日期
+通过 `min` 和 `max` 属性限制可选日期的范围。
 
-通过 `min` 规定可选日期的最小范围。
+<code src="./demos/min-max.tsx" />
 
-<!-- prettier-ignore -->
-```jsx | pure
-import React, { useState } from 'react'
-import { DatePicker } from '@fexd/mobile'
+---
 
-const [date, setDate] = useState(null)
+## 自定义 Label
 
-<DatePicker value={date} min={new Date()} onChange={setDate} />
-```
+通过 `yearLabel`、`monthLabel`、`dayLabel` 来修改对应的展示 label。
 
-### 最大日期
+<code src="./demos/label.tsx" />
 
-通过 `max` 规定可选日期的最小范围。
+---
 
-<!-- prettier-ignore -->
-```jsx | pure
-import React, { useState } from 'react'
-import { DatePicker } from '@fexd/mobile'
+## 展示行数
 
-const [date, setDate] = useState(null)
+通过 `rows` 来修改展示的行数，默认为 3。
 
-<DatePicker value={date} max={new Date()} onChange={setDate} />
-```
+<code src="./demos/rows.tsx" />
 
-### 修改 Label
+---
 
-通过 `yearLabel` 、`monthLabel` 、`dayLabel` 来修改对应的的展示 label 。
-
-<!-- prettier-ignore -->
-```jsx | pure
-import React, { useState } from 'react'
-import { DatePicker } from '@fexd/mobile'
-
-const [date, setDate] = useState(null)
-
-<DatePicker
-  value={date}
-  onChange={setDate}
-  yearLabel="YYYY年"
-  monthLabel="MM月"
-  dayLabel="DD日"
-/>
-```
-
-### 展示行数
-
-通过 `rows` 来修改展示的行数。
-
-<!-- prettier-ignore -->
-```jsx | pure
-import { DatePicker } from '@fexd/mobile'
-
-<DatePicker rows={5} />
-```
-
-### 通过样式更换顺序
+## 更换顺序
 
 默认顺序是年-月-日，可通过样式更改为日-月-年。
 
-<!-- prettier-ignore -->
-```jsx | pure
-import React, { useState } from 'react'
-import { DatePicker } from '@fexd/mobile'
+<code src="./demos/order.tsx" />
 
-const [date, setDate] = useState(null)
+---
 
-<DatePicker 
-  value={date}
-  onChange={setDate}
-  style={{ flexDirection: 'row-reverse' }}
-/>
-```
+## LineDatePicker / BlockDatePicker
+
+提供了 `LineDatePicker` 和 `BlockDatePicker` 两种预设样式的日期选择器，适用于表单场景。
+
+<code src="./demos/line-block.tsx" />
 
 ---
 
@@ -156,7 +85,7 @@ const [date, setDate] = useState(null)
 
 ### DatePickerView 的 API
 
-`<DatePickerView />` 作为基础组件，嵌套在 `<DatePicker />` 、`<LineDatePicker />` 中。
+`<DatePickerView />` 作为基础组件，嵌套在 `<DatePicker />`、`<LineDatePicker />` 中。
 
 | 属性 | 说明 | 类型 | 默认值 |
 | :-- | :-- | :-- | :-- |
@@ -172,8 +101,6 @@ const [date, setDate] = useState(null)
 
 ### DatePicker 的 API
 
-多了 `children` 。
-
 | 属性 | 说明 | 类型 | 默认值 |
 | :-- | :-- | :-- | :-- |
 | value | 选中的值 | `Date` | - |
@@ -187,32 +114,64 @@ const [date, setDate] = useState(null)
 | rows | 展示的行数 | `Number` | `3` |
 | children<span style="color: red;">\*</span> | 点击后能触发对话框展示的内容 | `ReactNode` | - |
 
-### LineDatePicker 的 API
+### LineDatePicker / BlockDatePicker 的 API
 
-#### 新增的 API
+继承 `DatePickerView` 的所有属性，并新增以下属性：
 
 | 属性 | 说明 | 类型 | 默认值 |
 | :-- | :-- | :-- | :-- |
 | placeholder | 输入框无内容时显示的提示语句 | `String` | - |
-| label | 输入框关联的 label 文字（如果没设置 label，但设置了 placeholder，会把 placeholder 的内容作为 label 的内容） | `String` | - |
+| label | 输入框关联的 label 文字 | `String` | - |
 | prefix | 前缀，固定在输入框的左边 | `ReactNode` | - |
-| suffix | 后缀，固定在输入框的左边 | `ReactNode` | - |
+| suffix | 后缀，固定在输入框的右边 | `ReactNode` | - |
 | helper | 焦点在输入框时，在输入框下方会出现的提示语句 | `ReactNode` | - |
 | error | 错误提示语句，可配合表单验证使用 | `ReactNode` | - |
 | disabled | 是否禁用 | `Boolean` | - |
-| labelType | label 当前的状态 | `'warn' \| 'error' \| 'info'` | - |
+| labelType | label 当前的状态 | `'warn' \| 'error' \| 'info' \| 'success'` | - |
 | hideErrorWhenFocusing | 当聚焦状态时不显示错误提示 | `Boolean` | `true` |
 
 ---
 
 ## 样式变量
 
-| 变量名                   | 说明         | 默认值                   |
-| :----------------------- | :----------- | :----------------------- |
-| @line-data-picker-prefix | 组件样式前缀 | `'exd-line-data-picker'` |
+组件提供了以下 Less 变量，可用于自定义样式。三种日期选择器类型（Block/Line/Cell）的变量前缀分别为 `@block-date-picker-`、`@line-date-picker-`、`@cell-date-picker-`。
+
+### DatePickerView 样式变量
+
+继承 PickerView 的所有样式变量，详见 [Picker 样式变量](/#/exports/data/picker#样式变量)。
+
+| 变量名                                  | 说明             | 默认值                     |
+| :-------------------------------------- | :--------------- | :------------------------- |
+| `@picker-view-item-height`              | 选择器每行高度   | `50px`                     |
+| `@picker-view-bg-color`                 | 背景颜色         | `#fff`                     |
+| `@picker-view-mask-bg-color`            | 遮罩层背景颜色   | `rgba(255, 255, 255, 0.5)` |
+| `@picker-view-indicator-border-color`   | 指示器边框颜色   | `#ddd`                     |
+| `@picker-view-indicator-border-width`   | 指示器边框宽度   | `1px`                      |
+| `@picker-view-item-font-size`           | 选择器项字体大小 | `14px`                     |
+| `@picker-view-item-padding`             | 选择器项内边距   | `14px`                     |
+| `@picker-view-item-active-font-size`    | 激活状态字体大小 | `16px`                     |
+| `@picker-view-item-active-font-weight`  | 激活状态字体粗细 | `500`                      |
+| `@picker-view-item-transition-duration` | 动画过渡时长     | `0.1s`                     |
+
+### CellDatePicker 样式变量
+
+<API identifier="CellDatePicker-StyleVars" hideTitle src="../CellDatePicker/type.tsx" exports='["DOC_CellDatePickerStyleVars"]'></API>
+
+### BlockDatePicker 样式变量
+
+<API identifier="BlockDatePicker-StyleVars" hideTitle src="../BlockDatePicker/type.tsx" exports='["DOC_BlockDatePickerStyleVars"]'></API>
+
+### LineDatePicker 样式变量
+
+<API identifier="LineDatePicker-StyleVars" hideTitle src="../LineDatePicker/type.tsx" exports='["DOC_LineDatePickerStyleVars"]'></API>
 
 ---
 
-## 演示代码
+**全局变量说明**
 
-<code src="./demos/demo1/index.tsx" />
+| 变量名              | 说明                     | 默认值 |
+| :------------------ | :----------------------- | :----- |
+| `@size-scale`       | 全局尺寸缩放比例         | `1`    |
+| `@ant-color-gray-5` | Ant Design 灰色色板 5 级 | -      |
+| `@ant-color-gray-6` | Ant Design 灰色色板 6 级 | -      |
+| `@ant-color-gray-7` | Ant Design 灰色色板 7 级 | -      |

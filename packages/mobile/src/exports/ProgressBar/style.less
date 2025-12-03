@@ -1,13 +1,18 @@
 @import '../../theme/vars.less';
 
+// @no-cssvar: 用于生成选择器名称
 @progress-bar-prefix: ~'exd-progress-bar';
+@progress-bar-height: 4px;
+@progress-bar-background: #e1e1e1;
+@progress-bar-border-radius: 4px;
+@progress-bar-active-color: @color-primary;
 
 .@{progress-bar-prefix} {
   position: relative;
   width: 100%;
-  height: 4px * @size-scale;
-  background: #e1e1e1;
-  border-radius: 4px * @size-scale;
+  height: @progress-bar-height * @size-scale;
+  background: @progress-bar-background;
+  border-radius: @progress-bar-border-radius * @size-scale;
   overflow: hidden;
 
   &-value {
@@ -15,8 +20,8 @@
     left: 0;
     top: 0;
     width: 0;
-    height: 4px * @size-scale;
-    background: @color-primary;
-    border-radius: 4px * @size-scale;
+    height: @progress-bar-height * @size-scale;
+    background: @progress-bar-active-color;
+    border-radius: @progress-bar-border-radius * @size-scale;
   }
 }

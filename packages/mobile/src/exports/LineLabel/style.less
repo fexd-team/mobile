@@ -1,66 +1,99 @@
 @import '../../theme/vars.less';
 
+// @no-cssvar: 用于生成选择器名称
 @line-label-prefix: ~'exd-line-label';
+
+// Line 样式变量
+@line-label-wrapper-padding-y: 6px;
+@line-label-bar-padding-top: 24px;
+@line-label-bar-padding-bottom: 8px;
+@line-label-bar-margin-bottom: 4px;
+@line-label-bar-border-color: @ant-color-gray-5;
+@line-label-content-height: 24px;
+@line-label-content-font-size: 14px;
+@line-label-content-color: @ant-color-gray-10;
+@line-label-label-height: 24px;
+@line-label-label-font-size: 14px;
+@line-label-label-font-size-active: 12px;
+@line-label-label-color: @ant-color-gray-8;
+@line-label-label-bottom: 8px;
+@line-label-placeholder-color: @ant-color-gray-6;
+@line-label-helper-font-size: 12px;
+@line-label-helper-min-height: 18px;
+@line-label-prefix-padding-right: 6px;
+@line-label-suffix-height: 24px;
+@line-label-caret-color: @color-primary;
+
+// 状态颜色变量
+@line-label-info-border-color: @ant-color-gray-4;
+@line-label-info-helper-color: @ant-color-gray-7;
+@line-label-success-border-color: @color-green;
+@line-label-success-helper-color: @color-green;
+@line-label-warn-border-color: @color-orange;
+@line-label-warn-helper-color: @color-orange;
+@line-label-error-border-color: @color-red;
+@line-label-error-helper-color: @color-red;
+@line-label-disabled-color: @ant-color-gray-5;
 
 .@{line-label-prefix}__wrapper {
   margin: 0;
-  padding: 6px * @size-scale 0;
+  padding: @line-label-wrapper-padding-y * @size-scale 0;
   text-align: left;
 
   &--auto-height {
     .@{line-label-prefix}__content {
       height: auto;
-      min-height: 24px * @size-scale;
+      min-height: @line-label-content-height * @size-scale;
     }
 
     .@{line-label-prefix}__label {
       height: auto;
-      min-height: 24px * @size-scale;
+      min-height: @line-label-label-height * @size-scale;
     }
   }
 }
 
 .@{line-label-prefix}__info {
   .@{line-label-prefix}__bar {
-    border-color: @ant-color-gray-4;
+    border-color: @line-label-info-border-color;
   }
 
   .@{line-label-prefix}__helper {
     opacity: 1;
-    color: @ant-color-gray-7;
+    color: @line-label-info-helper-color;
   }
 }
 
 .@{line-label-prefix}__success {
   .@{line-label-prefix}__bar {
-    border-color: @color-green;
+    border-color: @line-label-success-border-color;
   }
 
   .@{line-label-prefix}__helper {
     opacity: 1;
-    color: @color-green;
+    color: @line-label-success-helper-color;
   }
 }
 
 .@{line-label-prefix}__warn {
   .@{line-label-prefix}__bar {
-    border-color: @color-orange;
+    border-color: @line-label-warn-border-color;
   }
 
   .@{line-label-prefix}__helper {
     opacity: 1;
-    color: @color-orange;
+    color: @line-label-warn-helper-color;
   }
 }
 
 .@{line-label-prefix}__error {
   .@{line-label-prefix}__bar {
-    border-color: @color-red;
+    border-color: @line-label-error-border-color;
   }
 
   .@{line-label-prefix}__helper {
     opacity: 1;
-    color: @color-red;
+    color: @line-label-error-helper-color;
   }
 }
 
@@ -69,33 +102,33 @@
   // opacity: 0.9;
 
   .@{line-label-prefix}__label {
-    color: @ant-color-gray-5;
+    color: @line-label-disabled-color;
   }
 
   .@{line-label-prefix}__content {
-    color: @ant-color-gray-5;
+    color: @line-label-disabled-color;
   }
 
   .@{line-label-prefix}__helper {
     opacity: 1;
-    color: @ant-color-gray-5;
+    color: @line-label-disabled-color;
   }
 }
 
 .@{line-label-prefix}__prefix {
-  height: 24px * @size-scale;
+  height: @line-label-label-height * @size-scale;
   display: flex;
   align-items: center;
-  padding-right: 6px * @size-scale;
+  padding-right: @line-label-prefix-padding-right * @size-scale;
 }
 
 .@{line-label-prefix}__bar {
-  margin-bottom: 4px * @size-scale;
-  padding: 24px * @size-scale 0 8px * @size-scale;
+  margin-bottom: @line-label-bar-margin-bottom * @size-scale;
+  padding: @line-label-bar-padding-top * @size-scale 0 @line-label-bar-padding-bottom * @size-scale;
   position: relative;
   display: flex;
   align-items: center;
-  border-bottom: 1px solid @ant-color-gray-5;
+  border-bottom: 1px solid @line-label-bar-border-color;
   transition: border-color 0.2s;
 
   // border-bottom: solid 1px rgb(225, 225, 225);
@@ -111,15 +144,15 @@
   display: flex;
   align-items: center;
   overflow: hidden;
-  height: 24px * @size-scale;
-  font-size: 14px * @size-scale;
+  height: @line-label-content-height * @size-scale;
+  font-size: @line-label-content-font-size * @size-scale;
   font-weight: 400;
-  color: @ant-color-gray-10;
+  color: @line-label-content-color;
 
   input {
     height: 100%;
-    line-height: 24px * @size-scale;
-    caret-color: @color-primary;
+    line-height: @line-label-content-height * @size-scale;
+    caret-color: @line-label-caret-color;
   }
 }
 
@@ -127,28 +160,28 @@
   white-space: nowrap;
   text-overflow: ellipsis;
   overflow: hidden;
-  height: 24px * @size-scale;
-  line-height: 24px * @size-scale;
+  height: @line-label-label-height * @size-scale;
+  line-height: @line-label-label-height * @size-scale;
   position: absolute;
   left: 0;
   right: 0;
   // top: 50%;
-  bottom: 8px * @size-scale;
+  bottom: @line-label-label-bottom * @size-scale;
   transform-origin: left;
   transform: translateY(0);
   // transition: transform 0.2s, bottom 0.2s, left 0.2s, color 0.2s, font-size 0.2s;
   // will-change: transform, bottom, left;
   pointer-events: none;
-  font-size: 14px * @size-scale;
+  font-size: @line-label-label-font-size * @size-scale;
   font-weight: 400;
-  color: @ant-color-gray-8;
+  color: @line-label-label-color;
 
   &--active {
     bottom: 100%;
     transform: translateY(100%);
-    font-size: 12px * @size-scale;
+    font-size: @line-label-label-font-size-active * @size-scale;
     font-weight: 400;
-    color: @ant-color-gray-8;
+    color: @line-label-label-color;
   }
 
   &--capitalize {
@@ -157,19 +190,19 @@
 }
 
 .@{line-label-prefix}__placeholder {
-  color: @ant-color-gray-6;
+  color: @line-label-placeholder-color;
 }
 
 .@{line-label-prefix}__suffix {
   display: flex;
   align-items: center;
   overflow: visible;
-  height: 24px * @size-scale;
+  height: @line-label-suffix-height * @size-scale;
 }
 
 .@{line-label-prefix}__helper {
   opacity: 0;
   transition: opacity 0.2s, color 0.2s;
-  min-height: 18px * @size-scale;
-  font-size: 12px * @size-scale;
+  min-height: @line-label-helper-min-height * @size-scale;
+  font-size: @line-label-helper-font-size * @size-scale;
 }

@@ -1,28 +1,35 @@
 @import '../../Modal/style.less';
 @import '../../Spinner/style.less';
 
+// @no-cssvar: 用于生成选择器名称
 @loading-prefix: ~'exd-loading';
+@loading-content-padding: 18px;
+@loading-content-background: rgba(0, 0, 0, 0.8);
+@loading-content-border-radius: 4px;
+@loading-content-color: #fff;
+@loading-spinner-size: 40px;
+@loading-text-margin-top: 8px;
 
 .@{loading-prefix} {
   box-sizing: border-box;
 
   &-content {
-    color: #fff;
+    color: @loading-content-color;
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    padding: 18px * @size-scale;
-    background-color: rgba(0, 0, 0, 0.8);
-    border-radius: 4px;
+    padding: @loading-content-padding * @size-scale;
+    background-color: @loading-content-background;
+    border-radius: @loading-content-border-radius;
 
     .@{spinner-prefix} {
-      width: 40px * @size-scale;
-      height: 40px * @size-scale;
-      color: #fff;
+      width: @loading-spinner-size * @size-scale;
+      height: @loading-spinner-size * @size-scale;
+      color: @loading-content-color;
 
       & + span {
-        margin-top: 8px * @size-scale;
+        margin-top: @loading-text-margin-top * @size-scale;
       }
     }
   }

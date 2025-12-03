@@ -51,6 +51,21 @@ import { ProgressBar } from '@fexd/mobile'
 | value | 当前进度所占百分比（0 ~ 100） | `number` | `0` |
 | speed | 动画速度，可选值为`none`、`fastest`、`fast`、`normal`、`slow`、`slowest`，`number` 类型下时间单位为 `ms` | `string` \| `number` | `normal` |
 
+---
+
+## 样式变量
+
+组件提供了以下 Less 变量，可用于自定义样式：
+
+| 变量名                        | 说明             | 默认值               |
+| :---------------------------- | :--------------- | :------------------- |
+| `@progress-bar-prefix`        | 组件样式前缀     | `'exd-progress-bar'` |
+| `@progress-bar-height`        | 进度条高度       | `4px`                |
+| `@progress-bar-background`    | 轨道背景色       | `#e1e1e1`            |
+| `@progress-bar-border-radius` | 圆角             | `4px`                |
+| `@progress-bar-active-color`  | 进度条颜色       | `@color-primary`     |
+| `@size-scale`                 | 全局尺寸缩放比例 | `1`                  |
+
 ## 演示代码
 
 <code src="./demos/demo1/index.tsx" />

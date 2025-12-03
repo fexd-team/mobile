@@ -23,6 +23,7 @@ export default (props: IPreviewerProps) => {
   const [isActive, setIsActive] = useState(false)
   const useMobileDemo = !previewerProps ? false : meta?.mobile ?? previewerProps?.mobile ?? true
   const mobileDemoFixed = meta?.mobileDemoFixed ?? true
+  const pureView = props?.pureview ?? false
   const responsive = useResponsive()
 
   useEffect(() => {
@@ -96,13 +97,18 @@ export default (props: IPreviewerProps) => {
       className={classnames({
         '__dumi-default-mobile-previewer': useMobileDemo,
         '__dumi-default-mobile-previewer-inline': !mobileDemoFixed,
-        // '__dumi-default-mobile-demo-pure': props?.demoBlockHeight,
+        '__dumi-default-mobile-previewer-pure': pureView,
       })}
       ref={ref as any}
-      style={responsive?.lg && useMobileDemo && props?.demoBlockHeight ? { height: props?.demoBlockHeight } : {}}
+      style={responsive?.lg && useMobileDemo && props?.demoblockheight ? { height: props?.demoblockheight } : {}}
     >
       {useMobileDemo && !mobileDemoFixed && (
-        <Device className="__dumi-default-mobile-content-device" fixed={false} url={props.demoUrl ?? builtinDemoUrl} />
+        <Device
+          className="__dumi-default-mobile-content-device"
+          fixed={false}
+          pureView={pureView}
+          url={props.demoUrl ?? builtinDemoUrl}
+        />
       )}
       {previewerProps && (
         <Previewer

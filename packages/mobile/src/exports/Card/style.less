@@ -1,34 +1,51 @@
 @import '../../theme/vars.less';
 
+// @no-cssvar: 用于生成选择器名称
 @card-prefix: ~'exd-card';
+@card-margin-y: 12px;
+@card-padding-x: 16px;
+@card-border-radius: 4px;
+@card-border-color: rgba(235, 235, 235, 1);
+@card-background: #fff;
+@card-main-padding-top: 20px;
+@card-main-padding-x: 12px;
+@card-main-padding-bottom: 10px;
+@card-title-font-size: 13px;
+@card-title-color: #333;
+@card-extra-margin-left: 10px;
+@card-footer-border-color: #f4f4f4;
+@card-footer-padding-y: 10px;
+@card-content-padding-y: 10px;
+@card-content-font-size: 11px;
 
 .@{card-prefix} {
   width: 100%;
-  margin: 12px * @size-scale auto;
-  padding: 0 16px * @size-scale;
+  margin: @card-margin-y * @size-scale auto;
+  padding: 0 @card-padding-x * @size-scale;
   &,
   * {
     box-sizing: border-box;
   }
 
   & + & {
-    margin-top: 12px * @size-scale;
+    margin-top: @card-margin-y * @size-scale;
   }
   .@{card-prefix}-wrapper {
     // width: 100%;
-    border-radius: 4px;
-    border: 1px solid rgba(235, 235, 235, 1);
+    border-radius: @card-border-radius;
+    border: 1px solid @card-border-color;
     position: relative;
-    background: #fff;
+    background: @card-background;
     z-index: 10;
   }
 }
 
 .@{card-prefix}-main {
-  padding: 20px * @size-scale 12px * @size-scale 10px * @size-scale;
+  padding: @card-main-padding-top * @size-scale @card-main-padding-x * @size-scale @card-main-padding-bottom *
+    @size-scale;
 
   &-no-title {
-    padding-top: 10px * @size-scale;
+    padding-top: @card-main-padding-bottom * @size-scale;
   }
 }
 
@@ -36,10 +53,10 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
-  font-size: 13px * @size-scale;
+  font-size: @card-title-font-size * @size-scale;
 
   .@{card-prefix}-value {
-    color: #333;
+    color: @card-title-color;
     flex: 1;
     font-weight: 700;
     white-space: nowrap;
@@ -48,18 +65,18 @@
   }
 
   .@{card-prefix}-extra {
-    margin-left: 10px * @size-scale;
+    margin-left: @card-extra-margin-left * @size-scale;
   }
 }
 
 .@{card-prefix}-footer {
-  border-top: solid 1px #f4f4f4;
-  padding: 10px * @size-scale 0;
-  margin: -10px * @size-scale 12px * @size-scale 0;
+  border-top: solid 1px @card-footer-border-color;
+  padding: @card-footer-padding-y * @size-scale 0;
+  margin: -@card-main-padding-bottom * @size-scale @card-main-padding-x * @size-scale 0;
   display: flex;
   align-items: center;
   justify-content: space-between;
-  font-size: 13px * @size-scale;
+  font-size: @card-title-font-size * @size-scale;
 
   .@{card-prefix}-value {
     // color: #333;
@@ -72,11 +89,11 @@
   }
 
   .@{card-prefix}-extra {
-    margin-left: 10px * @size-scale;
+    margin-left: @card-extra-margin-left * @size-scale;
   }
 }
 
 .@{card-prefix}-content {
-  padding: 10px * @size-scale 0;
-  font-size: 11px * @size-scale;
+  padding: @card-content-padding-y * @size-scale 0;
+  font-size: @card-content-font-size * @size-scale;
 }

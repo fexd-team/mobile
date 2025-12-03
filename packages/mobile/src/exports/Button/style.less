@@ -2,7 +2,17 @@
 // @import '../Iconfont/style.less';
 @import '../Spinner/style.less';
 
+// @no-cssvar: 用于生成选择器名称
 @btn-prefix: ~'exd-btn';
+@btn-icon-spacing: 6px;
+
+// Spinner 尺寸配置
+@btn-spinner-scale-large: 1.2;
+@btn-spinner-scale-normal: 1;
+@btn-spinner-scale-small: 0.8;
+@btn-spinner-scale-mini: 0.6;
+@btn-spinner-size-ratio: 0.55;
+@btn-spinner-block-size-extra: 0.15;
 
 .@{btn-prefix} {
   &-container,
@@ -22,7 +32,7 @@
     height: 100%;
 
     span + span {
-      margin-left: 6px * @size-scale;
+      margin-left: @btn-icon-spacing * @size-scale;
     }
   }
 }
@@ -31,33 +41,33 @@
   .scalable-spinner(@scale: 1) {
     .@{btn-prefix}-spinner {
       .@{spinner-prefix} {
-        width: @spinner-size * 0.55 * @size-scale * @scale;
-        height: @spinner-size * 0.55 * @size-scale * @scale;
+        width: @spinner-size * @btn-spinner-size-ratio * @size-scale * @scale;
+        height: @spinner-size * @btn-spinner-size-ratio * @size-scale * @scale;
       }
     }
 
     &.@{btn-prefix}-block {
       .@{btn-prefix}-spinner {
         .@{spinner-prefix} {
-          width: @spinner-size * 0.55 * @size-scale * (@scale + 0.15);
-          height: @spinner-size * 0.55 * @size-scale * (@scale + 0.15);
+          width: @spinner-size * @btn-spinner-size-ratio * @size-scale * (@scale + @btn-spinner-block-size-extra);
+          height: @spinner-size * @btn-spinner-size-ratio * @size-scale * (@scale + @btn-spinner-block-size-extra);
         }
       }
     }
   }
   &-large {
-    .scalable-spinner(1.2);
+    .scalable-spinner(@btn-spinner-scale-large);
   }
 
   &-normal {
-    .scalable-spinner(1);
+    .scalable-spinner(@btn-spinner-scale-normal);
   }
 
   &-small {
-    .scalable-spinner(0.8);
+    .scalable-spinner(@btn-spinner-scale-small);
   }
 
   &-mini {
-    .scalable-spinner(0.6);
+    .scalable-spinner(@btn-spinner-scale-mini);
   }
 }

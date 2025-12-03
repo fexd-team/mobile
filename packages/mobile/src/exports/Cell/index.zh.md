@@ -26,3 +26,9 @@ mobileDemoFixed: false
 ## Cell.Group
 
 <API identifier="Cell.Group" hideTitle src="./Group/type.tsx" exports='["default"]'></API>
+
+---
+
+## 样式变量
+
+<API identifier="CellStyleVars" hideTitle src="./type.tsx" exports='["DOC_CellStyleVars"]'></API>

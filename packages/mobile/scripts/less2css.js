@@ -4,12 +4,22 @@ const path = require('path')
 const less = require('less')
 const LessNodeModules = require('less-plugin-import-node-modules')
 
-const excludes = [/^\.\/lib\/theme/, /^\.\/es\/theme/]
+const excludes = [/^\.\/lib\/theme/, /^\.\/es\/theme/, /^\.\/src\/theme/]
 
 async function less2css(globPattern) {
   const filepaths = glob.sync(globPattern)
   const promises = filepaths
-    .filter((filepath) => !excludes.some((reg) => reg.test(filepath)))
+    .filter((filepath) => {
+      // 排除 theme 目录
+      if (excludes.some((reg) => reg.test(filepath))) {
+        return false
+      }
+      // 排除 demos 目录
+      if (filepath.includes('/demos/') || filepath.includes('\\demos\\')) {
+        return false
+      }
+      return true
+    })
     .map(
       async (filepath) =>
         new Promise(async (resolve) => {
@@ -55,6 +65,8 @@ async function supplyDefaultFile(globPattern) {
 async function start() {
   await supplyDefaultFile('./src/exports/*')
   await supplyDefaultFile('./lib/exports/*')
+
+  await less2css('./src/**/*.less')
   await less2css('./es/**/*.less')
   await less2css('./lib/**/*.less')
 }

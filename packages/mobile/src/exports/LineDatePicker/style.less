@@ -4,21 +4,24 @@
 
 // 由于 less 变量的懒生效特性，变量命名空间存在冲突，此处 prefix 变量命名前需要加特定前缀
 // https://less.bootcss.com/features/#variables-lazy-evaluation
+// @no-cssvar: 用于生成选择器名称
 @line-date-picker-prefix: ~'exd-line-date-picker';
 
-// .@{line-date-picker-prefix} {
-//   /* 组件样式 */
-// }
+// LineDatePicker 样式变量
+@line-date-picker-disabled-color: @ant-color-gray-7;
+@line-date-picker-clear-color: @ant-color-gray-5;
+@line-date-picker-arrow-font-size: 18px;
+@line-date-picker-arrow-color: @ant-color-gray-6;
 
 .@{line-date-picker-prefix}__disabled {
-  color: @ant-color-gray-7;
+  color: @line-date-picker-disabled-color;
   .@{line-date-picker-prefix}__value {
-    color: @ant-color-gray-7;
+    color: @line-date-picker-disabled-color;
   }
 }
 
 .@{line-date-picker-prefix}__clear {
-  color: @ant-color-gray-5;
+  color: @line-date-picker-clear-color;
 }
 
 .@{line-date-picker-prefix}__arrow {
@@ -27,7 +30,7 @@
 
   .exd-icon,
   .exd-iconfont {
-    font-size: 18px * @size-scale;
-    color: @ant-color-gray-6;
+    font-size: @line-date-picker-arrow-font-size * @size-scale;
+    color: @line-date-picker-arrow-color;
   }
 }

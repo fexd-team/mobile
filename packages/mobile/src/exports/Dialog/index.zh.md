@@ -33,3 +33,9 @@ mobileDemoFixed: false
 ## DialogAction
 
 <API identifier="DialogAction" hideTitle src="./type.tsx" exports='["DOC_PureDialogAction"]'></API>
+
+---
+
+## 样式变量
+
+<API identifier="DialogStyleVars" hideTitle src="./type.tsx" exports='["DOC_DialogStyleVars"]'></API> | `@size-scale` | 全局尺寸缩放比例 | `1` | | `@color-gray-divider` | 分割线颜色 | `#f0f0f0` |

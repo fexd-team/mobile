@@ -2,18 +2,16 @@
 group:
   title: 输入
   path: /data
+
+mobileDemoFixed: false
 ---
 
 # Slider 滑块 <ImportCost name="Slider" />
 
 滑动输入条，用于在给定的范围内选择一个值。
 
-<!-- prettier-ignore -->
-```jsx | pure
-import { Slider } from '@fexd/mobile'
-
-<Slider />
-```
+<!-- ### 预览 -->
+<code src="./demos/demo1/index.tsx" />
 
 ## Props 属性
 
@@ -32,7 +30,10 @@ import { Slider } from '@fexd/mobile'
 | onChangeCommitted | 结束拖动时触发                     | (value) => void            | -      | -        |
 | rate              | 触摸事件触发频率（采样率，ms）     | number                     | 16     | -        |
 
-## 演示代码
+---
 
-<!-- ### 预览 -->
-<code src="./demos/demo1/index.tsx" />
+## 样式变量
+
+<API identifier="SliderStyleVars" hideTitle src="./type.tsx" exports='["DOC_SliderStyleVars"]'></API>
+
+---

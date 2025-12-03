@@ -2,22 +2,33 @@
 
 // 由于 less 变量的懒生效特性，变量命名空间存在冲突，此处 prefix 变量命名前需要加特定前缀
 // https://less.bootcss.com/features/#variables-lazy-evaluation
+// @no-cssvar: 用于生成选择器名称
 @collapse-prefix: ~'exd-collapse';
+@collapse-background: #fff;
+@collapse-font-size: 16px;
+@collapse-padding-left: 12px;
+@collapse-header-padding: 12px;
+@collapse-header-border-color: #f5f5f5;
+@collapse-icon-color: #999;
+@collapse-disabled-color: #d6d6d6;
+@collapse-content-font-size: 14px;
+@collapse-content-color: #999;
+@collapse-content-border-color: #eee;
 
 .@{collapse-prefix} {
   /* 组件样式 */
-  font-size: 16px;
-  background-color: #fff;
+  font-size: @collapse-font-size;
+  background-color: @collapse-background;
   overflow: hidden;
 
   &-panel {
-    padding-left: 12px;
+    padding-left: @collapse-padding-left;
 
     &-header {
       display: flex;
       justify-content: flex-start;
-      padding: 12px 12px 12px 0;
-      border-bottom: solid 1px #f5f5f5;
+      padding: @collapse-header-padding @collapse-header-padding @collapse-header-padding 0;
+      border-bottom: solid 1px @collapse-header-border-color;
     }
 
     &-title {
@@ -28,8 +39,8 @@
       flex: none;
       display: flex;
       align-items: center;
-      color: #999;
-      font-size: 16px;
+      color: @collapse-icon-color;
+      font-size: @collapse-font-size;
       transform: rotate(0deg);
       transition: all 0.2s ease;
 
@@ -39,17 +50,17 @@
     }
 
     &-disabled {
-      color: #d6d6d6;
+      color: @collapse-disabled-color;
       cursor: not-allowed;
 
       .@{collapse-prefix}-panel-icon {
-        color: #d6d6d6;
+        color: @collapse-disabled-color;
       }
     }
 
     &-content {
-      font-size: 14px;
-      color: #999;
+      font-size: @collapse-content-font-size;
+      color: @collapse-content-color;
       overflow: hidden;
       height: 0;
       transition: height 0.2s ease;
@@ -58,8 +69,8 @@
         display: flex;
         align-items: center;
         justify-content: flex-start;
-        padding: 12px 12px 12px 0;
-        border-bottom: solid 1px #eee;
+        padding: @collapse-header-padding @collapse-header-padding @collapse-header-padding 0;
+        border-bottom: solid 1px @collapse-content-border-color;
       }
     }
   }

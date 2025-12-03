@@ -3,18 +3,17 @@ group:
   title: 输入
   path: /data
   order: 103
+
+mobileDemoFixed: false
 ---
 
 # Button 按钮 <ImportCost name="Button" />
 
 按钮用于触发一个操作，如提交表单
 
-<!-- prettier-ignore -->
-```jsx | pure
-import { Button } from '@fexd/mobile'
+<!-- ### 预览 -->
 
-<Button>按钮</Button>
-```
+<code src="./demos/demo1/index.tsx" demoblockheight="500px" pureview />
 
 ---
 
@@ -147,8 +146,6 @@ import { Add, Icon } from '@fexd/icons'
 
 ---
 
-## 演示代码
+## 样式变量
 
-<!-- ### 预览 -->
-
-<code src="./demos/demo1/index.tsx" />
+<API identifier="ButtonStyleVars" hideTitle src="./type.tsx" exports='["DOC_ButtonStyleVars"]'></API>

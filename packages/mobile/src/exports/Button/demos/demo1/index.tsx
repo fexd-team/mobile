@@ -1,8 +1,6 @@
 import React from 'react'
 import { delay, run } from '@fexd/tools'
-import { Add } from '@fexd/icons'
 import { Button, Iconfont, toast, DemoBlock } from '@fexd/mobile'
-import './style.module.less'
 
 const Demo = () => (
   <>

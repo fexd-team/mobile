@@ -28,3 +28,18 @@ export interface PickerProps<T = PickerViewProps['value']>
 export interface PickerProps<T = PickerViewProps['value']> extends PurePickerProps<T> {}
 
 export default AUTO_API<PurePickerProps>()
+
+export interface PickerStyleVars {
+  /**
+   * @description 组件的 className 前缀
+   * @default 'exd-picker'
+   */
+  '@picker-prefix'?: string
+  /**
+   * @description 清除选项颜色
+   * @default #ccc
+   */
+  '@picker-clear-color'?: string
+}
+
+export const DOC_PickerStyleVars = AUTO_API<PickerStyleVars>()

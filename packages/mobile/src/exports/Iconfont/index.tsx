@@ -20,10 +20,12 @@ const Iconfont = createFC<IconfontProps, any>(function Iconfont(
   forwardedRef,
 ) {
   const type = `${prefix}-${iconType}`
+  // SVG 模式需要添加 # 前缀来引用内部 symbol
+  const svgHref = `#${type}`
 
   return isSvg ? (
     <svg aria-hidden="true" {...props} className={classnames(prefix, className)} ref={forwardedRef}>
-      <use xlinkHref={type} />
+      <use xlinkHref={svgHref} />
     </svg>
   ) : (
     <i

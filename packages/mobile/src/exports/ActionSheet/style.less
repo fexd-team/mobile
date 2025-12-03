@@ -4,7 +4,10 @@
 
 // 由于 less 变量的懒生效特性，变量命名空间存在冲突，此处 prefix 变量命名前需要加特定前缀
 // https://less.bootcss.com/features/#variables-lazy-evaluation
+// @no-cssvar: 用于生成选择器名称
 @action-sheet-prefix: ~'exd-action-sheet';
+@action-sheet-action-height-scale: 1.2;
+@action-sheet-border-color: @ant-color-gray-3;
 
 .@{action-sheet-prefix} {
   /* 组件样式 */
@@ -12,23 +15,23 @@
   &-action {
     &.@{btn-prefix}-plain.@{btn-prefix}-fill-none,
     &.@{btn-prefix}-fill-none {
-      border-bottom: solid 1px @ant-color-gray-3;
+      border-bottom: solid 1px @action-sheet-border-color;
     }
 
     &.@{btn-prefix}-large {
-      height: 1.2 * @btn-block-size-base * @btn-size-scale-large * @size-scale;
+      height: @action-sheet-action-height-scale * @btn-block-size-base * @btn-size-scale-large * @size-scale;
     }
 
     &.@{btn-prefix}-normal {
-      height: 1.2 * @btn-block-size-base * @btn-size-scale-normal * @size-scale;
+      height: @action-sheet-action-height-scale * @btn-block-size-base * @btn-size-scale-normal * @size-scale;
     }
 
     &.@{btn-prefix}-small {
-      height: 1.2 * @btn-block-size-base * @btn-size-scale-small * @size-scale;
+      height: @action-sheet-action-height-scale * @btn-block-size-base * @btn-size-scale-small * @size-scale;
     }
 
     &.@{btn-prefix}-mini {
-      height: 1.2 * @btn-block-size-base * @btn-size-scale-mini * @size-scale;
+      height: @action-sheet-action-height-scale * @btn-block-size-base * @btn-size-scale-mini * @size-scale;
     }
   }
 }

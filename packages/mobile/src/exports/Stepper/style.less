@@ -4,13 +4,20 @@
 
 // 由于 less 变量的懒生效特性，变量命名空间存在冲突，此处 prefix 变量命名前需要加特定前缀
 // https://less.bootcss.com/features/#variables-lazy-evaluation
+// @no-cssvar: 用于生成选择器名称
 @stepper-prefix: ~'exd-stepper';
+@stepper-border-color: #e6e6e6;
+@stepper-border-width: 1px;
+@stepper-border-radius: 4px;
+@stepper-input-border-color: #e6e6e6;
+@stepper-width: 126px;
+@stepper-block-height-extra: 8px;
 
 .@{stepper-prefix} {
   /* 组件样式 */
   display: inline-block;
-  border: solid 1px #e6e6e6;
-  border-radius: 4px * @size-scale;
+  border: solid @stepper-border-width @stepper-border-color;
+  border-radius: @stepper-border-radius * @size-scale;
 
   &-block {
     display: block;
@@ -31,34 +38,40 @@
     height: 100%;
     width: 100%;
     text-align: center;
-    border-left: solid 1px #e6e6e6;
-    border-right: solid 1px #e6e6e6;
+    border-left: solid @stepper-border-width @stepper-input-border-color;
+    border-right: solid @stepper-border-width @stepper-input-border-color;
   }
 }
 
 // 尺寸相关
 .@{stepper-prefix} {
-  .scalable-stepper(@scale: 1) {
-    @calc-scale: @size-scale * @scale;
-
-    width: 126px * @calc-scale;
-    height: @btn-inline-size-base * @calc-scale;
+  &-large {
+    width: @stepper-width * @size-scale * @btn-size-scale-normal;
+    height: @btn-inline-size-base * @size-scale * @btn-size-scale-normal;
 
     &.@{stepper-prefix}-block {
       width: 100%;
-      height: (@btn-block-size-base + 8px) * @calc-scale;
+      height: (@btn-block-size-base + @stepper-block-height-extra) * @size-scale * @btn-size-scale-normal;
     }
   }
 
-  &-large {
-    .scalable-stepper(@btn-size-scale-normal);
-  }
-
   &-normal {
-    .scalable-stepper(@btn-size-scale-small);
+    width: @stepper-width * @size-scale * @btn-size-scale-small;
+    height: @btn-inline-size-base * @size-scale * @btn-size-scale-small;
+
+    &.@{stepper-prefix}-block {
+      width: 100%;
+      height: (@btn-block-size-base + @stepper-block-height-extra) * @size-scale * @btn-size-scale-small;
+    }
   }
 
   &-small {
-    .scalable-stepper(@btn-size-scale-mini);
+    width: @stepper-width * @size-scale * @btn-size-scale-mini;
+    height: @btn-inline-size-base * @size-scale * @btn-size-scale-mini;
+
+    &.@{stepper-prefix}-block {
+      width: 100%;
+      height: (@btn-block-size-base + @stepper-block-height-extra) * @size-scale * @btn-size-scale-mini;
+    }
   }
 }

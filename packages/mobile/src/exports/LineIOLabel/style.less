@@ -3,11 +3,14 @@
 
 // 由于 less 变量的懒生效特性，变量命名空间存在冲突，此处 prefix 变量命名前需要加特定前缀
 // https://less.bootcss.com/features/#variables-lazy-evaluation
+// @no-cssvar: 用于生成选择器名称
 @line-io-label-prefix: ~'exd-line-io-label';
 
-// .@{line-io-label-prefix} {
-//   /* 组件样式 */
-// }
+// LineIOLabel 样式变量
+@line-io-label-disabled-color: #c2bcbe;
+@line-io-label-prefix-line-height: 22px;
+@line-io-label-prefix-font-size: 14px;
+@line-io-label-prefix-color: #c2bcbe;
 
 .@{line-io-label-prefix}__label {
   &--disabled {
@@ -16,11 +19,11 @@
 }
 
 .@{line-io-label-prefix}__disabled {
-  color: #c2bcbe;
+  color: @line-io-label-disabled-color;
 }
 
 .@{line-io-label-prefix}__prefix {
-  line-height: 22px * @size-scale;
-  font-size: 14px * @size-scale;
-  color: #c2bcbe;
+  line-height: @line-io-label-prefix-line-height * @size-scale;
+  font-size: @line-io-label-prefix-font-size * @size-scale;
+  color: @line-io-label-prefix-color;
 }

@@ -12,3 +12,48 @@ export interface EmptyProps extends JSXDivProps {
 export interface EmptyType extends FC<EmptyProps> {}
 
 export default AUTO_API<EmptyProps>()
+
+export interface EmptyStyleVars {
+  /**
+   * @description 组件的 className 前缀
+   * @default 'exd-empty'
+   */
+  '@empty-prefix'?: string
+  /**
+   * @description Empty 容器内边距
+   * @default 32px
+   */
+  '@empty-padding'?: string
+  /**
+   * @description Empty 图标尺寸
+   * @default 60px
+   */
+  '@empty-icon-size'?: string
+  /**
+   * @description Empty 图标颜色
+   * @default #ccc
+   */
+  '@empty-icon-color'?: string
+  /**
+   * @description Empty 图片宽度
+   * @default 120px
+   */
+  '@empty-image-width'?: string
+  /**
+   * @description Empty 文字颜色
+   * @default #999
+   */
+  '@empty-text-color'?: string
+  /**
+   * @description Empty 文字上边距
+   * @default 12px
+   */
+  '@empty-text-margin-top'?: string
+  /**
+   * @description Empty 文字下边距
+   * @default 16px
+   */
+  '@empty-text-margin-bottom'?: string
+}
+
+export const DOC_EmptyStyleVars = AUTO_API<EmptyStyleVars>()
