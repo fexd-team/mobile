@@ -34,7 +34,20 @@ const Device: FC<IDeviceProps> = ({ fixed = true, url: rawUrl, className = '', p
    * xxx.com/mobile/export/test#/~demos/xxx => xxx.com/~demos/xxx
    * xxx.com/mobile/export.html#/~demos/xxx => xxx.com/~demos/xxx
    */
-  const url = /#/.test(rawUrl) ? rawUrl.replace(/\/(\w){0,}(\.html)?#\/\~demos\//, '/~demos/') : rawUrl
+  const url = /#/.test(rawUrl)
+    ? (() => {
+        const host = `${location.protocol}//${location.hostname}`
+
+        const path = rawUrl.split('#')[1]
+
+        if (rawUrl.startsWith(host)) {
+          // 去除多个 /
+          return `${location.protocol}//${`${location.hostname}/${path}`.replace(/(\/){2,}/, '/')}`
+        }
+
+        return path
+      })()
+    : rawUrl
 
   return (
     <div
