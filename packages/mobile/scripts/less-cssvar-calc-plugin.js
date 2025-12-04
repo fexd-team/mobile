@@ -70,6 +70,77 @@ class LessCalcPlugin {
   }
 
   /**
+   * 预处理：合并跨行的属性定义
+   * 例如：
+   *   padding: @a * @s @b * @s
+   *     @c * @s;
+   * 合并为：
+   *   padding: @a * @s @b * @s @c * @s;
+   */
+  mergeMultilineProperties(src) {
+    const lines = src.split('\n')
+    const mergedLines = []
+    let i = 0
+
+    while (i < lines.length) {
+      const line = lines[i]
+      const trimmed = line.trim()
+
+      // 跳过注释行和空行
+      if (!trimmed || trimmed.startsWith('//') || trimmed.startsWith('/*') || trimmed.startsWith('*')) {
+        mergedLines.push(line)
+        i++
+        continue
+      }
+
+      // 检查是否是属性定义的开始（包含冒号但没有分号结尾）
+      if (trimmed.includes(':') && !trimmed.endsWith(';') && !trimmed.endsWith('{') && !trimmed.endsWith('}')) {
+        // 检查下一行是否是续行（以空格开头且不是注释）
+        let j = i + 1
+        let mergedLine = line
+
+        while (j < lines.length) {
+          const nextLine = lines[j]
+          const nextTrimmed = nextLine.trim()
+
+          // 如果下一行是空行、注释或新的属性定义，则停止合并
+          if (
+            !nextTrimmed ||
+            nextTrimmed.startsWith('//') ||
+            nextTrimmed.startsWith('/*') ||
+            nextTrimmed.includes(':') ||
+            nextTrimmed.startsWith('}')
+          ) {
+            break
+          }
+
+          // 如果下一行以空格开头，说明是续行
+          if (nextLine.startsWith(' ') || nextLine.startsWith('\t')) {
+            // 合并到当前行（保留一个空格）
+            mergedLine += ' ' + nextTrimmed
+            j++
+
+            // 如果遇到分号，停止合并
+            if (nextTrimmed.endsWith(';')) {
+              break
+            }
+          } else {
+            break
+          }
+        }
+
+        mergedLines.push(mergedLine)
+        i = j
+      } else {
+        mergedLines.push(line)
+        i++
+      }
+    }
+
+    return mergedLines.join('\n')
+  }
+
+  /**
    * 转换源代码，将包含 CSS 变量的运算包装为 calc()
    */
   transformSource(src) {
@@ -81,8 +152,11 @@ class LessCalcPlugin {
     let result = src
     let transformCount = 0
 
+    // 预处理：合并跨行的属性定义
+    result = this.mergeMultilineProperties(result)
+
     // 按行处理以保持代码结构
-    const lines = src.split('\n')
+    const lines = result.split('\n')
     const transformedLines = lines.map((line, lineIndex) => {
       // 跳过注释行
       const trimmedLine = line.trim()

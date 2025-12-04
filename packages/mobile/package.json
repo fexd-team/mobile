@@ -1,6 +1,6 @@
 {
   "name": "@fexd/mobile",
-  "version": "0.1.29",
+  "version": "0.1.30",
   "main": "lib/index.js",
   "module": "es/index.js",
   "types": "types.d.ts",

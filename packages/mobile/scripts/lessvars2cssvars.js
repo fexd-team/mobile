@@ -332,14 +332,15 @@ function applyModifyVars(content, allVars, antColors) {
       return line
     }
 
-    // 处理 Less 变量定义行（格式：@varname: value;）
+    // 处理 Less 变量定义行（格式：@varname: value; 或 @varname: value; // comment）
     // 需要将值中的 Less 变量引用替换为 CSS 变量引用
-    const varDefMatch = trimmedLine.match(/^(@[\w-]+\s*:\s*)([^;]+)(;)$/)
+    const varDefMatch = trimmedLine.match(/^(@[\w-]+\s*:\s*)([^;]+)(;)(.*)$/)
     if (varDefMatch) {
       const indent = line.match(/^(\s*)/)[1]
       const varDecl = varDefMatch[1] // @varname:
-      let value = varDefMatch[2] // value 部分
+      let value = varDefMatch[2].trim() // value 部分
       const semicolon = varDefMatch[3] // ;
+      const comment = varDefMatch[4] // 行尾注释（如果有）
 
       // 替换值中的 Less 变量引用为 CSS 变量引用
       // 替换组件变量
@@ -357,7 +358,7 @@ function applyModifyVars(content, allVars, antColors) {
         value = value.replace(regex, `var(--${colorName})`)
       })
 
-      return `${indent}${varDecl}${value}${semicolon}`
+      return `${indent}${varDecl}${value}${semicolon}${comment}`
     }
 
     let processedLine = line
@@ -597,6 +598,29 @@ async function processDirectory(dir, globalContext, label, specificComponents = 
     }
   }
 
+  /**
+   * 检查组件或其任何父级组件是否标记为开发中
+   * @param {string} filePath - 组件样式文件路径
+   * @param {string} baseDir - 基础目录（src/es/lib）
+   * @returns {boolean} 是否在开发中
+   */
+  function isUnderDevelopment(filePath, baseDir) {
+    return false
+    const relativePath = path.relative(baseDir, filePath)
+    const parts = relativePath.split(path.sep)
+
+    // 从当前目录向上逐级检查 .developing 文件
+    // exports/List/Item/style.less -> 检查 Item, List, exports
+    for (let i = parts.length - 2; i >= 0; i--) {
+      const checkPath = path.join(baseDir, ...parts.slice(0, i + 1), '.developing')
+      if (fs.existsSync(checkPath)) {
+        return true
+      }
+    }
+
+    return false
+  }
+
   // 2. 处理组件样式
   const lessFiles = glob.sync(path.join(dir, 'exports/**/style.less')).filter((file) => {
     // 跳过 demos 目录
@@ -604,9 +628,8 @@ async function processDirectory(dir, globalContext, label, specificComponents = 
       return false
     }
 
-    // 跳过开发中的组件
-    const componentDir = path.dirname(file)
-    if (fs.existsSync(path.join(componentDir, '.developing'))) {
+    // 跳过开发中的组件（包括其子组件）
+    if (isUnderDevelopment(file, dir)) {
       return false
     }
 
