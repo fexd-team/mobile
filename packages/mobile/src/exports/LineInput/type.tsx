@@ -19,17 +19,17 @@ export interface LineInputStyleVars {
   '@line-input-font-size'?: string
   /**
    * @description 输入框文字颜色
-   * @default @ant-color-gray-10
+   * @default ant-color-gray-10
    */
   '@line-input-color'?: string
   /**
    * @description 占位符文字颜色
-   * @default @ant-color-gray-6
+   * @default ant-color-gray-6
    */
   '@line-input-placeholder-color'?: string
   /**
    * @description 禁用态文字颜色
-   * @default @ant-color-gray-5
+   * @default ant-color-gray-5
    */
   '@line-input-disabled-color'?: string
   /**
@@ -44,7 +44,7 @@ export interface LineInputStyleVars {
   '@line-input-clear-size'?: string
   /**
    * @description 清除按钮颜色
-   * @default @ant-color-gray-6
+   * @default ant-color-gray-6
    */
   '@line-input-clear-color'?: string
   /**

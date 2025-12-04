@@ -3,6 +3,8 @@
 
 // @no-cssvar: 用于生成选择器名称
 @dialog-prefix: ~'exd-dialog';
+
+// Dialog 变量定义
 @dialog-background: #fff;
 @dialog-border-radius: 6px;
 @dialog-min-width: 68%;
@@ -15,6 +17,18 @@
 @dialog-content-font-size: 14px;
 @dialog-content-color: #666;
 @dialog-action-min-height: 50px;
+@dialog-action-content-max-width: 160px;
+@dialog-normal-wrapper-padding-bottom: 8px;
+@dialog-normal-actions-padding-x: 20px;
+@dialog-normal-actions-padding-y: 16px;
+@dialog-normal-actions-padding-bottom: 20px;
+@dialog-normal-actions-button-spacing: 8px;
+@dialog-normal-actions-button-spacing-horizontal: 12px;
+@dialog-android-wrapper-padding-bottom: 12px;
+@dialog-android-actions-padding-x: 12px;
+@dialog-android-actions-padding-y: 12px;
+@dialog-android-actions-padding-bottom: 16px;
+@dialog-ios-action-border-width: 1px;
 
 .@{dialog-prefix} {
   flex: 1;
@@ -124,20 +138,20 @@
   &-normal {
     .@{dialog-prefix} {
       &-wrapper {
-        padding-bottom: 8px;
+        padding-bottom: @dialog-normal-wrapper-padding-bottom;
       }
 
       &-actions {
-        padding: 16px 20px 20px;
+        padding: @dialog-normal-actions-padding-y @dialog-normal-actions-padding-x @dialog-normal-actions-padding-bottom;
 
         .exd-btn + .exd-btn {
-          margin-top: 8px;
+          margin-top: @dialog-normal-actions-button-spacing;
         }
 
         &-vertical {
           .exd-btn + .exd-btn {
             margin-top: 0;
-            margin-right: 12px;
+            margin-right: @dialog-normal-actions-button-spacing-horizontal;
           }
         }
       }
@@ -148,7 +162,7 @@
     .@{dialog-prefix}-actions-vertical {
       .@{dialog-prefix}-action {
         &:first-child {
-          border-left: solid 1px;
+          border-left: solid @dialog-ios-action-border-width;
           border-left-color: @color-gray-divider;
         }
       }
@@ -161,7 +175,7 @@
 
     .@{dialog-prefix}-action {
       border: 0;
-      border-top: solid 1px;
+      border-top: solid @dialog-ios-action-border-width;
       border-top-color: @color-gray-divider;
     }
   }
@@ -170,18 +184,19 @@
     text-align: left;
 
     .@{dialog-prefix}-wrapper {
-      padding-bottom: 12px * @size-scale;
+      padding-bottom: @dialog-android-wrapper-padding-bottom * @size-scale;
     }
 
     .@{dialog-prefix}-actions {
-      padding: 12px * @size-scale 12px * @size-scale 16px * @size-scale;
+      padding: @dialog-android-actions-padding-y * @size-scale @dialog-android-actions-padding-x * @size-scale
+        @dialog-android-actions-padding-bottom * @size-scale;
       display: flex;
       flex-direction: row-reverse;
     }
 
     .@{dialog-prefix}-action {
       &-content {
-        max-width: 160px * @size-scale;
+        max-width: @dialog-action-content-max-width * @size-scale;
       }
     }
   }

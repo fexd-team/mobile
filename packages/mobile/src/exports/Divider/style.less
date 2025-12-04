@@ -2,11 +2,14 @@
 
 // @no-cssvar: 用于生成选择器名称
 @divider-prefix: ~'exd-divider';
+
+// Divider 变量定义
 @divider-margin-x: 16px;
 @divider-font-size: 10px;
 @divider-line-min-width: 48px;
 @divider-text-padding-x: 16px;
 @divider-vertical-margin-x: 8px;
+@divider-line-border-width: 1px;
 
 .@{divider-prefix} {
   margin: 0 @divider-margin-x * @size-scale;
@@ -25,7 +28,7 @@
     border-top: 0;
     border-left: 0;
     border-right: 0;
-    border-bottom: 1px solid;
+    border-bottom: @divider-line-border-width solid;
     border-color: @color-gray-border;
   }
   &-text {
@@ -37,7 +40,7 @@
 
 .@{divider-prefix}-vertical {
   margin: 0 @divider-vertical-margin-x * @size-scale;
-  border-left: 1px solid @color-gray-border;
+  border-left: @divider-line-border-width solid @color-gray-border;
   // 自适应高度
   height: auto;
   align-self: stretch;

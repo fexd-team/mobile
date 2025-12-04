@@ -22,12 +22,12 @@ export interface CellPickerStyleVars {
   '@cell-picker-value-font-size'?: string
   /**
    * @description 禁用态文字颜色
-   * @default @ant-color-gray-7
+   * @default ant-color-gray-7
    */
   '@cell-picker-disabled-color'?: string
   /**
    * @description 清除按钮颜色
-   * @default @ant-color-gray-5
+   * @default ant-color-gray-5
    */
   '@cell-picker-clear-color'?: string
   /**
@@ -37,7 +37,7 @@ export interface CellPickerStyleVars {
   '@cell-picker-arrow-font-size'?: string
   /**
    * @description 箭头图标颜色
-   * @default @ant-color-gray-6
+   * @default ant-color-gray-6
    */
   '@cell-picker-arrow-color'?: string
 }

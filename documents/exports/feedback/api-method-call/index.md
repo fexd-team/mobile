@@ -116,6 +116,32 @@ showModal({
 
 ```
 
+## Hook 方式调用
+
+为了简化上下文问题的处理，提供了 `useShowXXX` Hook，自动管理 `ModalStation` 和 `stationId`
+
+```jsx | pure
+import { useShowModal } from '@fexd/mobile'
+
+function MyComponent() {
+  const [showModal, station] = useShowModal()
+
+  return (
+    <Provider>
+      {station}
+      <Button onClick={() => showModal({ content: <Consumer>...</Consumer> })}>打开弹窗</Button>
+    </Provider>
+  )
+}
+```
+
+可用的 Hook：
+
+- `useShowModal` - 模态框
+- `useShowDialog` - 对话框
+- `useShowActionSheet` - 动作面板
+- `useShowPopup` - 弹出层
+
 ## 演示代码
 
 <code src="./demo/index.tsx" />

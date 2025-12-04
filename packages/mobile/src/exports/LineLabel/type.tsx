@@ -33,7 +33,7 @@ export interface LineLabelStyleVars {
   '@line-label-bar-margin-bottom'?: string
   /**
    * @description 标签栏边框颜色
-   * @default @ant-color-gray-5
+   * @default ant-color-gray-5
    */
   '@line-label-bar-border-color'?: string
   /**
@@ -48,7 +48,7 @@ export interface LineLabelStyleVars {
   '@line-label-content-font-size'?: string
   /**
    * @description 内容文字颜色
-   * @default @ant-color-gray-10
+   * @default ant-color-gray-10
    */
   '@line-label-content-color'?: string
   /**
@@ -68,7 +68,7 @@ export interface LineLabelStyleVars {
   '@line-label-label-font-size-active'?: string
   /**
    * @description 标签文字颜色
-   * @default @ant-color-gray-8
+   * @default ant-color-gray-8
    */
   '@line-label-label-color'?: string
   /**
@@ -78,7 +78,7 @@ export interface LineLabelStyleVars {
   '@line-label-label-bottom'?: string
   /**
    * @description 占位符文字颜色
-   * @default @ant-color-gray-6
+   * @default ant-color-gray-6
    */
   '@line-label-placeholder-color'?: string
   /**
@@ -103,52 +103,52 @@ export interface LineLabelStyleVars {
   '@line-label-suffix-height'?: string
   /**
    * @description 光标颜色
-   * @default @color-primary
+   * @default color-primary
    */
   '@line-label-caret-color'?: string
   /**
    * @description 信息态边框颜色
-   * @default @ant-color-gray-4
+   * @default ant-color-gray-4
    */
   '@line-label-info-border-color'?: string
   /**
    * @description 信息态辅助文字颜色
-   * @default @ant-color-gray-7
+   * @default ant-color-gray-7
    */
   '@line-label-info-helper-color'?: string
   /**
    * @description 成功态边框颜色
-   * @default @color-green
+   * @default color-green
    */
   '@line-label-success-border-color'?: string
   /**
    * @description 成功态辅助文字颜色
-   * @default @color-green
+   * @default color-green
    */
   '@line-label-success-helper-color'?: string
   /**
    * @description 警告态边框颜色
-   * @default @color-orange
+   * @default color-orange
    */
   '@line-label-warn-border-color'?: string
   /**
    * @description 警告态辅助文字颜色
-   * @default @color-orange
+   * @default color-orange
    */
   '@line-label-warn-helper-color'?: string
   /**
    * @description 错误态边框颜色
-   * @default @color-red
+   * @default color-red
    */
   '@line-label-error-border-color'?: string
   /**
    * @description 错误态辅助文字颜色
-   * @default @color-red
+   * @default color-red
    */
   '@line-label-error-helper-color'?: string
   /**
    * @description 禁用态文字颜色
-   * @default @ant-color-gray-5
+   * @default ant-color-gray-5
    */
   '@line-label-disabled-color'?: string
 }

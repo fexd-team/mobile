@@ -5,21 +5,30 @@
 // @no-cssvar: 用于生成选择器名称
 @slider-prefix: ~'exd-slider';
 
-@slider-track-size: 4px * @size-scale;
+// Slider 变量定义
+@slider-track-size: 4px;
 @slider-transition-duration: 0.06s;
+@slider-horizontal-padding: 16px;
+@slider-vertical-padding: 16px;
+@slider-vertical-height: 160px;
+@slider-bar-background: #e6e6e6;
+@slider-node-size: 14px;
+@slider-node-color: @color-primary;
+@slider-track-color: @color-primary;
+@slider-disabled-opacity: 0.5;
 
 .@{slider-prefix} {
   &-disabled {
-    opacity: 0.5;
+    opacity: @slider-disabled-opacity;
   }
 
   &-horizontal {
-    padding: 16px * @size-scale 0;
+    padding: @slider-horizontal-padding * @size-scale 0;
 
     .@{slider-prefix} {
       &-bar {
         width: 100%;
-        height: @slider-track-size;
+        height: @slider-track-size * @size-scale;
       }
 
       &-node {
@@ -28,7 +37,7 @@
       }
 
       &-track {
-        height: @slider-track-size;
+        height: @slider-track-size * @size-scale;
         // transition: width @slider-transition-duration, left @slider-transition-duration;
       }
     }
@@ -36,13 +45,13 @@
 
   &-vertical {
     display: inline-block;
-    padding: 0 16px * @size-scale;
-    height: 160px * @size-scale;
+    padding: 0 @slider-vertical-padding * @size-scale;
+    height: @slider-vertical-height * @size-scale;
 
     .@{slider-prefix} {
       &-bar {
         height: 100%;
-        width: @slider-track-size;
+        width: @slider-track-size * @size-scale;
         transform: rotate(180deg);
       }
 
@@ -52,29 +61,29 @@
       }
 
       &-track {
-        width: @slider-track-size;
+        width: @slider-track-size * @size-scale;
         // transition: height @slider-transition-duration, top @slider-transition-duration;
       }
     }
   }
 
   &-bar {
-    background-color: #e6e6e6;
+    background-color: @slider-bar-background;
     position: relative;
   }
 
   &-node {
     position: absolute;
     transform: translate3d(-50%, -50%, 0);
-    width: 14px * @size-scale;
-    height: 14px * @size-scale;
+    width: @slider-node-size * @size-scale;
+    height: @slider-node-size * @size-scale;
     border-radius: 50%;
-    background-color: @color-primary;
+    background-color: @slider-node-color;
   }
 
   &-track {
     position: relative;
-    background-color: @color-primary;
+    background-color: @slider-track-color;
     transform: translateZ(0);
   }
 }

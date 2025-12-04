@@ -3,13 +3,19 @@
 
 // @no-cssvar: 用于生成选择器名称
 @tabs-prefix: ~'exd-tabs';
+
+// Tabs 变量定义
 @tabs-height: 50px;
 @tabs-background: #fff;
+@tabs-border-width: 1px;
 @tabs-border-color: #efeff4;
 @tabs-indicator-width: 24px;
 @tabs-indicator-height: 4px;
 @tabs-indicator-color: @color-primary;
+@tabs-indicator-border-radius: 4px;
+@tabs-indicator-transition-duration: 0.3s;
 @tabs-scroll-padding-bottom: 20px;
+@tabs-indicator-offset: 2px;
 
 .@{tabs-prefix} {
   position: relative;
@@ -17,7 +23,7 @@
   height: @tabs-height;
   overflow: hidden;
   background: @tabs-background;
-  border: 1px solid @tabs-border-color;
+  border: @tabs-border-width solid @tabs-border-color;
   border-left: none;
   border-right: none;
 
@@ -32,9 +38,9 @@
     width: @tabs-indicator-width * @size-scale;
     height: @tabs-indicator-height * @size-scale;
     background: @tabs-indicator-color;
-    border-radius: @tabs-indicator-height * @size-scale;
+    border-radius: @tabs-indicator-border-radius * @size-scale;
     z-index: 1;
-    transition: transform 0.3s cubic-bezier(0.645, 0.045, 0.355, 1);
+    transition: transform @tabs-indicator-transition-duration cubic-bezier(0.645, 0.045, 0.355, 1);
     opacity: 0;
   }
 
@@ -52,9 +58,9 @@
       width: @tabs-indicator-width * @size-scale;
       height: @tabs-indicator-height * @size-scale;
       background: @tabs-indicator-color;
-      border-radius: @tabs-indicator-height * @size-scale;
+      border-radius: @tabs-indicator-border-radius * @size-scale;
       z-index: 1;
-      transition: transform 0.3s cubic-bezier(0.645, 0.045, 0.355, 1);
+      transition: transform @tabs-indicator-transition-duration cubic-bezier(0.645, 0.045, 0.355, 1);
 
       &--hidden {
         display: none;
@@ -100,10 +106,10 @@
       width: @tabs-indicator-width * @size-scale;
       height: @tabs-indicator-height * @size-scale;
       background: @tabs-indicator-color;
-      border-radius: @tabs-indicator-height * @size-scale;
+      border-radius: @tabs-indicator-border-radius * @size-scale;
       z-index: 1;
-      transition: transform 0.3s cubic-bezier(0.645, 0.045, 0.355, 1);
-      top: (@tabs-height - @tabs-indicator-height - 2px) * @size-scale;
+      transition: transform @tabs-indicator-transition-duration cubic-bezier(0.645, 0.045, 0.355, 1);
+      top: (@tabs-height - @tabs-indicator-height - @tabs-indicator-offset) * @size-scale;
 
       &--hidden {
         display: none;

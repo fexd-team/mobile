@@ -45,12 +45,12 @@ export interface RadioStyleVars {
   '@radio-prefix'?: string
   /**
    * @description 图标默认颜色
-   * @default @color-gray
+   * @default color-gray
    */
   '@radio-default-color'?: string
   /**
    * @description 图标选中颜色
-   * @default @color-primary
+   * @default color-primary
    */
   '@radio-active-color'?: string
   /**
@@ -65,12 +65,12 @@ export interface RadioStyleVars {
   '@radio-icon-size'?: string
   /**
    * @description 禁用颜色
-   * @default @ant-color-gray-5
+   * @default ant-color-gray-5
    */
   '@radio-disabled-color'?: string
   /**
    * @description 描述颜色
-   * @default @ant-color-gray-7
+   * @default ant-color-gray-7
    */
   '@radio-description-color'?: string
   /**

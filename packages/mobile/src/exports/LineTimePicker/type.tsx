@@ -10,12 +10,12 @@ export interface LineTimePickerProps extends Omit<UnstyledIOTimePickerProps, 'th
 export interface LineTimePickerStyleVars {
   /**
    * @description 禁用态文字颜色
-   * @default @ant-color-gray-7
+   * @default ant-color-gray-7
    */
   '@line-time-picker-disabled-color'?: string
   /**
    * @description 清除按钮颜色
-   * @default @ant-color-gray-5
+   * @default ant-color-gray-5
    */
   '@line-time-picker-clear-color'?: string
   /**
@@ -25,7 +25,7 @@ export interface LineTimePickerStyleVars {
   '@line-time-picker-arrow-font-size'?: string
   /**
    * @description 箭头图标颜色
-   * @default @ant-color-gray-6
+   * @default ant-color-gray-6
    */
   '@line-time-picker-arrow-color'?: string
 }

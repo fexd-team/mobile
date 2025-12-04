@@ -10,12 +10,12 @@ export interface CellTimePickerProps extends Omit<UnstyledIOTimePickerProps, 'th
 export interface CellTimePickerStyleVars {
   /**
    * @description 禁用态文字颜色
-   * @default @ant-color-gray-7
+   * @default ant-color-gray-7
    */
   '@cell-time-picker-disabled-color'?: string
   /**
    * @description 清除按钮颜色
-   * @default @ant-color-gray-5
+   * @default ant-color-gray-5
    */
   '@cell-time-picker-clear-color'?: string
   /**
@@ -25,7 +25,7 @@ export interface CellTimePickerStyleVars {
   '@cell-time-picker-arrow-font-size'?: string
   /**
    * @description 箭头图标颜色
-   * @default @ant-color-gray-6
+   * @default ant-color-gray-6
    */
   '@cell-time-picker-arrow-color'?: string
 }

@@ -107,7 +107,7 @@ export interface BasicButtonStyleVars {
   '@btn-border-width'?: string
   /**
    * @description 朴素按钮边框颜色
-   * @default @color-gray-border
+   * @default color-gray-border
    */
   '@btn-border-color-plain'?: string
   /**
@@ -167,7 +167,7 @@ export interface BasicButtonStyleVars {
   '@btn-active-opacity-light'?: string
   /**
    * @description 白色
-   * @default @color-white
+   * @default color-white
    */
   '@btn-color-white'?: string
   /**

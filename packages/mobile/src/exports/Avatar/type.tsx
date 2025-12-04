@@ -65,12 +65,12 @@ export interface AvatarStyleVars {
   '@avatar-small-font-size'?: string
   /**
    * @description 头像背景颜色
-   * @default @ant-color-gray-4
+   * @default ant-color-gray-4
    */
   '@avatar-background'?: string
   /**
    * @description 头像文字颜色
-   * @default @ant-color-cyan-4
+   * @default ant-color-cyan-4
    */
   '@avatar-color'?: string
   /**
@@ -90,17 +90,17 @@ export interface AvatarStyleVars {
   '@avatar-group-border-width'?: string
   /**
    * @description Avatar 组合边框颜色
-   * @default #fff
+   * @default color-white (#fff)
    */
   '@avatar-group-border-color'?: string
   /**
    * @description Avatar 组合额外项背景色
-   * @default rgb(253, 227, 207)
+   * @default ant-color-orange-2 (#ffe7ba)
    */
   '@avatar-group-extra-background'?: string
   /**
    * @description Avatar 组合额外项文字颜色
-   * @default rgb(245, 106, 0)
+   * @default ant-color-orange-6 (#fa8c16)
    */
   '@avatar-group-extra-color'?: string
 }

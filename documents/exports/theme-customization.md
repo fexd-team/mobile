@@ -13,11 +13,33 @@ mobileDemoFixed: false
 
 # 主题定制
 
-FEXD Mobile 组件库提供了丰富的 Less 变量，支持通过覆盖变量的方式进行样式自定义和主题定制。
+FEXD Mobile 组件库提供了两种主题定制方式：
 
-## 定制方式
+## 定制方式对比
 
-### 方式一：覆盖 Less 变量
+| 特性           | Less 变量（推荐） | CSS 变量（实验性）      |
+| :------------- | :---------------- | :---------------------- |
+| **稳定性**     | ✅ 生产可用       | ⚠️ 实验阶段             |
+| **定制时机**   | 编译时            | 运行时                  |
+| **动态主题**   | ❌ 不支持         | ✅ 支持                 |
+| **浏览器兼容** | 所有浏览器        | 现代浏览器（不支持 IE） |
+| **性能**       | 无运行时开销      | 轻微运行时开销          |
+| **推荐场景**   | 大多数项目        | 需要动态主题切换的场景  |
+
+### 选择建议
+
+- ✅ **推荐使用 Less 变量**：稳定可靠，适合大多数生产环境
+- ⚠️ **谨慎使用 CSS 变量**：实验性功能，仅在确实需要运行时动态主题切换时使用
+
+---
+
+## Less 变量方式（推荐）
+
+Less 变量方式是编译时的主题定制方案，**稳定可靠**，适合大多数场景。
+
+### 定制方式
+
+#### 方式一：覆盖 Less 变量
 
 在你的项目中创建一个 Less 文件，**先引入组件库样式，再覆盖变量**：
 
@@ -34,7 +56,7 @@ FEXD Mobile 组件库提供了丰富的 Less 变量，支持通过覆盖变量�
 
 > **注意**：由于 Less 变量是懒计算的（lazy evaluation），变量值取决于最后一次定义。所以必须先 `@import` 再定义变量，否则组件库内部的变量定义会覆盖你的配置。
 
-### 方式二：配置 Less-loader（Webpack）
+#### 方式二：配置 Less-loader（Webpack）
 
 在构建工具中配置 `less-loader` 的 `modifyVars` 选项：
 
@@ -72,39 +94,24 @@ module.exports = {
 **配合 babel-plugin-import 自动引入样式**：
 
 ```js
-// webpack.config.js
+// babel.config.js
 module.exports = {
-  module: {
-    rules: [
+  plugins: [
+    [
+      'babel-plugin-import',
       {
-        test: /\.(js|jsx|ts|tsx)$/,
-        use: {
-          loader: 'babel-loader',
-          options: {
-            plugins: [
-              [
-                'import',
-                {
-                  libraryName: '@fexd/mobile',
-                  libraryDirectory: 'es/exports',
-                  // 普通模式：引入 style.less
-                  style: true,
-                  // CSS 变量模式：引入 style.cssvars.less
-                  // style: (name) => `@fexd/mobile/es/exports/${name}/style.cssvars.less`,
-                },
-                '@fexd/mobile',
-              ],
-            ],
-          },
-        },
+        libraryName: '@fexd/mobile',
+        libraryDirectory: 'lib/exports', // or 'es/exports'
+        camel2DashComponentName: false,
+        style: (name) => `${name}/style.less`, // or `${name}/style.css`
       },
-      // ... less-loader 配置
+      '@fexd/mobile',
     ],
-  },
+  ],
 }
 ```
 
-### 方式三：Vite 配置
+#### 方式三：Vite 配置
 
 ```js
 // vite.config.js
@@ -148,11 +155,7 @@ export default defineConfig({
           libraryName: '@fexd/mobile',
           esModule: true,
           resolveStyle: (name) => {
-            // 普通模式：引入 style.less
-            // return `@fexd/mobile/es/exports/${name}/style.less`;
-
-            // CSS 变量模式：引入 style.cssvars.less
-            return `@fexd/mobile/es/exports/${name}/style.cssvars.less`
+            return `@fexd/mobile/es/exports/${name}/style.less`
           },
         },
       ],
@@ -161,6 +164,10 @@ export default defineConfig({
   css: {
     preprocessorOptions: {
       less: {
+        modifyVars: {
+          'color-primary': '#722ed1',
+          'size-scale': '1.2',
+        },
         javascriptEnabled: true,
       },
     },
@@ -335,21 +342,27 @@ export default defineConfig({
 
 ---
 
-## CSS 变量模式（运行时主题）
+## CSS 变量方式（实验性）
 
-除了 Less 变量方式外，组件库还支持 **CSS 变量模式**，允许在运行时动态修改主题样式，非常适合需要动态切换主题（如浅色/深色模式）的场景。
+> ⚠️ **实验性功能**：CSS 变量模式目前处于实验阶段，API 可能会在未来版本中调整。生产环境建议优先使用 Less 变量方式。
+
+组件库还支持 **CSS 变量模式**，允许在运行时动态修改主题样式，非常适合需要动态切换主题（如浅色/深色模式）的场景。
 
 ### 优势对比
 
-| 特性       | Less 变量    | CSS 变量                |
-| :--------- | :----------- | :---------------------- |
-| 修改时机   | 编译时       | 运行时                  |
-| 主题切换   | 需要重新编译 | 无需重新编译            |
-| 动态修改   | ❌ 不支持    | ✅ 支持                 |
-| 浏览器兼容 | 所有浏览器   | 现代浏览器（不支持 IE） |
-| 性能       | 无运行时开销 | 有轻微运行时开销        |
+| 特性       | Less 变量（推荐） | CSS 变量（实验性）      |
+| :--------- | :---------------- | :---------------------- |
+| 稳定性     | ✅ 稳定           | ⚠️ 实验性               |
+| 修改时机   | 编译时            | 运行时                  |
+| 主题切换   | 需要重新编译      | 无需重新编译            |
+| 动态修改   | ❌ 不支持         | ✅ 支持                 |
+| 浏览器兼容 | 所有浏览器        | 现代浏览器（不支持 IE） |
+| 性能       | 无运行时开销      | 有轻微运行时开销        |
+| 生产推荐   | ✅ 推荐           | ⚠️ 谨慎使用             |
 
 ### 使用 CSS 变量模式
+
+> ⚠️ **注意**：此功能处于实验阶段，建议在测试环境中谨慎使用。
 
 组件库提供了预生成的 CSS 变量版本样式文件（`.cssvars.less`），**无需任何构建工具配置**，直接引入即可使用。
 
@@ -358,6 +371,7 @@ export default defineConfig({
 - ✅ **开箱即用**：无需配置 `modifyVars` 或 Less 插件
 - ✅ **已包含初始化**：`.cssvars.less` 文件已内置 CSS 变量初始化
 - ✅ **按需引入**：每个组件独立，按需引入即可
+- ⚠️ **实验性**：API 可能在未来版本中调整
 
 #### 使用步骤
 
@@ -387,18 +401,20 @@ npm install babel-plugin-import --save-dev
 然后配置 Babel：
 
 ```javascript
-// .babelrc 或 babel.config.js
-{
-  "plugins": [
+// babel.config.js
+module.exports = {
+  plugins: [
     [
-      "import",
+      'babel-plugin-import',
       {
-        "libraryName": "@fexd/mobile",
-        "libraryDirectory": "es/exports",
-        "style": (name) => `@fexd/mobile/es/exports/${name}/style.cssvars.less`,
-      }
-    ]
-  ]
+        libraryName: '@fexd/mobile',
+        libraryDirectory: 'lib/exports', // or 'es/exports'
+        camel2DashComponentName: false,
+        style: (name) => `${name}/style.cssvars.less`,
+      },
+      '@fexd/mobile',
+    ],
+  ],
 }
 ```
 
@@ -409,8 +425,8 @@ npm install babel-plugin-import --save-dev
 import { Button, Radio } from '@fexd/mobile'
 
 // 样式会自动引入为：
-// import '@fexd/mobile/es/exports/Button/style.cssvars.less';
-// import '@fexd/mobile/es/exports/Radio/style.cssvars.less';
+// import '@fexd/mobile/lib/exports/Button/style.cssvars.less';
+// import '@fexd/mobile/lib/exports/Radio/style.cssvars.less';
 ```
 
 **方式 3：全量引入**
@@ -472,11 +488,12 @@ ReactDOM.render(<App />, document.getElementById('root'))
 module.exports = {
   plugins: [
     [
-      'import',
+      'babel-plugin-import',
       {
         libraryName: '@fexd/mobile',
-        libraryDirectory: 'es/exports',
-        style: (name) => `@fexd/mobile/es/exports/${name}/style.cssvars.less`,
+        libraryDirectory: 'lib/exports', // or 'es/exports'
+        camel2DashComponentName: false,
+        style: (name) => `${name}/style.cssvars.less`,
       },
       '@fexd/mobile',
     ],
@@ -753,8 +770,8 @@ export default () => {
   }, [sizeScale])
 
   useEffect(() => {
-    // 修改按钮圆角
-    document.documentElement.style.setProperty('--exd-basic-btn-border-radius', `${borderRadius}px`)
+    // 修改按钮圆角（square 形状的圆角）
+    document.documentElement.style.setProperty('--exd-btn-border-radius-square', `${borderRadius}px`)
   }, [borderRadius])
 
   const presetColors = [
@@ -818,10 +835,10 @@ export default () => {
       <div style={sectionStyle}>
         <h4 style={{ margin: '0 0 12px 0' }}>效果预览</h4>
         <Space direction="vertical" style={{ width: '100%' }}>
-          <Button type="primary" block>
+          <Button type="primary" shape="square" block>
             主按钮
           </Button>
-          <Button type="default" block>
+          <Button type="default" shape="square" block>
             次按钮
           </Button>
           <Radio checked>单选框选项</Radio>
@@ -843,7 +860,7 @@ export default () => {
         >
           {`--exd-color-primary: ${primaryColor};
 --exd-size-scale: ${sizeScale};
---exd-basic-btn-border-radius: ${borderRadius}px;`}
+--exd-btn-border-radius-square: ${borderRadius}px;`}
         </pre>
       </div>
     </div>
@@ -1328,18 +1345,19 @@ A: 在 Babel 配置中设置 `style` 选项指向 `.cssvars.less` 文件：
 
 ```javascript
 // babel.config.js
-{
+module.exports = {
   plugins: [
     [
-      'import',
+      'babel-plugin-import',
       {
         libraryName: '@fexd/mobile',
-        libraryDirectory: 'es/exports',
-        style: (name) => `@fexd/mobile/es/exports/${name}/style.cssvars.less`,
+        libraryDirectory: 'lib/exports', // or 'es/exports'
+        camel2DashComponentName: false,
+        style: (name) => `${name}/style.cssvars.less`,
       },
       '@fexd/mobile',
     ],
-  ]
+  ],
 }
 ```
 
@@ -1349,8 +1367,8 @@ A: 在 Babel 配置中设置 `style` 选项指向 `.cssvars.less` 文件：
 
 A: 可以，但建议选择其中一种方式：
 
-- 如果只需要编译时定制，使用 Less 变量即可
-- 如果需要运行时动态切换主题，使用 CSS 变量模式
+- **推荐**：如果只需要编译时定制，使用 Less 变量（稳定）
+- **实验性**：如果需要运行时动态切换主题，使用 CSS 变量模式（需谨慎）
 
 **Q: 如何查看所有可用的 CSS 变量？**
 
@@ -1364,7 +1382,7 @@ A: 只需要修改引入的样式文件路径：
 // 普通模式（Less 变量）
 import '@fexd/mobile/es/exports/Button/style.less'
 
-// CSS 变量模式
+// CSS 变量模式（实验性）
 import '@fexd/mobile/es/exports/Button/style.cssvars.less'
 ```
 
@@ -1372,10 +1390,36 @@ import '@fexd/mobile/es/exports/Button/style.cssvars.less'
 
 ```javascript
 // 普通模式
-style: true,  // 或 style: (name) => `@fexd/mobile/es/exports/${name}/style.less`
+module.exports = {
+  plugins: [
+    [
+      'babel-plugin-import',
+      {
+        libraryName: '@fexd/mobile',
+        libraryDirectory: 'lib/exports',
+        camel2DashComponentName: false,
+        style: (name) => `${name}/style.less`,
+      },
+      '@fexd/mobile',
+    ],
+  ],
+}
 
-// CSS 变量模式
-style: (name) => `@fexd/mobile/es/exports/${name}/style.cssvars.less`
+// CSS 变量模式（实验性）
+module.exports = {
+  plugins: [
+    [
+      'babel-plugin-import',
+      {
+        libraryName: '@fexd/mobile',
+        libraryDirectory: 'lib/exports',
+        camel2DashComponentName: false,
+        style: (name) => `${name}/style.cssvars.less`,
+      },
+      '@fexd/mobile',
+    ],
+  ],
+}
 ```
 
 **Q: 修改了 CSS 变量但样式没有变化？**
@@ -1385,3 +1429,13 @@ A: 请检查：
 - 是否已引入组件的 `.cssvars.less` 文件
 - CSS 变量名是否正确（组件变量需要 `--exd-` 前缀，Ant 颜色变量需要 `--ant-color-` 前缀）
 - 是否在正确的作用域（通常是 `:root`）设置变量
+- 确认使用的是 CSS 变量模式的样式文件（`.cssvars.less`）而非普通模式（`.less`）
+
+**Q: CSS 变量模式有什么已知问题？**
+
+A: 作为实验性功能，CSS 变量模式可能存在以下问题：
+
+- 部分组件的 CSS 变量支持可能不完整
+- API 可能在未来版本中调整
+- 某些复杂样式计算可能不够精确
+- 建议在生产环境优先使用 Less 变量方式

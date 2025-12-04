@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { createContext } from 'react'
 import {
   Button,
   toast,
@@ -8,9 +8,49 @@ import {
   showModal,
   showPopup,
   showActionSheet,
+  useShowModal,
+  useShowDialog,
   DemoBlock,
 } from '@fexd/mobile'
 import { delay } from '@fexd/tools'
+
+// 示例 Context
+const ThemeContext = createContext({ theme: 'light' })
+
+function HookDemo() {
+  const [showModal, modalStation] = useShowModal()
+  const [showDialog, dialogStation] = useShowDialog()
+
+  return (
+    <ThemeContext.Provider value={{ theme: 'dark' }}>
+      {modalStation}
+      {dialogStation}
+
+      <DemoBlock inline title="Hook 方式（支持 Context）">
+        <Button
+          onClick={() => {
+            showModal({
+              content: (
+                <ThemeContext.Consumer>{(context) => <div>当前主题: {context.theme}</div>}</ThemeContext.Consumer>
+              ),
+            })
+          }}
+        >
+          useShowModal
+        </Button>
+        <Button
+          onClick={() => {
+            showDialog({
+              content: <ThemeContext.Consumer>{(context) => <div>主题: {context.theme}</div>}</ThemeContext.Consumer>,
+            })
+          }}
+        >
+          useShowDialog
+        </Button>
+      </DemoBlock>
+    </ThemeContext.Provider>
+  )
+}
 
 export default () => (
   <>
@@ -77,5 +117,7 @@ export default () => (
         showActionSheet
       </Button>
     </DemoBlock>
+
+    <HookDemo />
   </>
 )

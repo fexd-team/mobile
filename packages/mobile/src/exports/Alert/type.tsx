@@ -99,122 +99,122 @@ export interface AlertStyleVars {
   '@alert-close-font-size'?: string
   /**
    * @description Info 类型背景色
-   * @default rgb(229, 246, 253)
+   * @default ant-color-blue-1 (#e6f7ff)
    */
   '@alert-info-background'?: string
   /**
    * @description Info 类型文字颜色
-   * @default rgb(1, 67, 97)
+   * @default ant-color-blue-9 (#003a8c)
    */
   '@alert-info-color'?: string
   /**
    * @description Info 类型图标颜色
-   * @default rgb(3, 169, 244)
+   * @default ant-color-blue-5 (#40a9ff)
    */
   '@alert-info-icon-color'?: string
   /**
    * @description Info 类型描边边框颜色
-   * @default rgb(3, 169, 244)
+   * @default ant-color-blue-5 (#40a9ff)
    */
   '@alert-info-outlined-border-color'?: string
   /**
    * @description Info 类型填充背景色
-   * @default rgb(2, 136, 209)
+   * @default ant-color-blue-6 (#1890ff)
    */
   '@alert-info-filled-background'?: string
   /**
    * @description Info 类型填充文字颜色
-   * @default rgb(255, 255, 255)
+   * @default color-white (#fff)
    */
   '@alert-info-filled-color'?: string
   /**
    * @description Success 类型背景色
-   * @default rgb(237, 247, 237)
+   * @default ant-color-green-1 (#f6ffed)
    */
   '@alert-success-background'?: string
   /**
    * @description Success 类型文字颜色
-   * @default rgb(30, 70, 32)
+   * @default ant-color-green-9 (#135200)
    */
   '@alert-success-color'?: string
   /**
    * @description Success 类型图标颜色
-   * @default rgb(76, 175, 80)
+   * @default ant-color-green-6 (#52c41a)
    */
   '@alert-success-icon-color'?: string
   /**
    * @description Success 类型描边边框颜色
-   * @default rgb(76, 175, 80)
+   * @default ant-color-green-6 (#52c41a)
    */
   '@alert-success-outlined-border-color'?: string
   /**
    * @description Success 类型填充背景色
-   * @default rgb(46, 125, 50)
+   * @default ant-color-green-7 (#389e0d)
    */
   '@alert-success-filled-background'?: string
   /**
    * @description Success 类型填充文字颜色
-   * @default rgb(255, 255, 255)
+   * @default color-white (#fff)
    */
   '@alert-success-filled-color'?: string
   /**
    * @description Warning 类型背景色
-   * @default rgb(255, 244, 229)
+   * @default ant-color-orange-1 (#fff7e6)
    */
   '@alert-warning-background'?: string
   /**
    * @description Warning 类型文字颜色
-   * @default rgb(102, 60, 0)
+   * @default ant-color-orange-9 (#873800)
    */
   '@alert-warning-color'?: string
   /**
    * @description Warning 类型图标颜色
-   * @default rgb(255, 152, 0)
+   * @default ant-color-orange-5 (#ffa940)
    */
   '@alert-warning-icon-color'?: string
   /**
    * @description Warning 类型描边边框颜色
-   * @default rgb(255, 152, 0)
+   * @default ant-color-orange-5 (#ffa940)
    */
   '@alert-warning-outlined-border-color'?: string
   /**
    * @description Warning 类型填充背景色
-   * @default rgb(237, 108, 2)
+   * @default ant-color-orange-7 (#d46b08)
    */
   '@alert-warning-filled-background'?: string
   /**
    * @description Warning 类型填充文字颜色
-   * @default rgb(255, 255, 255)
+   * @default color-white (#fff)
    */
   '@alert-warning-filled-color'?: string
   /**
    * @description Error 类型背景色
-   * @default rgb(253, 237, 237)
+   * @default ant-color-red-1 (#fff1f0)
    */
   '@alert-error-background'?: string
   /**
    * @description Error 类型文字颜色
-   * @default rgb(95, 33, 32)
+   * @default ant-color-red-9 (#820014)
    */
   '@alert-error-color'?: string
   /**
    * @description Error 类型图标颜色
-   * @default rgb(239, 83, 80)
+   * @default ant-color-red-5 (#ff4d4f)
    */
   '@alert-error-icon-color'?: string
   /**
    * @description Error 类型描边边框颜色
-   * @default rgb(239, 83, 80)
+   * @default ant-color-red-5 (#ff4d4f)
    */
   '@alert-error-outlined-border-color'?: string
   /**
    * @description Error 类型填充背景色
-   * @default rgb(211, 47, 47)
+   * @default ant-color-red-7 (#cf1322)
    */
   '@alert-error-filled-background'?: string
   /**
    * @description Error 类型填充文字颜色
-   * @default rgb(255, 255, 255)
+   * @default color-white (#fff)
    */
   '@alert-error-filled-color'?: string
 }

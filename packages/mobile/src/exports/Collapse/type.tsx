@@ -59,6 +59,11 @@ export interface CollapseStyleVars {
    */
   '@collapse-header-padding'?: string
   /**
+   * @description 头部边框宽度
+   * @default 1px
+   */
+  '@collapse-header-border-width'?: string
+  /**
    * @description 头部边框颜色
    * @default #f5f5f5
    */
@@ -68,6 +73,16 @@ export interface CollapseStyleVars {
    * @default #999
    */
   '@collapse-icon-color'?: string
+  /**
+   * @description 图标旋转角度
+   * @default 90deg
+   */
+  '@collapse-icon-rotate-deg'?: string
+  /**
+   * @description 图标过渡动画时长
+   * @default 0.2s
+   */
+  '@collapse-icon-transition-duration'?: string
   /**
    * @description 禁用状态颜色
    * @default #d6d6d6
@@ -84,10 +99,20 @@ export interface CollapseStyleVars {
    */
   '@collapse-content-color'?: string
   /**
+   * @description 内容边框宽度
+   * @default 1px
+   */
+  '@collapse-content-border-width'?: string
+  /**
    * @description 内容边框颜色
    * @default #eee
    */
   '@collapse-content-border-color'?: string
+  /**
+   * @description 内容区域过渡动画时长
+   * @default 0.2s
+   */
+  '@collapse-content-transition-duration'?: string
 }
 
 export const DOC_CollapseStyleVars = AUTO_API<CollapseStyleVars>()

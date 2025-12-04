@@ -4,16 +4,23 @@
 // https://less.bootcss.com/features/#variables-lazy-evaluation
 // @no-cssvar: 用于生成选择器名称
 @collapse-prefix: ~'exd-collapse';
+
+// Collapse 变量定义
 @collapse-background: #fff;
 @collapse-font-size: 16px;
 @collapse-padding-left: 12px;
 @collapse-header-padding: 12px;
+@collapse-header-border-width: 1px;
 @collapse-header-border-color: #f5f5f5;
 @collapse-icon-color: #999;
+@collapse-icon-rotate-deg: 90deg;
+@collapse-icon-transition-duration: 0.2s;
 @collapse-disabled-color: #d6d6d6;
 @collapse-content-font-size: 14px;
 @collapse-content-color: #999;
+@collapse-content-border-width: 1px;
 @collapse-content-border-color: #eee;
+@collapse-content-transition-duration: 0.2s;
 
 .@{collapse-prefix} {
   /* 组件样式 */
@@ -28,7 +35,7 @@
       display: flex;
       justify-content: flex-start;
       padding: @collapse-header-padding @collapse-header-padding @collapse-header-padding 0;
-      border-bottom: solid 1px @collapse-header-border-color;
+      border-bottom: solid @collapse-header-border-width @collapse-header-border-color;
     }
 
     &-title {
@@ -42,10 +49,10 @@
       color: @collapse-icon-color;
       font-size: @collapse-font-size;
       transform: rotate(0deg);
-      transition: all 0.2s ease;
+      transition: all @collapse-icon-transition-duration ease;
 
       &-active {
-        transform: rotate(90deg);
+        transform: rotate(@collapse-icon-rotate-deg);
       }
     }
 
@@ -63,14 +70,14 @@
       color: @collapse-content-color;
       overflow: hidden;
       height: 0;
-      transition: height 0.2s ease;
+      transition: height @collapse-content-transition-duration ease;
 
       &-box {
         display: flex;
         align-items: center;
         justify-content: flex-start;
         padding: @collapse-header-padding @collapse-header-padding @collapse-header-padding 0;
-        border-bottom: solid 1px @collapse-content-border-color;
+        border-bottom: solid @collapse-content-border-width @collapse-content-border-color;
       }
     }
   }

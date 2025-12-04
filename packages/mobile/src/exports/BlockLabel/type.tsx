@@ -28,7 +28,7 @@ export interface BlockLabelStyleVars {
   '@block-label-bar-border-radius'?: string
   /**
    * @description 标签栏边框颜色
-   * @default @ant-color-gray-10
+   * @default ant-color-gray-10
    */
   '@block-label-bar-border-color'?: string
   /**
@@ -58,7 +58,7 @@ export interface BlockLabelStyleVars {
   '@block-label-content-font-size'?: string
   /**
    * @description 内容文字颜色
-   * @default @ant-color-gray-10
+   * @default ant-color-gray-10
    */
   '@block-label-content-color'?: string
   /**
@@ -123,57 +123,57 @@ export interface BlockLabelStyleVars {
   '@block-label-suffix-padding-right'?: string
   /**
    * @description 光标颜色
-   * @default @color-primary
+   * @default color-primary
    */
   '@block-label-caret-color'?: string
   /**
    * @description 信息态边框颜色
-   * @default @ant-color-gray-5
+   * @default ant-color-gray-5
    */
   '@block-label-info-border-color'?: string
   /**
    * @description 信息态辅助文字颜色
-   * @default @ant-color-gray-7
+   * @default ant-color-gray-7
    */
   '@block-label-info-helper-color'?: string
   /**
    * @description 成功态边框颜色
-   * @default @color-green
+   * @default color-green
    */
   '@block-label-success-border-color'?: string
   /**
    * @description 成功态辅助文字颜色
-   * @default @color-green
+   * @default color-green
    */
   '@block-label-success-helper-color'?: string
   /**
    * @description 警告态边框颜色
-   * @default @color-orange
+   * @default color-orange
    */
   '@block-label-warn-border-color'?: string
   /**
    * @description 警告态辅助文字颜色
-   * @default @color-orange
+   * @default color-orange
    */
   '@block-label-warn-helper-color'?: string
   /**
    * @description 错误态边框颜色
-   * @default @color-red
+   * @default color-red
    */
   '@block-label-error-border-color'?: string
   /**
    * @description 错误态辅助文字颜色
-   * @default @color-red
+   * @default color-red
    */
   '@block-label-error-helper-color'?: string
   /**
    * @description 禁用态边框颜色
-   * @default @ant-color-gray-5
+   * @default ant-color-gray-5
    */
   '@block-label-disabled-border-color'?: string
   /**
    * @description 禁用态文字颜色
-   * @default @ant-color-gray-5
+   * @default ant-color-gray-5
    */
   '@block-label-disabled-color'?: string
 }

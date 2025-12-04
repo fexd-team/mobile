@@ -51,8 +51,13 @@ export interface PopupStyleVars {
    */
   '@popup-background'?: string
   /**
+   * @description 头部边框宽度
+   * @default 1px
+   */
+  '@popup-header-border-width'?: string
+  /**
    * @description 头部边框颜色
-   * @default @color-gray-background
+   * @default color-gray-background
    */
   '@popup-header-border-color'?: string
   /**

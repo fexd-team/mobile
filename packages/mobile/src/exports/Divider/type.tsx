@@ -40,6 +40,11 @@ export interface DividerStyleVars {
    * @default 8px
    */
   '@divider-vertical-margin-x'?: string
+  /**
+   * @description 分隔线边框宽度
+   * @default 1px
+   */
+  '@divider-line-border-width'?: string
 }
 
 export const DOC_DividerStyleVars = AUTO_API<DividerStyleVars>()

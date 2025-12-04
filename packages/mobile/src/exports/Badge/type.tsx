@@ -30,12 +30,12 @@ export interface BadgeStyleVars {
   '@badge-prefix'?: string
   /**
    * @description Badge 文字颜色
-   * @default #fff
+   * @default color-white (#fff)
    */
   '@badge-color'?: string
   /**
    * @description Badge 背景颜色
-   * @default #ff411c
+   * @default ant-color-red-5 (#ff4d4f)
    */
   '@badge-background'?: string
   /**

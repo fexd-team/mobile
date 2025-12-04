@@ -27,17 +27,17 @@ const IOLabelDemo = ({ theme, themeName }: any) => {
         <div style={{ padding: '8px 0', color: hasValue ? '#333' : '#999' }}>{hasValue ? '已输入内容' : ''}</div>
       </UnstyledIOLabel>
 
-      <Space style={{ marginTop: 10 }}>
-        <Button size="small" type={focused ? 'primary' : 'default'} onClick={() => setFocused(!focused)}>
+      <Space gap={10}>
+        <Button size="small" type={focused ? 'primary' : 'plain'} onClick={() => setFocused(!focused)}>
           {focused ? '聚焦中' : '未聚焦'}
         </Button>
-        <Button size="small" type={hasValue ? 'primary' : 'default'} onClick={() => setHasValue(!hasValue)}>
+        <Button size="small" type={hasValue ? 'primary' : 'plain'} onClick={() => setHasValue(!hasValue)}>
           {hasValue ? '有值' : '无值'}
         </Button>
-        <Button size="small" type={disabled ? 'warn' : 'default'} onClick={() => setDisabled(!disabled)}>
+        <Button size="small" type={disabled ? 'warning' : 'plain'} onClick={() => setDisabled(!disabled)}>
           {disabled ? '已禁用' : '未禁用'}
         </Button>
-        <Button size="small" type={error ? 'danger' : 'default'} onClick={() => setError(error ? '' : '格式错误')}>
+        <Button size="small" type={error ? 'danger' : 'plain'} onClick={() => setError(error ? '' : '格式错误')}>
           {error ? '有错误' : '无错误'}
         </Button>
       </Space>

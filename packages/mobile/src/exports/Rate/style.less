@@ -3,12 +3,14 @@
 // @no-cssvar: 用于生成选择器名称
 @rate-prefix: ~'exd-rate';
 
+// Rate 变量定义
 @rate-active-color: @color-yellow;
 @rate-default-color: @ant-color-gray-4;
-
+@rate-disabled-color: @ant-color-gray-7;
 @rate-small-size: 18px;
 @rate-default-size: 24px;
 @rate-large-size: 30px;
+@rate-character-padding: 3px;
 
 .@{rate-prefix} {
   display: inline-flex;
@@ -35,7 +37,7 @@
   }
 
   &-disabled {
-    color: @ant-color-gray-7;
+    color: @rate-disabled-color;
     cursor: not-allowed;
   }
 
@@ -44,7 +46,7 @@
   }
 
   &-character {
-    padding: 0 3px * @size-scale;
+    padding: 0 @rate-character-padding * @size-scale;
     font-size: inherit;
     color: @rate-default-color;
     text-align: center;

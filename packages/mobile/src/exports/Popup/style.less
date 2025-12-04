@@ -4,8 +4,11 @@
 
 // @no-cssvar: 用于生成选择器名称
 @popup-prefix: ~'exd-popup';
+
+// Popup 变量定义
 @popup-border-radius: 14px;
 @popup-background: #fff;
+@popup-header-border-width: 1px;
 @popup-header-border-color: @color-gray-background;
 @popup-transition-duration: 0.3s;
 
@@ -38,7 +41,7 @@
 
   &-header {
     flex-shrink: 0;
-    border-bottom: solid 1px @popup-header-border-color;
-    border-top: solid 1px @popup-header-border-color;
+    border-bottom: solid @popup-header-border-width @popup-header-border-color;
+    border-top: solid @popup-header-border-width @popup-header-border-color;
   }
 }

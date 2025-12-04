@@ -47,7 +47,7 @@ export interface SliderStyleVars {
    * @description 轨道背景颜色
    * @default #e6e6e6
    */
-  '@slider-bar-background-color'?: string
+  '@slider-bar-background'?: string
   /**
    * @description 滑块节点大小
    * @default 14px
@@ -55,12 +55,12 @@ export interface SliderStyleVars {
   '@slider-node-size'?: string
   /**
    * @description 滑块节点颜色
-   * @default @color-primary
+   * @default color-primary
    */
   '@slider-node-color'?: string
   /**
    * @description 激活轨道颜色
-   * @default @color-primary
+   * @default color-primary
    */
   '@slider-track-color'?: string
   /**

@@ -47,7 +47,7 @@ export interface SwitchStyleVars {
   '@switch-background-color'?: string
   /**
    * @description 选中状态背景色
-   * @default @color-primary
+   * @default color-primary
    */
   '@switch-active-color'?: string
   /**

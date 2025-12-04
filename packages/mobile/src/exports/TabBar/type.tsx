@@ -45,7 +45,7 @@ export interface TabBarStyleVars {
   '@tab-bar-item-prefix'?: string
   /**
    * @description 选中态颜色
-   * @default @color-primary
+   * @default color-primary
    */
   '@tab-bar-item-active-color'?: string
   /**

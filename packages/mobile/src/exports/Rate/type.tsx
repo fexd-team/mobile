@@ -63,17 +63,17 @@ export interface RateStyleVars {
   '@rate-prefix'?: string
   /**
    * @description 激活态颜色
-   * @default @color-yellow
+   * @default color-yellow
    */
   '@rate-active-color'?: string
   /**
    * @description 默认颜色
-   * @default @ant-color-gray-4
+   * @default ant-color-gray-4
    */
   '@rate-default-color'?: string
   /**
    * @description 禁用态颜色
-   * @default @ant-color-gray-7
+   * @default ant-color-gray-7
    */
   '@rate-disabled-color'?: string
   /**
@@ -92,10 +92,10 @@ export interface RateStyleVars {
    */
   '@rate-large-size'?: string
   /**
-   * @description 字符间距
+   * @description 字符内边距
    * @default 3px
    */
-  '@rate-character-spacing'?: string
+  '@rate-character-padding'?: string
 }
 
 export const DOC_RateStyleVars = AUTO_API<RateStyleVars>()

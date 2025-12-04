@@ -16,10 +16,25 @@ export default AUTO_API<SpinnerProps>()
  */
 export interface SpinnerStyleVars {
   /**
+   * @description 组件的 className 前缀
+   * @default 'exd-spin'
+   */
+  '@spinner-prefix'?: string
+  /**
    * @description 加载动画大小
-   * @default 32px * @size-scale
+   * @default 32px
    */
   '@spinner-size'?: string
+  /**
+   * @description 圆环描边宽度
+   * @default 3
+   */
+  '@spinner-stroke-width'?: number
+  /**
+   * @description 动画持续时间
+   * @default 1.6s
+   */
+  '@spinner-animation-duration'?: string
 }
 
 export const DOC_SpinnerStyleVars = AUTO_API<SpinnerStyleVars>()

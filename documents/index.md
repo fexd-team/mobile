@@ -14,7 +14,7 @@ features:
     desc: 参考业内多个成熟组件库，综合组件类型多样，适用于多种业务场景
   - icon: https://gw.alipayobjects.com/zos/bmw-prod/d60657df-0822-4631-9d7c-e7a869c2f21c/k79dmz3q_w126_h126.png
     title: 灵活
-    desc: 颗粒细、功能全、体积小（gzipped 平均 5kb），按需加载，便于组合
+    desc: 颗粒细、功能全、体积小（gzipped 平均 7kb），按需加载，便于组合
   - icon: https://gw.alipayobjects.com/zos/bmw-prod/d1ee0c6f-5aed-4a45-a507-339a4bfe076c/k7bjsocq_w144_h144.png
     title: 易用
     desc: 各组件的属性设计上，汇总了各类技术方案中的良好实践

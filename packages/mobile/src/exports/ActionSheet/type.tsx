@@ -44,7 +44,7 @@ export interface ActionSheetStyleVars {
   '@action-sheet-action-height-scale'?: string
   /**
    * @description 分割线颜色
-   * @default @ant-color-gray-3
+   * @default ant-color-gray-3
    */
   '@action-sheet-border-color'?: string
 }

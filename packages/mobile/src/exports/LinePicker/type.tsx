@@ -22,12 +22,12 @@ export interface LinePickerStyleVars {
   '@line-picker-value-font-size'?: string
   /**
    * @description 禁用态文字颜色
-   * @default @ant-color-gray-7
+   * @default ant-color-gray-7
    */
   '@line-picker-disabled-color'?: string
   /**
    * @description 清除按钮颜色
-   * @default @ant-color-gray-5
+   * @default ant-color-gray-5
    */
   '@line-picker-clear-color'?: string
   /**
@@ -37,7 +37,7 @@ export interface LinePickerStyleVars {
   '@line-picker-arrow-font-size'?: string
   /**
    * @description 箭头图标颜色
-   * @default @ant-color-gray-6
+   * @default ant-color-gray-6
    */
   '@line-picker-arrow-color'?: string
 }

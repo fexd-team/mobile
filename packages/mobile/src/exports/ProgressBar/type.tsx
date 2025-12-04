@@ -34,7 +34,7 @@ export interface ProgressBarStyleVars {
   '@progress-bar-border-radius'?: string
   /**
    * @description 进度条激活颜色
-   * @default @color-primary
+   * @default color-primary
    */
   '@progress-bar-active-color'?: string
 }

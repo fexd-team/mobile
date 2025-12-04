@@ -1,96 +1,122 @@
-@import '../../../theme/vars';
+@import '../../../theme/vars.less';
 
-.exd-timeline-item {
+// @no-cssvar: 用于生成选择器名称
+@timeline-item-prefix: ~'exd-timeline-item';
+@timeline-content-prefix: ~'exd-timeline-content';
+@timeline-line-prefix: ~'exd-timeline-line';
+@timeline-dot-prefix: ~'exd-timeline-dot';
+
+// 时间线变量定义
+@timeline-line-margin: 2px;
+@timeline-content-padding-right: 12px;
+@timeline-content-padding-bottom: 16px;
+@timeline-title-line-height: 16px;
+@timeline-title-font-size: 14px;
+@timeline-title-color: #333;
+@timeline-main-margin-top: 4px;
+@timeline-main-line-height: 14px;
+@timeline-main-font-size: 12px;
+@timeline-main-color: #666;
+@timeline-time-font-size: 12px;
+@timeline-time-line-height: 14px;
+@timeline-time-color: #999;
+@timeline-line-padding-left: 12px;
+@timeline-line-width: 26px;
+@timeline-line-top: 17px;
+@timeline-line-border-width: 2px;
+@timeline-line-border-color: @color-primary;
+@timeline-dot-top: 3px;
+@timeline-dot-size: 10px;
+@timeline-dot-color: @color-primary;
+@timeline-dot-default-background: @color-primary;
+
+.@{timeline-item-prefix} {
   position: relative;
   display: flex;
 
   // 最后一项：不需要时间线，时间不需要下外边距
   &:last-child {
-    .exd-timeline-line {
+    .@{timeline-line-prefix} {
       &::after {
         display: none;
       }
     }
-    .exd-timeline-content {
+    .@{timeline-content-prefix} {
       padding-bottom: 0;
     }
   }
 }
 
-.exd-timeline-content {
-  padding-right: 12px * @size-scale;
+.@{timeline-content-prefix} {
+  padding-right: @timeline-content-padding-right * @size-scale;
   position: relative;
   flex: 1;
-  // padding-left: 26px * @size-scale;
   overflow: hidden;
-  padding-bottom: 16px * @size-scale;
+  padding-bottom: @timeline-content-padding-bottom * @size-scale;
 
   &-title {
-    line-height: 16px * @size-scale;
-    font-size: 14px * @size-scale;
+    line-height: @timeline-title-line-height * @size-scale;
+    font-size: @timeline-title-font-size * @size-scale;
     font-weight: 400;
-    color: #333;
+    color: @timeline-title-color;
   }
 
   &-main {
-    margin-top: 4px * @size-scale;
-    line-height: 14px * @size-scale;
-    font-size: 12px * @size-scale;
+    margin-top: @timeline-main-margin-top * @size-scale;
+    line-height: @timeline-main-line-height * @size-scale;
+    font-size: @timeline-main-font-size * @size-scale;
     font-weight: 400;
-    color: #666;
+    color: @timeline-main-color;
   }
 
   &-time {
-    margin-top: 4px * @size-scale;
-    font-size: 12px * @size-scale;
-    line-height: 14px * @size-scale;
+    margin-top: @timeline-main-margin-top * @size-scale;
+    font-size: @timeline-time-font-size * @size-scale;
+    line-height: @timeline-time-line-height * @size-scale;
     font-weight: 400;
-    color: #999;
+    color: @timeline-time-color;
   }
 }
 
-.exd-timeline-line {
+.@{timeline-line-prefix} {
   position: relative;
-  padding-left: 12px * @size-scale;
-  width: 26px * @size-scale;
-
-  // 线条的上下外边距
-  @lineMargin: 2px * @size-scale;
+  padding-left: @timeline-line-padding-left * @size-scale;
+  width: @timeline-line-width * @size-scale;
 
   &::after {
     content: '';
     position: absolute;
     z-index: 1;
-    top: 17px * @size-scale + @lineMargin;
-    bottom: @lineMargin;
+    top: @timeline-line-top * @size-scale + @timeline-line-margin * @size-scale;
+    bottom: @timeline-line-margin * @size-scale;
     width: 0;
     left: 50%;
     transform: translateX(-50%);
-    border-left: 2px solid @color-primary;
+    border-left: @timeline-line-border-width solid @timeline-line-border-color;
   }
 }
 
-.exd-timeline-dot {
+.@{timeline-dot-prefix} {
   position: absolute;
   z-index: 2;
-  top: 3px * @size-scale;
+  top: @timeline-dot-top * @size-scale;
   left: 50%;
   transform: translateX(-50%);
-  color: @color-primary;
-  width: 10px * @size-scale;
-  height: 10px * @size-scale;
+  color: @timeline-dot-color;
+  width: @timeline-dot-size * @size-scale;
+  height: @timeline-dot-size * @size-scale;
   display: flex;
   align-items: center;
   justify-content: center;
 
   i.exd-icon {
-    font-size: 10px * @size-scale;
+    font-size: @timeline-dot-size * @size-scale;
   }
 
   &-default {
-    width: 10px * @size-scale;
-    height: 10px * @size-scale;
+    width: @timeline-dot-size * @size-scale;
+    height: @timeline-dot-size * @size-scale;
     border-radius: 50%;
-    background: @color-primary;
+    background: @timeline-dot-default-background;
   }
 }

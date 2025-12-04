@@ -18,7 +18,7 @@ export interface CellLabelStyleVars {
   '@cell-label-wrapper-padding-y'?: string
   /**
    * @description 包裹容器边框颜色
-   * @default @ant-color-gray-4
+   * @default ant-color-gray-4
    */
   '@cell-label-wrapper-border-color'?: string
   /**
@@ -38,7 +38,7 @@ export interface CellLabelStyleVars {
   '@cell-label-content-font-size'?: string
   /**
    * @description 内容文字颜色
-   * @default @ant-color-gray-10
+   * @default ant-color-gray-10
    */
   '@cell-label-content-color'?: string
   /**
@@ -63,7 +63,7 @@ export interface CellLabelStyleVars {
   '@cell-label-label-font-size'?: string
   /**
    * @description 占位符文字颜色
-   * @default @ant-color-gray-6
+   * @default ant-color-gray-6
    */
   '@cell-label-placeholder-color'?: string
   /**
@@ -93,52 +93,52 @@ export interface CellLabelStyleVars {
   '@cell-label-prefix-padding-right'?: string
   /**
    * @description 光标颜色
-   * @default @color-primary
+   * @default color-primary
    */
   '@cell-label-caret-color'?: string
   /**
    * @description 信息态边框颜色
-   * @default @ant-color-gray-4
+   * @default ant-color-gray-4
    */
   '@cell-label-info-border-color'?: string
   /**
    * @description 信息态辅助文字颜色
-   * @default @ant-color-gray-7
+   * @default ant-color-gray-7
    */
   '@cell-label-info-helper-color'?: string
   /**
    * @description 成功态边框颜色
-   * @default @color-green
+   * @default color-green
    */
   '@cell-label-success-border-color'?: string
   /**
    * @description 成功态辅助文字颜色
-   * @default @color-green
+   * @default color-green
    */
   '@cell-label-success-helper-color'?: string
   /**
    * @description 警告态边框颜色
-   * @default @color-orange
+   * @default color-orange
    */
   '@cell-label-warn-border-color'?: string
   /**
    * @description 警告态辅助文字颜色
-   * @default @color-orange
+   * @default color-orange
    */
   '@cell-label-warn-helper-color'?: string
   /**
    * @description 错误态边框颜色
-   * @default @color-red
+   * @default color-red
    */
   '@cell-label-error-border-color'?: string
   /**
    * @description 错误态辅助文字颜色
-   * @default @color-red
+   * @default color-red
    */
   '@cell-label-error-helper-color'?: string
   /**
    * @description 禁用态文字颜色
-   * @default @ant-color-gray-5
+   * @default ant-color-gray-5
    */
   '@cell-label-disabled-color'?: string
 }

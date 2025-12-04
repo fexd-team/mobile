@@ -8,7 +8,7 @@ import { AliveScope, KeepAlive } from 'react-activation'
 import { ChevronForward, ExtensionPuzzleOutline, ColorPaletteOutline } from '@fexd/icons'
 import { flatten } from '@fexd/tools'
 import { TabBarLayout, NavBarLayout, AnimatedSwitch } from '@fexd/mobile-router5'
-import { List, ScrollView, NotFound, Empty, FullpageSpinner, Provider } from '@fexd/mobile'
+import { Cell, ScrollView, NotFound, Empty, FullpageSpinner, Provider } from '@fexd/mobile'
 import { createModel } from 'hox'
 import ImportCost from '@dumiTheme/builtins/ImportCost'
 
@@ -26,7 +26,7 @@ function NavItem({ name, title = name, link, ...props }: any) {
   const { setTitle } = useTitle()
 
   return (
-    <List.Item
+    <Cell
       {...props}
       onClick={() => {
         history.push(link)
@@ -34,7 +34,7 @@ function NavItem({ name, title = name, link, ...props }: any) {
       }}
     >
       {name}
-    </List.Item>
+    </Cell>
   )
 }
 
@@ -51,7 +51,7 @@ const RouterConfigs = () => {
           <KeepAlive>
             <ScrollView shadow>
               {components.map(({ name, children }, idx) => (
-                <List key={name} header={name} className="list">
+                <Cell.Group key={name} title={name} className="list">
                   {children.map(({ name, size }: any, idx) => (
                     <NavItem
                       key={name}
@@ -66,7 +66,7 @@ const RouterConfigs = () => {
                       link={`/components/${name.replace(/\s\W*$/, '').toLowerCase()}`}
                     />
                   ))}
-                </List>
+                </Cell.Group>
               ))}
             </ScrollView>
           </KeepAlive>
@@ -97,6 +97,7 @@ const RouterConfigs = () => {
 
 export default () => {
   const location = useLocation()
+  // @ts-ignore
   const basename = useRef('/~demos/documents-preview-demo/' || location.pathname)
 
   return (

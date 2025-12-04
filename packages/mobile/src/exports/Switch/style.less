@@ -3,6 +3,19 @@
 // @no-cssvar: 用于生成选择器名称
 @switch-prefix: ~'exd-switch';
 
+// Switch 变量定义（与 SwitchStyleVars 类型定义对应）
+@switch-size-scale: 1.3;
+@switch-width: 37px;
+@switch-height: 22px;
+@switch-border-radius: 31px;
+@switch-background-color: #d8d8d8;
+@switch-active-color: @color-primary;
+@switch-thumb-size: 20px;
+@switch-thumb-color: #fff;
+@switch-thumb-offset: 1px;
+@switch-thumb-translate: 15px;
+@switch-transition-duration: 0.3s;
+
 .@{switch-prefix} {
   position: relative;
   display: inline-block;
@@ -20,38 +33,36 @@
     cursor: pointer;
   }
 
-  @switch-size-scale: 1.3;
-
   &__container {
     position: relative;
-    width: 37px * @switch-size-scale * @size-scale;
-    height: 22px * @switch-size-scale * @size-scale;
-    border-radius: 31px * @size-scale;
-    background: #d8d8d8;
+    width: @switch-width * @switch-size-scale * @size-scale;
+    height: @switch-height * @switch-size-scale * @size-scale;
+    border-radius: @switch-border-radius * @size-scale;
+    background: @switch-background-color;
     z-index: 0;
     margin: 0;
     padding: 0;
     appearance: none;
     border: 0;
-    transition: all 0.3s;
+    transition: all @switch-transition-duration;
 
     &::after {
       position: absolute;
-      left: 1px * @switch-size-scale * @size-scale;
-      top: 1px * @switch-size-scale * @size-scale;
-      width: 20px * @switch-size-scale * @size-scale;
-      height: 20px * @switch-size-scale * @size-scale;
+      left: @switch-thumb-offset * @switch-size-scale * @size-scale;
+      top: @switch-thumb-offset * @switch-size-scale * @size-scale;
+      width: @switch-thumb-size * @switch-size-scale * @size-scale;
+      height: @switch-thumb-size * @switch-size-scale * @size-scale;
       border-radius: 50%;
-      background-color: #fff;
+      background-color: @switch-thumb-color;
       content: '';
-      transition: all 0.3s;
+      transition: all @switch-transition-duration;
     }
 
     &--checked {
-      background: @color-primary;
+      background: @switch-active-color;
 
       &::after {
-        transform: translateX(15px * @switch-size-scale * @size-scale);
+        transform: translateX(@switch-thumb-translate * @switch-size-scale * @size-scale);
       }
     }
   }

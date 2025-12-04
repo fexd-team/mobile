@@ -1,18 +1,22 @@
 @import '../../theme/vars.less';
 
-@spinner-size: 32px * @size-scale;
 // @no-cssvar: 用于生成选择器名称
 @spinner-prefix: ~'exd-spin';
+
+// Spinner 变量定义
+@spinner-size: 32px;
+@spinner-stroke-width: 3;
+@spinner-animation-duration: 1.6s;
 
 .@{spinner-prefix} {
   position: relative;
   display: inline-block;
-  width: @spinner-size;
+  width: @spinner-size * @size-scale;
   max-width: 100%;
-  height: @spinner-size;
+  height: @spinner-size * @size-scale;
   max-height: 100%;
   vertical-align: middle;
-  animation: exd-spin--rotate 1.6s linear infinite;
+  animation: exd-spin--rotate @spinner-animation-duration linear infinite;
   color: inherit;
 
   &-circle {
@@ -21,9 +25,9 @@
     height: 100%;
 
     circle {
-      animation: exd-spin-circle 1.6s ease-in-out infinite;
+      animation: exd-spin-circle @spinner-animation-duration ease-in-out infinite;
       stroke: currentColor;
-      stroke-width: 3;
+      stroke-width: @spinner-stroke-width;
       stroke-linecap: round;
     }
   }

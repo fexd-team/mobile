@@ -133,6 +133,66 @@ export interface DialogStyleVars {
    * @default 50px
    */
   '@dialog-action-min-height'?: string
+  /**
+   * @description 操作按钮内容最大宽度
+   * @default 160px
+   */
+  '@dialog-action-content-max-width'?: string
+  /**
+   * @description Normal 样式内容区底部内边距
+   * @default 8px
+   */
+  '@dialog-normal-wrapper-padding-bottom'?: string
+  /**
+   * @description Normal 样式操作区左右内边距
+   * @default 20px
+   */
+  '@dialog-normal-actions-padding-x'?: string
+  /**
+   * @description Normal 样式操作区顶部内边距
+   * @default 16px
+   */
+  '@dialog-normal-actions-padding-y'?: string
+  /**
+   * @description Normal 样式操作区底部内边距
+   * @default 20px
+   */
+  '@dialog-normal-actions-padding-bottom'?: string
+  /**
+   * @description Normal 样式按钮纵向间距
+   * @default 8px
+   */
+  '@dialog-normal-actions-button-spacing'?: string
+  /**
+   * @description Normal 样式按钮横向间距
+   * @default 12px
+   */
+  '@dialog-normal-actions-button-spacing-horizontal'?: string
+  /**
+   * @description Android 样式内容区底部内边距
+   * @default 12px
+   */
+  '@dialog-android-wrapper-padding-bottom'?: string
+  /**
+   * @description Android 样式操作区左右内边距
+   * @default 12px
+   */
+  '@dialog-android-actions-padding-x'?: string
+  /**
+   * @description Android 样式操作区顶部内边距
+   * @default 12px
+   */
+  '@dialog-android-actions-padding-y'?: string
+  /**
+   * @description Android 样式操作区底部内边距
+   * @default 16px
+   */
+  '@dialog-android-actions-padding-bottom'?: string
+  /**
+   * @description iOS 样式操作按钮边框宽度
+   * @default 1px
+   */
+  '@dialog-ios-action-border-width'?: string
 }
 
 export const DOC_DialogStyleVars = AUTO_API<DialogStyleVars>()

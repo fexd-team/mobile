@@ -41,6 +41,11 @@ export interface TabsStyleVars {
    */
   '@tabs-background'?: string
   /**
+   * @description Tabs 边框宽度
+   * @default 1px
+   */
+  '@tabs-border-width'?: string
+  /**
    * @description Tabs 边框颜色
    * @default #efeff4
    */
@@ -57,9 +62,24 @@ export interface TabsStyleVars {
   '@tabs-indicator-height'?: string
   /**
    * @description Tabs 指示器颜色
-   * @default @color-primary
+   * @default color-primary
    */
   '@tabs-indicator-color'?: string
+  /**
+   * @description Tabs 指示器圆角
+   * @default 4px
+   */
+  '@tabs-indicator-border-radius'?: string
+  /**
+   * @description Tabs 指示器过渡动画时长
+   * @default 0.3s
+   */
+  '@tabs-indicator-transition-duration'?: string
+  /**
+   * @description Tabs 指示器偏移量
+   * @default 2px
+   */
+  '@tabs-indicator-offset'?: string
   /**
    * @description Tabs 滚动模式底部内边距
    * @default 20px

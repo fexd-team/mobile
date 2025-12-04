@@ -61,7 +61,7 @@ export interface NavBarStyleVars {
   '@nav-bar-icon-size'?: string
   /**
    * @description 左右区域文字颜色
-   * @default @color-primary
+   * @default color-primary
    */
   '@nav-bar-side-color'?: string
   /**
@@ -81,7 +81,7 @@ export interface NavBarStyleVars {
   '@nav-bar-border-width'?: string
   /**
    * @description 底部边框颜色
-   * @default @color-gray-divider
+   * @default color-gray-divider
    */
   '@nav-bar-border-color'?: string
 }
