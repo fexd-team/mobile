@@ -70,9 +70,9 @@ const BasicModal = createFC<BasicModalProps, HTMLDivElement>(function BasicModal
     }
     modalStore.addModal(modalId, modalInfo)
 
-    return () => {
-      modalStore.removeModal(modalId)
-    }
+    // return () => {
+    //   modalStore.removeModal(modalId)
+    // }
   }, [visible])
 
   useEffect(() => {
@@ -134,6 +134,7 @@ const BasicModal = createFC<BasicModalProps, HTMLDivElement>(function BasicModal
         onExited={(...args) => {
           ;(destroyOnExit ? setCreated : setVisible)(false)
           run(onExited, undefined, ...args)
+          modalStore.removeModal(modalId)
         }}
         mountOnEnter
         unmountOnExit={destroyOnExit}

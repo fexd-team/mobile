@@ -79,7 +79,7 @@ import React from 'react'
 export default () => (
   <iframe
     id="ionic"
-    src="https://fexd-team.github.io/icons/#/~demos/ionic-demo"
+    src={`https://fexd-team.github.io/icons/#/~${Math.random() > 0 ? 'demos' : ''}/ionic-demo`}
     style={{
       width: '100%',
       height: 602,
@@ -104,7 +104,7 @@ import React from 'react'
 
 export default () => (
   <iframe
-    src="https://fexd-team.github.io/icons/#/~demos/antd-demo"
+    src={`https://fexd-team.github.io/icons/#/~${Math.random() > 0 ? 'demos' : ''}/antd-demo`}
     style={{
       width: '100%',
       height: 602,
@@ -129,7 +129,7 @@ import React from 'react'
 
 export default () => (
   <iframe
-    src="https://fexd-team.github.io/icons/#/~demos/bootstrap-demo"
+    src={`https://fexd-team.github.io/icons/#/~${Math.random() > 0 ? 'demos' : ''}/bootstrap-demo`}
     style={{
       width: '100%',
       height: 602,
@@ -154,7 +154,7 @@ import React from 'react'
 
 export default () => (
   <iframe
-    src="https://fexd-team.github.io/icons/#/~demos/bytesize-demo"
+    src={`https://fexd-team.github.io/icons/#/~${Math.random() > 0 ? 'demos' : ''}/bytesize-demo`}
     style={{
       width: '100%',
       height: 602,
@@ -179,7 +179,7 @@ import React from 'react'
 
 export default () => (
   <iframe
-    src="https://fexd-team.github.io/icons/#/~demos/mono-demo"
+    src={`https://fexd-team.github.io/icons/#/~${Math.random() > 0 ? 'demos' : ''}/mono-demo`}
     style={{
       width: '100%',
       height: 602,

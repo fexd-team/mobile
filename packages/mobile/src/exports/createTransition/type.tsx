@@ -33,3 +33,43 @@ export type TransitionType = React.FC<TransitionProps>
 export type { CSSTransitionProps, ReactTransitionProps }
 
 export default AUTO_API<any>()
+
+export interface TransitionStyleVars {
+  /**
+   * @description 动画速度：无动画
+   * @default 0ms
+   */
+  '@transition-speed-none'?: string
+  /**
+   * @description 动画速度：最快
+   * @default 100ms
+   */
+  '@transition-speed-fastest'?: string
+  /**
+   * @description 动画速度：快速
+   * @default 200ms
+   */
+  '@transition-speed-fast'?: string
+  /**
+   * @description 动画速度：正常
+   * @default 300ms
+   */
+  '@transition-speed-normal'?: string
+  /**
+   * @description 动画速度：慢速
+   * @default 500ms
+   */
+  '@transition-speed-slow'?: string
+  /**
+   * @description 动画速度：最慢
+   * @default 700ms
+   */
+  '@transition-speed-slowest'?: string
+  /**
+   * @description 动画速度：调试模式
+   * @default 5000ms
+   */
+  '@transition-speed-debug'?: string
+}
+
+export const DOC_TransitionStyleVars = AUTO_API<TransitionStyleVars>()

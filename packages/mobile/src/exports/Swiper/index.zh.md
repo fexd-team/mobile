@@ -160,14 +160,7 @@ import { Swiper } from '@fexd/mobile'
 
 组件提供了以下 Less 变量，可用于自定义样式：
 
-| 变量名                           | 说明             | 默认值               |
-| :------------------------------- | :--------------- | :------------------- |
-| `@swiper-prefix`                 | 组件样式前缀     | `'exd-swiper'`       |
-| `@swiper-indicator-offset`       | 指示器偏移距离   | `16px`               |
-| `@swiper-indicator-size`         | 指示器圆点大小   | `8px`                |
-| `@swiper-indicator-color`        | 指示器默认颜色   | `rgba(0, 0, 0, 0.2)` |
-| `@swiper-indicator-active-color` | 指示器激活颜色   | `#fff`               |
-| `@size-scale`                    | 全局尺寸缩放比例 | `1`                  |
+<API identifier="Swiper-StyleVars" hideTitle src="./type.tsx" exports='["DOC_SwiperStyleVars"]'></API>
 
 ---
 

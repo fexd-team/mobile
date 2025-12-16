@@ -1,10 +1,19 @@
+// @hardcoded-ignore
+@transition-fade-z-forward: 100px;
+// @hardcoded-ignore
+@transition-fade-z-backward: -100px;
+// @hardcoded-ignore
+@transition-fade-scale-enter: 1.04;
+// @hardcoded-ignore
+@transition-fade-scale-leave: 0.96;
+
 .exd-transition-switch__fadePrevEnter {
   animation-name: exd-transition-switch__fadePrevEnter;
 
   @keyframes exd-transition-switch__fadePrevEnter {
     from {
       opacity: 0;
-      transform: translate3d(0, 0, 100px) scale(1.04);
+      transform: translate3d(0, 0, @transition-fade-z-forward) scale(@transition-fade-scale-enter);
     }
 
     to {
@@ -25,7 +34,7 @@
 
     to {
       opacity: 0;
-      transform: translate3d(0, 0, -100px) scale(0.96);
+      transform: translate3d(0, 0, @transition-fade-z-backward) scale(@transition-fade-scale-leave);
     }
   }
 }
@@ -36,7 +45,7 @@
   @keyframes exd-transition-switch__fadeNextEnter {
     from {
       opacity: 0;
-      transform: translate3d(0, 0, -100px) scale(0.96);
+      transform: translate3d(0, 0, @transition-fade-z-backward) scale(@transition-fade-scale-leave);
     }
 
     to {
@@ -57,7 +66,7 @@
 
     to {
       opacity: 0;
-      transform: translate3d(0, 0, 100px) scale(1.04);
+      transform: translate3d(0, 0, @transition-fade-z-forward) scale(@transition-fade-scale-enter);
     }
   }
 }

@@ -1,3 +1,4 @@
+@import '../../theme/vars.less';
 @import './slide.less';
 @import './fade.less';
 @import './slide-cover.less';
@@ -21,31 +22,31 @@
   }
 
   &--none {
-    animation-duration: 0ms;
+    animation-duration: @transition-speed-none;
   }
 
   &--fastest {
-    animation-duration: 100ms;
+    animation-duration: @transition-speed-fastest;
   }
 
   &--fast {
-    animation-duration: 200ms;
+    animation-duration: @transition-speed-fast;
   }
 
   &--normal {
-    animation-duration: 300ms;
+    animation-duration: @transition-speed-normal;
   }
 
   &--slow {
-    animation-duration: 500ms;
+    animation-duration: @transition-speed-slow;
   }
 
   &--slowest {
-    animation-duration: 700ms;
+    animation-duration: @transition-speed-slowest;
   }
 
   &--test {
-    animation-duration: 5000ms;
+    animation-duration: @transition-speed-debug;
   }
 
   animation-fill-mode: both;

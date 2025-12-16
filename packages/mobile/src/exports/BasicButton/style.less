@@ -40,7 +40,15 @@
 @btn-color-white: @color-white;
 @btn-background-transparent: transparent;
 
+// 主题色配置 - 组件级别变量
+@btn-color-primary: @color-primary;
+@btn-color-info: @color-info;
+@btn-color-success: @color-success;
+@btn-color-warning: @color-warning;
+@btn-color-danger: @color-danger;
+
 .@{btn-prefix} {
+  // @hardcoded-ignore
   -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
   border: 0;
   outline: 0;
@@ -139,23 +147,23 @@
   }
 
   &-primary {
-    .colorful-btn(@color-primary);
+    .colorful-btn(@btn-color-primary);
   }
 
   &-info {
-    .colorful-btn(@color-info);
+    .colorful-btn(@btn-color-info);
   }
 
   &-success {
-    .colorful-btn(@color-success);
+    .colorful-btn(@btn-color-success);
   }
 
   &-warning {
-    .colorful-btn(@color-warning);
+    .colorful-btn(@btn-color-warning);
   }
 
   &-danger {
-    .colorful-btn(@color-danger);
+    .colorful-btn(@btn-color-danger);
   }
 }
 

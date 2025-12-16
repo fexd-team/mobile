@@ -225,25 +225,13 @@ const tabsData = [
 
 ## 样式变量
 
-组件提供了以下 Less 变量，可用于自定义样式：
+### Tabs 样式变量
 
-| 变量名                        | 说明                      | 默认值           |
-| :---------------------------- | :------------------------ | :--------------- |
-| `@tabs-prefix`                | 组件样式前缀              | `'exd-tabs'`     |
-| `@tabs-height`                | 选项卡高度                | `50px`           |
-| `@tabs-background`            | 背景色                    | `#fff`           |
-| `@tabs-border-color`          | 边框颜色                  | `#efeff4`        |
-| `@tabs-indicator-width`       | 指示器宽度                | `24px`           |
-| `@tabs-indicator-height`      | 指示器高度                | `4px`            |
-| `@tabs-indicator-color`       | 指示器颜色                | `@color-primary` |
-| `@tabs-scroll-padding-bottom` | 滚动模式底部内边距        | `20px`           |
-| `@tabs-item-color`            | 选项文字颜色              | `#333`           |
-| `@tabs-item-font-size`        | 选项字体大小              | `14px`           |
-| `@tabs-item-active-color`     | 选中态文字颜色            | `@color-primary` |
-| `@tabs-item-flex-padding-x`   | flex 模式选项水平内边距   | `4px`            |
-| `@tabs-item-scroll-padding-x` | scroll 模式选项水平内边距 | `20px`           |
-| `@tabs-item-scroll-margin-x`  | scroll 模式首尾选项外边距 | `4px`            |
-| `@size-scale`                 | 全局尺寸缩放比例          | `1`              |
+<API identifier="TabsStyleVars" hideTitle src="./type.tsx" exports='["DOC_TabsStyleVars"]'></API>
+
+### Tabs.Item 样式变量
+
+<API identifier="TabItemStyleVars" hideTitle src="./Item/type.tsx" exports='["DOC_TabItemStyleVars"]'></API>
 
 ## 演示代码
 

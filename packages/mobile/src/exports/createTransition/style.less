@@ -1,39 +1,41 @@
+@import '../../theme/vars.less';
+
 .exd-transition {
   &-enter-active {
     &.exd-speed {
       &-none {
-        transition-duration: 0ms;
-        animation-duration: 0ms;
+        transition-duration: @transition-speed-none;
+        animation-duration: @transition-speed-none;
       }
 
       &-fastest {
-        transition-duration: 100ms;
-        animation-duration: 100ms;
+        transition-duration: @transition-speed-fastest;
+        animation-duration: @transition-speed-fastest;
       }
 
       &-fast {
-        transition-duration: 200ms;
-        animation-duration: 200ms;
+        transition-duration: @transition-speed-fast;
+        animation-duration: @transition-speed-fast;
       }
 
       &-normal {
-        transition-duration: 300ms;
-        animation-duration: 300ms;
+        transition-duration: @transition-speed-normal;
+        animation-duration: @transition-speed-normal;
       }
 
       &-slow {
-        transition-duration: 500ms;
-        animation-duration: 500ms;
+        transition-duration: @transition-speed-slow;
+        animation-duration: @transition-speed-slow;
       }
 
       &-slowest {
-        transition-duration: 700ms;
-        animation-duration: 700ms;
+        transition-duration: @transition-speed-slowest;
+        animation-duration: @transition-speed-slowest;
       }
 
       &-debug {
-        transition-duration: 5000ms;
-        animation-duration: 5000ms;
+        transition-duration: @transition-speed-debug;
+        animation-duration: @transition-speed-debug;
       }
     }
   }
@@ -41,38 +43,38 @@
   &-exit-active {
     &.exd-speed {
       &-none {
-        transition-duration: 0ms;
-        animation-duration: 0ms;
+        transition-duration: @transition-speed-none;
+        animation-duration: @transition-speed-none;
       }
 
       &-fastest {
-        transition-duration: 100ms;
-        animation-duration: 100ms;
+        transition-duration: @transition-speed-fastest;
+        animation-duration: @transition-speed-fastest;
       }
 
       &-fast {
-        transition-duration: 200ms;
-        animation-duration: 200ms;
+        transition-duration: @transition-speed-fast;
+        animation-duration: @transition-speed-fast;
       }
 
       &-normal {
-        transition-duration: 300ms;
-        animation-duration: 300ms;
+        transition-duration: @transition-speed-normal;
+        animation-duration: @transition-speed-normal;
       }
 
       &-slow {
-        transition-duration: 500ms;
-        animation-duration: 500ms;
+        transition-duration: @transition-speed-slow;
+        animation-duration: @transition-speed-slow;
       }
 
       &-slowest {
-        transition-duration: 700ms;
-        animation-duration: 700ms;
+        transition-duration: @transition-speed-slowest;
+        animation-duration: @transition-speed-slowest;
       }
 
       &-debug {
-        transition-duration: 5000ms;
-        animation-duration: 5000ms;
+        transition-duration: @transition-speed-debug;
+        animation-duration: @transition-speed-debug;
       }
     }
   }

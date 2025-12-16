@@ -20,9 +20,7 @@ group:
 
 组件提供了以下 Less 变量，可用于自定义样式：
 
-| 变量名          | 说明           | 默认值               |
-| :-------------- | :------------- | :------------------- |
-| `@spinner-size` | 加载指示器尺寸 | `32px * @size-scale` |
+<API identifier="Spinner-StyleVars" hideTitle src="./type.tsx" exports='["DOC_SpinnerStyleVars"]'></API>
 
 ## 演示代码
 

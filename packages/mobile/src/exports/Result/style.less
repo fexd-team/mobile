@@ -1,0 +1,73 @@
+@import '../../theme/vars.less'; // 引入全局样式变量集，内含 @size-scale、各类色值等变量
+
+// 由于 less 变量的懒生效特性，变量命名空间存在冲突，此处 prefix 变量命名前需要加特定前缀
+// https://less.bootcss.com/features/#variables-lazy-evaluation
+// @no-cssvar: 用于生成选择器名称
+@result-prefix: ~'exd-result';
+@result-padding: 32px;
+@result-icon-size: 60px;
+@result-icon-margin-bottom: 12px;
+@result-title-color: @ant-color-gray-9; // #434343 接近原来的 #333
+@result-title-font-size: 16px;
+@result-title-margin-bottom: 8px;
+@result-description-color: @color-gray-secondary; // #8c8c8c 接近原来的 #999
+@result-description-font-size: 14px;
+@result-description-margin-bottom: 16px;
+@result-icon-color-success: @color-success;
+@result-icon-color-warning: @color-warning;
+@result-icon-color-error: @color-danger;
+@result-icon-color-info: @color-info;
+
+.@{result-prefix} {
+  /* 组件样式 */
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  padding: @result-padding * @size-scale;
+
+  &-icon {
+    font-size: @result-icon-size * @size-scale;
+    margin-bottom: @result-icon-margin-bottom * @size-scale;
+    display: flex;
+    align-items: center;
+
+    > img {
+      width: @result-icon-size * @size-scale;
+    }
+  }
+
+  &-title {
+    margin-bottom: @result-title-margin-bottom * @size-scale;
+    color: @result-title-color;
+    font-size: @result-title-font-size * @size-scale;
+    // font-weight: 400;
+    text-align: center;
+  }
+
+  &-description {
+    margin-bottom: @result-description-margin-bottom * @size-scale;
+    color: @result-description-color;
+    font-size: @result-description-font-size * @size-scale;
+    text-align: center;
+  }
+
+  // 状态颜色
+  &-success &-icon {
+    color: @result-icon-color-success;
+  }
+
+  &-warning &-icon {
+    color: @result-icon-color-warning;
+  }
+
+  &-error &-icon {
+    color: @result-icon-color-error;
+  }
+
+  &-info &-icon {
+    color: @result-icon-color-info;
+  }
+}

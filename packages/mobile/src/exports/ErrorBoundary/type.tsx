@@ -14,4 +14,14 @@ export interface ErrorBoundaryState {
 export type ErrorBoundaryRef = any
 export interface ErrorBoundaryType extends FC<ErrorBoundaryProps> {}
 
+export interface ErrorBoundaryStyleVars {
+  /**
+   * 重试按钮最小宽度
+   * @default 160px
+   */
+  '@error-boundary-retry-button-min-width'?: string
+}
+
+export const DOC_ErrorBoundaryStyleVars: ErrorBoundaryStyleVars = {}
+
 export default AUTO_API<ErrorBoundaryProps>()

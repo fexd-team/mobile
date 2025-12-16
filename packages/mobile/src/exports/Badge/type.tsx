@@ -54,6 +54,21 @@ export interface BadgeStyleVars {
    */
   '@badge-font-size'?: string
   /**
+   * @description Badge 圆角大小
+   * @default 100px
+   */
+  '@badge-border-radius'?: string
+  /**
+   * @description Badge 行高
+   * @default 1.2
+   */
+  '@badge-line-height'?: string
+  /**
+   * @description Badge Fixed 模式的 z-index
+   * @default 99
+   */
+  '@badge-fixed-z-index'?: string
+  /**
    * @description Badge 圆点模式尺寸
    * @default 10px
    */

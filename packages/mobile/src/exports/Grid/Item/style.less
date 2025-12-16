@@ -1,9 +1,10 @@
-@import '../../../theme/vars';
+@import '../../../theme/vars.less';
 
 // @no-cssvar: 用于生成选择器名称
 @grid-item-prefix: ~'exd-grid-item';
 @grid-item-icon-size: 20px;
 @grid-item-text-font-size: 12px;
+@grid-item-text-line-height: 1.5;
 @grid-item-text-margin-top: 8px;
 @grid-item-text-margin-left: 8px;
 @grid-item-padding-y: 16px;
@@ -21,7 +22,7 @@
 
   &-text {
     font-size: @grid-item-text-font-size * @size-scale;
-    line-height: 1.5 * @size-scale;
+    line-height: @grid-item-text-line-height * @size-scale;
     word-break: break-all;
     margin-top: @grid-item-text-margin-top * @size-scale;
   }

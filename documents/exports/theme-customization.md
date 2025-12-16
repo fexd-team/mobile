@@ -379,7 +379,7 @@ export default defineConfig({
 
 直接引入需要使用的组件的 `.cssvars.less` 版本样式：
 
-```typescript
+```typescript | pure
 // 引入需要使用的组件的 CSS 变量版本样式
 import '@fexd/mobile/es/exports/Button/style.cssvars.less'
 import '@fexd/mobile/es/exports/Radio/style.cssvars.less'
@@ -400,7 +400,7 @@ npm install babel-plugin-import --save-dev
 
 然后配置 Babel：
 
-```javascript
+```javascript | pure
 // babel.config.js
 module.exports = {
   plugins: [
@@ -420,7 +420,7 @@ module.exports = {
 
 配置完成后，直接使用组件即可，样式会自动引入：
 
-```typescript
+```typescript | pure
 // 无需手动引入样式
 import { Button, Radio } from '@fexd/mobile'
 
@@ -433,7 +433,7 @@ import { Button, Radio } from '@fexd/mobile'
 
 如果需要一次性引入所有组件的 CSS 变量版本样式：
 
-```typescript
+```typescript | pure
 // 引入所有组件的 CSS 变量版本样式
 import '@fexd/mobile/es/style.cssvars.less'
 
@@ -443,7 +443,7 @@ import { Button, Radio } from '@fexd/mobile'
 
 或者只引入全局主题变量：
 
-```typescript
+```typescript | pure
 // 只引入全局主题变量（颜色、尺寸等）
 import '@fexd/mobile/es/theme/vars.cssvars.less'
 
@@ -457,7 +457,7 @@ import '@fexd/mobile/es/exports/Button/style.cssvars.less'
 
 **示例 1：手动引入**
 
-```typescript
+```typescript | pure
 // main.tsx
 import React from 'react'
 import ReactDOM from 'react-dom'
@@ -483,7 +483,7 @@ ReactDOM.render(<App />, document.getElementById('root'))
 
 **示例 2：使用 babel-plugin-import 自动引入**
 
-```javascript
+```javascript | pure
 // babel.config.js
 module.exports = {
   plugins: [
@@ -501,7 +501,7 @@ module.exports = {
 }
 ```
 
-```typescript
+```typescript | pure
 // main.tsx
 import React from 'react'
 import ReactDOM from 'react-dom'
@@ -545,7 +545,7 @@ ReactDOM.render(<App />, document.getElementById('root'))
 
 然后在入口文件中引入（确保在组件样式之后）：
 
-```typescript
+```typescript | pure
 // 先引入组件的 CSS 变量版本样式
 import '@fexd/mobile/es/exports/Button/style.cssvars.less'
 
@@ -553,9 +553,9 @@ import '@fexd/mobile/es/exports/Button/style.cssvars.less'
 import './custom-theme.css'
 ```
 
-#### 方式 2：通过 JavaScript 动态修改
+#### 方式 2：通过 JavaScript 动态修改（全局）
 
-```typescript
+```typescript | pure
 // 修改单个变量
 document.documentElement.style.setProperty('--exd-color-primary', '#722ed1')
 
@@ -573,7 +573,7 @@ Object.entries(customTheme).forEach(([key, value]) => {
 
 #### 方式 3：主题切换（浅色/深色模式）
 
-```typescript
+```typescript | pure
 // 定义主题配置
 const themes = {
   light: {
@@ -610,6 +610,195 @@ prefersDark.addEventListener('change', (e) => {
   applyTheme(e.matches ? 'dark' : 'light')
 })
 ```
+
+#### 方式 4：局部变量定制（作用域隔离）
+
+与直接修改 `:root` 的全局变量不同，你可以通过在特定容器元素上设置 CSS 变量来实现局部主题定制，这样可以避免影响全局样式，实现更精细的主题控制。
+
+**CSS 方式：**
+
+```css
+/* 为特定区域定制主题 */
+.custom-theme-area {
+  /* 只影响这个容器内的组件 */
+  --exd-color-primary: #722ed1;
+  --exd-size-scale: 1.2;
+  --exd-radio-icon-size: 28px;
+}
+
+.dark-section {
+  /* 创建局部深色区域 */
+  --exd-color-primary: #177ddc;
+  --exd-color-gray-title: #f5f5f5;
+  --exd-color-gray-primary: #f0f0f0;
+  --exd-color-gray-background: #1f1f1f;
+  background: #1f1f1f;
+}
+```
+
+**React 内联样式方式：**
+
+```tsx
+import React from 'react'
+import { Button, Radio, Space, Switch, Slider } from '@fexd/mobile'
+
+export default function LocalThemeExample() {
+  return (
+    <div>
+      {/* 默认主题区域 */}
+      <Space direction="vertical">
+        <Button type="primary">默认蓝色按钮</Button>
+        <Radio checked>默认单选框</Radio>
+        <Switch defaultChecked />
+        <Slider defaultValue={50} />
+      </Space>
+
+      {/* 自定义主题区域 1 - 紫色主题 */}
+      <div
+        style={
+          {
+            '--exd-color-primary': '#722ed1',
+            '--exd-size-scale': '1.1',
+            padding: '16px',
+            background: '#f9f0ff',
+            borderRadius: '8px',
+            marginTop: '16px',
+          } as React.CSSProperties
+        }
+      >
+        <Space direction="vertical">
+          <Button type="primary">紫色按钮（局部主题）</Button>
+          <Radio checked>紫色单选框（局部主题）</Radio>
+          <Switch defaultChecked />
+          <Slider defaultValue={50} />
+        </Space>
+      </div>
+
+      {/* 自定义主题区域 2 - 绿色大尺寸主题 */}
+      <div
+        style={
+          {
+            '--exd-color-primary': '#52c41a',
+            '--exd-size-scale': '1.3',
+            padding: '16px',
+            background: '#f6ffed',
+            borderRadius: '8px',
+            marginTop: '16px',
+          } as React.CSSProperties
+        }
+      >
+        <Space direction="vertical">
+          <Button type="primary">绿色大按钮（局部主题）</Button>
+          <Radio checked>绿色大单选框（局部主题）</Radio>
+          <Switch defaultChecked />
+          <Slider defaultValue={50} />
+        </Space>
+      </div>
+    </div>
+  )
+}
+```
+
+**动态修改局部变量：**
+
+```typescript | pure
+// 通过 ref 修改特定容器的局部变量
+function updateLocalTheme(containerRef: HTMLElement, theme: Record<string, string>) {
+  Object.entries(theme).forEach(([key, value]) => {
+    containerRef.style.setProperty(key, value)
+  })
+}
+
+// 使用示例
+const container = document.querySelector('.custom-theme-area') as HTMLElement
+if (container) {
+  updateLocalTheme(container, {
+    '--exd-color-primary': '#eb2f96',
+    '--exd-size-scale': '1.15',
+  })
+}
+```
+
+**React Hooks 方式：**
+
+```tsx
+import React, { useRef } from 'react'
+import { Button, Space } from '@fexd/mobile'
+
+export default function DynamicLocalTheme() {
+  const containerRef = useRef<HTMLDivElement>(null)
+
+  const applyLocalTheme = (theme: Record<string, string>) => {
+    if (containerRef.current) {
+      Object.entries(theme).forEach(([key, value]) => {
+        containerRef.current!.style.setProperty(key, value)
+      })
+    }
+  }
+
+  return (
+    <div>
+      <Space style={{ marginBottom: 16 }}>
+        <Button
+          onClick={() =>
+            applyLocalTheme({
+              '--exd-color-primary': '#722ed1',
+            })
+          }
+        >
+          切换为紫色
+        </Button>
+        <Button
+          onClick={() =>
+            applyLocalTheme({
+              '--exd-color-primary': '#52c41a',
+            })
+          }
+        >
+          切换为绿色
+        </Button>
+        <Button
+          onClick={() =>
+            applyLocalTheme({
+              '--exd-color-primary': '#f5222d',
+            })
+          }
+        >
+          切换为红色
+        </Button>
+      </Space>
+
+      {/* 局部主题容器 */}
+      <div
+        ref={containerRef}
+        style={{
+          padding: '16px',
+          background: '#f5f5f5',
+          borderRadius: '8px',
+        }}
+      >
+        <Button type="primary" block>
+          动态主题按钮
+        </Button>
+      </div>
+    </div>
+  )
+}
+```
+
+**优势：**
+
+- ✅ **作用域隔离**：不影响全局样式，只作用于特定容器内的组件
+- ✅ **多主题共存**：同一页面可以有多个不同主题的区域
+- ✅ **精细控制**：可以为页面的不同部分设置不同的主题
+- ✅ **易于维护**：主题变更不会产生全局副作用
+
+**应用场景：**
+
+- 🎨 **多品牌入口**：一个页面展示多个品牌的组件样式
+- 📦 **卡片主题**：每个卡片使用不同的主题色
+- 🎯 **强调区域**：对重要区域使用特殊主题突出显示
+- 🧩 **组件预览**：在文档或预览页面中展示多种主题效果
 
 ### 可用的 CSS 变量
 
@@ -1004,7 +1193,7 @@ export default () => {
 
 这样当你修改基础变量时，所有引用它的组件变量都会自动更新：
 
-```typescript
+```typescript | pure
 // 修改基础主色调
 document.documentElement.style.setProperty('--exd-color-primary', '#722ed1')
 
@@ -1041,7 +1230,7 @@ document.documentElement.style.setProperty('--exd-color-primary', '#722ed1')
 
 #### 1. 多品牌主题
 
-```typescript
+```typescript | pure
 // 定义不同品牌的主题
 const brandThemes = {
   brandA: {
@@ -1065,7 +1254,7 @@ function applyBrandTheme(brandName: keyof typeof brandThemes) {
 
 #### 2. 大字体模式
 
-```typescript
+```typescript | pure
 // 提供无障碍访问的大字体模式
 function toggleLargeFont(enabled: boolean) {
   const scale = enabled ? '1.3' : '1'
@@ -1075,7 +1264,7 @@ function toggleLargeFont(enabled: boolean) {
 
 #### 3. 节日主题
 
-```typescript
+```typescript | pure
 // 根据节日自动切换主题色
 function applyFestivalTheme() {
   const today = new Date()
@@ -1099,7 +1288,7 @@ function applyFestivalTheme() {
 
 #### 4. 响应式主题（根据屏幕尺寸）
 
-```typescript
+```typescript | pure
 // 根据屏幕尺寸自动调整组件大小
 function applyResponsiveTheme() {
   const width = window.innerWidth
@@ -1124,7 +1313,7 @@ applyResponsiveTheme()
 
 #### 5. 用户偏好持久化
 
-```typescript
+```typescript | pure
 // 保存用户的主题偏好到 localStorage
 class ThemeManager {
   private storageKey = 'user-theme-preferences'
@@ -1185,7 +1374,7 @@ function switchToCustomTheme() {
 
 #### 6. 动态跟随系统主题
 
-```typescript
+```typescript | pure
 // 自动跟随系统的浅色/深色模式设置
 function setupSystemThemeSync() {
   const darkModeQuery = window.matchMedia('(prefers-color-scheme: dark)')
@@ -1223,7 +1412,7 @@ setupSystemThemeSync()
 
 #### 7. 组件级主题定制
 
-```typescript
+```typescript | pure
 // 为特定组件实例定制主题（通过 CSS 作用域）
 import React from 'react'
 import { Button, Space } from '@fexd/mobile'
@@ -1264,7 +1453,7 @@ function CustomThemedButtons() {
 
 #### 8. 主题预设管理
 
-```typescript
+```typescript | pure
 // 创建主题预设管理系统
 const themePresets = {
   default: {
@@ -1343,7 +1532,7 @@ function ThemeSwitcher() {
 
 A: 在 Babel 配置中设置 `style` 选项指向 `.cssvars.less` 文件：
 
-```javascript
+```javascript | pure
 // babel.config.js
 module.exports = {
   plugins: [
@@ -1378,7 +1567,7 @@ A: 在浏览器开发者工具中打开 Elements 面板，选择 `<html>` 元素
 
 A: 只需要修改引入的样式文件路径：
 
-```typescript
+```typescript | pure
 // 普通模式（Less 变量）
 import '@fexd/mobile/es/exports/Button/style.less'
 
@@ -1388,7 +1577,7 @@ import '@fexd/mobile/es/exports/Button/style.cssvars.less'
 
 如果使用 `babel-plugin-import`，修改 `style` 配置即可：
 
-```javascript
+```javascript | pure
 // 普通模式
 module.exports = {
   plugins: [

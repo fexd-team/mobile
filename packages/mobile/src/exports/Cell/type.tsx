@@ -148,6 +148,12 @@ export interface CellStyleVars {
    * @default 14px
    */
   '@cell-description-font-size-large'?: string
+
+  /**
+   * @description Cell 过渡动画时间
+   * @default @transition-speed-fast
+   */
+  '@cell-transition-duration'?: string
 }
 
 export const DOC_CellStyleVars = AUTO_API<CellStyleVars>()

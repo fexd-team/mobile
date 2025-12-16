@@ -17,6 +17,8 @@
 @toast-content-border-radius: 4px;
 @toast-icon-size-center: 38px;
 @toast-icon-size-edge: 18px;
+@toast-icon-margin-bottom: 6px;
+@toast-icon-margin-right: 6px;
 
 .@{toast-prefix} {
   box-sizing: border-box;
@@ -31,7 +33,7 @@
 
     .@{toast-prefix}-icon {
       font-size: @toast-icon-size-center * @size-scale;
-      margin-bottom: 6px * @size-scale;
+      margin-bottom: @toast-icon-margin-bottom * @size-scale;
     }
   }
 
@@ -49,7 +51,7 @@
   &.@{modal-prefix}-bottom {
     .@{toast-prefix}-icon {
       font-size: @toast-icon-size-edge * @size-scale;
-      margin-right: 6px * @size-scale;
+      margin-right: @toast-icon-margin-right * @size-scale;
     }
   }
 

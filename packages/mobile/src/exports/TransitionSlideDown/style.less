@@ -2,6 +2,7 @@
 
 .exd-slide-down.exd-transition {
   &-enter {
+    // @hardcoded-ignore
     transform: translateY(-100%);
   }
 
@@ -19,11 +20,13 @@
   }
 
   &-exit-active {
+    // @hardcoded-ignore
     transform: translateY(-100%);
     transition-property: transform;
   }
 
   &-exit-done {
+    // @hardcoded-ignore
     transform: translateY(-100%);
     pointer-events: none;
     opacity: 0;

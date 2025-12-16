@@ -1,15 +1,21 @@
-@import '../../../theme/vars';
+@import '../../../theme/vars.less';
 
 // @no-cssvar: 用于生成选择器名称
 @cell-group-prefix: ~'exd-cell-group';
-// @no-cssvar: 用于生成选择器名称
-@cell-prefix: ~'exd-cell';
+
+// Cell.Group 样式变量定义
+@cell-group-title-padding-y: 12px;
+@cell-group-title-padding-x: 16px;
+@cell-group-title-color: #999;
+@cell-group-title-font-size: 12px;
+@cell-group-inset-margin-x: 16px;
+@cell-group-inset-border-radius: 8px;
 
 .@{cell-group-prefix} {
   &-title {
-    padding: 12px * @size-scale 16px * @size-scale;
-    color: #999;
-    font-size: 12px * @size-scale;
+    padding: @cell-group-title-padding-y * @size-scale @cell-group-title-padding-x * @size-scale;
+    color: @cell-group-title-color;
+    font-size: @cell-group-title-font-size * @size-scale;
   }
 
   &-content {
@@ -21,12 +27,12 @@
   }
 
   &-inset {
-    margin: 0 16px * @size-scale;
+    margin: 0 @cell-group-inset-margin-x * @size-scale;
     // border-radius: 8px;
     overflow: hidden;
 
     .@{cell-group-prefix}-content {
-      border-radius: 8px;
+      border-radius: @cell-group-inset-border-radius;
     }
   }
 }

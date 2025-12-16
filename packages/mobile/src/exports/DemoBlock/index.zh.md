@@ -21,3 +21,9 @@ mobileDemoFixed: false
 ## DemoBlock
 
 <API identifier="DemoBlock" hideTitle src="./type.tsx"></API>
+
+---
+
+## 样式变量
+
+<API identifier="DemoBlockStyleVars" hideTitle src="./type.tsx" exports='["DOC_DemoBlockStyleVars"]'></API>

@@ -5,27 +5,41 @@
 // @no-cssvar: 用于生成选择器名称
 @demo-block-prefix: ~'exd-demo-block';
 
+// DemoBlock 样式变量定义
+@demo-block-background: #fff;
+@demo-block-padding: 1px;
+@demo-block-margin-top: 12px;
+@demo-block-title-font-size: 16px;
+@demo-block-title-color: #666;
+@demo-block-title-padding-top: 12px;
+@demo-block-title-padding-x: 16px;
+@demo-block-content-padding: 16px;
+@demo-block-plain-title-color: #999;
+@demo-block-plain-title-padding-y: 12px;
+@demo-block-plain-title-padding-x: 16px;
+@demo-block-plain-title-font-size: 14px;
+
 .@{demo-block-prefix} {
   /* 组件样式 */
-  background: #fff;
+  background: @demo-block-background;
   overflow: hidden;
-  padding: 1px;
+  padding: @demo-block-padding;
 
   & + .@{demo-block-prefix} {
-    margin-top: 12px;
+    margin-top: @demo-block-margin-top;
   }
 
   &-title {
     margin: 0;
-    font-size: 16px;
-    color: #666;
+    font-size: @demo-block-title-font-size;
+    color: @demo-block-title-color;
     width: 100%;
-    padding: 12px 16px 0;
+    padding: @demo-block-title-padding-top @demo-block-title-padding-x 0;
   }
 
   &-content {
     margin: 0;
-    padding: 16px;
+    padding: @demo-block-content-padding;
     list-style: none;
   }
 
@@ -37,9 +51,9 @@
     }
 
     .@{demo-block-prefix}-title {
-      color: #999;
-      padding: 12px 16px;
-      font-size: 14px;
+      color: @demo-block-plain-title-color;
+      padding: @demo-block-plain-title-padding-y @demo-block-plain-title-padding-x;
+      font-size: @demo-block-plain-title-font-size;
     }
 
     .@{demo-block-prefix}-content {

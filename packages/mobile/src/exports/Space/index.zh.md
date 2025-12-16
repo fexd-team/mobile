@@ -38,6 +38,4 @@ mobileDemoFixed: false
 
 组件主要使用全局 Less 变量，可通过以下变量自定义样式：
 
-| 变量名        | 说明             | 默认值 |
-| :------------ | :--------------- | :----- |
-| `@size-scale` | 全局尺寸缩放比例 | `1`    |
+<API identifier="Space-StyleVars" hideTitle src="./type.tsx" exports='["DOC_SpaceStyleVars"]'></API>

@@ -33,6 +33,7 @@
 @cell-label-error-border-color: @color-red;
 @cell-label-error-helper-color: @color-red;
 @cell-label-disabled-color: @ant-color-gray-5;
+@cell-label-transition-duration: @transition-speed-fast;
 
 .@{cell-label-prefix}__wrapper {
   // background-color: rgba(red, .2);
@@ -168,7 +169,7 @@
 
 .@{cell-label-prefix}__helper {
   opacity: 0;
-  transition: opacity 0.2s, color 0.2s;
+  transition: opacity @cell-label-transition-duration, color @cell-label-transition-duration;
   min-height: @cell-label-helper-min-height * @size-scale;
   font-size: @cell-label-helper-font-size * @size-scale;
   padding: @cell-label-helper-padding-top * @size-scale @cell-label-helper-padding-x * @size-scale 0;

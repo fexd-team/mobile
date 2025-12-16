@@ -103,6 +103,11 @@ export interface AvatarStyleVars {
    * @default ant-color-orange-6 (#fa8c16)
    */
   '@avatar-group-extra-color'?: string
+  /**
+   * @description Avatar 组合额外项字体大小
+   * @default 14px
+   */
+  '@avatar-group-extra-font-size'?: string
 }
 
 export const DOC_AvatarStyleVars = AUTO_API<AvatarStyleVars>()

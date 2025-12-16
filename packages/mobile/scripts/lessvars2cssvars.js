@@ -177,6 +177,36 @@ function resolveLessValue(value, allVars, antColors, depth = 0) {
   return result
 }
 
+/**
+ * 分析变量的依赖关系，识别引用了其他变量的变量
+ * @param {Object} allVars - 所有变量
+ * @param {Object} antColors - Ant 颜色变量
+ * @returns {Object} 变量依赖映射 { varName: referencedVarName }
+ */
+function analyzeVariableDependencies(allVars, antColors) {
+  const dependencies = {}
+
+  Object.keys(allVars).forEach((varName) => {
+    const varInfo = allVars[varName]
+    if (varInfo.noCssVar) return
+
+    const value = varInfo.value.trim()
+
+    // 检查值是否是单个变量引用（@xxx 格式）
+    const singleVarMatch = value.match(/^@([\w-]+)$/)
+    if (singleVarMatch) {
+      const referencedVar = singleVarMatch[1]
+
+      // 确保引用的是有效变量
+      if (allVars[referencedVar] || antColors[referencedVar]) {
+        dependencies[varName] = referencedVar
+      }
+    }
+  })
+
+  return dependencies
+}
+
 // ========== 第二部分：变量提取 ==========
 
 /**
@@ -263,10 +293,14 @@ function extractDefinedVariables(content, allVars, antColors) {
 /**
  * 生成 CSS 变量初始化代码
  * @param {Object} definedVars - 组件定义的变量（不是使用的变量）
+ * @param {Object} varDependencies - 变量依赖关系映射
+ * @param {Object} options - 选项
+ * @param {boolean} options.skipDependentVars - 是否跳过有依赖关系的变量（使用 fallback 代替）
  * @returns {string} CSS 变量初始化代码
  */
-function generateCssVarsInit(definedVars) {
+function generateCssVarsInit(definedVars, varDependencies = {}, options = {}) {
   const { componentVars, antColorVars } = definedVars
+  const { skipDependentVars = false } = options
 
   if (componentVars.length === 0 && antColorVars.length === 0) {
     return ''
@@ -287,7 +321,15 @@ function generateCssVarsInit(definedVars) {
   if (componentVars.length > 0) {
     init += '  /* 组件变量 */\n'
     componentVars.forEach((v) => {
-      init += `  --${CSS_VAR_PREFIX}-${v.name}: ${v.value};\n`
+      // 如果启用 skipDependentVars 且该变量有依赖，则跳过（不在 :root 定义）
+      // 这样就只能通过 fallback 获取值
+      if (skipDependentVars && varDependencies[v.name]) {
+        init += `  /* --${CSS_VAR_PREFIX}-${v.name}: 使用 fallback 机制，依赖 --${CSS_VAR_PREFIX}-${
+          varDependencies[v.name]
+        } */\n`
+      } else {
+        init += `  --${CSS_VAR_PREFIX}-${v.name}: ${v.value};\n`
+      }
     })
   }
 
@@ -304,13 +346,35 @@ function generateCssVarsInit(definedVars) {
 function processImports(content) {
   let result = content
 
-  // 替换组件样式引入
-  result = result.replace(/@import\s+['"](.+?)\/style\.less['"];/g, (match, componentPath) => {
-    return `@import '${componentPath}/style.cssvars.less';`
+  // 替换组件样式引入 - 支持带引号和不带引号的格式
+  // 格式1: @import './path/style.less';
+  result = result.replace(/@import\s+['"]([^'"]+\/style)\.less['"];/g, (match, componentPath) => {
+    return `@import '${componentPath}.cssvars.less';`
   })
 
-  // 替换 theme/vars.less 引入
-  result = result.replace(/@import\s+['"](.*?\/theme\/vars)\.less['"];/g, (match, themePath) => {
+  // 格式2: @import './path/style';
+  result = result.replace(/@import\s+['"]([^'"]+\/style)['"]\s*;/g, (match, componentPath) => {
+    return `@import '${componentPath}.cssvars.less';`
+  })
+
+  // 格式3: @import 'path/style' (无引号，可能有注释)
+  result = result.replace(/@import\s+([^\s;'"]+\/style)(?:\.less)?\s*;/g, (match, componentPath) => {
+    return `@import '${componentPath}.cssvars.less';`
+  })
+
+  // 替换 theme/vars.less 引入 - 支持多种格式
+  // 格式1: @import './theme/vars.less';
+  result = result.replace(/@import\s+['"]([^'"]*?\/theme\/vars)\.less['"];/g, (match, themePath) => {
+    return `@import '${themePath}.cssvars.less';`
+  })
+
+  // 格式2: @import './theme/vars';
+  result = result.replace(/@import\s+['"]([^'"]*?\/theme\/vars)['"]\s*;/g, (match, themePath) => {
+    return `@import '${themePath}.cssvars.less';`
+  })
+
+  // 格式3: @import path/theme/vars (无引号)
+  result = result.replace(/@import\s+([^\s;'"]*?\/theme\/vars)(?:\.less)?\s*;/g, (match, themePath) => {
     return `@import '${themePath}.cssvars.less';`
   })
 
@@ -319,8 +383,12 @@ function processImports(content) {
 
 /**
  * 应用 Less 变量替换
+ * @param {string} content - 文件内容
+ * @param {Object} allVars - 所有变量
+ * @param {Object} antColors - Ant 颜色变量
+ * @param {Object} varDependencies - 变量依赖关系映射
  */
-function applyModifyVars(content, allVars, antColors) {
+function applyModifyVars(content, allVars, antColors, varDependencies = {}) {
   let result = content
   const lines = content.split('\n')
 
@@ -341,6 +409,15 @@ function applyModifyVars(content, allVars, antColors) {
       let value = varDefMatch[2].trim() // value 部分
       const semicolon = varDefMatch[3] // ;
       const comment = varDefMatch[4] // 行尾注释（如果有）
+
+      // 提取变量名（去掉 @ 和 :）
+      const currentVarName = varDecl.match(/@([\w-]+)/)[1]
+
+      // 如果这个变量有依赖关系，注释掉这个定义
+      // 这样 Less 编译器就不会优化掉 fallback
+      if (varDependencies[currentVarName]) {
+        return `${indent}// ${varDecl}${value}${semicolon}${comment} (使用 fallback，见使用处)`
+      }
 
       // 替换值中的 Less 变量引用为 CSS 变量引用
       // 替换组件变量
@@ -363,13 +440,29 @@ function applyModifyVars(content, allVars, antColors) {
 
     let processedLine = line
 
-    // 替换组件变量
+    // 替换组件变量（带 fallback 支持）
     Object.keys(allVars).forEach((varName) => {
       const varInfo = allVars[varName]
       if (varInfo.noCssVar) return
 
       const regex = new RegExp(`@${varName.replace(/[.*+?^${}()|[\\]\\\\]/g, '\\$&')}(?![a-zA-Z0-9_-])`, 'g')
-      processedLine = processedLine.replace(regex, `var(--${CSS_VAR_PREFIX}-${varName})`)
+
+      // 检查是否有依赖关系
+      const fallbackVar = varDependencies[varName]
+      let replacement
+
+      if (fallbackVar) {
+        // 生成带 fallback 的替换
+        if (antColors[fallbackVar]) {
+          replacement = `var(--${CSS_VAR_PREFIX}-${varName}, var(--${fallbackVar}))`
+        } else {
+          replacement = `var(--${CSS_VAR_PREFIX}-${varName}, var(--${CSS_VAR_PREFIX}-${fallbackVar}))`
+        }
+      } else {
+        replacement = `var(--${CSS_VAR_PREFIX}-${varName})`
+      }
+
+      processedLine = processedLine.replace(regex, replacement)
     })
 
     // 替换 Ant 颜色变量
@@ -476,17 +569,22 @@ function insertCssVarsAfterLessVars(content, cssVarsInit) {
  * 处理单个 Less 文件
  */
 async function processLessFile(lessFilePath, globalContext) {
-  const { allVars, antColors, plugin } = globalContext
+  const { allVars, antColors, plugin, varDependencies } = globalContext
 
   try {
     // 读取原始 Less 文件
     let content = fs.readFileSync(lessFilePath, 'utf-8')
 
+    // 判断是否是 theme 目录的文件（不需要 fallback 处理）
+    const isThemeFile = lessFilePath.includes('/theme/') || lessFilePath.includes('\\theme\\')
+
     // 第一步：提取该组件定义的变量
     const definedVars = extractDefinedVariables(content, allVars, antColors)
 
     // 第二步：生成 CSS 变量初始化代码（必须在处理前生成，因为需要引用 @var）
-    const cssVarsInit = generateCssVarsInit(definedVars)
+    const cssVarsInit = generateCssVarsInit(definedVars, varDependencies || {}, {
+      skipDependentVars: !isThemeFile, // theme 文件不启用 fallback 模式
+    })
 
     // 第三步：处理 @import 语句
     content = processImports(content)
@@ -496,8 +594,9 @@ async function processLessFile(lessFilePath, globalContext) {
       content = plugin.transformSource(content)
     }
 
-    // 第五步：应用 Less 变量替换
-    let transformedContent = applyModifyVars(content, allVars, antColors)
+    // 第五步：应用 Less 变量替换（传入依赖关系）
+    // theme 文件不使用 fallback
+    let transformedContent = applyModifyVars(content, allVars, antColors, isThemeFile ? {} : varDependencies || {})
 
     // 第六步：后处理 - 移除单个 CSS 变量的 calc() 包裹
     transformedContent = transformedContent.replace(/calc\((var\(--[\w-]+\))\)(?!\s*[\+\-\*\/])/g, '$1')
@@ -699,7 +798,18 @@ async function main() {
   // 1. 扫描所有变量
   const { allVars, antColors } = scanAllLessVariables()
 
-  // 2. 创建 modifyVars 映射（用于 lessPlugin）
+  // 2. 分析变量依赖关系
+  const varDependencies = analyzeVariableDependencies(allVars, antColors)
+  console.log(`\n   ✅ 变量依赖分析: 找到 ${Object.keys(varDependencies).length} 个引用型变量`)
+  if (Object.keys(varDependencies).length > 0) {
+    const examples = Object.keys(varDependencies)
+      .slice(0, 3)
+      .map((k) => `${k} -> ${varDependencies[k]}`)
+      .join(', ')
+    console.log(`   📌 示例: ${examples}`)
+  }
+
+  // 3. 创建 modifyVars 映射（用于 lessPlugin）
   const modifyVars = {}
   Object.keys(allVars).forEach((name) => {
     if (!allVars[name].noCssVar) {
@@ -712,13 +822,13 @@ async function main() {
 
   console.log(`\n   ✅ 变量映射表: ${Object.keys(modifyVars).length} 个\n`)
 
-  // 3. 创建插件实例
+  // 4. 创建插件实例
   const plugin = new lessCalcPlugin.LessCalcPlugin({
     modifyVars,
     debug: false,
   })
 
-  const globalContext = { allVars, antColors, plugin }
+  const globalContext = { allVars, antColors, plugin, varDependencies }
 
   // 4. 处理目标目录
   const stats = { total: 0, success: 0, fail: 0 }
@@ -762,6 +872,7 @@ module.exports = {
   parseLessFile,
   parseAntColors,
   resolveLessValue,
+  analyzeVariableDependencies,
 }
 
 // 直接运行

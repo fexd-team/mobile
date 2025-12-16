@@ -1,19 +1,32 @@
-@import '../../../theme/vars';
+@import '../../../theme/vars.less';
 
 // @no-cssvar: 用于生成选择器名称
 @step-prefix: ~'exd-step';
 @step-width: 84px;
 @step-icon-size: 24px;
 @step-icon-color: #999;
+@step-icon-left: 30px;
 @step-line-width: 28px;
 @step-line-color: #e9e9e9;
 @step-line-thickness: 2px;
 @step-circle-font-size: 12px;
 @step-circle-background: #fff;
+@step-circle-line-height: 20px;
 @step-content-font-size: 14px;
+@step-content-line-height: 16px;
 @step-content-margin-top: 6px;
 @step-title-color: #333;
 @step-description-color: #999;
+@step-first-last-width: 54px;
+@step-first-last-offset: 28px;
+@step-completed-border-width: 2px;
+@step-completed-check-left: 5px;
+@step-completed-check-top: 6px;
+@step-completed-check-width: 10px;
+@step-completed-check-height: 5px;
+@step-completed-check-border-width: 2px;
+@step-completed-check-color: #fff;
+@step-completed-check-rotate: -45deg;
 
 .@{step-prefix} {
   flex: 0;
@@ -52,7 +65,7 @@
 
     &-icon {
       position: absolute;
-      left: 30px * @size-scale;
+      left: @step-icon-left * @size-scale;
       top: 0;
       width: @step-icon-size * @size-scale;
       height: @step-icon-size * @size-scale;
@@ -75,7 +88,7 @@
         top: 0;
         width: 100%;
         height: @step-icon-size * @size-scale;
-        line-height: 20px * @size-scale;
+        line-height: @step-circle-line-height * @size-scale;
         border-radius: 100%;
         font-size: @step-circle-font-size * @size-scale;
         font-weight: 500;
@@ -90,7 +103,7 @@
     justify-content: center;
     text-align: center;
     font-size: @step-content-font-size * @size-scale;
-    line-height: 16px * @size-scale;
+    line-height: @step-content-line-height * @size-scale;
     &-container {
       width: 100%;
     }
@@ -114,7 +127,7 @@
 
   &:last-child {
     .@{step-prefix}-header {
-      width: 54px * @size-scale;
+      width: @step-first-last-width * @size-scale;
 
       &::after {
         width: 0;
@@ -130,14 +143,14 @@
       &-title,
       &-description {
         position: relative;
-        width: calc(100% + 28px * @size-scale);
+        width: calc(100% + @step-first-last-offset * @size-scale);
       }
     }
   }
 
   &:first-child {
     .@{step-prefix}-header {
-      width: 54px * @size-scale;
+      width: @step-first-last-width * @size-scale;
 
       &::before {
         width: 0;
@@ -153,8 +166,8 @@
       &-title,
       &-description {
         position: relative;
-        left: -28px * @size-scale;
-        width: calc(100% + 28px * @size-scale);
+        left: -@step-first-last-offset * @size-scale;
+        width: calc(100% + @step-first-last-offset * @size-scale);
       }
     }
   }
@@ -188,18 +201,18 @@
 
         &-circle {
           background-color: @color-primary;
-          border: 2px * @size-scale solid @color-primary;
+          border: @step-completed-border-width * @size-scale solid @color-primary;
           // border: none;
 
           &::before {
             position: absolute;
-            left: 5px * @size-scale;
-            top: 6px * @size-scale;
-            width: 10px * @size-scale;
-            height: 5px * @size-scale;
-            border-left: 2px * @size-scale solid #fff;
-            border-bottom: 2px * @size-scale solid #fff;
-            transform: rotate(-45deg);
+            left: @step-completed-check-left * @size-scale;
+            top: @step-completed-check-top * @size-scale;
+            width: @step-completed-check-width * @size-scale;
+            height: @step-completed-check-height * @size-scale;
+            border-left: @step-completed-check-border-width * @size-scale solid @step-completed-check-color;
+            border-bottom: @step-completed-check-border-width * @size-scale solid @step-completed-check-color;
+            transform: rotate(@step-completed-check-rotate);
             content: '';
           }
         }

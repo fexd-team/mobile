@@ -34,6 +34,7 @@
 @line-label-error-border-color: @color-red;
 @line-label-error-helper-color: @color-red;
 @line-label-disabled-color: @ant-color-gray-5;
+@line-label-transition-duration: @transition-speed-fast;
 
 .@{line-label-prefix}__wrapper {
   margin: 0;
@@ -129,7 +130,7 @@
   display: flex;
   align-items: center;
   border-bottom: 1px solid @line-label-bar-border-color;
-  transition: border-color 0.2s;
+  transition: border-color @line-label-transition-duration;
 
   // border-bottom: solid 1px rgb(225, 225, 225);
   // padding: 24px * @size-scale 0 8px * @size-scale;
@@ -202,7 +203,7 @@
 
 .@{line-label-prefix}__helper {
   opacity: 0;
-  transition: opacity 0.2s, color 0.2s;
+  transition: opacity @line-label-transition-duration, color @line-label-transition-duration;
   min-height: @line-label-helper-min-height * @size-scale;
   font-size: @line-label-helper-font-size * @size-scale;
 }

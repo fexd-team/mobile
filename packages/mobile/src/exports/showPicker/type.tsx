@@ -18,3 +18,18 @@ export interface ShowPickerConfig extends PickerViewProps {
 }
 
 export default AUTO_API<ShowPickerConfig>()
+
+export interface ShowPickerStyleVars {
+  /**
+   * @description Picker 组件的 className 前缀
+   * @default 'exd-picker'
+   */
+  '@picker-prefix'?: string
+  /**
+   * @description 清除按钮颜色
+   * @default #ccc
+   */
+  '@show-picker-clear-color'?: string
+}
+
+export const DOC_ShowPickerStyleVars = AUTO_API<ShowPickerStyleVars>()

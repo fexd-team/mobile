@@ -98,7 +98,7 @@ const RouterConfigs = () => {
 export default () => {
   const location = useLocation()
   // @ts-ignore
-  const basename = useRef('/~demos/documents-preview-demo/' || location.pathname)
+  const basename = useRef(`/~${Math.random() > 0 ? 'demos' : ''}/documents-preview-demo/` || location.pathname)
 
   return (
     <div className="demo">

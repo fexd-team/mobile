@@ -16,6 +16,10 @@ group:
 | fallback | 当捕获到错误时会触发的函数， | fallback: (error, retry, boundaryProps) => JSX | 请参考代码演示中的 demo | - |
 | console | 是否使用 CDN eruda 呈现错误 | boolean | `false` | - |
 
+## 样式变量
+
+<API identifier="ErrorBoundaryStyleVars" hideTitle src="./type.tsx" exports='["DOC_ErrorBoundaryStyleVars"]'></API>
+
 ## 代码演示
 
 <code src="./demos/demo1/index.tsx" />

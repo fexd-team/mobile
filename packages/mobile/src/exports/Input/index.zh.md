@@ -112,19 +112,3 @@ import { Input, TextArea, LineInput, BlockInput, CellInput } from '@fexd/mobile'
 <API identifier="CellInput-StyleVars" hideTitle src="../CellInput/type.tsx" exports='["DOC_CellInputStyleVars"]'></API>
 
 ---
-
-**全局变量说明**
-
-| 变量名               | 说明                      | 默认值 |
-| :------------------- | :------------------------ | :----- |
-| `@size-scale`        | 全局尺寸缩放比例          | `1`    |
-| `@color-primary`     | 主题色                    | -      |
-| `@color-green`       | 成功状态颜色              | -      |
-| `@color-orange`      | 警告状态颜色              | -      |
-| `@color-red`         | 错误状态颜色              | -      |
-| `@ant-color-gray-4`  | Ant Design 灰色色板 4 级  | -      |
-| `@ant-color-gray-5`  | Ant Design 灰色色板 5 级  | -      |
-| `@ant-color-gray-6`  | Ant Design 灰色色板 6 级  | -      |
-| `@ant-color-gray-7`  | Ant Design 灰色色板 7 级  | -      |
-| `@ant-color-gray-8`  | Ant Design 灰色色板 8 级  | -      |
-| `@ant-color-gray-10` | Ant Design 灰色色板 10 级 | -      |

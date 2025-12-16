@@ -18,6 +18,7 @@
 @line-input-clear-size: 17px;
 @line-input-clear-color: @ant-color-gray-6;
 @line-input-suffix-margin-left: 6px;
+@line-input-transition-duration: @transition-speed-fast;
 
 // .@{line-input-prefix} {
 //   /* 组件样式 */
@@ -60,7 +61,7 @@
   }
 
   opacity: 0;
-  transition: opacity 0.2s;
+  transition: opacity @line-input-transition-duration;
 
   &--active {
     opacity: 1;
@@ -87,7 +88,7 @@
   color: @line-input-clear-color;
   opacity: 0;
   transform: scale(0.8);
-  transition: opacity 0.2s, transform 0.2s;
+  transition: opacity @line-input-transition-duration, transform @line-input-transition-duration;
 
   &--show {
     opacity: 1;

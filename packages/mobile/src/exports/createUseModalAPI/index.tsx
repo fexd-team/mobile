@@ -1,11 +1,11 @@
 import React, { useMemo } from 'react'
 import uniqueId from '../uniqueId'
 import ModalStation from '../ModalStation'
-import { MethodType, MethodConfig, ModalMethodController } from '../createModalAPI/type'
+import { MethodType, MethodConfig } from '../createModalAPI/type'
 
 export default function createUseModalAPI<P>(
   showMethod: MethodType<P>,
-): () => [(config: Omit<MethodConfig<P>, 'stationId'>) => ModalMethodController<P>, React.ReactElement] {
+): () => [(config: Omit<Parameters<MethodType<P>>[0], 'stationId'>) => ReturnType<MethodType<P>>, React.ReactElement] {
   return function useShowModal() {
     const stationId = useMemo(() => uniqueId('modal-station'), [])
 

@@ -18,25 +18,35 @@ export default AUTO_API<ProgressBarProps>()
  */
 export interface ProgressBarStyleVars {
   /**
+   * @description 组件样式前缀
+   * @default 'exd-progress-bar'
+   */
+  '@progress-bar-prefix'?: string
+  /**
    * @description 进度条高度
    * @default 4px
    */
   '@progress-bar-height'?: string
   /**
-   * @description 进度条背景色
+   * @description 轨道背景色
    * @default #e1e1e1
    */
   '@progress-bar-background'?: string
   /**
-   * @description 进度条圆角大小
+   * @description 圆角
    * @default 4px
    */
   '@progress-bar-border-radius'?: string
   /**
-   * @description 进度条激活颜色
-   * @default color-primary
+   * @description 进度条颜色
+   * @default @color-primary
    */
   '@progress-bar-active-color'?: string
+  /**
+   * @description 全局尺寸缩放比例
+   * @default 1
+   */
+  '@size-scale'?: string | number
 }
 
 export const DOC_ProgressBarStyleVars = AUTO_API<ProgressBarStyleVars>()

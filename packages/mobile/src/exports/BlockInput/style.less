@@ -19,6 +19,7 @@
 @block-input-clear-color: #bbb;
 @block-input-suffix-margin-left: 6px;
 @block-input-no-label-padding-y: 8px;
+@block-input-transition-duration: @transition-speed-fast;
 
 // .@{block-input-prefix} {
 //   /* 组件样式 */
@@ -66,7 +67,7 @@
   }
 
   opacity: 0;
-  transition: opacity 0.2s;
+  transition: opacity @block-input-transition-duration;
 
   &--active {
     opacity: 1;
@@ -93,7 +94,7 @@
   color: @block-input-clear-color;
   opacity: 0;
   transform: scale(0.8);
-  transition: opacity 0.2s, transform 0.2s;
+  transition: opacity @block-input-transition-duration, transform @block-input-transition-duration;
 
   &--show {
     opacity: 1;

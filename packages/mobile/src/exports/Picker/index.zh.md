@@ -113,18 +113,7 @@ import { Picker, LinePicker, BlockPicker, CellPicker, PickerView } from '@fexd/m
 
 ### PickerView 样式变量
 
-| 变量名                                  | 说明             | 默认值                     |
-| :-------------------------------------- | :--------------- | :------------------------- |
-| `@picker-view-item-height`              | 选择器项高度     | `50px`                     |
-| `@picker-view-bg-color`                 | 背景颜色         | `#fff`                     |
-| `@picker-view-mask-bg-color`            | 遮罩层背景颜色   | `rgba(255, 255, 255, 0.5)` |
-| `@picker-view-indicator-border-color`   | 指示器边框颜色   | `#ddd`                     |
-| `@picker-view-indicator-border-width`   | 指示器边框宽度   | `1px`                      |
-| `@picker-view-item-font-size`           | 选择器项字体大小 | `14px`                     |
-| `@picker-view-item-padding`             | 选择器项内边距   | `14px`                     |
-| `@picker-view-item-active-font-size`    | 激活状态字体大小 | `16px`                     |
-| `@picker-view-item-active-font-weight`  | 激活状态字体粗细 | `500`                      |
-| `@picker-view-item-transition-duration` | 动画过渡时长     | `0.1s`                     |
+<API identifier="PickerView-StyleVars" hideTitle src="../PickerView/type.tsx" exports='["DOC_PickerViewStyleVars"]'></API>
 
 ### Picker 样式变量
 

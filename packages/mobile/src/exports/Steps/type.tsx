@@ -36,6 +36,16 @@ export interface StepsStyleVars {
    * @default 96px
    */
   '@steps-flex-max-width'?: string
+  /**
+   * @description Steps flex 模式首尾边缘偏移
+   * @default 26px
+   */
+  '@steps-flex-edge-offset'?: string
+  /**
+   * @description Steps flex 模式内容偏移
+   * @default 12px
+   */
+  '@steps-flex-content-offset'?: string
 }
 
 export const DOC_StepsStyleVars = AUTO_API<StepsStyleVars>()

@@ -5,6 +5,8 @@
 @steps-prefix: ~'exd-steps';
 @steps-background: #fff;
 @steps-flex-max-width: 96px;
+@steps-flex-edge-offset: 26px;
+@steps-flex-content-offset: 12px;
 
 .@{steps-prefix} {
   background: @steps-background;
@@ -46,7 +48,7 @@
 
         &:last-child {
           .@{step-prefix}-header::before {
-            right: 26px * @size-scale;
+            right: @steps-flex-edge-offset * @size-scale;
             width: 100%;
           }
 
@@ -62,14 +64,14 @@
               max-width: 100%;
               position: relative;
               left: 50%;
-              transform: translateX(-12px * @size-scale);
+              transform: translateX(-@steps-flex-content-offset * @size-scale);
             }
           }
         }
 
         &:first-child {
           .@{step-prefix}-header::after {
-            left: 26px * @size-scale;
+            left: @steps-flex-edge-offset * @size-scale;
             width: 100%;
           }
 
@@ -84,7 +86,7 @@
               max-width: 100%;
               position: relative;
               left: -50%;
-              transform: translateX(12px * @size-scale);
+              transform: translateX(@steps-flex-content-offset * @size-scale);
             }
           }
         }

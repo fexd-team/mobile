@@ -3,6 +3,11 @@ const glob = require('glob')
 const path = require('path')
 const less = require('less')
 const LessNodeModules = require('less-plugin-import-node-modules')
+const postcss = require('postcss')
+const postcssDiscardComments = require('postcss-discard-comments')
+const postcssDiscardEmpty = require('postcss-discard-empty')
+const postcssDiscardDuplicates = require('postcss-discard-duplicates')
+const postcssMergeRules = require('postcss-merge-rules')
 
 const excludes = [/^\.\/lib\/theme/, /^\.\/es\/theme/, /^\.\/src\/theme/]
 
@@ -11,6 +16,21 @@ const stats = {
   success: 0,
   failed: 0,
   errors: [], // { file, error, message }
+}
+
+/**
+ * 使用 PostCSS 优化 CSS
+ */
+async function optimizeCSS(css) {
+  const plugins = [
+    postcssDiscardComments({ removeAll: true }), // 移除所有注释
+    postcssDiscardEmpty(), // 移除空规则
+    postcssDiscardDuplicates(), // 移除重复的规则
+    postcssMergeRules(), // 合并相同选择器的规则
+  ]
+
+  const result = await postcss(plugins).process(css, { from: undefined })
+  return result.css
 }
 
 /**
@@ -84,7 +104,10 @@ async function less2css(globPattern) {
             javascriptEnabled: true,
           })
 
-          fs.writeFileSync(fullpath.replace(/\.less$/, '.css'), css, {
+          // 优化 CSS
+          const optimizedCSS = await optimizeCSS(css)
+
+          fs.writeFileSync(fullpath.replace(/\.less$/, '.css'), optimizedCSS, {
             encoding: 'utf-8',
           })
 
@@ -152,6 +175,7 @@ function printSummary() {
 async function start() {
   console.log('\n🎨 Less 到 CSS 编译工具')
   console.log('='.repeat(80))
+  console.log('✨ CSS 优化: PostCSS (移除注释/移除空规则/移除重复规则/合并规则)')
 
   const startTime = Date.now()
 

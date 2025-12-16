@@ -65,22 +65,7 @@ import { Grid } from '@fexd/mobile'
 
 组件提供了以下 Less 变量，可用于自定义样式：
 
-| 变量名                         | 说明                     | 默认值            |
-| :----------------------------- | :----------------------- | :---------------- |
-| `@grid-prefix`                 | Grid 组件样式前缀        | `'exd-grid'`      |
-| `@grid-font-size`              | Grid 字体大小            | `10px`            |
-| `@grid-item-prefix`            | Grid.Item 组件样式前缀   | `'exd-grid-item'` |
-| `@grid-item-icon-size`         | 图标大小                 | `20px`            |
-| `@grid-item-text-font-size`    | 文字字体大小             | `12px`            |
-| `@grid-item-text-margin-top`   | 文字上外边距（垂直布局） | `8px`             |
-| `@grid-item-text-margin-left`  | 文字左外边距（水平布局） | `8px`             |
-| `@grid-item-padding-y`         | 内容区垂直内边距         | `16px`            |
-| `@grid-item-padding-x`         | 内容区水平内边距         | `8px`             |
-| `@grid-item-background`        | 背景色                   | `#fff`            |
-| `@grid-item-active-background` | 点击态背景色             | `#f2f3f5`         |
-| `@size-scale`                  | 全局尺寸缩放比例         | `1`               |
-| `@color-gray-primary`          | 文字颜色                 | `#262626`         |
-| `@color-gray-border`           | 边框颜色                 | `#d9d9d9`         |
+<API identifier="Grid-StyleVars" hideTitle src="./type.tsx" exports='["DOC_GridStyleVars"]'></API>
 
 ## 演示代码
 

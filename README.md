@@ -44,19 +44,19 @@ pnpm add @fexd/mobile
 ### 基础使用
 
 ```tsx
-import { Button, toast } from '@fexd/mobile';
-import '@fexd/mobile/es/style.css';
+import { Button, toast } from '@fexd/mobile'
+import '@fexd/mobile/es/style.css'
 
 function App() {
   return (
     <Button
       onClick={() => {
-        toast.info('Hello Fexd Mobile!');
+        toast.info('Hello Fexd Mobile!')
       }}
     >
       点击我
     </Button>
-  );
+  )
 }
 ```
 
@@ -79,7 +79,7 @@ module.exports = {
       '@fexd/mobile',
     ],
   ],
-};
+}
 ```
 
 ### TypeScript
@@ -87,11 +87,11 @@ module.exports = {
 `@fexd/mobile` 使用 TypeScript 编写，提供完整的类型定义文件：
 
 ```tsx
-import type { ButtonProps } from '@fexd/mobile';
+import type { ButtonProps } from '@fexd/mobile'
 
 const CustomButton: React.FC<ButtonProps> = (props) => {
-  return <Button {...props} />;
-};
+  return <Button {...props} />
+}
 ```
 
 ## 📱 组件列表
@@ -216,9 +216,9 @@ Fexd Mobile 支持通过 CSS 变量进行主题定制：
 
 现代浏览器以及 Android >= 5.0、iOS >= 10.0
 
-| Chrome | Firefox | Safari | Android | iOS |
-| --- | --- | --- | --- | --- |
-| >= 49 | >= 45 | >= 10 | >= 5.0 | >= 10.0 |
+| Chrome | Firefox | Safari | Android | iOS     |
+| ------ | ------- | ------ | ------- | ------- |
+| >= 49  | >= 45   | >= 10  | >= 5.0  | >= 10.0 |
 
 ## 📖 文档
 

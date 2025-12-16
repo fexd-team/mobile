@@ -3,6 +3,8 @@
 
 // @no-cssvar: 用于生成选择器名称
 @scroll-view-prefix: ~'exd-scroll-view';
+@scroll-view-shadow-height: 6px;
+@scroll-view-shadow-transition-duration: @transition-speed-fast;
 
 .@{scroll-view-prefix} {
   height: 100%;
@@ -18,16 +20,20 @@
     z-index: 2;
     left: 0;
     right: 0;
-    height: 6px * @size-scale;
+    height: @scroll-view-shadow-height * @size-scale;
     opacity: 0;
-    transition: opacity 0.2s;
+    transition: opacity @scroll-view-shadow-transition-duration;
   }
+
   &::before {
     top: 0;
+    // @hardcoded-ignore
     background-image: linear-gradient(to bottom, rgba(0, 0, 0, 0.08), transparent);
   }
+
   &::after {
     bottom: 0;
+    // @hardcoded-ignore
     background-image: linear-gradient(to top, rgba(0, 0, 0, 0.08), transparent);
   }
 

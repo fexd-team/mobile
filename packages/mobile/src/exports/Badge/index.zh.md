@@ -24,17 +24,23 @@ group:
 
 ## Badge.Stamp 的 API
 
-| 属性    | 说明           | 类型     | 默认值  |
-| :------ | :------------- | :------- | :------ |
-| bgColor | 自定义的背景色 | `string` | #FF411C |
-| color   | 自定义的颜色   | `string` | #FFFFFF |
-| test    | 自定义的内容   | `string` |         |
+| 属性    | 说明           | 类型              | 默认值 |
+| :------ | :------------- | :---------------- | :----- |
+| text    | 自定义的内容   | `React.ReactNode` | -      |
+| color   | 自定义的颜色   | `string`          | -      |
+| bgColor | 自定义的背景色 | `string`          | -      |
 
 ---
 
 ## 样式变量
 
+### Badge 样式变量
+
 <API identifier="BadgeStyleVars" hideTitle src="./type.tsx" exports='["DOC_BadgeStyleVars"]'></API>
+
+### Badge.Stamp 样式变量
+
+<API identifier="BadgeStampStyleVars" hideTitle src="./Stamp/type.tsx" exports='["DOC_BadgeStampStyleVars"]'></API>
 
 ---
 

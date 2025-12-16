@@ -57,14 +57,7 @@ import { ProgressBar } from '@fexd/mobile'
 
 组件提供了以下 Less 变量，可用于自定义样式：
 
-| 变量名                        | 说明             | 默认值               |
-| :---------------------------- | :--------------- | :------------------- |
-| `@progress-bar-prefix`        | 组件样式前缀     | `'exd-progress-bar'` |
-| `@progress-bar-height`        | 进度条高度       | `4px`                |
-| `@progress-bar-background`    | 轨道背景色       | `#e1e1e1`            |
-| `@progress-bar-border-radius` | 圆角             | `4px`                |
-| `@progress-bar-active-color`  | 进度条颜色       | `@color-primary`     |
-| `@size-scale`                 | 全局尺寸缩放比例 | `1`                  |
+<API identifier="ProgressBar-StyleVars" hideTitle src="./type.tsx" exports='["DOC_ProgressBarStyleVars"]'></API>
 
 ## 演示代码
 

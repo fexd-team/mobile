@@ -1,11 +1,27 @@
 @import '../../theme/vars.less';
 
+// Fallback 样式变量定义
+@fallback-padding: 24px;
+@fallback-icon-font-size: 100px;
+@fallback-icon-color: #eee;
+@fallback-icon-margin-bottom: 12px;
+@fallback-img-height: 208px;
+@fallback-img-margin-top: 24px;
+@fallback-img-margin-bottom: 16px;
+@fallback-footer-margin-top: 18px;
+@fallback-content-color: #666;
+@fallback-content-font-size: 14px;
+@fallback-content-line-clamp: 5;
+@fallback-console-font-size: 14px;
+@fallback-console-color: #999;
+@fallback-console-margin-top: 12px;
+
 .exd-fallback {
   flex: 1;
   height: 100%;
   display: flex;
   flex-direction: column;
-  padding: 24px * @size-scale;
+  padding: @fallback-padding * @size-scale;
   text-align: center;
   align-items: center;
 }
@@ -13,36 +29,36 @@
 .exd-fallback-icon {
   .exd-icon,
   .exd-iconfont {
-    font-size: 100px * @size-scale;
-    color: #eee;
-    margin-bottom: 12px * @size-scale;
+    font-size: @fallback-icon-font-size * @size-scale;
+    color: @fallback-icon-color;
+    margin-bottom: @fallback-icon-margin-bottom * @size-scale;
   }
 
   img {
     // width: 208px * @size-scale;
-    height: 208px * @size-scale;
-    margin: 24px * @size-scale auto 16px * @size-scale;
+    height: @fallback-img-height * @size-scale;
+    margin: @fallback-img-margin-top * @size-scale auto @fallback-img-margin-bottom * @size-scale;
   }
 }
 
 .exd-fallback-footer {
   width: 100%;
-  margin-top: 18px * @size-scale;
+  margin-top: @fallback-footer-margin-top * @size-scale;
 }
 
 .exd-fallback-content {
-  color: #666;
-  font-size: 14px * @size-scale;
+  color: @fallback-content-color;
+  font-size: @fallback-content-font-size * @size-scale;
   width: 100%;
   display: -webkit-box;
   -webkit-box-orient: vertical;
-  -webkit-line-clamp: 5;
+  -webkit-line-clamp: @fallback-content-line-clamp;
   overflow: hidden;
 }
 
 .exd-fallback-console {
-  font-size: 14px * @size-scale;
-  color: #999;
+  font-size: @fallback-console-font-size * @size-scale;
+  color: @fallback-console-color;
   text-decoration: underline;
-  margin-top: 12px * @size-scale;
+  margin-top: @fallback-console-margin-top * @size-scale;
 }

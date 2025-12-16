@@ -38,6 +38,7 @@
 @block-label-warn-helper-color: @color-orange;
 @block-label-error-border-color: @color-red;
 @block-label-error-helper-color: @color-red;
+@block-label-transition-duration: @transition-speed-fast;
 @block-label-disabled-border-color: @ant-color-gray-5;
 @block-label-disabled-color: @ant-color-gray-5;
 
@@ -148,7 +149,7 @@
   align-items: center;
   border: 1px solid @block-label-bar-border-color;
   border-radius: @block-label-bar-border-radius;
-  transition: border-color 0.2s;
+  transition: border-color @block-label-transition-duration;
   height: @block-label-bar-height * @size-scale;
 }
 
@@ -229,7 +230,7 @@
   opacity: 0;
   padding-left: @block-label-helper-padding-x * @size-scale;
   padding-right: @block-label-helper-padding-x * @size-scale;
-  transition: opacity 0.2s, color 0.2s;
+  transition: opacity @block-label-transition-duration, color @block-label-transition-duration;
   min-height: @block-label-helper-min-height * @size-scale;
   font-size: @block-label-helper-font-size * @size-scale;
 }

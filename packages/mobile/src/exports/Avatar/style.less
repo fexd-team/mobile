@@ -21,6 +21,7 @@
 @avatar-group-border-color: @color-white;
 @avatar-group-extra-background: @ant-color-orange-2; // #ffe7ba
 @avatar-group-extra-color: @ant-color-orange-6; // #fa8c16
+@avatar-group-extra-font-size: 14px;
 
 #mixin-avatar-size (@size, @fontSize) {
   width: @size;
@@ -66,7 +67,7 @@
   flex-direction: row-reverse;
   &-extra .exd-avatar {
     background-color: @avatar-group-extra-background;
-    font-size: 14px;
+    font-size: @avatar-group-extra-font-size;
     color: @avatar-group-extra-color;
   }
   .exd-avatar {

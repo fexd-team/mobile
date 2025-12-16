@@ -8,6 +8,8 @@
 @tabs-height: 50px;
 @tabs-background: #fff;
 @tabs-border-width: 1px;
+@tabs-border-width-top: @tabs-border-width;
+@tabs-border-width-bottom: @tabs-border-width;
 @tabs-border-color: #efeff4;
 @tabs-indicator-width: 24px;
 @tabs-indicator-height: 4px;
@@ -23,7 +25,8 @@
   height: @tabs-height;
   overflow: hidden;
   background: @tabs-background;
-  border: @tabs-border-width solid @tabs-border-color;
+  border-top: @tabs-border-width-top solid @tabs-border-color;
+  border-bottom: @tabs-border-width-bottom solid @tabs-border-color;
   border-left: none;
   border-right: none;
 

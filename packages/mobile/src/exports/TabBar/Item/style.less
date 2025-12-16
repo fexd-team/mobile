@@ -1,4 +1,4 @@
-@import '../../../theme/vars';
+@import '../../../theme/vars.less';
 @import '../../Iconfont/style.less';
 
 // @no-cssvar: 用于生成选择器名称
@@ -7,6 +7,7 @@
 @tab-bar-item-icon-size: 22px;
 @tab-bar-item-name-font-size: 12px;
 @tab-bar-item-name-margin-top: 3px;
+@tab-bar-item-transition-duration: @transition-speed-fast;
 
 .@{tab-bar-item-prefix} {
   flex: 1;
@@ -15,7 +16,7 @@
   align-items: center;
   justify-content: center;
   height: 100%;
-  transition: color 0.2s;
+  transition: color @tab-bar-item-transition-duration;
   line-height: 1;
   cursor: pointer;
 

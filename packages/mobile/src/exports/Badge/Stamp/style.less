@@ -1,9 +1,22 @@
-@import '../../../theme/vars'; // 引入全局样式变量集，内含 @size-scale、各类色值等变量
+@import '../../../theme/vars.less'; // 引入全局样式变量集，内含 @size-scale、各类色值等变量
 
 // 由于 less 变量的懒生效特性，变量命名空间存在冲突，此处 prefix 变量命名前需要加特定前缀
 // https://less.bootcss.com/features/#variables-lazy-evaluation
 // @no-cssvar: 用于生成选择器名称
 @badge-stamp-prefix: ~'exd-badge-stamp';
+
+// Badge.Stamp 样式变量定义
+@badge-stamp-color: @ant-color-gray-8;
+@badge-stamp-min-width: 32px;
+@badge-stamp-min-height: 32px;
+@badge-stamp-line-height: 30px;
+@badge-stamp-border-radius: 16px;
+@badge-stamp-border-width: 1px;
+@badge-stamp-font-size: 14px;
+@badge-stamp-fixed-z-index: 99;
+@badge-stamp-fixed-rotate: -20deg;
+@badge-stamp-fixed-translate-x: 45%;
+@badge-stamp-fixed-translate-y: -25%;
 
 .@{badge-stamp-prefix}-wrap {
   display: inline-block;
@@ -14,19 +27,20 @@
   display: inline-block;
   text-align: center;
   // vertical-align: middle;
-  min-width: 32px;
-  min-height: 32px;
-  line-height: 30px;
-  border-radius: 16px;
-  color: #4b4b4b;
-  border: 1px solid #4b4b4b;
-  font-size: 14px;
+  min-width: @badge-stamp-min-width;
+  min-height: @badge-stamp-min-height;
+  line-height: @badge-stamp-line-height;
+  border-radius: @badge-stamp-border-radius;
+  color: @badge-stamp-color;
+  border: @badge-stamp-border-width solid @badge-stamp-color;
+  font-size: @badge-stamp-font-size;
 
   &-fixed {
     position: absolute;
-    z-index: 99;
+    z-index: @badge-stamp-fixed-z-index;
     top: 0%;
     right: 0%;
-    transform: rotate(-20deg) translate(45%, -25%);
+    transform: rotate(@badge-stamp-fixed-rotate)
+      translate(@badge-stamp-fixed-translate-x, @badge-stamp-fixed-translate-y);
   }
 }

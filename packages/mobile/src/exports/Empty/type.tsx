@@ -31,7 +31,7 @@ export interface EmptyStyleVars {
   '@empty-icon-size'?: string
   /**
    * @description Empty 图标颜色
-   * @default #ccc
+   * @default @color-gray-disable (#bfbfbf)
    */
   '@empty-icon-color'?: string
   /**
@@ -41,7 +41,7 @@ export interface EmptyStyleVars {
   '@empty-image-width'?: string
   /**
    * @description Empty 文字颜色
-   * @default #999
+   * @default @color-gray-secondary (#8c8c8c)
    */
   '@empty-text-color'?: string
   /**

@@ -140,18 +140,7 @@ import { DatePicker, LineDatePicker, BlockDatePicker, DatePickerView } from '@fe
 
 继承 PickerView 的所有样式变量，详见 [Picker 样式变量](/#/exports/data/picker#样式变量)。
 
-| 变量名                                  | 说明             | 默认值                     |
-| :-------------------------------------- | :--------------- | :------------------------- |
-| `@picker-view-item-height`              | 选择器每行高度   | `50px`                     |
-| `@picker-view-bg-color`                 | 背景颜色         | `#fff`                     |
-| `@picker-view-mask-bg-color`            | 遮罩层背景颜色   | `rgba(255, 255, 255, 0.5)` |
-| `@picker-view-indicator-border-color`   | 指示器边框颜色   | `#ddd`                     |
-| `@picker-view-indicator-border-width`   | 指示器边框宽度   | `1px`                      |
-| `@picker-view-item-font-size`           | 选择器项字体大小 | `14px`                     |
-| `@picker-view-item-padding`             | 选择器项内边距   | `14px`                     |
-| `@picker-view-item-active-font-size`    | 激活状态字体大小 | `16px`                     |
-| `@picker-view-item-active-font-weight`  | 激活状态字体粗细 | `500`                      |
-| `@picker-view-item-transition-duration` | 动画过渡时长     | `0.1s`                     |
+<API identifier="DatePickerView-StyleVars" hideTitle src="../PickerView/type.tsx" exports='["DOC_PickerViewStyleVars"]'></API>
 
 ### CellDatePicker 样式变量
 
@@ -166,12 +155,3 @@ import { DatePicker, LineDatePicker, BlockDatePicker, DatePickerView } from '@fe
 <API identifier="LineDatePicker-StyleVars" hideTitle src="../LineDatePicker/type.tsx" exports='["DOC_LineDatePickerStyleVars"]'></API>
 
 ---
-
-**全局变量说明**
-
-| 变量名              | 说明                     | 默认值 |
-| :------------------ | :----------------------- | :----- |
-| `@size-scale`       | 全局尺寸缩放比例         | `1`    |
-| `@ant-color-gray-5` | Ant Design 灰色色板 5 级 | -      |
-| `@ant-color-gray-6` | Ant Design 灰色色板 6 级 | -      |
-| `@ant-color-gray-7` | Ant Design 灰色色板 7 级 | -      |

@@ -27,6 +27,8 @@
 @cell-description-font-size-small: 10px;
 @cell-description-font-size-large: 14px;
 
+@cell-transition-duration: @transition-speed-fast;
+
 .@{cell-prefix} {
   position: relative;
   display: flex;
@@ -112,7 +114,7 @@
   }
 
   &-tapable {
-    transition: background-color 0.2s;
+    transition: background-color @cell-transition-duration;
     cursor: pointer;
 
     &:active {

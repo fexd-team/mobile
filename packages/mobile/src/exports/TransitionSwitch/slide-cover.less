@@ -1,10 +1,15 @@
+// @hardcoded-ignore
+@transition-slide-cover-z-backward: -100px;
+// @hardcoded-ignore
+@transition-slide-cover-scale: 0.92;
+
 .exd-transition-switch__slideCoverPrevEnter {
   animation-name: exd-transition-switch__slideCoverPrevEnter;
 
   @keyframes exd-transition-switch__slideCoverPrevEnter {
     from {
       opacity: 0;
-      transform: translate3d(0, 0, -100px) scale(0.92);
+      transform: translate3d(0, 0, @transition-slide-cover-z-backward) scale(@transition-slide-cover-scale);
     }
 
     to {
@@ -43,7 +48,7 @@
 
     to {
       opacity: 0;
-      transform: translate3d(0, 0, -100px) scale(0.92);
+      transform: translate3d(0, 0, @transition-slide-cover-z-backward) scale(@transition-slide-cover-scale);
     }
   }
 }

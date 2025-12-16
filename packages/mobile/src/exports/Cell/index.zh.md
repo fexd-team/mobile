@@ -31,4 +31,10 @@ mobileDemoFixed: false
 
 ## 样式变量
 
+### Cell 样式变量
+
 <API identifier="CellStyleVars" hideTitle src="./type.tsx" exports='["DOC_CellStyleVars"]'></API>
+
+### Cell.Group 样式变量
+
+<API identifier="CellGroupStyleVars" hideTitle src="./Group/type.tsx" exports='["DOC_CellGroupStyleVars"]'></API>

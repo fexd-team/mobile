@@ -1,22 +1,24 @@
-@import '../../../theme/vars';
+@import '../../../theme/vars.less';
 
 // @no-cssvar: 用于生成选择器名称
 @tab-item-prefix: ~'exd-tabs__item';
 @tabs-item-color: #333;
 @tabs-item-font-size: 14px;
+@tabs-item-line-height: 1.3;
 @tabs-item-active-color: @color-primary;
 @tabs-item-flex-padding-x: 4px;
 @tabs-item-scroll-padding-x: 20px;
 @tabs-item-scroll-margin-x: 4px;
+@tabs-item-transition-duration: @transition-speed-normal;
 
 .@{tab-item-prefix} {
   font-weight: 400;
   color: @tabs-item-color;
   text-align: center;
   font-size: @tabs-item-font-size * @size-scale;
-  transition: color 0.3s;
+  transition: color @tabs-item-transition-duration;
   cursor: pointer;
-  line-height: 1.3;
+  line-height: @tabs-item-line-height * @size-scale;
 
   .exd-icon {
     font-size: @tabs-item-font-size * @size-scale;
@@ -43,9 +45,11 @@
     position: relative;
     display: flex;
     align-items: center;
+
     &:first-child {
       margin-left: @tabs-item-scroll-margin-x * @size-scale;
     }
+
     &:last-child {
       margin-right: @tabs-item-scroll-margin-x * @size-scale;
     }
