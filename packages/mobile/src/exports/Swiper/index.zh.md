@@ -153,6 +153,8 @@ import { Swiper } from '@fexd/mobile'
 | speed | 动画速度 （ms） | `number` | 300 |
 | easing | 缓动函数 | `(progress: number) => number` | - |
 | indicator | 指示器渲染 | `(total: number, current: number) => JSX` | - |
+| thresholdPercent | 切换阈值（百分比），滑动偏移超过此百分比时触发切换 | `number` | 30 |
+| thresholdPixel | 切换阈值（像素），滑动偏移超过此像素值时触发切换 | `number` | 200 |
 
 ---
 

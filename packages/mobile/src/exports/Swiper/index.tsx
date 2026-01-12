@@ -55,6 +55,8 @@ const Swiper = createFC<SwiperProps, SwiperRef>(function Swiper(
     preventDefault,
     stopPropagation,
     indicator,
+    thresholdPercent,
+    thresholdPixel,
     ...props
   },
   ref,
@@ -175,8 +177,8 @@ const Swiper = createFC<SwiperProps, SwiperRef>(function Swiper(
     onEnd(current, [{ offsetPercentX, offsetPercentY, offsetX, offsetY }]) {
       const offsetPercent = vertical ? offsetPercentY : offsetPercentX
       const offset = vertical ? offsetY : offsetX
-      // 单次滑动偏移值百分比大于 30%，或偏移像素值大于 200px 时，视作需要进行更新
-      const shouldUpdate = Math.abs(offsetPercent) >= 30 || Math.abs(offset) >= 200
+      // 单次滑动偏移值百分比大于阈值，或偏移像素值大于阈值时，视作需要进行更新
+      const shouldUpdate = Math.abs(offsetPercent) >= thresholdPercent! || Math.abs(offset) >= thresholdPixel!
 
       // 滑动的方向
       const direction = offsetPercent > 0 ? 1 : -1
@@ -276,6 +278,8 @@ Swiper.defaultProps = {
   rate: 0,
   preventDefault: true,
   stopPropagation: false,
+  thresholdPercent: 30,
+  thresholdPixel: 200,
 }
 
 export default Swiper

@@ -18,6 +18,16 @@ export interface SwiperProps {
   speed?: number
   easing?: EasingFunction
   indicator?: (total: number, current: number) => React.ReactNode
+  /**
+   * 切换阈值（百分比），滑动偏移超过此百分比时触发切换
+   * @default 30
+   */
+  thresholdPercent?: number
+  /**
+   * 切换阈值（像素），滑动偏移超过此像素值时触发切换
+   * @default 200
+   */
+  thresholdPixel?: number
 }
 
 export type SwiperRef = any
