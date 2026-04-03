@@ -21,8 +21,7 @@ export default function useIOControl<T>(props: IOProps<T>, options?: Options<T>)
     focused || // 聚焦状态下不受控
     !hasValueKey // 删除无效 value
   ) {
-    // 聚焦状态下不受控
-    delete controllableValueOptions.value
+    delete (controllableValueOptions as Record<string, unknown>)[valuePropName]
   }
 
   const [value, setControllableValue] = useControllableValue<T>(controllableValueOptions, options)

@@ -27,3 +27,6 @@ package-lock.json
 # ide
 /.vscode
 /.idea
+
+debug*.log
+.references

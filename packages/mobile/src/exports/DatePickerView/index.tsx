@@ -8,6 +8,26 @@ import { DatePickerViewProps } from './type'
 import createFC from '../createFC'
 
 const prefix = 'exd-date-picker-view'
+
+const clamp = (value: number, min: number, max: number) => Math.min(Math.max(value, min), max)
+
+function getMonthRange(year: number, minDate: any, maxDate: any): [number, number] {
+  const dMin = dayjs(minDate)
+  const dMax = dayjs(maxDate)
+  return [
+    year === Number(dMin.format('YYYY')) ? Number(dMin.format('MM')) : 1,
+    year === Number(dMax.format('YYYY')) ? Number(dMax.format('MM')) : 12,
+  ]
+}
+
+function getDayRange(year: number, month: number, minDate: any, maxDate: any): [number, number] {
+  const dMin = dayjs(minDate)
+  const dMax = dayjs(maxDate)
+  const isMin = year === Number(dMin.format('YYYY')) && month === Number(dMin.format('MM'))
+  const isMax = year === Number(dMax.format('YYYY')) && month === Number(dMax.format('MM'))
+  const lastDay = Number(dayjs(new Date(year, month, 0)).format('DD'))
+  return [isMin ? Number(dMin.format('DD')) : 1, isMax ? Number(dMax.format('DD')) : lastDay]
+}
 const DatePickerView = createFC<DatePickerViewProps, HTMLDivElement>(function DatePickerView(
   {
     defaultValue,
@@ -56,40 +76,9 @@ const DatePickerView = createFC<DatePickerViewProps, HTMLDivElement>(function Da
     })
   }, [min, max, yearLabel])
   const months = useMemo(() => {
-    const dateMax = dayjs(max)
-    const dateMin = dayjs(min)
-    const maxYear = Number(dateMax.format('YYYY'))
-    const minYear = Number(dateMin.format('YYYY'))
-    const maxMonth = Number(dateMax.format('MM'))
-    const minMonth = Number(dateMin.format('MM'))
-    // const currentYear = Number(dayjs(currentDate).format('YYYY'))
-    let data: number[] = []
-    if (currentYear === maxYear) {
-      if (currentYear === minYear) {
-        // 1. 当前年份是最大年份, 也是最小年份
-        data = Array.from(new Array(maxMonth - minMonth + 1)).map((item, index) => {
-          return minMonth + index
-        })
-      } else {
-        // 2. 当前年份只是最大年份
-        data = Array.from(new Array(maxMonth - 1 + 1)).map((item, index) => {
-          return 1 + index
-        })
-      }
-    } else {
-      // 3. 当前年份只是最小年份
-      if (currentYear === minYear) {
-        data = Array.from(new Array(12 - minMonth + 1)).map((item, index) => {
-          return minMonth + index
-        })
-      } else {
-        // 4. 当前年份不是最大年份，也不是最小年份
-        data = Array.from(new Array(12 - 1 + 1)).map((item, index) => {
-          return 1 + index
-        })
-      }
-    }
-    return data.map((value) => {
+    const [rangeMin, rangeMax] = getMonthRange(currentYear, min, max)
+    return Array.from({ length: rangeMax - rangeMin + 1 }, (_, i) => {
+      const value = rangeMin + i
       return {
         value,
         label: dayjs(`${currentYear}-${value}-01`).format(monthLabel),
@@ -97,45 +86,9 @@ const DatePickerView = createFC<DatePickerViewProps, HTMLDivElement>(function Da
     })
   }, [min, max, currentYear, monthLabel])
   const days = useMemo(() => {
-    const dateMax = dayjs(max)
-    const dateMin = dayjs(min)
-    const maxYear = Number(dateMax.format('YYYY'))
-    const minYear = Number(dateMin.format('YYYY'))
-    const maxMonth = Number(dateMax.format('MM'))
-    const minMonth = Number(dateMin.format('MM'))
-    const maxDay = Number(dateMax.format('DD'))
-    const minDay = Number(dateMin.format('DD'))
-    const isMax = currentYear === maxYear && currentMonth === maxMonth
-    const isMin = currentYear === minYear && currentMonth === minMonth
-    const lastDay = Number(dayjs(new Date(currentYear, currentMonth, 0)).format('DD'))
-
-    let data: number[] = []
-    if (isMax) {
-      if (isMin) {
-        // 1. 现在是最大年月，也是最小年月
-        data = Array.from(new Array(maxDay - minDay + 1)).map((item, index) => {
-          return minDay + index
-        })
-      } else {
-        // 2. 现在只是最大年月
-        data = Array.from(new Array(maxDay - 1 + 1)).map((item, index) => {
-          return 1 + index
-        })
-      }
-    } else {
-      if (isMin) {
-        // 3. 现在只是最小年月
-        data = Array.from(new Array(lastDay - minDay + 1)).map((item, index) => {
-          return minDay + index
-        })
-      } else {
-        // 4. 现在不是最大年月，也不是最小年月
-        data = Array.from(new Array(lastDay - 1 + 1)).map((item, index) => {
-          return 1 + index
-        })
-      }
-    }
-    return data.map((value) => {
+    const [rangeMin, rangeMax] = getDayRange(currentYear, currentMonth, min, max)
+    return Array.from({ length: rangeMax - rangeMin + 1 }, (_, i) => {
+      const value = rangeMin + i
       return {
         value,
         label: dayjs(`${currentYear}-${currentMonth}-${value}`).format(dayLabel),
@@ -143,12 +96,27 @@ const DatePickerView = createFC<DatePickerViewProps, HTMLDivElement>(function Da
     })
   }, [min, max, currentYear, currentMonth, dayLabel])
 
-  const handleYearChange = useCallback((value: any) => {
-    setCurrentYear(value)
-  }, [])
-  const handleMonthChange = useCallback((value: any) => {
-    setCurrentMonth(value)
-  }, [])
+  const handleYearChange = useCallback(
+    (value: any) => {
+      setCurrentYear(value)
+      const [mMin, mMax] = getMonthRange(value, min, max)
+      const cMonth = clamp(currentMonth, mMin, mMax)
+      if (cMonth !== currentMonth) setCurrentMonth(cMonth)
+      const [dMin, dMax] = getDayRange(value, cMonth, min, max)
+      const cDay = clamp(currentDay, dMin, dMax)
+      if (cDay !== currentDay) setCurrentDay(cDay)
+    },
+    [currentMonth, currentDay, min, max],
+  )
+  const handleMonthChange = useCallback(
+    (value: any) => {
+      setCurrentMonth(value)
+      const [dMin, dMax] = getDayRange(currentYear, value, min, max)
+      const cDay = clamp(currentDay, dMin, dMax)
+      if (cDay !== currentDay) setCurrentDay(cDay)
+    },
+    [currentYear, currentDay, min, max],
+  )
   const handleDayChange = useCallback((value: any) => {
     setCurrentDay(value)
   }, [])

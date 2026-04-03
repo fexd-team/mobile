@@ -1,4 +1,4 @@
-import React, { useState, useCallback, useEffect } from 'react'
+import React, { useState, useCallback, useEffect, useMemo } from 'react'
 import { classnames, run } from '@fexd/tools'
 import dayjs from 'dayjs'
 import PickerView from '../PickerView'
@@ -10,33 +10,32 @@ const TimePickerView = createFC<TimePickerViewProps, HTMLDivElement>(function Ti
   { value, onChange, format, hourLabel = 'HH', minuteLabel = 'mm', secondLabel = 'ss', rows = 3, className, ...props },
   forwardedRef,
 ) {
-  // 当前 date 对应的 [年, 月, 日]
   const [dateArr, setDateArr] = useState<number[]>([])
 
-  const hours = Array.from(new Array(24)).map((item, index) => {
-    const date = new Date()
-    date.setHours(index)
-    return {
-      label: dayjs(date).format(hourLabel),
-      value: index,
-    }
-  })
-  const minutes = Array.from(new Array(60)).map((item, index) => {
-    const date = new Date()
-    date.setMinutes(index)
-    return {
-      label: dayjs(date).format(minuteLabel),
-      value: index,
-    }
-  })
-  const seconds = Array.from(new Array(60)).map((item, index) => {
-    const date = new Date()
-    date.setSeconds(index)
-    return {
-      label: dayjs(date).format(secondLabel),
-      value: index,
-    }
-  })
+  const hours = useMemo(
+    () =>
+      Array.from({ length: 24 }, (_, i) => ({
+        label: dayjs().hour(i).format(hourLabel),
+        value: i,
+      })),
+    [hourLabel],
+  )
+  const minutes = useMemo(
+    () =>
+      Array.from({ length: 60 }, (_, i) => ({
+        label: dayjs().minute(i).format(minuteLabel),
+        value: i,
+      })),
+    [minuteLabel],
+  )
+  const seconds = useMemo(
+    () =>
+      Array.from({ length: 60 }, (_, i) => ({
+        label: dayjs().second(i).format(secondLabel),
+        value: i,
+      })),
+    [secondLabel],
+  )
 
   const [currentHour, setCurrentHour] = useState<number>()
   const [currentMinute, setCurrentMinute] = useState<number>()
@@ -62,7 +61,7 @@ const TimePickerView = createFC<TimePickerViewProps, HTMLDivElement>(function Ti
     setCurrentHour(value ? Number(dayjs(currentDate).hour()) : 0)
     setCurrentMinute(value ? Number(dayjs(currentDate).minute()) : 0)
     setCurrentSecond(value ? Number(dayjs(currentDate).second()) : 0)
-  }, [value, format])
+  }, [value])
 
   useEffect(() => {
     if (!dateArr?.length) {

@@ -40,7 +40,7 @@ export default () => {
   return (
     <>
       <DemoBlock title="DatePicker 基础">
-        <DatePicker value={date} onChange={setDate}>
+        <DatePicker value={date} onChange={setDate as any}>
           {(value) => <Button>点击选择日期: {value ? dayjs(value).format('YYYY年MM月DD日') : '请选择'}</Button>}
         </DatePicker>
       </DemoBlock>

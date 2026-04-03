@@ -40,7 +40,7 @@
     "postcss-discard-empty": "^7.0.1",
     "postcss-merge-rules": "^7.0.7"
   },
-  "files": ["es", "lib", "src", "types.d.ts"],
+  "files": ["es", "lib", "src", "types.d.ts", "skills", "AGENTS.md"],
   "sideEffects": false,
   "homepage": "https://fexd-team.github.io/mobile/",
   "repository": {
