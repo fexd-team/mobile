@@ -4,7 +4,8 @@ import createFC from '../../createFC'
 import { CheckboxGroupProps, CheckboxGroupRef, CheckboxGroupType, CheckboxGroupSharedProps } from './type'
 import useIOControl from '../../useIOControl'
 import Space from '../../Space'
-import Checkbox, { defaultIcon } from '../index'
+import Checkbox from '../index'
+import { defaultIcon } from '../constants'
 // 此处不引入 style.less，目的是实现按需引用
 
 export const radioGroupContext = createContext<

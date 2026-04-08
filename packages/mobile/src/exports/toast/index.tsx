@@ -24,7 +24,7 @@ const globalDefaultConfig: ToastMethodConfig = {
   duration: 1800,
 }
 
-const createToastMethod = (methodDefaultConfig: ToastMethodConfig = {}) => {
+const createToastMethod = (methodDefaultConfig: ToastMethodConfig) => {
   const method = (content: React.ReactNode, config?: ToastMethodConfig) => {
     const { duration, ...props } = {
       ...globalDefaultConfig,

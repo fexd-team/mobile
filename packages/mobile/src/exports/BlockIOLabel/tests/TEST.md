@@ -1,0 +1,26 @@
+# BlockIOLabel 测试概要
+
+## 覆盖率
+
+定向采集：`packages/mobile/src/exports/BlockIOLabel/index.tsx`。
+
+| 指标       | 值   |
+| ---------- | ---- |
+| Statements | 90%  |
+| Branches   | 100% |
+| Functions  | 100% |
+| Lines      | 100% |
+
+## 测试场景
+
+1. **默认渲染**：无额外 props → 根节点在文档中且不崩溃。
+2. **样式前缀**：默认渲染 → 同时存在 `exd-io-label` 与 `exd-block-label` 相关类名。
+3. **className 透传**：传入 `className="my-custom"` → 出现 `.my-custom`。
+
+## 评分
+
+- 交互覆盖：2/5
+- 分支覆盖：4/5（Istanbul 分支 100%，语句仍差 1 条）
+- 边界处理：2/5
+- 场景真实度：3/5
+- 综合评分：11/20

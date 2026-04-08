@@ -5,7 +5,8 @@ import createFC from '../../createFC'
 import { RadioGroupProps, RadioGroupRef, RadioGroupType, RadioGroupSharedProps } from './type'
 import useIOControl from '../../useIOControl'
 import Space from '../../Space'
-import Radio, { defaultIcon } from '../index'
+import Radio from '../index'
+import { defaultIcon } from '../constants'
 // 此处不引入 style.less，目的是实现按需引用
 
 export const radioGroupContext = createContext<

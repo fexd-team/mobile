@@ -1,6 +1,8 @@
 {
   "name": "root",
-  "workspaces": ["packages/*"],
+  "workspaces": [
+    "packages/*"
+  ],
   "private": true,
   "scripts": {
     "init": "npx pnpm@6 i --shamefully-hoist",
@@ -35,8 +37,11 @@
     "@fexd/icons-bytesize": "^0.1.0",
     "@fexd/icons-mono": "^0.1.0",
     "@fexd/tools": "^0.1.0",
+    "@swc/core": "^1.15.21",
+    "@swc/jest": "^0.2.39",
     "@testing-library/jest-dom": "^5.16.4",
     "@testing-library/react": "^13.3.0",
+    "@testing-library/user-event": "^14.6.1",
     "@types/jest": "^28.1.2",
     "@umijs/fabric": "^2.8.1",
     "@umijs/plugin-sass": "^1.1.1",
@@ -65,9 +70,9 @@
     "react-activation": "^0.12.4",
     "react-dom": "^16.8.0",
     "react-node-key": "^0.4.0",
-    "resize-observer-polyfill": "^1.5.1",
     "react-router-dom": "^5.3.0",
     "react-sticky": "^6.0.3",
+    "resize-observer-polyfill": "^1.5.1",
     "rimraf": "^3.0.2",
     "sass": "^1.43.4",
     "sass-loader": "^12.3.0",
@@ -88,18 +93,43 @@
     "history": "4.10.0",
     "typescript": "^4.6.3"
   },
+  "pnpm": {
+    "overrides": {
+      "jest-cli": "^28.1.1",
+      "react": "^18.1.0",
+      "react-dom": "^18.1.0"
+    }
+  },
   "commitlint": {
-    "extends": ["@commitlint/config-conventional"],
+    "extends": [
+      "@commitlint/config-conventional"
+    ],
     "rules": {
-      "subject-case": [0],
-      "header-max-length": [2, "always", 200]
+      "subject-case": [
+        0
+      ],
+      "header-max-length": [
+        2,
+        "always",
+        200
+      ]
     }
   },
   "lint-staged": {
-    "!(docs)/**/*.{md,json}": ["prettier --write"],
-    "!(docs)/**/*.{css,less}": ["prettier --write"],
-    "!(docs)/**/*.js?(x)": ["eslint --cache", "prettier --write"],
-    "!(docs)/**/*.ts?(x)": ["eslint --cache", "prettier --parser=typescript --write"]
+    "!(docs)/**/*.{md,json}": [
+      "prettier --write"
+    ],
+    "!(docs)/**/*.{css,less}": [
+      "prettier --write"
+    ],
+    "!(docs)/**/*.js?(x)": [
+      "eslint --cache",
+      "prettier --write"
+    ],
+    "!(docs)/**/*.ts?(x)": [
+      "eslint --cache",
+      "prettier --parser=typescript --write"
+    ]
   },
   "husky": {
     "hooks": {

@@ -1,15 +1,13 @@
 import React from 'react'
 import { classnames, run } from '@fexd/tools'
-import { CheckmarkCircle, EllipseOutline } from '@fexd/icons'
-
 import createFC from '../createFC'
 import { RadioProps, RadioRef, RadioType } from './type'
 import useIOControl from '../useIOControl'
 import RadioGroup, { useRadioGroupContext } from './Group'
-// 此处不引入 style.less，目的是实现按需引用
+import { defaultIcon, prefix } from './constants'
 
-export const defaultIcon = (checked) => (checked ? <CheckmarkCircle /> : <EllipseOutline />)
-export const prefix = 'exd-radio'
+// 此处不引入 style.less，目的是实现按需引用
+export { defaultIcon, prefix }
 const Radio = createFC<RadioProps, RadioRef>(function Radio(
   {
     className,

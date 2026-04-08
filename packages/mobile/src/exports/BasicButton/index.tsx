@@ -13,6 +13,8 @@ const BasicButton = createFC<BasicButtonProps, any>(function BasicButton(
     <Component
       {...props}
       onClick={disabled ? null : onClick}
+      disabled={Component === 'button' ? disabled || undefined : undefined}
+      aria-disabled={disabled || undefined}
       className={classnames(prefix, className, {
         [`${prefix}-${type}`]: !!type,
         [`${prefix}-${size}`]: !!size,

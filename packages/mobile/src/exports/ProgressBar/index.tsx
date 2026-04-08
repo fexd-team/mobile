@@ -8,7 +8,7 @@ import { ProgressBarProps } from './type'
 export const prefix = 'exd-progress-bar'
 
 const ProgressBar = createFC<ProgressBarProps, HTMLDivElement>(function ProgressBar(
-  { className, value, speed = 0, onChange, children, ...props },
+  { className, value, speed, onChange, children, ...props },
   forwardedRef,
 ) {
   const timeout = SPEED_MAP[speed!] ?? speed

@@ -1,5 +1,5 @@
 import React, { Fragment, isValidElement, useState } from 'react'
-import { classnames, isObject, run } from '@fexd/tools'
+import { classnames, run } from '@fexd/tools'
 
 import Button from '../Button'
 import Popup from '../Popup'
@@ -10,7 +10,7 @@ import { ActionSheetProps, ActionSheetRef, ActionSheetAction } from './type'
 
 export const prefix = 'exd-action-sheet'
 const ActionSheet = createFC<ActionSheetProps, ActionSheetRef>(function ActionSheet(
-  { modalId, children, className, onClose, actions = [], buttonFactory, ...props },
+  { modalId, children, className, onClose, actions, buttonFactory, ...props },
   forwardedRef,
 ) {
   const [currentModalId] = useState(() => modalId ?? uniqueId('action-sheep'))

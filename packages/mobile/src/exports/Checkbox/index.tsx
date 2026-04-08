@@ -1,14 +1,13 @@
 import React from 'react'
 import { classnames, run } from '@fexd/tools'
-import { Checkbox as IconCheckbox, SquareOutline } from '@fexd/icons'
 import createFC from '../createFC'
 import { CheckboxProps, CheckboxRef, CheckboxType } from './type'
 import useIOControl from '../useIOControl'
 import CheckboxGroup, { useCheckboxGroupContext } from './Group'
+import { defaultIcon, prefix } from './constants'
 
 // 此处不引入 style.less，目的是实现按需引用
-export const defaultIcon = (checked) => (checked ? <IconCheckbox /> : <SquareOutline />)
-export const prefix = 'exd-checkbox'
+export { defaultIcon, prefix }
 const Checkbox = createFC<CheckboxProps, CheckboxRef>(function Checkbox(
   {
     className,

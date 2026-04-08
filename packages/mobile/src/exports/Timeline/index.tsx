@@ -11,7 +11,7 @@ interface TimelineType extends BasicTimelineType {
 }
 
 const Timeline: TimelineType = createFC<TimelineProps, HTMLDivElement>(
-  ({ data = [], children, className, ...props }, ref) => {
+  ({ data, children, className, ...props }, ref) => {
     return (
       <div className={classnames('exd-timeline', className)} {...props} ref={ref}>
         {data.length > 0

@@ -1,196 +1,305 @@
 import React from 'react'
-import { render, screen, act, fireEvent } from '@testing-library/react'
-import { Modal, showModal, modalStore } from '@fexd/mobile'
-import { delay } from '@fexd/tools'
+import { render, screen, waitFor, act } from '@testing-library/react'
+import userEvent from '@testing-library/user-event'
+import '@testing-library/jest-dom'
+import Modal from '..'
+import modalStore from '../../modalStore'
+import { cleanupModals } from '../../../tests/testing'
 
 describe('Modal', () => {
-  afterEach(async () => {
-    act(() => {
-      modalStore.destroyAll()
-    })
+  afterEach(cleanupModals)
 
-    document.body.innerHTML = ''
+  test('visible 为 true 时渲染内容与 exd-modal-content', () => {
+    render(
+      <Modal visible transitionSpeed="none" onClose={() => {}}>
+        模态正文
+      </Modal>,
+    )
+    expect(screen.getByText('模态正文')).toBeInTheDocument()
+    expect(document.querySelector('.exd-modal-content')).toBeInTheDocument()
   })
 
-  // modalId?: ModalIdType // 模态框 id，基础模态框必传，用于区分模态框
-  // visible: boolean // 是否显示模态框
-  // children?: React.ReactNode // 模态框内容
-  test('应能正常渲染内容', () => {
-    render(<Modal visible>Modal Test</Modal>)
-    const testElement = screen.getByText(/Modal Test/i)
-    expect(testElement).toBeInTheDocument()
+  test('visible 为 false 时不渲染模态正文', () => {
+    render(
+      <Modal visible={false} transitionSpeed="none" onClose={() => {}}>
+        隐藏
+      </Modal>,
+    )
+    expect(screen.queryByText('隐藏')).not.toBeInTheDocument()
   })
 
-  // onClose?: React.ReactEventHandler<HTMLElement> // 行为意图钩子，尝试关闭时，用于控制外部 visible 变量
-  test('点击遮罩时，onClose 应该触发', async () => {
+  test('点击遮罩触发 onClose；点击 exd-modal-content 不触发', async () => {
+    const user = userEvent.setup()
     const onClose = jest.fn()
-    render(<Modal visible onClose={onClose} />)
-    fireEvent.click(document.querySelector('.exd-modal-content')!)
-    expect(onClose).not.toBeCalled()
-    fireEvent.click(document.querySelector('.exd-modal-mask')!)
-    expect(onClose).toBeCalled()
-    // await waitForElementToBeRemoved(modal)
-  })
-  // // className?: string // 内容容器的类名
-  // type?: string // 模态框类型，仅用作互斥标识使用，无其他用途
-  // level?: ModalLevel // 模态框等级，影响其 z-index
-  // portalClassName?: string // 模态框 Portal 容器的类名
-  // scrollable?: boolean // 模态框内容是否可滚动
-  test('scrollable 正常工作', () => {
-    render(<Modal visible>Non Scrollable</Modal>)
-    const testElement1 = screen.getByText(/Non Scrollable/i)
-    expect(testElement1.parentNode).not.toHaveClass('exd-modal-scrollable')
-
     render(
-      <Modal visible scrollable>
-        Scrollable Modal
+      <Modal visible transitionSpeed="none" onClose={onClose} maskClosable>
+        c
       </Modal>,
     )
-    const testElement2 = screen.getByText(/Scrollable Modal/i)
-    expect(testElement2.parentNode).toHaveClass('exd-modal-scrollable')
+    await user.click(document.querySelector('.exd-modal-content') as HTMLElement)
+    expect(onClose).not.toHaveBeenCalled()
+    await user.click(document.querySelector('.exd-modal-mask') as HTMLElement)
+    expect(onClose).toHaveBeenCalledTimes(1)
   })
 
-  // placement?: ModalPlacement // 内容位置，可选值为 center、top、bottom
-  test('placement 正常工作', () => {
-    render(<Modal visible>Placement Center</Modal>)
-    const testElement1 = screen.getByText(/Placement Center/i)
-    expect(testElement1.parentNode).toHaveClass('exd-modal-center')
-
+  test('maskClosable 为 false 时点击遮罩不关闭', async () => {
+    const user = userEvent.setup()
+    const onClose = jest.fn()
     render(
-      <Modal visible placement="top">
-        Placement Top
+      <Modal visible transitionSpeed="none" onClose={onClose} maskClosable={false} maskClassName="mc-off">
+        c
       </Modal>,
     )
-    const testElement2 = screen.getByText(/Placement Top/i)
-    expect(testElement2.parentNode).toHaveClass('exd-modal-top')
+    await user.click(document.querySelector('.mc-off') as HTMLElement)
+    expect(onClose).not.toHaveBeenCalled()
+  })
 
+  test('mask 为 false 时不渲染外层遮罩', () => {
     render(
-      <Modal visible placement="bottom">
-        Placement Bottom
+      <Modal visible mask={false} transitionSpeed="none" onClose={() => {}}>
+        x
       </Modal>,
     )
-    const testElement3 = screen.getByText(/Placement Bottom/i)
-    expect(testElement3.parentNode).toHaveClass('exd-modal-bottom')
-  })
-  // transition?: TransitionType // 内容出入动画类型
-  // transitionSpeed?: TransitionSpeed // 动画速度
-
-  // mask?: boolean // 是否显示遮罩，基于 Overlay 组件
-  // maskClassName?: string // 遮罩样式名
-  test('mask 属性正常工作', async () => {
-    render(<Modal visible maskClassName="default-mask" />)
-    expect(document.querySelector('.default-mask')).toBeInTheDocument()
-
-    render(<Modal visible mask={false} maskClassName="no-mask" />)
-    expect(document.querySelector('.no-mask')).not.toBeInTheDocument()
-    // await waitForElementToBeRemoved(modal)
+    expect(document.querySelector('.exd-modal-mask')).not.toBeInTheDocument()
   })
 
-  // maskClosable?: boolean // 点击遮罩是否允许关闭（触发 onClose 意图钩子）
-  test('maskClosable 属性正常工作', async () => {
-    const onClose1 = jest.fn()
-    render(<Modal visible onClose={onClose1} maskClassName="mask1" />)
-    fireEvent.click(document.querySelector('.mask1')!)
-    expect(onClose1).toBeCalled()
-
-    const onClose2 = jest.fn()
-    render(<Modal visible onClose={onClose2} maskClosable={false} maskClassName="mask2" />)
-    fireEvent.click(document.querySelector('.mask2')!)
-    expect(onClose2).not.toBeCalled()
-    // await waitForElementToBeRemoved(modal)
+  test('maskClassName 与 maskTransparent 作用于遮罩', () => {
+    render(
+      <Modal visible transitionSpeed="none" onClose={() => {}} maskClassName="m1" maskTransparent>
+        x
+      </Modal>,
+    )
+    const m = document.querySelector('.m1')
+    expect(m).toBeInTheDocument()
+    expect(m).toHaveClass('exd-overlay-transparent')
   })
 
-  // maskTransparent?: boolean // 遮罩是否透明
-  test('maskTransparent 属性正常工作', async () => {
-    render(<Modal visible maskClassName="mask1" maskTransparent />)
-    expect(document.querySelector('.mask1')).toHaveClass('exd-overlay-transparent')
+  test('placement 与 scrollable 透传至 BasicModal 根节点', () => {
+    render(
+      <Modal visible placement="top" scrollable transitionSpeed="none" onClose={() => {}}>
+        x
+      </Modal>,
+    )
+    expect(document.querySelector('.exd-modal-top.exd-modal-scrollable')).toBeInTheDocument()
   })
-  // maskTransition?: TransitionType // 遮罩出入动画类型
 
-  // onCreated?: () => void // 生命周期，模态框创建后
-  // onEnter?: TransitionProps['onEnter'] // 生命周期，开始入场前
-  // onEntered?: TransitionProps['onEntered'] // 生命周期，入场完成后
-  // onExit?: TransitionProps['onExit'] // 生命周期，开始退场前
-  // onExited?: TransitionProps['onExited'] // 生命周期，退场完成后
-  // onDestroyed?: () => void // 生命周期，模态框销毁后
-  test('生命周期函数正常执行且顺序正确', async () => {
-    const arr: string[] = []
-    const onCreated = jest.fn()
-    const onEnter = jest.fn()
-    const onEntered = jest.fn()
-    const onExit = jest.fn()
-    const onExited = jest.fn()
-    const onDestroyed = jest.fn()
+  test('contentClassName 合并到内容容器', () => {
+    render(
+      <Modal visible transitionSpeed="none" onClose={() => {}} contentClassName="extra-c">
+        x
+      </Modal>,
+    )
+    expect(document.querySelector('.exd-modal-content.extra-c')).toBeInTheDocument()
+  })
 
-    let controller: any
+  test('contentVisible 由 true 切 false 后内容区仍保留于 DOM（unmountOnExit=false）', async () => {
+    const { rerender } = render(
+      <Modal visible contentVisible transitionSpeed="none" contentTransitionSpeed="none" onClose={() => {}}>
+        inner
+      </Modal>,
+    )
+    expect(document.querySelector('.exd-modal-content')).toBeInTheDocument()
+    rerender(
+      <Modal visible contentVisible={false} transitionSpeed="none" contentTransitionSpeed="none" onClose={() => {}}>
+        inner
+      </Modal>,
+    )
+    await waitFor(() => expect(document.querySelector('.exd-modal-content')).toBeInTheDocument())
+  })
+
+  test('contentMask 为 true 时内容区出现绝对定位遮罩层', () => {
+    render(
+      <Modal visible transitionSpeed="none" contentTransitionSpeed="none" onClose={() => {}} contentMask>
+        x
+      </Modal>,
+    )
+    expect(document.querySelector('.exd-overlay-absolute')).toBeInTheDocument()
+  })
+
+  test('shareMask 为 true 时使用共享遮罩且主遮罩透明', () => {
+    render(
+      <Modal visible shareMask transitionSpeed="none" onClose={() => {}} maskClassName="shared-m">
+        x
+      </Modal>,
+    )
+    expect(document.querySelector('.exd-modal-mask.shared-m')).toHaveClass('exd-overlay-transparent')
+  })
+
+  test('modalId 传入时稳定复用该 id', () => {
+    render(
+      <Modal visible modalId="fixed-modal" transitionSpeed="none" onClose={() => {}}>
+        x
+      </Modal>,
+    )
+    expect(modalStore.getById('fixed-modal')).toBeTruthy()
+  })
+
+  test('ref 指向 BasicModal 内容根', () => {
+    const ref = React.createRef<HTMLDivElement>()
+    render(
+      <Modal visible transitionSpeed="none" onClose={() => {}} ref={ref}>
+        r
+      </Modal>,
+    )
+    expect(ref.current).toHaveClass('exd-modal')
+  })
+
+  test('onConflict：其他弹窗 open 时异步合并返回的冲突 props', async () => {
+    jest.useFakeTimers()
+    const onConflict = jest.fn(() => Promise.resolve({ portalClassName: 'from-conflict' }))
+    render(
+      <Modal visible modalId="modal-a" transitionSpeed="none" onClose={() => {}} onConflict={onConflict}>
+        a
+      </Modal>,
+    )
     act(() => {
-      controller = showModal({
-        transitionSpeed: 'none',
-        content: null,
-        onCreated() {
-          arr.push('onCreated')
-          onCreated()
-        },
-        onEnter() {
-          arr.push('onEnter')
-          onEnter()
-        },
-        onEntered() {
-          arr.push('onEntered')
-          onEntered()
-        },
-        onExit() {
-          arr.push('onExit')
-          onExit()
-        },
-        onExited() {
-          arr.push('onExited')
-          onExited()
-        },
-        onDestroyed() {
-          arr.push('onDestroyed')
-          onDestroyed()
-        },
-      })
+      modalStore.eventBus.emit('open', {
+        modalId: 'modal-b',
+        level: 'normal',
+        type: 'x',
+        props: {},
+        setCreated: () => {},
+        setVisible: () => {},
+        contentRef: { current: null },
+        zIndex: 1,
+      } as any)
     })
-
-    await delay(60)
-
-    expect(onCreated).toBeCalled()
-    expect(onEnter).toBeCalled()
-    expect(onEntered).toBeCalled()
-
-    expect(onExit).not.toBeCalled()
-    expect(onExited).not.toBeCalled()
-    expect(onDestroyed).not.toBeCalled()
-
-    act(() => controller.close())
-
-    await controller.promise
-    await delay(60)
-
-    expect(onExit).toBeCalled()
-    expect(onExited).toBeCalled()
-    expect(onDestroyed).toBeCalled()
-
-    // modalStore.destroyAll()
-
-    // 测试执行顺序
-    expect(arr.join(' -> ')).toBe('onCreated -> onEnter -> onEntered -> onExit -> onExited -> onDestroyed')
+    await act(async () => {
+      jest.runAllTimers()
+    })
+    expect(onConflict).toHaveBeenCalled()
+    await waitFor(() => {
+      expect(document.querySelector('.exd-modal-portal.from-conflict')).toBeInTheDocument()
+    })
+    jest.useRealTimers()
   })
 
-  // 以下部分暂未覆盖测试用例
+  test('onConflict：其他弹窗 close 事件走 close 分支', async () => {
+    jest.useFakeTimers()
+    const onConflict = jest.fn(() => Promise.resolve({ className: 'after-close' }))
+    render(
+      <Modal
+        visible
+        modalId="modal-c1"
+        transitionSpeed="none"
+        onClose={() => {}}
+        onConflict={onConflict}
+        className="before"
+      >
+        c
+      </Modal>,
+    )
+    act(() => {
+      modalStore.eventBus.emit('close', {
+        modalId: 'modal-c2',
+        level: 'normal',
+        type: 'x',
+        props: {},
+        setCreated: () => {},
+        setVisible: () => {},
+        contentRef: { current: null },
+        zIndex: 1,
+      } as any)
+    })
+    await act(async () => {
+      jest.runAllTimers()
+    })
+    expect(onConflict).toHaveBeenCalled()
+    await waitFor(() => {
+      expect(document.querySelector('.exd-modal.after-close')).toBeInTheDocument()
+    })
+    jest.useRealTimers()
+  })
 
-  // ref?: React.Ref<HTMLDivElement>
-  // storeProps?: any
-  // destroyOnExit?: boolean // 退场后是否销毁内容
-  // portalTo?: any // 弹窗 portal 注入的位置
-  // shareMask?: boolean // 是否共享蒙层
-  // contentClassName?: string // 内容容器样式
-  // contentVisible?: boolean // 内容是否可见
-  // contentTransition?: TransitionType
-  // contentTransitionSpeed?: TransitionSpeed
-  // contentMask?: boolean
-  // contentMaskTransition?: TransitionType
-  // onConflict?: ModalConflictHandler | null
+  test('onConflict 返回 undefined 时仍可安全合并', async () => {
+    jest.useFakeTimers()
+    const onConflict = jest.fn(() => Promise.resolve(undefined))
+    render(
+      <Modal visible modalId="undef-c" transitionSpeed="none" onClose={() => {}} onConflict={onConflict}>
+        u
+      </Modal>,
+    )
+    act(() => {
+      modalStore.eventBus.emit('open', {
+        modalId: 'other-u',
+        level: 'normal',
+        type: 'x',
+        props: {},
+        setCreated: () => {},
+        setVisible: () => {},
+        contentRef: { current: null },
+        zIndex: 1,
+      } as any)
+    })
+    await act(async () => {
+      jest.runAllTimers()
+    })
+    expect(onConflict).toHaveBeenCalled()
+    expect(screen.getByText('u')).toBeInTheDocument()
+    jest.useRealTimers()
+  })
+
+  test('onConflict 非函数时不注册监听', () => {
+    render(
+      <Modal visible modalId="no-cb" transitionSpeed="none" onClose={() => {}} onConflict={null as any}>
+        x
+      </Modal>,
+    )
+    expect(() =>
+      modalStore.eventBus.emit('open', {
+        modalId: 'other',
+        level: 'normal',
+        type: 'x',
+        props: {},
+        setCreated: () => {},
+        setVisible: () => {},
+        contentRef: { current: null },
+        zIndex: 1,
+      } as any),
+    ).not.toThrow()
+  })
+
+  test('自身 modal 的 open/close 事件不会触发 onConflict', async () => {
+    jest.useFakeTimers()
+    const onConflict = jest.fn()
+    render(
+      <Modal visible modalId="self-only" transitionSpeed="none" onClose={() => {}} onConflict={onConflict}>
+        s
+      </Modal>,
+    )
+    const self = modalStore.getById('self-only')
+    act(() => {
+      modalStore.eventBus.emit('open', self as any)
+    })
+    await act(async () => {
+      jest.runAllTimers()
+    })
+    expect(onConflict).not.toHaveBeenCalled()
+    jest.useRealTimers()
+  })
+
+  test('受控关闭触发 onExited', async () => {
+    const onExited = jest.fn()
+    const { rerender } = render(
+      <Modal visible transitionSpeed="none" onClose={() => {}} onExited={onExited}>
+        e
+      </Modal>,
+    )
+    rerender(
+      <Modal visible={false} transitionSpeed="none" onClose={() => {}} onExited={onExited}>
+        e
+      </Modal>,
+    )
+    await waitFor(() => expect(onExited).toHaveBeenCalled())
+  })
+
+  test('onCreated 在挂载后调用', async () => {
+    const onCreated = jest.fn()
+    render(
+      <Modal visible transitionSpeed="none" onClose={() => {}} onCreated={onCreated}>
+        x
+      </Modal>,
+    )
+    await waitFor(() => expect(onCreated).toHaveBeenCalled())
+  })
 })

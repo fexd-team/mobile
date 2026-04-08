@@ -30,3 +30,5 @@ package-lock.json
 
 debug*.log
 .references
+.cursor/plans
+coverage

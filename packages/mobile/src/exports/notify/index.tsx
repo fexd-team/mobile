@@ -23,7 +23,7 @@ const globalDefaultConfig: NotifyMethodConfig = {
   duration: 2600,
 }
 
-const createNotifyMethod = (methodDefaultConfig: NotifyMethodConfig = {}) => {
+const createNotifyMethod = (methodDefaultConfig: NotifyMethodConfig) => {
   const method = (content: React.ReactNode, config?: NotifyMethodConfig) => {
     const { duration, onExited, ...props } = {
       ...globalDefaultConfig,

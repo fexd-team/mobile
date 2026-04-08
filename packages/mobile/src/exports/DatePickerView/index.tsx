@@ -51,6 +51,12 @@ const DatePickerView = createFC<DatePickerViewProps, HTMLDivElement>(function Da
     return dayjs(date).isValid() ? date : new Date()
   }) as (value: any) => Date
 
+  const [safeMin, safeMax] = useMemo(() => {
+    const a = min ? new Date(min as any) : new Date('1950/01/01')
+    const b = max ? new Date(max as any) : new Date('2050/12/31')
+    return a.getTime() <= b.getTime() ? [a, b] : [b, a]
+  }, [min, max])
+
   const [currentDate, setCurrentDate] = useState(() => getValidDate(value ?? defaultValue))
   const [currentYear, setCurrentYear] = useState(() => {
     return Number(dayjs(currentDate).format('YYYY'))
@@ -63,59 +69,63 @@ const DatePickerView = createFC<DatePickerViewProps, HTMLDivElement>(function Da
   })
 
   const years = useMemo(() => {
-    const maxYear = Number(dayjs(max).format('YYYY'))
-    const minYear = Number(dayjs(min).format('YYYY'))
-    const data = Array.from(new Array(maxYear - minYear + 1)).map((item, index) => {
-      return minYear + index
-    })
-    return data.map((value) => {
+    const maxYear = Number(dayjs(safeMax).format('YYYY'))
+    const minYear = Number(dayjs(safeMin).format('YYYY'))
+    const len = maxYear - minYear + 1
+    if (len <= 0) return []
+    return Array.from(new Array(len)).map((_, index) => {
+      const value = minYear + index
       return {
         value,
         label: dayjs(new Date(`${value}-01-01`)).format(yearLabel),
       }
     })
-  }, [min, max, yearLabel])
+  }, [safeMin, safeMax, yearLabel])
   const months = useMemo(() => {
-    const [rangeMin, rangeMax] = getMonthRange(currentYear, min, max)
-    return Array.from({ length: rangeMax - rangeMin + 1 }, (_, i) => {
+    const [rangeMin, rangeMax] = getMonthRange(currentYear, safeMin, safeMax)
+    const len = rangeMax - rangeMin + 1
+    if (len <= 0) return []
+    return Array.from({ length: len }, (_, i) => {
       const value = rangeMin + i
       return {
         value,
         label: dayjs(`${currentYear}-${value}-01`).format(monthLabel),
       }
     })
-  }, [min, max, currentYear, monthLabel])
+  }, [safeMin, safeMax, currentYear, monthLabel])
   const days = useMemo(() => {
-    const [rangeMin, rangeMax] = getDayRange(currentYear, currentMonth, min, max)
-    return Array.from({ length: rangeMax - rangeMin + 1 }, (_, i) => {
+    const [rangeMin, rangeMax] = getDayRange(currentYear, currentMonth, safeMin, safeMax)
+    const len = rangeMax - rangeMin + 1
+    if (len <= 0) return []
+    return Array.from({ length: len }, (_, i) => {
       const value = rangeMin + i
       return {
         value,
         label: dayjs(`${currentYear}-${currentMonth}-${value}`).format(dayLabel),
       }
     })
-  }, [min, max, currentYear, currentMonth, dayLabel])
+  }, [safeMin, safeMax, currentYear, currentMonth, dayLabel])
 
   const handleYearChange = useCallback(
     (value: any) => {
       setCurrentYear(value)
-      const [mMin, mMax] = getMonthRange(value, min, max)
+      const [mMin, mMax] = getMonthRange(value, safeMin, safeMax)
       const cMonth = clamp(currentMonth, mMin, mMax)
       if (cMonth !== currentMonth) setCurrentMonth(cMonth)
-      const [dMin, dMax] = getDayRange(value, cMonth, min, max)
+      const [dMin, dMax] = getDayRange(value, cMonth, safeMin, safeMax)
       const cDay = clamp(currentDay, dMin, dMax)
       if (cDay !== currentDay) setCurrentDay(cDay)
     },
-    [currentMonth, currentDay, min, max],
+    [currentMonth, currentDay, safeMin, safeMax],
   )
   const handleMonthChange = useCallback(
     (value: any) => {
       setCurrentMonth(value)
-      const [dMin, dMax] = getDayRange(currentYear, value, min, max)
+      const [dMin, dMax] = getDayRange(currentYear, value, safeMin, safeMax)
       const cDay = clamp(currentDay, dMin, dMax)
       if (cDay !== currentDay) setCurrentDay(cDay)
     },
-    [currentYear, currentDay, min, max],
+    [currentYear, currentDay, safeMin, safeMax],
   )
   const handleDayChange = useCallback((value: any) => {
     setCurrentDay(value)
