@@ -3,7 +3,7 @@ import { JSXDivProps } from '../../helpers/html.types'
 
 export type DatePickerViewValue = Date | number | string
 
-export interface DatePickerViewProps extends Omit<JSXDivProps, 'onChange' | 'defaultValue'> {
+export interface PureDatePickerViewProps {
   defaultValue?: DatePickerViewValue
   value?: DatePickerViewValue
   onChange?: (value: DatePickerViewValue, formattedValue?: string) => void
@@ -18,4 +18,7 @@ export interface DatePickerViewProps extends Omit<JSXDivProps, 'onChange' | 'def
   pickerSort?: ('year' | 'month' | 'day')[]
 }
 
-export default AUTO_API<DatePickerViewProps>()
+export interface DatePickerViewProps extends Omit<JSXDivProps, 'onChange' | 'defaultValue'> {}
+export interface DatePickerViewProps extends PureDatePickerViewProps {}
+
+export default AUTO_API<PureDatePickerViewProps>()

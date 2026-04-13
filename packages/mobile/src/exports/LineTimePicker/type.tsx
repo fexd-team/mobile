@@ -1,8 +1,18 @@
+import React from 'react'
 import AUTO_API from '../../helpers/AUTO_API'
-import { UnstyledIOTimePickerRef, UnstyledIOTimePickerProps } from '../UnstyledIOTimePicker/type'
+import {
+  UnstyledIOTimePickerRef,
+  UnstyledIOTimePickerProps,
+  PureUnstyledIOTimePickerProps,
+} from '../UnstyledIOTimePicker/type'
 
 export type LineTimePickerRef = UnstyledIOTimePickerRef
-export interface LineTimePickerProps extends Omit<UnstyledIOTimePickerProps, 'theme'> {}
+
+export interface PureLineTimePickerProps extends Omit<PureUnstyledIOTimePickerProps, 'theme'> {
+  ref?: React.Ref<LineTimePickerRef>
+}
+export interface LineTimePickerProps extends Omit<UnstyledIOTimePickerProps, 'theme' | 'ref'> {}
+export interface LineTimePickerProps extends PureLineTimePickerProps {}
 
 /**
  * LineTimePicker 样式变量
@@ -30,4 +40,5 @@ export interface LineTimePickerStyleVars {
   '@line-time-picker-arrow-color'?: string
 }
 
+export default AUTO_API<PureLineTimePickerProps>()
 export const DOC_LineTimePickerStyleVars = AUTO_API<LineTimePickerStyleVars>()

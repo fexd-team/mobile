@@ -1,19 +1,16 @@
 {
   "name": "root",
-  "workspaces": [
-    "packages/*"
-  ],
+  "workspaces": ["packages/*"],
   "private": true,
   "scripts": {
     "init": "npx pnpm@6 i --shamefully-hoist",
     "dev": "dumi dev",
     "start": "dumi dev",
-    "build": "npm run entries && npm run -C ./packages/mobile build && npm run -C ./packages/mobile-router5 build && npm run less2css && npm run size -- --fresh",
-    "less2css": "npx pnpm@6 run --filter=!root --parallel less2css",
+    "build": "npm run entries && npm run -C ./packages/mobile build && npm run -C ./packages/mobile-router5 build && npm run build:styles && npm run size -- --fresh",
+    "build:styles": "npm run -C ./packages/mobile lessvars2cssvars && npx pnpm@6 run --filter=!root --parallel less2css",
+    "build:docs": "npm run entries -- --noDeveloping=false && dumi build && npm run entries && node ./scripts/fix-demos-path.js",
     "clean:build": "rimraf ./packages/*/lib ./packages/*/es",
     "clean:all": "npm run clean:build && rimraf .umi .umi-production docs-dist node_modules/ ./**/node_modules",
-    "build:docs": "npm run entries -- --noDeveloping=false && dumi build && npm run entries && node ./scripts/fix-demos-path.js",
-    "release:docs": "node ./scripts/git/pushToDocsSite",
     "prettier": "prettier --write \"**/*.{js,jsx,ts,tsx,css,scss,less,md,json}\"",
     "eslint": "eslint --cache \"./{packages,documents}/**/*.{js,jsx,ts,tsx}\"",
     "eslint:error": "npm run eslint -- --quiet",
@@ -21,6 +18,7 @@
     "tsc:lint": "tsc --noEmit --isolatedModules",
     "stylelint": "stylelint \"./{packages,documents}/**/*.{css,less}\"",
     "release": "changeset publish",
+    "release:docs": "node ./scripts/git/pushToDocsSite",
     "size": "node ./scripts/size/index.js",
     "new:component": "node ./scripts/new-component/index.js",
     "entries": "node ./scripts/updateEntry.js"
@@ -86,50 +84,28 @@
     "zarm": "^2.9.9"
   },
   "resolutions": {
+    "@types/minimatch": "5.1.2",
     "@types/react": "18",
     "@types/react-dom": "18",
+    "undici": "5.28.4",
+    "jest-cli": "^28.1.1",
     "react": "^18.1.0",
     "react-dom": "^18.1.0",
     "history": "4.10.0",
     "typescript": "^4.6.3"
   },
-  "pnpm": {
-    "overrides": {
-      "jest-cli": "^28.1.1",
-      "react": "^18.1.0",
-      "react-dom": "^18.1.0"
-    }
-  },
   "commitlint": {
-    "extends": [
-      "@commitlint/config-conventional"
-    ],
+    "extends": ["@commitlint/config-conventional"],
     "rules": {
-      "subject-case": [
-        0
-      ],
-      "header-max-length": [
-        2,
-        "always",
-        200
-      ]
+      "subject-case": [0],
+      "header-max-length": [2, "always", 200]
     }
   },
   "lint-staged": {
-    "!(docs)/**/*.{md,json}": [
-      "prettier --write"
-    ],
-    "!(docs)/**/*.{css,less}": [
-      "prettier --write"
-    ],
-    "!(docs)/**/*.js?(x)": [
-      "eslint --cache",
-      "prettier --write"
-    ],
-    "!(docs)/**/*.ts?(x)": [
-      "eslint --cache",
-      "prettier --parser=typescript --write"
-    ]
+    "!(docs)/**/*.{md,json}": ["prettier --write"],
+    "!(docs)/**/*.{css,less}": ["prettier --write"],
+    "!(docs)/**/*.js?(x)": ["eslint --cache", "prettier --write"],
+    "!(docs)/**/*.ts?(x)": ["eslint --cache", "prettier --parser=typescript --write"]
   },
   "husky": {
     "hooks": {

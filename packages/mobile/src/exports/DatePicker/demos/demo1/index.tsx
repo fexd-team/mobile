@@ -151,7 +151,7 @@ export default () => {
             toast.info(`你选择了：${value ? dayjs(value).format('YYYY年MM月DD日') : '--'}`)
           }}
         >
-          命令式（临时实现，kula 内未提供）
+          命令式（临时实现，当前组件库内未提供）
         </Button>
       </DemoBlock>
 

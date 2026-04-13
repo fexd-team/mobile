@@ -25,7 +25,7 @@ const ActionSheet = createFC<ActionSheetProps, ActionSheetRef>(function ActionSh
       ref={forwardedRef}
     >
       <div className={`${prefix}-actions`}>
-        {actions.map((action, idx) => {
+        {actions?.map?.((action, idx) => {
           if (isValidElement(action)) {
             return <Fragment key={idx}>{action as any}</Fragment>
           }

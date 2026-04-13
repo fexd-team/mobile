@@ -1,8 +1,18 @@
+import React from 'react'
 import AUTO_API from '../../helpers/AUTO_API'
-import { UnstyledIODatePickerRef, UnstyledIODatePickerProps } from '../UnstyledIODatePicker/type'
+import {
+  UnstyledIODatePickerRef,
+  UnstyledIODatePickerProps,
+  PureUnstyledIODatePickerProps,
+} from '../UnstyledIODatePicker/type'
 
 export type BlockDatePickerRef = UnstyledIODatePickerRef
-export interface BlockDatePickerProps extends Omit<UnstyledIODatePickerProps, 'theme'> {}
+
+export interface PureBlockDatePickerProps extends Omit<PureUnstyledIODatePickerProps, 'theme'> {
+  ref?: React.Ref<BlockDatePickerRef>
+}
+export interface BlockDatePickerProps extends Omit<UnstyledIODatePickerProps, 'theme' | 'ref'> {}
+export interface BlockDatePickerProps extends PureBlockDatePickerProps {}
 
 /**
  * BlockDatePicker 样式变量
@@ -40,4 +50,5 @@ export interface BlockDatePickerStyleVars {
   '@block-date-picker-arrow-color'?: string
 }
 
+export default AUTO_API<PureBlockDatePickerProps>()
 export const DOC_BlockDatePickerStyleVars = AUTO_API<BlockDatePickerStyleVars>()

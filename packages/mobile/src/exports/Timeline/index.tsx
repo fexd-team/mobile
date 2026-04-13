@@ -14,8 +14,8 @@ const Timeline: TimelineType = createFC<TimelineProps, HTMLDivElement>(
   ({ data, children, className, ...props }, ref) => {
     return (
       <div className={classnames('exd-timeline', className)} {...props} ref={ref}>
-        {data.length > 0
-          ? data.map(({ content, ...props }, index) => (
+        {data!?.length > 0
+          ? data?.map?.(({ content, ...props }, index) => (
               <TimelineItem key={index} {...props}>
                 {content}
               </TimelineItem>

@@ -37,11 +37,11 @@ export default function Example() {
 
 `DatePickerProps` 定义于 `packages/mobile/src/exports/DatePicker/type.tsx`，由以下类型交叉合并：
 
-- `Omit<BasicPickerProps, 'value' | 'defaultValue' | 'onChange' | 'children'>`
-- `Omit<DatePickerViewProps, 'children'>`
+- `Omit<PureBasicPickerProps, 'value' | 'defaultValue' | 'onChange' | 'children'>`
+- `Omit<PureDatePickerViewProps, 'children'>`
 - `filterInvalidDate` 与下列 `children` / `ref`
 
-### 日期与视图相关（来自 `DatePickerViewProps`，不含 `children`）
+### 日期与视图相关（来自 `PureDatePickerViewProps` / `DatePickerViewProps`，不含 `children`）
 
 | 属性 | 类型 | 说明 |
 | --- | --- | --- |
@@ -59,9 +59,9 @@ export default function Example() {
 | `pickerSort` | `('year' \| 'month' \| 'day')[]` | 列顺序 |
 | （其余） | — | 继承 `JSXDivProps` 且排除 `onChange`、`defaultValue`（见 `DatePickerView/type.tsx`） |
 
-### 选择器与弹层相关（来自 `BasicPickerProps`，已排除 IO 的 `value` / `defaultValue` / `onChange` / `children`）
+### 选择器与弹层相关（来自 `PureBasicPickerProps`，已排除 IO 的 `value` / `defaultValue` / `onChange` / `children`）
 
-`BasicPickerProps` 定义于 `packages/mobile/src/exports/usePickerProps/type.tsx`，在日期场景下仍包含：
+`PureBasicPickerProps` / `BasicPickerProps` 定义于 `packages/mobile/src/exports/usePickerProps/type.tsx`，在日期场景下仍包含：
 
 | 属性 | 类型 | 说明 |
 | --- | --- | --- |

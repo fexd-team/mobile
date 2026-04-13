@@ -1,6 +1,7 @@
 import AUTO_API from '../../helpers/AUTO_API'
 export type TimePickerViewValue = Date | string
 export interface TimePickerViewProps {
+  ref?: React.RefObject<HTMLDivElement>
   value?: TimePickerViewValue
   onChange?: (value: TimePickerViewValue, formattedValue?: string) => void
   format?: string

@@ -1,6 +1,6 @@
 # 组件目录
 
-@fexd/mobile 共 120 个稳定导出，按功能分为 6 大类。每个组件的详细用法见 `references/{NAME}.md`。
+@fexd/mobile 共 128 个稳定导出，按功能分为 6 大类。每个组件的详细用法见 `references/{NAME}.md`。
 
 ## 输入类（/data）
 
@@ -27,6 +27,8 @@
 | TimePickerView | 组件 | 时间选择器面板（无弹层） | TimePicker | 嵌入式场景使用 | [references/TimePickerView.md](references/TimePickerView.md) |
 | Picker | 组件 | 通用选择器弹层 | PickerView, Line/Block/CellPicker, showPicker | — | [references/Picker.md](references/Picker.md) |
 | PickerView | 组件 | 选择器面板（无弹层） | Picker | 嵌入式场景使用 | [references/PickerView.md](references/PickerView.md) |
+| CascadePicker | 组件 | 级联选择器弹层 | CascadePickerView, Line/Block/CellCascadePicker | 多级联动数据选择（如省市区） | [references/CascadePicker.md](references/CascadePicker.md) |
+| CascadePickerView | 组件 | 级联选择器面板（无弹层） | CascadePicker | 嵌入式场景使用 | [references/CascadePickerView.md](references/CascadePickerView.md) |
 
 ### IO 分层变体（Line / Block / Cell 三种布局风格）
 
@@ -44,6 +46,9 @@
 | LineTimePicker | 底部线条 | 时间选择 | UnstyledIOTimePicker | [references/LineTimePicker.md](references/LineTimePicker.md) |
 | BlockTimePicker | 块级填充 | 时间选择 | UnstyledIOTimePicker | [references/BlockTimePicker.md](references/BlockTimePicker.md) |
 | CellTimePicker | 列表单元格 | 时间选择 | UnstyledIOTimePicker | [references/CellTimePicker.md](references/CellTimePicker.md) |
+| LineCascadePicker | 底部线条 | 级联选择 | UnstyledIOCascadePicker | [references/LineCascadePicker.md](references/LineCascadePicker.md) |
+| BlockCascadePicker | 块级填充 | 级联选择 | UnstyledIOCascadePicker | [references/BlockCascadePicker.md](references/BlockCascadePicker.md) |
+| CellCascadePicker | 列表单元格 | 级联选择 | UnstyledIOCascadePicker | [references/CellCascadePicker.md](references/CellCascadePicker.md) |
 
 ### IO 分层底层组件
 
@@ -61,6 +66,7 @@
 | UnstyledIOPicker | Unstyled IO 层 | 无样式选择器 | [references/UnstyledIOPicker.md](references/UnstyledIOPicker.md) |
 | UnstyledIODatePicker | Unstyled IO 层 | 无样式日期选择 | [references/UnstyledIODatePicker.md](references/UnstyledIODatePicker.md) |
 | UnstyledIOTimePicker | Unstyled IO 层 | 无样式时间选择 | [references/UnstyledIOTimePicker.md](references/UnstyledIOTimePicker.md) |
+| UnstyledIOCascadePicker | Unstyled IO 层 | 无样式级联选择 | [references/UnstyledIOCascadePicker.md](references/UnstyledIOCascadePicker.md) |
 
 ## 反馈组件选型速查
 
@@ -190,6 +196,7 @@
 | useForcedUpdate | 强制重渲染 | [references/useForcedUpdate.md](references/useForcedUpdate.md) |
 | useTween | 数值动画 | [references/useTween.md](references/useTween.md) |
 | useThrottleFn | 函数节流 | [references/useThrottleFn.md](references/useThrottleFn.md) |
+| usePickerNumberColumn | 数值范围列生成 | [references/usePickerNumberColumn.md](references/usePickerNumberColumn.md) |
 
 ---
 

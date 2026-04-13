@@ -1,20 +1,20 @@
 ---
 name: fexd-mobile
 description: >-
-  React 移动端 H5 组件库 @fexd/mobile 的完整使用指南。涵盖 120 个组件/工具的用法、 代码片段、主题定制、样式修改、架构设计。当用户使用 @fexd/mobile 开发页面、查找组件 用法、定制主题、修改样式、查询 API 时使用。触发词：fexd、@fexd/mobile、fexd-mobile。
+  React 移动端 H5 组件库 @fexd/mobile 的完整使用指南。涵盖 128 个组件/工具的用法、 代码片段、主题定制、样式修改、架构设计。当用户使用 @fexd/mobile 开发页面、查找组件 用法、定制主题、修改样式、查询 API 时使用。触发词：fexd、@fexd/mobile、fexd-mobile。
 
 
 metadata:
   author: FEXD Team
-  version: '2026.04.03'
+  version: '2026.04.09'
   source: packages/mobile/src/exports/
 ---
 
 # @fexd/mobile 使用指南
 
-> 文档基于 @fexd/mobile v0.1.32，生成于 2026-04-03。
+> 文档基于 @fexd/mobile v0.1.32，更新于 2026-04-09。
 
-React 移动端 H5 组件库，120 个稳定导出，覆盖输入、反馈、布局、展示、导航等场景。
+React 移动端 H5 组件库，128 个稳定导出，覆盖输入、反馈、布局、展示、导航等场景。
 
 ## Skill 导览
 
@@ -78,14 +78,14 @@ import { Button, Modal, toast, Input } from '@fexd/mobile'
 
 120 个稳定导出按功能分为 6 大类，含描述、关联、坑点、选型建议。
 
-| 分类      | 导出数 | 典型组件                                                      |
-| --------- | ------ | ------------------------------------------------------------- |
-| 输入类    | 40+    | Button, Input, Form, Picker, DatePicker, Line/Block/Cell 变体 |
-| 反馈类    | 20+    | Modal, Dialog, Popup, toast, notify, loading, show*/useShow*  |
-| 布局类    | 9      | Cell, Collapse, Grid, ScrollView, Space                       |
-| 展示类    | 20+    | Alert, Badge, Swiper, Steps, Transition\* 动画组件            |
-| 导航类    | 3      | NavBar, TabBar, Tabs                                          |
-| 其他/基础 | 6+     | Provider, Portal, ErrorBoundary                               |
+| 分类      | 导出数 | 典型组件                                                                     |
+| --------- | ------ | ---------------------------------------------------------------------------- |
+| 输入类    | 48+    | Button, Input, Form, Picker, DatePicker, CascadePicker, Line/Block/Cell 变体 |
+| 反馈类    | 20+    | Modal, Dialog, Popup, toast, notify, loading, show*/useShow*                 |
+| 布局类    | 9      | Cell, Collapse, Grid, ScrollView, Space                                      |
+| 展示类    | 20+    | Alert, Badge, Swiper, Steps, Transition\* 动画组件                           |
+| 导航类    | 3      | NavBar, TabBar, Tabs                                                         |
+| 其他/基础 | 6+     | Provider, Portal, ErrorBoundary                                              |
 
 工具函数（Hooks / 工厂 / 命令式 API）→ [utilities.md](utilities.md)
 

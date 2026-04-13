@@ -11,17 +11,19 @@ mobileDemoFixed: false
 - DatePicker <ImportCost name="DatePicker" />
 - LineDatePicker <ImportCost name="LineDatePicker" />
 - BlockDatePicker <ImportCost name="BlockDatePicker" />
+- CellDatePicker <ImportCost name="CellDatePicker" />
 - DatePickerView <ImportCost name="DatePickerView" />
 
 日期选择器，选择年月日
 
 <!-- prettier-ignore -->
 ```jsx | pure
-import { DatePicker, LineDatePicker, BlockDatePicker, DatePickerView } from '@fexd/mobile'
+import { DatePicker, LineDatePicker, BlockDatePicker, CellDatePicker, DatePickerView } from '@fexd/mobile'
 
 <DatePicker />
 <LineDatePicker />
 <BlockDatePicker />
+<CellDatePicker />
 <DatePickerView />
 ```
 
@@ -73,9 +75,9 @@ import { DatePicker, LineDatePicker, BlockDatePicker, DatePickerView } from '@fe
 
 ---
 
-## LineDatePicker / BlockDatePicker
+## LineDatePicker / BlockDatePicker / CellDatePicker
 
-提供了 `LineDatePicker` 和 `BlockDatePicker` 两种预设样式的日期选择器，适用于表单场景。
+提供了 `LineDatePicker`、`BlockDatePicker` 和 `CellDatePicker` 三种预设样式的日期选择器，适用于表单场景。
 
 <code src="./demos/line-block.tsx" />
 
@@ -83,52 +85,23 @@ import { DatePicker, LineDatePicker, BlockDatePicker, DatePickerView } from '@fe
 
 ## API
 
-### DatePickerView 的 API
+### DatePickerView
 
-`<DatePickerView />` 作为基础组件，嵌套在 `<DatePicker />`、`<LineDatePicker />` 中。
+<API identifier="DatePickerView" hideTitle src="../DatePickerView/type.tsx" exports='["default"]'></API>
 
-| 属性 | 说明 | 类型 | 默认值 |
-| :-- | :-- | :-- | :-- |
-| value | 选中的值 | `Date` | - |
-| onChange | 当选中的值发生变化时触发的回调函数 | `(value: Date, formatValue: String) => void` | - |
-| format | 格式化日期 | `String` | - |
-| min | 选项最小日期 | `Date` | `new Date('2000/03/01')` |
-| max | 选项最大日期 | `Date` | `new Date('2050/07/31')` |
-| yearLabel | 修改年的展示名称 | `String` | `'YYYY'` |
-| monthLabel | 修改月的展示名称 | `String` | `'MM'` |
-| dayLabel | 修改日的展示名称 | `String` | `'DD'` |
-| rows | 展示的行数 | `Number` | `3` |
+---
 
-### DatePicker 的 API
+### DatePicker
 
-| 属性 | 说明 | 类型 | 默认值 |
-| :-- | :-- | :-- | :-- |
-| value | 选中的值 | `Date` | - |
-| onChange | 当选中的值发生变化时触发的回调函数 | `(value: Date, formatValue: String) => void` | - |
-| format | 格式化日期 | `String` | - |
-| min | 选项最小日期 | `Date` | `new Date('2000/03/01')` |
-| max | 选项最大日期 | `Date` | `new Date('2050/07/31')` |
-| yearLabel | 修改年的展示名称 | `String` | `'YYYY'` |
-| monthLabel | 修改月的展示名称 | `String` | `'MM'` |
-| dayLabel | 修改日的展示名称 | `String` | `'DD'` |
-| rows | 展示的行数 | `Number` | `3` |
-| children<span style="color: red;">\*</span> | 点击后能触发对话框展示的内容 | `ReactNode` | - |
+可包裹任意内容，当被包裹的内容点击时，将会唤起弹出层进行日期选择
 
-### LineDatePicker / BlockDatePicker 的 API
+<API identifier="DatePicker" hideTitle src="./type.tsx" exports='["default"]'></API>
 
-继承 `DatePickerView` 的所有属性，并新增以下属性：
+---
 
-| 属性 | 说明 | 类型 | 默认值 |
-| :-- | :-- | :-- | :-- |
-| placeholder | 输入框无内容时显示的提示语句 | `String` | - |
-| label | 输入框关联的 label 文字 | `String` | - |
-| prefix | 前缀，固定在输入框的左边 | `ReactNode` | - |
-| suffix | 后缀，固定在输入框的右边 | `ReactNode` | - |
-| helper | 焦点在输入框时，在输入框下方会出现的提示语句 | `ReactNode` | - |
-| error | 错误提示语句，可配合表单验证使用 | `ReactNode` | - |
-| disabled | 是否禁用 | `Boolean` | - |
-| labelType | label 当前的状态 | `'warn' \| 'error' \| 'info' \| 'success'` | - |
-| hideErrorWhenFocusing | 当聚焦状态时不显示错误提示 | `Boolean` | `true` |
+### LineDatePicker / BlockDatePicker / CellDatePicker 的 API
+
+<API identifier="LineDatePicker" hideTitle src="../LineDatePicker/type.tsx" exports='["default"]'></API>
 
 ---
 

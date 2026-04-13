@@ -1,13 +1,18 @@
 import React, { useState } from 'react'
-import { LineDatePicker, BlockDatePicker, Button, Space, DemoBlock, Hook } from '@fexd/mobile'
+import { LineDatePicker, BlockDatePicker, CellDatePicker, Button, Space, DemoBlock, Hook } from '@fexd/mobile'
+
+type ThemeType = 'Block' | 'Line' | 'Cell'
 
 export default () => {
-  const [themeType, setThemeType] = useState<'Block' | 'Line'>('Block')
+  const [themeType, setThemeType] = useState<ThemeType>('Block')
 
-  const ThemedDatePicker = {
+  const themeMap: Record<ThemeType, typeof LineDatePicker> = {
     Line: LineDatePicker,
     Block: BlockDatePicker,
-  }[themeType] as typeof LineDatePicker
+    Cell: CellDatePicker,
+  }
+
+  const ThemedDatePicker = themeMap[themeType]
 
   return (
     <>
@@ -22,6 +27,9 @@ export default () => {
           </Button>
           <Button type="primary" fill={themeType === 'Line' ? 'solid' : 'outline'} onClick={() => setThemeType('Line')}>
             Line
+          </Button>
+          <Button type="primary" fill={themeType === 'Cell' ? 'solid' : 'outline'} onClick={() => setThemeType('Cell')}>
+            Cell
           </Button>
         </Space>
       </DemoBlock>

@@ -1,0 +1,21 @@
+@import '../UnstyledIOLabel/style.less';
+@import '../LineLabel/style.less';
+@import '../CascadePickerView/style.less';
+
+@line-cascade-picker-disabled-color: @ant-color-gray-7;
+@line-cascade-picker-clear-color: @ant-color-gray-5;
+@line-cascade-picker-arrow-font-size: 18px;
+@line-cascade-picker-arrow-color: @ant-color-gray-6;
+@line-cascade-picker-prefix: ~'exd-line-cascade-picker';
+
+.@{line-cascade-picker-prefix} {
+  &__disabled {
+    color: @line-cascade-picker-disabled-color;
+  }
+  &__arrow {
+    font-size: @line-cascade-picker-arrow-font-size * @size-scale;
+    color: @line-cascade-picker-arrow-color;
+    display: flex;
+    align-items: center;
+  }
+}

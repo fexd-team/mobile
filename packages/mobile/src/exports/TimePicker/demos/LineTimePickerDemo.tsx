@@ -1,19 +1,20 @@
 import React, { useState } from 'react'
-import { LineTimePicker, BlockTimePicker, Button, Space, LineLabel, BlockLabel, DemoBlock } from '@fexd/mobile'
+import { LineTimePicker, BlockTimePicker, CellTimePicker, Button, Space, DemoBlock } from '@fexd/mobile'
+
+type ThemeType = 'Block' | 'Line' | 'Cell'
 
 export default () => {
   const [value, setValue] = React.useState<any>()
 
-  const [themeType, setThemeType] = useState('Block')
-  const theme = {
-    Line: LineLabel,
-    Block: BlockLabel,
-  }[themeType]
+  const [themeType, setThemeType] = useState<ThemeType>('Block')
 
-  const ThemedTimePicker = {
+  const themeMap: Record<ThemeType, typeof LineTimePicker> = {
     Line: LineTimePicker,
     Block: BlockTimePicker,
-  }[themeType] as typeof LineTimePicker
+    Cell: CellTimePicker,
+  }
+
+  const ThemedTimePicker = themeMap[themeType]
 
   return (
     <div className="gap-4">
@@ -28,6 +29,9 @@ export default () => {
           </Button>
           <Button type="primary" fill={themeType === 'Line' ? 'solid' : 'outline'} onClick={() => setThemeType('Line')}>
             Line
+          </Button>
+          <Button type="primary" fill={themeType === 'Cell' ? 'solid' : 'outline'} onClick={() => setThemeType('Cell')}>
+            Cell
           </Button>
         </Space>
       </DemoBlock>

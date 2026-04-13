@@ -149,8 +149,7 @@ describe('DatePickerView', () => {
     expect(container.querySelector('.exd-date-picker-view')).toBeInTheDocument()
   })
 
-  test('受控 value 更新后内部状态跟随（debounce）', async () => {
-    jest.useFakeTimers()
+  test('受控 value 更新后内部状态跟随', async () => {
     function Wrapper() {
       const [v, setV] = React.useState<Date>(new Date(2024, 0, 10))
       return (
@@ -168,9 +167,6 @@ describe('DatePickerView', () => {
     )
     expect(y2024).toBe(true)
     fireEvent.click(getByText('改日期'))
-    act(() => {
-      jest.advanceTimersByTime(150)
-    })
     await waitFor(() => {
       const y2025 = [...container.querySelectorAll('.exd-picker-view-item')].some(
         (el) => el.textContent?.trim() === '2025' && el.classList.contains('exd-picker-view-item--active'),
@@ -181,12 +177,8 @@ describe('DatePickerView', () => {
 
   // L5 onChange 与 format
   test('无 format 时 onChange 仅传入 Date', async () => {
-    jest.useFakeTimers()
     const onChange = jest.fn()
     render(<DatePickerView value={new Date(2024, 0, 15)} onChange={onChange} />)
-    act(() => {
-      jest.advanceTimersByTime(150)
-    })
     await waitFor(() => {
       expect(onChange).toHaveBeenCalled()
       const last = onChange.mock.calls[onChange.mock.calls.length - 1]
@@ -196,13 +188,9 @@ describe('DatePickerView', () => {
   })
 
   test('有 format 时 onChange 第二个参数为格式化字符串', async () => {
-    jest.useFakeTimers()
     const onChange = jest.fn()
     const d = new Date(2024, 0, 15)
     render(<DatePickerView value={d} onChange={onChange} format="YYYY-MM-DD" />)
-    act(() => {
-      jest.advanceTimersByTime(150)
-    })
     await waitFor(() => {
       expect(onChange).toHaveBeenCalled()
       const last = onChange.mock.calls[onChange.mock.calls.length - 1]

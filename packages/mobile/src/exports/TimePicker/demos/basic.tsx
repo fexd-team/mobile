@@ -49,7 +49,7 @@ export default () => {
             toast.info(`你选择了：${value ? dayjs(value).format('HH:mm:ss') : '--'}`)
           }}
         >
-          命令式（临时实现，kula 内未提供）
+          命令式（临时实现，当前组件库内内未提供）
         </Button>
       </DemoBlock>
     </>

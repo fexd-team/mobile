@@ -1,8 +1,18 @@
+import React from 'react'
 import AUTO_API from '../../helpers/AUTO_API'
-import { UnstyledIODatePickerRef, UnstyledIODatePickerProps } from '../UnstyledIODatePicker/type'
+import {
+  UnstyledIODatePickerRef,
+  UnstyledIODatePickerProps,
+  PureUnstyledIODatePickerProps,
+} from '../UnstyledIODatePicker/type'
 
 export type LineDatePickerRef = UnstyledIODatePickerRef
-export interface LineDatePickerProps extends Omit<UnstyledIODatePickerProps, 'theme'> {}
+
+export interface PureLineDatePickerProps extends Omit<PureUnstyledIODatePickerProps, 'theme'> {
+  ref?: React.Ref<LineDatePickerRef>
+}
+export interface LineDatePickerProps extends Omit<UnstyledIODatePickerProps, 'theme' | 'ref'> {}
+export interface LineDatePickerProps extends PureLineDatePickerProps {}
 
 /**
  * LineDatePicker 样式变量
@@ -30,4 +40,5 @@ export interface LineDatePickerStyleVars {
   '@line-date-picker-arrow-color'?: string
 }
 
+export default AUTO_API<PureLineDatePickerProps>()
 export const DOC_LineDatePickerStyleVars = AUTO_API<LineDatePickerStyleVars>()

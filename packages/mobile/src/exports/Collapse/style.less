@@ -6,25 +6,25 @@
 @collapse-prefix: ~'exd-collapse';
 
 // Collapse 变量定义
-@collapse-background: #fff;
+@collapse-background: @color-white;
 @collapse-font-size: 16px;
 @collapse-padding-left: 12px;
 @collapse-header-padding: 12px;
 @collapse-header-border-width: 1px;
-@collapse-header-border-color: #f5f5f5;
-@collapse-icon-color: #999;
+@collapse-header-border-color: @ant-color-gray-3;
+@collapse-icon-color: @ant-color-gray-7;
 @collapse-icon-rotate-deg: 90deg;
-@collapse-icon-transition-duration: 0.2s;
-@collapse-disabled-color: #d6d6d6;
+@collapse-icon-transition-duration: @transition-speed-fast;
+@collapse-disabled-color: @ant-color-gray-5;
 @collapse-content-font-size: 14px;
-@collapse-content-color: #999;
+@collapse-content-color: @ant-color-gray-7;
 @collapse-content-border-width: 1px;
-@collapse-content-border-color: #eee;
-@collapse-content-transition-duration: 0.2s;
+@collapse-content-border-color: @ant-color-gray-3;
+@collapse-content-transition-duration: @transition-speed-fast;
 
 .@{collapse-prefix} {
   /* 组件样式 */
-  font-size: @collapse-font-size;
+  font-size: @collapse-font-size * @size-scale;
   background-color: @collapse-background;
   overflow: hidden;
 
@@ -47,7 +47,7 @@
       display: flex;
       align-items: center;
       color: @collapse-icon-color;
-      font-size: @collapse-font-size;
+      font-size: @collapse-font-size * @size-scale;
       transform: rotate(0deg);
       transition: all @collapse-icon-transition-duration ease;
 
@@ -66,7 +66,7 @@
     }
 
     &-content {
-      font-size: @collapse-content-font-size;
+      font-size: @collapse-content-font-size * @size-scale;
       color: @collapse-content-color;
       overflow: hidden;
       height: 0;

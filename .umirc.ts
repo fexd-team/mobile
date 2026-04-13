@@ -18,6 +18,7 @@ export default defineConfig({
   },
   resolve: {
     includes: ['documents', 'packages/mobile/src', 'packages/mobile-router5/src'],
+    excludes: ['**/tests/**'],
   },
   themeConfig: {
     hd: {

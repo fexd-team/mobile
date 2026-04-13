@@ -11,17 +11,19 @@ mobileDemoFixed: false
 - TimePicker <ImportCost name="TimePicker" />
 - LineTimePicker <ImportCost name="LineTimePicker" />
 - BlockTimePicker <ImportCost name="BlockTimePicker" />
+- CellTimePicker <ImportCost name="CellTimePicker" />
 - TimePickerView <ImportCost name="TimePickerView" />
 
 时间选择器，选择时分秒
 
 <!-- prettier-ignore -->
 ```jsx | pure
-import { TimePicker, LineTimePicker, BlockTimePicker, TimePickerView } from '@fexd/mobile'
+import { TimePicker, LineTimePicker, BlockTimePicker, CellTimePicker, TimePickerView } from '@fexd/mobile'
 
 <TimePicker />
 <LineTimePicker />
 <BlockTimePicker />
+<CellTimePicker />
 <TimePickerView />
 ```
 
@@ -29,47 +31,23 @@ import { TimePicker, LineTimePicker, BlockTimePicker, TimePickerView } from '@fe
 
 ---
 
-## 演示 - LineTimePicker / BlockTimePicker
-
-<code src="./demos/LineTimePickerDemo.tsx" />
-
----
-
-## LineTimePicker
-
-<API identifier="LineTimePicker" hideTitle src="../LineTimePicker/type.tsx" exports='["default"]'></API>
-
----
-
-## BlockTimePicker
-
-<API identifier="BlockTimePicker" hideTitle src="../BlockTimePicker/type.tsx" exports='["default"]'></API>
-
----
-
-## 演示 - TimePicker
+## 基础用法
 
 <code src="./demos/basic.tsx" />
 
 ---
 
-## TimePicker
+## LineTimePicker / BlockTimePicker / CellTimePicker
 
-可包裹任意内容，当被包裹的内容点击时，将会唤起弹出层进行时间选择
+提供了 `LineTimePicker`、`BlockTimePicker` 和 `CellTimePicker` 三种预设样式的时间选择器，适用于表单场景。
 
-<API identifier="TimePicker" hideTitle src="./type.tsx" exports='["default"]'></API>
-
----
-
-## 演示 - TimePickerView
-
-<code src="./demos/TimePickerView.tsx" />
+<code src="./demos/LineTimePickerDemo.tsx" />
 
 ---
 
 ## TimePickerView
 
-<API identifier="TimePickerView" hideTitle src="../TimePickerView/type.tsx" exports='["default"]'></API>
+<code src="./demos/TimePickerView.tsx" />
 
 ---
 
@@ -151,6 +129,28 @@ import { TimePicker } from '@fexd/mobile'
 
 <TimePicker rows={5} />
 ```
+
+---
+
+## API
+
+### TimePickerView
+
+<API identifier="TimePickerView" hideTitle src="../TimePickerView/type.tsx" exports='["default"]'></API>
+
+---
+
+### TimePicker
+
+可包裹任意内容，当被包裹的内容点击时，将会唤起弹出层进行时间选择
+
+<API identifier="TimePicker" hideTitle src="./type.tsx" exports='["default"]'></API>
+
+---
+
+### LineTimePicker / BlockTimePicker / CellTimePicker 的 API
+
+<API identifier="LineTimePicker" hideTitle src="../LineTimePicker/type.tsx" exports='["default"]'></API>
 
 ---
 

@@ -1,10 +1,10 @@
-import React, { forwardRef, memo, ForwardRefRenderFunction } from 'react'
+import React, { forwardRef, memo, ForwardRefRenderFunction, PropsWithoutRef } from 'react'
 import { FC } from './type'
 
 export const creatorCache = new Map()
 
 export default function createFC<P = Record<string, unknown>, T = unknown>(
-  render: ForwardRefRenderFunction<T, P>,
+  render: ForwardRefRenderFunction<T, PropsWithoutRef<P>>,
   propsAreEqual?: (prevProps: Readonly<P>, nextProps: Readonly<P>) => boolean,
 ): FC<P> {
   const createFunctionalComponent = (): FC<P> => {

@@ -1,0 +1,33 @@
+@import '../UnstyledIOLabel/style.less';
+@import '../BlockLabel/style.less';
+@import '../CascadePickerView/style.less';
+
+@block-cascade-picker-value-font-size: 14px;
+@block-cascade-picker-disabled-color: @ant-color-gray-7;
+@block-cascade-picker-disabled-arrow-color: @ant-color-gray-5;
+@block-cascade-picker-clear-color: @ant-color-gray-5;
+@block-cascade-picker-arrow-font-size: 18px;
+@block-cascade-picker-arrow-color: @ant-color-gray-6;
+
+@block-cascade-picker-prefix: ~'exd-block-cascade-picker';
+
+.@{block-cascade-picker-prefix} {
+  &__value {
+    font-size: @block-cascade-picker-value-font-size * @size-scale;
+  }
+
+  &__disabled {
+    color: @block-cascade-picker-disabled-color;
+
+    .@{block-cascade-picker-prefix}__arrow {
+      color: @block-cascade-picker-disabled-arrow-color;
+    }
+  }
+
+  &__arrow {
+    font-size: @block-cascade-picker-arrow-font-size * @size-scale;
+    color: @block-cascade-picker-arrow-color;
+    display: flex;
+    align-items: center;
+  }
+}

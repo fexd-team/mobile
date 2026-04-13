@@ -1,15 +1,15 @@
 import React from 'react'
 import { FC } from '../createFC/type'
 
-import { DatePickerProps, DatePickerRef } from '../DatePicker/type'
+import { PureDatePickerProps, DatePickerProps, DatePickerRef } from '../DatePicker/type'
 import { UnstyledIOLabelProps } from '../UnstyledIOLabel/type'
 
 export type UnstyledIODatePickerRef = DatePickerRef
 
-export interface UnstyledIODatePickerProps
+export interface PureUnstyledIODatePickerProps
   extends Omit<UnstyledIOLabelProps, 'children' | 'onClick' | 'defaultValue' | 'onChange'> {}
-export interface UnstyledIODatePickerProps extends Omit<DatePickerProps, 'prefix' | 'placeholder'> {}
-export interface UnstyledIODatePickerProps {
+export interface PureUnstyledIODatePickerProps extends Omit<PureDatePickerProps, 'prefix' | 'placeholder'> {}
+export interface PureUnstyledIODatePickerProps {
   classNamePrefix?: string
   className?: string
   label?: React.ReactNode
@@ -18,5 +18,8 @@ export interface UnstyledIODatePickerProps {
   theme?: UnstyledIOLabelProps['theme']
   arrowIcon?: React.ReactNode
 }
+
+export interface UnstyledIODatePickerProps extends Omit<DatePickerProps, 'ref' | 'prefix' | 'placeholder'> {}
+export interface UnstyledIODatePickerProps extends PureUnstyledIODatePickerProps {}
 
 export interface UnstyledIODatePickerType extends FC<UnstyledIODatePickerProps> {}

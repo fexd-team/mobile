@@ -39,9 +39,9 @@ export default () => <TimePicker format="HH:mm:ss" hourLabel="时" minuteLabel="
 
 `TimePickerProps`（`packages/mobile/src/exports/TimePicker/type.tsx`）：
 
-- `Omit<BasicPickerProps, 'value' | 'defaultValue' | 'onChange'>`（`usePickerProps/type.tsx`）
+- `Omit<PureBasicPickerProps, 'value' | 'defaultValue' | 'onChange' | 'children'>`（`usePickerProps/type.tsx`）
 - `TimePickerViewProps`（`TimePickerView/type.tsx`）
-- `children?`
+- `children?` 与 `ref?`（见各表）
 
 ### 弹层与选择器行为（`BasicPickerProps` 在省略三键后仍保留）
 
@@ -54,22 +54,25 @@ export default () => <TimePicker format="HH:mm:ss" hourLabel="时" minuteLabel="
 | headerLeft | 头部左侧 | `React.ReactNode` |
 | className | 类名 | `string` |
 | disabled | 是否禁用 | `boolean` |
-| ref | 引用 | `React.Ref<BasicPickerRef>`（`BasicPickerRef` = `HTMLDivElement`） |
+| ref | 引用 | `React.Ref<TimePickerRef>`（`TimePickerRef` = `BasicPickerRef`，`HTMLDivElement`） |
 | onEnter / onExit / onExited | 弹层生命周期 | `PopupProps` 对应字段 |
 | filterIOValue | IO 过滤（`SelectionFieldProps` / `IOProps`） | `(value: any) => boolean` |
 
 ### 时间与展示（`TimePickerViewProps`，`TimePickerView/type.tsx`）
 
-| 属性 | 说明 | 类型 |
-| :-- | :-- | :-- |
-| value | 当前值 | `Date \| string` |
-| onChange | 值变化 | `(value: TimePickerViewValue, index?: number) => void`（类型如此声明；`TimePickerView` 实现中若传入 `format`，第二参实为 `dayjs(value).format(format)`，未传 `format` 时仅调用 `value`） |
-| format | 展示/解析格式字符串 | `string` |
-| className | 类名 | `string` |
-| hourLabel | 时列标题 | `string` |
-| minuteLabel | 分列标题 | `string` |
-| secondLabel | 秒列标题 | `string` |
-| rows | 可见行数 | `number` |
+| 属性        | 说明                               | 类型                                                            |
+| :---------- | :--------------------------------- | :-------------------------------------------------------------- |
+| ref         | 视图根节点引用                     | `React.RefObject<HTMLDivElement>`                               |
+| value       | 当前值                             | `TimePickerViewValue`（`Date \| string`）                       |
+| onChange    | 值变化                             | `(value: TimePickerViewValue, formattedValue?: string) => void` |
+| format      | 展示/解析格式字符串                | `string`                                                        |
+| className   | 类名                               | `string`                                                        |
+| min         | 可选时间范围下限（仅取时分秒部分） | `Date \| string`                                                |
+| max         | 可选时间范围上限（仅取时分秒部分） | `Date \| string`                                                |
+| hourLabel   | 时列标题                           | `string`                                                        |
+| minuteLabel | 分列标题                           | `string`                                                        |
+| secondLabel | 秒列标题                           | `string`                                                        |
+| rows        | 可见行数                           | `number`                                                        |
 
 `TimePickerViewValue` = `Date \| string`。
 

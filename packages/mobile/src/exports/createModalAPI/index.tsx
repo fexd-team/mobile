@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react'
+import React, { useMemo, useState } from 'react'
 import { run } from '@fexd/tools'
 
 import { stationMap } from '../ModalStation'
@@ -41,7 +41,7 @@ export default function createModalAPI<P>(
         const [modalProps, setModalProps] = useState(initialProps)
         const { content, onDestroyed, ...props } = modalProps
 
-        useEffect(() => {
+        useMemo(() => {
           closeModal = () => setVisible(false)
           updateModal = (updateProps: ModalMethodProps<P>) => {
             setModalProps((modalProps: ModalMethodProps<P>) => ({

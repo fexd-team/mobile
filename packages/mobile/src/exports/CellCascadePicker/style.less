@@ -1,0 +1,22 @@
+@import '../UnstyledIOLabel/style.less';
+@import '../CellLabel/style.less';
+@import '../CascadePickerView/style.less';
+
+@cell-cascade-picker-disabled-color: @ant-color-gray-7;
+@cell-cascade-picker-clear-color: @ant-color-gray-5;
+@cell-cascade-picker-arrow-font-size: 18px;
+@cell-cascade-picker-arrow-color: @ant-color-gray-6;
+
+@cell-cascade-picker-prefix: ~'exd-cell-cascade-picker';
+
+.@{cell-cascade-picker-prefix} {
+  &__disabled {
+    color: @cell-cascade-picker-disabled-color;
+  }
+  &__arrow {
+    font-size: @cell-cascade-picker-arrow-font-size * @size-scale;
+    color: @cell-cascade-picker-arrow-color;
+    display: flex;
+    align-items: center;
+  }
+}

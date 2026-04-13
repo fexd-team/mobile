@@ -1,8 +1,18 @@
+import React from 'react'
 import AUTO_API from '../../helpers/AUTO_API'
-import { UnstyledIODatePickerRef, UnstyledIODatePickerProps } from '../UnstyledIODatePicker/type'
+import {
+  UnstyledIODatePickerRef,
+  UnstyledIODatePickerProps,
+  PureUnstyledIODatePickerProps,
+} from '../UnstyledIODatePicker/type'
 
 export type CellDatePickerRef = UnstyledIODatePickerRef
-export interface CellDatePickerProps extends Omit<UnstyledIODatePickerProps, 'theme'> {}
+
+export interface PureCellDatePickerProps extends Omit<PureUnstyledIODatePickerProps, 'theme'> {
+  ref?: React.Ref<CellDatePickerRef>
+}
+export interface CellDatePickerProps extends Omit<UnstyledIODatePickerProps, 'theme' | 'ref'> {}
+export interface CellDatePickerProps extends PureCellDatePickerProps {}
 
 /**
  * CellDatePicker 样式变量
@@ -30,4 +40,5 @@ export interface CellDatePickerStyleVars {
   '@cell-date-picker-arrow-color'?: string
 }
 
+export default AUTO_API<PureCellDatePickerProps>()
 export const DOC_CellDatePickerStyleVars = AUTO_API<CellDatePickerStyleVars>()
