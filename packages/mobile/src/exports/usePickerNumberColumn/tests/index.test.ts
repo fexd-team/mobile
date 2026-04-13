@@ -52,8 +52,8 @@ describe('usePickerNumberColumn', () => {
   })
 
   test('min/max 收窄时 value 被 clamp', () => {
-    const min = 1,
-      max = 10
+    const min = 1
+    let max = 10
     const { result, rerender } = renderHook(() => usePickerNumberColumn({ defaultValue: 8, min, max, toLabel }))
     expect(result.current.value).toBe(8)
     max = 5
@@ -62,8 +62,8 @@ describe('usePickerNumberColumn', () => {
   })
 
   test('min/max 恢复后 value 不回跳（rawValue 已同步）', () => {
-    const min = 1,
-      max = 10
+    const min = 1
+    let max = 10
     const { result, rerender } = renderHook(() => usePickerNumberColumn({ defaultValue: 8, min, max, toLabel }))
     expect(result.current.value).toBe(8)
 
