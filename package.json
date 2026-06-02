@@ -11,17 +11,27 @@
     "build:docs": "npm run entries -- --noDeveloping=false && dumi build && npm run entries && node ./scripts/fix-demos-path.js",
     "clean:build": "rimraf ./packages/*/lib ./packages/*/es",
     "clean:all": "npm run clean:build && rimraf .umi .umi-production docs-dist node_modules/ ./**/node_modules",
+    "ai:assets": "node ./scripts/ai/generate-mobile-ai-assets.js",
+    "ai:check": "node ./scripts/ai/check-mobile-ai-assets.js",
+    "skill:eval:prompt": "node ./scripts/ai/create-mobile-skill-eval-prompt.js",
     "prettier": "prettier --write \"**/*.{js,jsx,ts,tsx,css,scss,less,md,json}\"",
     "eslint": "eslint --cache \"./{packages,documents}/**/*.{js,jsx,ts,tsx}\"",
     "eslint:error": "npm run eslint -- --quiet",
     "test": "jest --silent",
     "tsc:lint": "tsc --noEmit --isolatedModules",
     "stylelint": "stylelint \"./{packages,documents}/**/*.{css,less}\"",
-    "release": "changeset publish",
+    "version:check": "node ./scripts/checkVersionAndMarkPrivate.js check",
+    "version:mark-private": "node ./scripts/checkVersionAndMarkPrivate.js mark-private",
+    "version:restore": "node ./scripts/checkVersionAndMarkPrivate.js restore",
+    "release:public": "node ./scripts/release.js --public",
+    "release": "node ./scripts/release.js",
+    "release:force": "node ./scripts/release.js --force",
     "release:docs": "node ./scripts/git/pushToDocsSite",
     "size": "node ./scripts/size/index.js",
     "new:component": "node ./scripts/new-component/index.js",
-    "entries": "node ./scripts/updateEntry.js"
+    "entries": "node ./scripts/updateEntry.js",
+    "prepare:skills": "fexd-tools skills install",
+    "prepare": "npm run prepare:skills"
   },
   "devDependencies": {
     "@arco-design/mobile-react": "^2.29.4",
@@ -34,7 +44,7 @@
     "@fexd/icons-bootstrap": "^0.1.0",
     "@fexd/icons-bytesize": "^0.1.0",
     "@fexd/icons-mono": "^0.1.0",
-    "@fexd/tools": "^0.1.0",
+    "@fexd/tools": "^0.2.6",
     "@swc/core": "^1.15.21",
     "@swc/jest": "^0.2.39",
     "@testing-library/jest-dom": "^5.16.4",
@@ -98,7 +108,8 @@
     "extends": ["@commitlint/config-conventional"],
     "rules": {
       "subject-case": [0],
-      "header-max-length": [2, "always", 200]
+      "header-max-length": [2, "always", 1000],
+      "body-max-line-length": [2, "always", 1000]
     }
   },
   "lint-staged": {

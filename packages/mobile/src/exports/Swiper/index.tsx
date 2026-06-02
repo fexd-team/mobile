@@ -13,8 +13,8 @@ import createFC from '../createFC'
 import { SwiperProps, SwiperRef, SwiperType } from './type'
 // 此处不引入 style.less，目的是实现按需引用
 
-function outQuad(pos: number) {
-  return -(Math.pow(pos - 1, 2) - 1)
+function outQuad(pos?: number) {
+  return -(Math.pow((pos ?? 1) - 1, 2) - 1)
 }
 
 /**

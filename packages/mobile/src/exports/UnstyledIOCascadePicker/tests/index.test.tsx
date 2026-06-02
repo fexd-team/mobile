@@ -79,8 +79,48 @@ describe('UnstyledIOCascadePicker', () => {
     expect(container.querySelector('[class*="__disabled"]')).toBeInTheDocument()
   })
 
+  test('disabled 时点击不会打开弹层', () => {
+    const { getByText } = render(<UnstyledIOCascadePicker options={options} label="禁用" disabled />)
+    fireEvent.click(getByText('禁用'))
+    expect(document.querySelector('.exd-cascade-picker-view')).not.toBeInTheDocument()
+  })
+
   test('自定义 className 透传', () => {
     const { container } = render(<UnstyledIOCascadePicker className="custom-test" />)
     expect(container.querySelector('.custom-test')).toBeInTheDocument()
+  })
+
+  test('自定义 suffix 覆盖默认箭头', () => {
+    const { getByTestId } = render(<UnstyledIOCascadePicker suffix={<span data-testid="sfx">x</span>} label="L" />)
+    expect(getByTestId('sfx')).toBeInTheDocument()
+  })
+
+  test('打开与关闭弹层分别触发 onEnter / onExited', async () => {
+    const onEnter = jest.fn()
+    const onExited = jest.fn()
+    const { getByText } = render(
+      <UnstyledIOCascadePicker
+        options={options}
+        label="地区"
+        popupProps={{ title: '地区', transitionSpeed: 'none' }}
+        onEnter={onEnter}
+        onExited={onExited}
+      />,
+    )
+
+    fireEvent.click(getByText('地区'))
+    await waitFor(() => {
+      expect(onEnter).toHaveBeenCalled()
+      expect(document.querySelector('.exd-popup-header')).toBeInTheDocument()
+    })
+
+    const cancelSpan = document.querySelector('.exd-popup-header .exd-nav-bar-left span')!
+    await act(async () => {
+      fireEvent.click(cancelSpan)
+    })
+
+    await waitFor(() => {
+      expect(onExited).toHaveBeenCalled()
+    })
   })
 })

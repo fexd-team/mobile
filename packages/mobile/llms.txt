@@ -1,0 +1,31 @@
+# @fexd/mobile
+
+React mobile H5 component library. Current package version: 0.1.34.
+
+## AI Entry Points
+
+- `AGENTS.md`: shortest package-level context for coding agents.
+- `skills/fexd-mobile/SKILL.md`: main skill with routing, anti-hallucination rules, recipes, and self-checks.
+- `skills/fexd-mobile/catalog.md`: task-oriented component selection catalog.
+- `skills/fexd-mobile/decision-map.md`: selection rules when multiple components seem possible.
+- `skills/fexd-mobile/source-navigation.md`: how to verify props and behavior from source.
+- `skills/fexd-mobile/references/{ComponentName}.md`: component-level usage, props, examples, and style notes.
+- `components.manifest.json`: machine-readable public exports, developing components, source paths, references, props type names, and style var type names.
+
+## Current Public Surface
+
+- Public exports: 127
+- Developing/unavailable components: 31
+- Reference documents: 127
+
+## Important Rules
+
+- Do not import components marked with `.developing`; they are not public exports.
+- Verify uncertain props in `references/{ComponentName}.md`, then in `src/exports/{ComponentName}/type.tsx`.
+- Prefer command APIs such as `showDialog`, `showPopup`, `toast`, and `loading` for one-off feedback flows.
+- For forms, use `Form.Field`; `Form.Item` does not exist in this package.
+- `Button` does not have a `danger` prop; use `type="danger"`.
+
+## Unavailable Components
+
+Breadcrumb, Calendar, Card, Cascader, CountDown, CountTo, Drag, Drawer, Dropdown, Elevator, Footer, Gallery, ImagePicker, List, Marquee, Menu, NoticeBar, NumberKeyboard, Pagination, Search, SegmentedControl, ShareSheet, Skeleton, Sticky, SwipeAction, Table, Tag, Tips, TreeSelect, Video, Waterfall

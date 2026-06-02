@@ -92,6 +92,13 @@ const [value, setValue] = useState('124567')
 - `BasicInput` / `BasicTextArea`：更底层的输入封装
 - `Form`：表单域与校验
 
+## 不要在以下情况使用 Input
+
+- 在表单中需要 label + error → 用 `LineInput` / `BlockInput` / `CellInput`（自带 IOLabel）
+- 构建自定义 IO 输入变体 → 用 `UnstyledIOInput`
+- 构建完全自定义输入（不依赖 IO 体系）→ 用 `BasicInput`
+- 多行文本 → 用 `TextArea`
+
 <!--
 Source:
 - packages/mobile/src/exports/Input/type.tsx

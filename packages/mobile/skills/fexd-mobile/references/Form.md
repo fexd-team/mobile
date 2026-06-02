@@ -124,6 +124,12 @@ return <Form form={form}>...</Form>
 
 - `Input` / `LineInput` / `LinePicker` 等：与 `Form.Field` 组合的输入控件
 
+## 不要在以下情况使用 Form
+
+- 不需要校验和字段管理 → 直接用受控组件 + useState
+- 需要 Ant Design 风格的 Form.Item → Form.Item 不存在，@fexd/mobile 只有 Form.Field + render prop
+- 想用 `Form.useForm()[0]` → `Form.useForm()` 直接返回实例，不是数组，不需要解构
+
 <!--
 Source:
 - packages/mobile/src/exports/Form/type.tsx

@@ -32,3 +32,15 @@ debug*.log
 .references
 .cursor/plans
 coverage
+
+# Agent skills installed from npm packages
+.cursor/skills/fexd-mobile
+.cursor/skills/fexd-tools
+.agents/skills/fexd-mobile
+.agents/skills/fexd-tools
+.claude/skills/fexd-mobile
+.claude/skills/fexd-tools
+
+# Local AI eval artifacts
+packages/mobile/skills/fexd-mobile/evals/.local-eval-prompt.md
+packages/mobile/skills/fexd-mobile/evals/local-report.latest.md

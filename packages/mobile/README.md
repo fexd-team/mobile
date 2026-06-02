@@ -94,99 +94,27 @@ const CustomButton: React.FC<ButtonProps> = (props) => {
 }
 ```
 
-## 📱 组件列表
+## 📱 稳定导出
 
-### 基础组件
+当前版本提供 127 个公开导出。完整机器可读清单见 `components.manifest.json`，AI/Agent 使用建议见 `AGENTS.md` 与 `skills/fexd-mobile/SKILL.md`。
 
-- **Button** - 按钮
-- **Icon** - 图标
-- **Image** - 图片
-- **Cell** - 单元格
-- **Space** - 间距
+### 输入与表单
 
-### 表单组件
+Button, Input, LineInput, BlockInput, CellInput, TextArea, Form, Checkbox, Radio, Switch, Stepper, Rate, Slider, Picker, CascadePicker, DatePicker, TimePicker
 
-- **Input** - 输入框
-- **TextArea** - 文本域
-- **Checkbox** - 复选框
-- **Radio** - 单选框
-- **Switch** - 开关
-- **Stepper** - 步进器
-- **Rate** - 评分
-- **Slider** - 滑块
-- **Picker** - 选择器
-- **DatePicker** - 日期选择器
-- **TimePicker** - 时间选择器
-- **Calendar** - 日历
-- **Cascader** - 级联选择
-- **Form** - 表单
+### 反馈
 
-### 反馈组件
+ActionSheet, Dialog, Modal, Popup, toast, notify, loading, Overlay, Alert, Spinner, FullpageSpinner
 
-- **ActionSheet** - 动作面板
-- **Dialog** - 对话框
-- **Toast** - 轻提示
-- **Modal** - 模态框
-- **Popup** - 弹出层
-- **Loading** - 加载
-- **Notify** - 通知
-- **Overlay** - 遮罩层
-- **Alert** - 警告提示
+### 展示与布局
 
-### 展示组件
+Badge, Avatar, Empty, Result, ProgressBar, Swiper, Steps, Timeline, Cell, Space, Grid, ScrollView, Collapse, Divider, Flex, View, Watermark
 
-- **Badge** - 徽标
-- **Tag** - 标签
-- **Card** - 卡片
-- **Avatar** - 头像
-- **Progress** - 进度条
-- **Skeleton** - 骨架屏
-- **Empty** - 空状态
-- **Divider** - 分割线
-- **NoticeBar** - 通知栏
-- **CountDown** - 倒计时
-- **Timeline** - 时间轴
-- **Steps** - 步骤条
-- **Watermark** - 水印
+### 导航与基础能力
 
-### 导航组件
+NavBar, TabBar, Tabs, Provider, Portal, ErrorBoundary, Hook, Iconfont, Image
 
-- **NavBar** - 导航栏
-- **TabBar** - 标签栏
-- **Tabs** - 标签页
-- **Menu** - 菜单
-- **Breadcrumb** - 面包屑
-- **Pagination** - 分页
-- **Dropdown** - 下拉菜单
-
-### 业务组件
-
-- **List** - 列表
-- **Grid** - 宫格
-- **Swiper** - 轮播
-- **Gallery** - 图片预览
-- **ImagePicker** - 图片选择器
-- **SwipeAction** - 滑动操作
-- **Collapse** - 折叠面板
-- **Search** - 搜索
-- **NumberKeyboard** - 数字键盘
-- **ShareSheet** - 分享面板
-
-### 布局组件
-
-- **Flex** - 弹性布局
-- **View** - 视图容器
-- **ScrollView** - 滚动视图
-- **Sticky** - 粘性布局
-- **Elevator** - 电梯导航
-
-### 高级组件
-
-- **Portal** - 传送门
-- **Transition** - 过渡动画
-- **ErrorBoundary** - 错误边界
-- **Provider** - 上下文提供者
-- **Hook** - 自定义 Hooks
+> Calendar、Card、Skeleton、Search 等带 `.developing` 标记的组件尚未公开导出，请不要在业务代码中使用。
 
 ## 🎨 主题定制
 
@@ -226,94 +154,55 @@ Fexd Mobile 支持通过 CSS 变量进行主题定制：
 
 ## 🤖 AI Skills —— 让 AI 编辑器理解 @fexd/mobile
 
-`@fexd/mobile` 随 npm 包发布了完整的 **AI Agent Skills** 文档。安装组件库后，AI 编辑器（Cursor / Windsurf / Claude Code 等）即可通过这些文档精准理解每个组件的用法、Props、架构设计和最佳实践。
+`@fexd/mobile` 随 npm 包发布了完整的 **AI Agent Skills** 文档。安装组件库后，可以通过 `@fexd/tools` 把这些文档注册到 Cursor、Codex、Claude Code、OpenCode 等常见 AI Agent 的 skills 目录。
 
 ### 发布了什么？
 
 `npm install @fexd/mobile` 后，`node_modules` 中包含以下 AI 文档：
 
-```
+```text
 node_modules/@fexd/mobile/
 ├── AGENTS.md                          # AI 上下文入口
+├── llms.txt                           # 通用 LLM 入口
+├── components.manifest.json           # 公开导出 / 开发中组件 / 源码路径清单
 └── skills/
     └── fexd-mobile/
         ├── SKILL.md                   # 主入口：任务路由 + 架构速览
-        ├── catalog.md                 # 128 个组件分类目录
+        ├── catalog.md                 # 127 个公开导出分类目录
         ├── architecture.md            # IO 分层 / Modal 体系 / Transition
         ├── theming.md                 # 主题定制方案
         ├── utilities.md               # Hooks / 工厂函数 / 命令式 API
         ├── source-navigation.md       # 源码导航指南
-        └── references/                # 130 份组件详细文档
+        └── references/                # 127 份组件详细文档
             ├── Button.md
             ├── Modal.md
             ├── Form.md
             └── ...
 ```
 
-### 方式一：使用 skills-npm 自动配置（推荐）
-
-[skills-npm](https://github.com/antfu/skills-npm) 能自动扫描 `node_modules` 中的 skills 并创建符号链接到 AI 编辑器的 skills 目录。
-
-**1. 安装**
+### 使用 fexd-tools 统一安装
 
 ```bash
-npm i -D skills-npm
-# 或
-pnpm add -D skills-npm
+pnpm add -D @fexd/tools
+fexd-tools skills install
 ```
 
-**2. 在项目 `package.json` 中添加 `prepare` 脚本**
+也可以在消费项目中添加脚本：
 
 ```json
 {
   "scripts": {
-    "prepare": "skills-npm"
+    "prepare:skills": "fexd-tools skills install"
   }
 }
 ```
 
-之后每次 `npm install` 时，skills-npm 会自动扫描 `node_modules/@fexd/mobile/skills/fexd-mobile/SKILL.md`，在 `.cursor/skills/`（或 `.claude/skills/` 等）下创建符号链接。
+默认会把 `fexd-mobile` skill 链接到常见 agent 的项目级目录：
 
-**3. 手动触发一次（如果 `prepare` 尚未执行）**
-
-```bash
-npx skills-npm
-```
-
-**4. 将符号链接加入 `.gitignore`**
-
-skills-npm 默认会自动更新 `.gitignore`，如果没有，手动添加：
-
-```gitignore
-skills/npm-*
-```
-
-完成后效果：
-
-```
-.cursor/skills/
-└── npm-fexd-mobile-fexd-mobile/ → node_modules/@fexd/mobile/skills/fexd-mobile/
-```
-
-> skills-npm 默认从 `package.json` 的 `dependencies` / `devDependencies` 扫描。如需扫描全部 `node_modules`，可配置 `source: 'node_modules'`。详见 [skills-npm 配置文档](https://github.com/antfu/skills-npm#configuration)。
-
-### 方式二：手动创建符号链接
-
-如果不想引入额外依赖：
-
-```bash
-# macOS / Linux
-mkdir -p .cursor/skills
-ln -s ../../node_modules/@fexd/mobile/skills/fexd-mobile .cursor/skills/fexd-mobile
-
-# Windows (管理员终端)
-mklink /D .cursor\skills\fexd-mobile node_modules\@fexd\mobile\skills\fexd-mobile
-```
-
-记得在 `.gitignore` 中忽略：
-
-```gitignore
+```text
 .cursor/skills/fexd-mobile
+.agents/skills/fexd-mobile
+.claude/skills/fexd-mobile
 ```
 
 ### 配置完成后
@@ -336,21 +225,21 @@ mklink /D .cursor\skills\fexd-mobile node_modules\@fexd\mobile\skills\fexd-mobil
 
 ### 常见问题
 
-**skills-npm 找不到 skills？**
+**AI 没有加载 skill？**
 
-> 确保 `@fexd/mobile` 版本 >= 0.1.32。该版本起 `package.json` 的 `files` 字段包含 `skills` 目录。
+> 先确认目标目录下存在 `fexd-mobile/SKILL.md`，然后重启对应 AI 编辑器或新开一个会话。部分工具只在启动时扫描 skills。
 
 **更新 @fexd/mobile 后文档没变？**
 
-> 符号链接指向 `node_modules`，`npm update` 后内容自动更新。如果使用 skills-npm，执行 `npx skills-npm` 可重新链接。
+> 默认安装方式使用链接，更新依赖后内容会跟随 `node_modules` 更新。如果使用复制模式，需要重新执行 `fexd-tools skills install --copy --force`。
 
 **monorepo 怎么配置？**
 
-> 在根目录运行 `npx skills-npm --recursive`，会递归扫描所有 workspace 包。
+> 在 workspace 根目录运行 `fexd-tools skills install`。如果脚本从子目录执行，可以加 `--cwd <workspace-root>` 明确指定根目录。
 
 **支持哪些 AI 编辑器？**
 
-> skills-npm 自动检测 Cursor、Windsurf、Claude Code 等，为每个编辑器创建对应的符号链接。手动方式需查阅目标编辑器的 skills 目录位置。
+> 内置 CLI 支持 Cursor、Codex、Claude Code、OpenCode（Codex / OpenCode 共用 `.agents/skills`）。
 
 ## 🤝 参与共建
 

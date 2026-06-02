@@ -1,0 +1,52 @@
+[
+  {
+    "id": "S1",
+    "category": "component-selection",
+    "prompt": "我要在点击删除时弹出确认框，用户确认后再执行删除",
+    "should_trigger": true,
+    "deterministic_checks": ["showDialog|Dialog", "actions"],
+    "negative_checks": ["showModal(?!.*Dialog)", "showPopup", "toast.*确认", "visible.*useState.*Dialog"],
+    "rubric_focus": ["component_selection", "best_practice"],
+    "expected_selection": "showDialog / Dialog（确认对话用 Dialog，不用 Modal/Popup/toast）"
+  },
+  {
+    "id": "S2",
+    "category": "component-selection",
+    "prompt": "我要在一个列表式表单里输入手机号",
+    "should_trigger": true,
+    "deterministic_checks": ["CellInput|LineInput", "Form\\.Field"],
+    "negative_checks": ["BasicInput", "UnstyledIOInput", "Form\\.Item"],
+    "rubric_focus": ["component_selection", "best_practice"],
+    "expected_selection": "CellInput（列表式表单用 Cell 变体）"
+  },
+  {
+    "id": "S3",
+    "category": "component-selection",
+    "prompt": "请求成功后给用户一个轻量提示，1 秒后自动消失",
+    "should_trigger": true,
+    "deterministic_checks": ["toast\\.(success|info|show)"],
+    "negative_checks": ["showDialog", "notify", "loading"],
+    "rubric_focus": ["component_selection", "best_practice"],
+    "expected_selection": "toast（轻提示用 toast，不用 Dialog/notify/loading）"
+  },
+  {
+    "id": "S4",
+    "category": "component-selection",
+    "prompt": "我要在表单里选择城市，样式是一个 Cell 行，点击后弹出选择器",
+    "should_trigger": true,
+    "deterministic_checks": ["CellCascadePicker|CellPicker", "Form\\.Field"],
+    "negative_checks": ["PickerView(?!.*Cell)", "Cascader[^P]", "Form\\.Item"],
+    "rubric_focus": ["component_selection", "best_practice"],
+    "expected_selection": "CellCascadePicker / CellPicker（Cell 风格表单用 Cell 变体，不用裸 PickerView）"
+  },
+  {
+    "id": "S5",
+    "category": "component-selection",
+    "prompt": "我需要从底部弹出一个操作菜单，包含拍照和从相册选择两个选项",
+    "should_trigger": true,
+    "deterministic_checks": ["showActionSheet|ActionSheet"],
+    "negative_checks": ["showDialog", "showPopup", "showModal"],
+    "rubric_focus": ["component_selection", "best_practice"],
+    "expected_selection": "showActionSheet（操作菜单用 ActionSheet，不用 Dialog/Popup/Modal）"
+  }
+]

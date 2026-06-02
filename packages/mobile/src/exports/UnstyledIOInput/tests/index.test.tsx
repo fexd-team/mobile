@@ -48,4 +48,25 @@ describe('UnstyledIOInput', () => {
     const { getByText } = render(<UnstyledIOInput defaultValue="" suffix={<span>尾缀</span>} />)
     expect(getByText('尾缀')).toBeInTheDocument()
   })
+
+  test('无 label 时直接在输入框展示 placeholder，并带 no-label class', () => {
+    const { container, getByPlaceholderText } = render(<UnstyledIOInput defaultValue="" placeholder="请输入内容" />)
+
+    expect(container.querySelector('.exd-unstyled-io-input__label--no-label')).toBeInTheDocument()
+    expect(getByPlaceholderText('请输入内容')).toBeInTheDocument()
+  })
+
+  test('clearable=false 时清除图标不展示为可点状态，点击不触发清空', () => {
+    const onChange = jest.fn()
+    const { container } = render(<UnstyledIOInput defaultValue="x" clearable={false} onChange={onChange} />)
+
+    act(() => {
+      jest.advanceTimersByTime(150)
+    })
+
+    const clear = container.querySelector('[class*="exd-unstyled-io-input__clear"]') as Element
+    expect(clear).not.toHaveClass('exd-unstyled-io-input__clear--show')
+    fireEvent.click(clear)
+    expect(onChange).not.toHaveBeenCalled()
+  })
 })

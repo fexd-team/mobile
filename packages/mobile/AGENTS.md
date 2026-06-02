@@ -1,6 +1,6 @@
 # @fexd/mobile
 
-React 移动端 H5 组件库，128 个稳定导出。
+React 移动端 H5 组件库，127 个公开导出。
 
 ## 快速开始
 
@@ -16,15 +16,15 @@ import { Button, Modal, toast } from '@fexd/mobile'
 
 完整 AI 文档位于 `skills/fexd-mobile/` 目录：
 
-| 文件                                                            | 内容                                           |
-| --------------------------------------------------------------- | ---------------------------------------------- |
-| [SKILL.md](skills/fexd-mobile/SKILL.md)                         | 主入口、架构速览、任务路由                     |
-| [catalog.md](skills/fexd-mobile/catalog.md)                     | 120 个组件的完整分类目录（含 references 链接） |
-| [references/\*.md](skills/fexd-mobile/references/)              | 每个组件的详细用法、Props、代码示例、样式定制  |
-| [architecture.md](skills/fexd-mobile/architecture.md)           | IO 分层设计、Modal 体系、Transition、Form      |
-| [theming.md](skills/fexd-mobile/theming.md)                     | 主题定制、样式修改方案                         |
-| [utilities.md](skills/fexd-mobile/utilities.md)                 | Hooks、工厂函数、命令式 API                    |
-| [source-navigation.md](skills/fexd-mobile/source-navigation.md) | 源码导航指南                                   |
+| 文件                                                            | 内容                                               |
+| --------------------------------------------------------------- | -------------------------------------------------- |
+| [SKILL.md](skills/fexd-mobile/SKILL.md)                         | 主入口、架构速览、任务路由                         |
+| [catalog.md](skills/fexd-mobile/catalog.md)                     | 127 个公开导出的完整分类目录（含 references 链接） |
+| [references/\*.md](skills/fexd-mobile/references/)              | 每个组件的详细用法、Props、代码示例、样式定制      |
+| [architecture.md](skills/fexd-mobile/architecture.md)           | IO 分层设计、Modal 体系、Transition、Form          |
+| [theming.md](skills/fexd-mobile/theming.md)                     | 主题定制、样式修改方案                             |
+| [utilities.md](skills/fexd-mobile/utilities.md)                 | Hooks、工厂函数、命令式 API                        |
+| [source-navigation.md](skills/fexd-mobile/source-navigation.md) | 源码导航指南                                       |
 
 ## 组件文档
 

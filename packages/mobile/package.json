@@ -1,6 +1,6 @@
 {
   "name": "@fexd/mobile",
-  "version": "0.1.33",
+  "version": "0.1.34",
   "main": "lib/index.js",
   "module": "es/index.js",
   "types": "types.d.ts",
@@ -19,7 +19,7 @@
     "@babel/runtime": "^7.13.10",
     "@fexd/icons": "^0.1.0",
     "@fexd/icons-bytesize": "^0.1.0",
-    "@fexd/tools": "^0.1.7",
+    "@fexd/tools": "^0.2.6",
     "@pansy/react-watermark": "^2.1.1",
     "@types/hoist-non-react-statics": "^3.3.1",
     "@types/react-transition-group": "4.4.1",
@@ -40,8 +40,8 @@
     "postcss-discard-empty": "^7.0.1",
     "postcss-merge-rules": "^7.0.7"
   },
-  "files": ["es", "lib", "src", "types.d.ts", "skills", "AGENTS.md"],
-  "sideEffects": false,
+  "files": ["es", "lib", "src", "types.d.ts", "components.manifest.json", "llms.txt", "skills", "AGENTS.md"],
+  "sideEffects": ["**/*.css", "**/*.less"],
   "homepage": "https://fexd-team.github.io/mobile/",
   "repository": {
     "type": "git",

@@ -1,5 +1,5 @@
 import React from 'react'
-import { render, fireEvent, waitFor, cleanup } from '@testing-library/react'
+import { act, render, fireEvent, waitFor, cleanup } from '@testing-library/react'
 import '@testing-library/jest-dom'
 import UnstyledIODatePicker from '..'
 
@@ -59,5 +59,37 @@ describe('UnstyledIODatePicker', () => {
       expect(onEnter).toHaveBeenCalled()
       expect(document.querySelector('.exd-date-picker-view')).toBeInTheDocument()
     })
+  })
+
+  test('关闭弹层触发 onExited', async () => {
+    const onExited = jest.fn()
+    const { getByText } = render(
+      <UnstyledIODatePicker
+        defaultValue={baseDate}
+        label="关闭"
+        popupProps={{ title: '日期', transitionSpeed: 'none' }}
+        onExited={onExited}
+      />,
+    )
+
+    fireEvent.click(getByText('关闭'))
+    await waitFor(() => expect(document.querySelector('.exd-popup-header')).toBeInTheDocument())
+
+    const cancelSpan = document.querySelector('.exd-popup-header .exd-nav-bar-left span')!
+    await act(async () => {
+      fireEvent.click(cancelSpan)
+    })
+
+    await waitFor(() => {
+      expect(onExited).toHaveBeenCalled()
+    })
+  })
+
+  test('disabled 时带禁用类且不会打开弹层', () => {
+    const { container, getByText } = render(<UnstyledIODatePicker defaultValue={baseDate} label="禁用" disabled />)
+
+    expect(container.querySelector('.exd-unstyled-io-date-picker__disabled')).toBeInTheDocument()
+    fireEvent.click(getByText('禁用'))
+    expect(document.querySelector('.exd-date-picker-view')).not.toBeInTheDocument()
   })
 })

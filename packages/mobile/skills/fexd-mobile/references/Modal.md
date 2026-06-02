@@ -134,6 +134,15 @@ const { mask, hidden } = modalConflict.handlers
 - [Modal-design.md](Modal-design.md) — DOM、`SharedOverlay`、`modalStore`
 - `BasicModal`、`Overlay`、`Portal`、`Popup`、`Dialog`
 
+## 不要在以下情况使用 Modal
+
+- 简单确认/取消对话 → 用 `Dialog` / `showDialog`（Modal 太底层）
+- 底部弹出内容面板 → 用 `Popup` / `showPopup`（自带标题栏和圆角）
+- 多选项操作菜单 → 用 `ActionSheet` / `showActionSheet`
+- 轻提示反馈 → 用 `toast` / `notify`
+- 阻断式加载 → 用 `loading`
+- 不需要互斥控制 → 用 `BasicModal`（Modal 的互斥逻辑是额外开销）
+
 <!--
 Source:
 - packages/mobile/src/exports/Modal/type.tsx

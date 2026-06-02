@@ -97,6 +97,14 @@ showDialog({
 - `Modal`、`showPopup`
 - `BasicButton`
 
+## 不要在以下情况使用 Dialog
+
+- 底部弹出内容面板 → 用 `Popup` / `showPopup`（Dialog 是居中弹层）
+- 多选项操作菜单 → 用 `ActionSheet` / `showActionSheet`
+- 完全自定义弹层内容 → 用 `Modal` / `showModal`（Dialog 只有标题+内容+按钮）
+- 轻提示反馈 → 用 `toast`
+- 不想手动管理 visible → 用 `showDialog` 命令式 API
+
 <!--
 Source:
 - packages/mobile/src/exports/Dialog/type.tsx

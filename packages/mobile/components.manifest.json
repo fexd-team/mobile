@@ -1,0 +1,3183 @@
+{
+  "package": "@fexd/mobile",
+  "version": "0.1.34",
+  "source": {
+    "publicEntry": "src/index.ts",
+    "exportsDir": "src/exports",
+    "referencesDir": "skills/fexd-mobile/references",
+    "developingMarker": ".developing"
+  },
+  "counts": {
+    "publicExports": 127,
+    "developingComponents": 31,
+    "sourceExportDirs": 158,
+    "referenceDocuments": 127
+  },
+  "rules": {
+    "developingComponentsAreUnavailable": true,
+    "preferReferencesBeforeSource": true,
+    "sourceTypesAreAuthoritative": true
+  },
+  "components": [
+    {
+      "name": "ActionSheet",
+      "dir": "ActionSheet",
+      "status": "public",
+      "publicExport": true,
+      "available": true,
+      "import": "import { ActionSheet } from '@fexd/mobile'",
+      "description": "自底部弹出的动作列表，常用于确认或选择操作。命令式调用时使用 showActionSheet，API 与组件 props 基本一致（无需自行管理 visible / onClose）。",
+      "paths": {
+        "source": "src/exports/ActionSheet",
+        "type": "src/exports/ActionSheet/type.tsx",
+        "style": "src/exports/ActionSheet/style.less",
+        "reference": "skills/fexd-mobile/references/ActionSheet.md",
+        "docs": "src/exports/ActionSheet/index.zh.md"
+      },
+      "propsTypes": ["ActionSheetProps", "PureActionSheetProps"],
+      "styleVars": ["ActionSheetStyleVars"],
+      "hasDemos": true,
+      "hasTests": true
+    },
+    {
+      "name": "Alert",
+      "dir": "Alert",
+      "status": "public",
+      "publicExport": true,
+      "available": true,
+      "import": "import { Alert } from '@fexd/mobile'",
+      "description": "用于展示警告、成功、信息、错误等提示，支持标题、关闭、描边/填充变体与自定义图标。",
+      "paths": {
+        "source": "src/exports/Alert",
+        "type": "src/exports/Alert/type.tsx",
+        "style": "src/exports/Alert/style.less",
+        "reference": "skills/fexd-mobile/references/Alert.md",
+        "docs": "src/exports/Alert/index.zh.md"
+      },
+      "propsTypes": ["AlertProps"],
+      "styleVars": ["AlertStyleVars"],
+      "hasDemos": true,
+      "hasTests": true
+    },
+    {
+      "name": "Avatar",
+      "dir": "Avatar",
+      "status": "public",
+      "publicExport": true,
+      "available": true,
+      "import": "import { Avatar } from '@fexd/mobile'",
+      "description": "支持图片、文字、图标或自定义节点；可选尺寸与形状，并提供 Avatar.Group 组合展示。",
+      "paths": {
+        "source": "src/exports/Avatar",
+        "type": "src/exports/Avatar/type.tsx",
+        "style": "src/exports/Avatar/style.less",
+        "reference": "skills/fexd-mobile/references/Avatar.md",
+        "docs": "src/exports/Avatar/index.zh.md"
+      },
+      "propsTypes": ["AvatarProps"],
+      "styleVars": ["AvatarStyleVars"],
+      "hasDemos": true,
+      "hasTests": true
+    },
+    {
+      "name": "Badge",
+      "dir": "Badge",
+      "status": "public",
+      "publicExport": true,
+      "available": true,
+      "import": "import { Badge } from '@fexd/mobile'",
+      "description": "在子元素角上展示数字、文案或圆点；也可独立展示。子组件 Badge.Stamp 提供戳记样式。",
+      "paths": {
+        "source": "src/exports/Badge",
+        "type": "src/exports/Badge/type.tsx",
+        "style": "src/exports/Badge/style.less",
+        "reference": "skills/fexd-mobile/references/Badge.md",
+        "docs": "src/exports/Badge/index.zh.md"
+      },
+      "propsTypes": ["BadgeProps"],
+      "styleVars": ["BadgeStyleVars"],
+      "hasDemos": true,
+      "hasTests": true
+    },
+    {
+      "name": "BasicButton",
+      "dir": "BasicButton",
+      "status": "public",
+      "publicExport": true,
+      "available": true,
+      "import": "import { BasicButton } from '@fexd/mobile'",
+      "description": "轻量按钮组件，支持多种类型、尺寸、形状与填充样式，可渲染为 button 或自定义标签。",
+      "paths": {
+        "source": "src/exports/BasicButton",
+        "type": "src/exports/BasicButton/type.tsx",
+        "style": "src/exports/BasicButton/style.less",
+        "reference": "skills/fexd-mobile/references/BasicButton.md",
+        "docs": null
+      },
+      "propsTypes": ["BasicButtonProps", "PureBasicButtonProps"],
+      "styleVars": ["BasicButtonStyleVars"],
+      "hasDemos": false,
+      "hasTests": true
+    },
+    {
+      "name": "BasicInput",
+      "dir": "BasicInput",
+      "status": "public",
+      "publicExport": true,
+      "available": true,
+      "import": "import { BasicInput } from '@fexd/mobile'",
+      "description": "受控/非受控字符串输入，内置与 useTextFieldProps 一致的格式化、归一化与 IO 行为，底层为原生 <input>。",
+      "paths": {
+        "source": "src/exports/BasicInput",
+        "type": "src/exports/BasicInput/type.tsx",
+        "style": "src/exports/BasicInput/style.less",
+        "reference": "skills/fexd-mobile/references/BasicInput.md",
+        "docs": null
+      },
+      "propsTypes": ["BasicInputProps", "PureBasicInputProps"],
+      "styleVars": [],
+      "hasDemos": false,
+      "hasTests": true
+    },
+    {
+      "name": "BasicModal",
+      "dir": "BasicModal",
+      "status": "public",
+      "publicExport": true,
+      "available": true,
+      "import": "import { BasicModal } from '@fexd/mobile'",
+      "description": "弹层基础实现：Portal 挂载、遮罩、过渡与 modalStore 登记。业务上多用 Modal / Popup 封装；理解本组件有助于定制层级与生命周期。",
+      "paths": {
+        "source": "src/exports/BasicModal",
+        "type": "src/exports/BasicModal/type.tsx",
+        "style": "src/exports/BasicModal/style.less",
+        "reference": "skills/fexd-mobile/references/BasicModal.md",
+        "docs": null
+      },
+      "propsTypes": ["BasicModalProps", "PureBasicModalProps"],
+      "styleVars": ["BasicModalStyleVars"],
+      "hasDemos": false,
+      "hasTests": true
+    },
+    {
+      "name": "BasicTextArea",
+      "dir": "BasicTextArea",
+      "status": "public",
+      "publicExport": true,
+      "available": true,
+      "import": "import { BasicTextArea } from '@fexd/mobile'",
+      "description": "基于 useTextFieldProps 的多行文本，支持固定高度或 height=\"auto\" 自动增高（通过镜像高度计算）。",
+      "paths": {
+        "source": "src/exports/BasicTextArea",
+        "type": "src/exports/BasicTextArea/type.tsx",
+        "style": "src/exports/BasicTextArea/style.less",
+        "reference": "skills/fexd-mobile/references/BasicTextArea.md",
+        "docs": null
+      },
+      "propsTypes": ["BasicTextAreaProps", "PureBasicTextAreaProps"],
+      "styleVars": [],
+      "hasDemos": false,
+      "hasTests": true
+    },
+    {
+      "name": "BlockCascadePicker",
+      "dir": "BlockCascadePicker",
+      "status": "public",
+      "publicExport": true,
+      "available": true,
+      "import": "import { BlockCascadePicker } from '@fexd/mobile'",
+      "description": "块级填充样式的级联选择器，在 UnstyledIOCascadePicker 上固定 BlockLabel 主题，不含 theme prop。",
+      "paths": {
+        "source": "src/exports/BlockCascadePicker",
+        "type": "src/exports/BlockCascadePicker/type.tsx",
+        "style": "src/exports/BlockCascadePicker/style.less",
+        "reference": "skills/fexd-mobile/references/BlockCascadePicker.md",
+        "docs": null
+      },
+      "propsTypes": ["BlockCascadePickerProps", "PureBlockCascadePickerProps"],
+      "styleVars": ["BlockCascadePickerStyleVars"],
+      "hasDemos": false,
+      "hasTests": true
+    },
+    {
+      "name": "BlockDatePicker",
+      "dir": "BlockDatePicker",
+      "status": "public",
+      "publicExport": true,
+      "available": true,
+      "import": "import { BlockDatePicker } from '@fexd/mobile'",
+      "description": "块状日期选择",
+      "paths": {
+        "source": "src/exports/BlockDatePicker",
+        "type": "src/exports/BlockDatePicker/type.tsx",
+        "style": "src/exports/BlockDatePicker/style.less",
+        "reference": "skills/fexd-mobile/references/BlockDatePicker.md",
+        "docs": null
+      },
+      "propsTypes": ["BlockDatePickerProps", "PureBlockDatePickerProps"],
+      "styleVars": ["BlockDatePickerStyleVars"],
+      "hasDemos": false,
+      "hasTests": true
+    },
+    {
+      "name": "BlockIOLabel",
+      "dir": "BlockIOLabel",
+      "status": "public",
+      "publicExport": true,
+      "available": true,
+      "import": "import { BlockIOLabel } from '@fexd/mobile'",
+      "description": "块状 IO 标签",
+      "paths": {
+        "source": "src/exports/BlockIOLabel",
+        "type": "src/exports/BlockIOLabel/type.tsx",
+        "style": "src/exports/BlockIOLabel/style.less",
+        "reference": "skills/fexd-mobile/references/BlockIOLabel.md",
+        "docs": null
+      },
+      "propsTypes": ["BlockIOLabelProps"],
+      "styleVars": ["BlockIOLabelStyleVars"],
+      "hasDemos": false,
+      "hasTests": true
+    },
+    {
+      "name": "BlockInput",
+      "dir": "BlockInput",
+      "status": "public",
+      "publicExport": true,
+      "available": true,
+      "import": "import { BlockInput } from '@fexd/mobile'",
+      "description": "块状输入框",
+      "paths": {
+        "source": "src/exports/BlockInput",
+        "type": "src/exports/BlockInput/type.tsx",
+        "style": "src/exports/BlockInput/style.less",
+        "reference": "skills/fexd-mobile/references/BlockInput.md",
+        "docs": null
+      },
+      "propsTypes": ["BlockInputProps", "PureBlockInputProps"],
+      "styleVars": ["BlockInputStyleVars"],
+      "hasDemos": false,
+      "hasTests": true
+    },
+    {
+      "name": "BlockLabel",
+      "dir": "BlockLabel",
+      "status": "public",
+      "publicExport": true,
+      "available": true,
+      "import": "import { BlockLabel } from '@fexd/mobile'",
+      "description": "UnstyledLabel 的块状皮肤实现，负责浮动标签、条形边框、前缀/后缀/辅助文案等布局，用作 **Block*** 系列 IO 控件的 theme 根组件。",
+      "paths": {
+        "source": "src/exports/BlockLabel",
+        "type": "src/exports/BlockLabel/type.tsx",
+        "style": "src/exports/BlockLabel/style.less",
+        "reference": "skills/fexd-mobile/references/BlockLabel.md",
+        "docs": null
+      },
+      "propsTypes": ["BlockLabelProps"],
+      "styleVars": ["BlockLabelStyleVars"],
+      "hasDemos": false,
+      "hasTests": true
+    },
+    {
+      "name": "BlockPicker",
+      "dir": "BlockPicker",
+      "status": "public",
+      "publicExport": true,
+      "available": true,
+      "import": "import { BlockPicker } from '@fexd/mobile'",
+      "description": "块状选择器",
+      "paths": {
+        "source": "src/exports/BlockPicker",
+        "type": "src/exports/BlockPicker/type.tsx",
+        "style": "src/exports/BlockPicker/style.less",
+        "reference": "skills/fexd-mobile/references/BlockPicker.md",
+        "docs": null
+      },
+      "propsTypes": ["BlockPickerProps", "PureBlockPickerProps"],
+      "styleVars": ["BlockPickerStyleVars"],
+      "hasDemos": false,
+      "hasTests": true
+    },
+    {
+      "name": "BlockTimePicker",
+      "dir": "BlockTimePicker",
+      "status": "public",
+      "publicExport": true,
+      "available": true,
+      "import": "import { BlockTimePicker } from '@fexd/mobile'",
+      "description": "块状时间选择",
+      "paths": {
+        "source": "src/exports/BlockTimePicker",
+        "type": "src/exports/BlockTimePicker/type.tsx",
+        "style": "src/exports/BlockTimePicker/style.less",
+        "reference": "skills/fexd-mobile/references/BlockTimePicker.md",
+        "docs": null
+      },
+      "propsTypes": ["BlockTimePickerProps", "PureBlockTimePickerProps"],
+      "styleVars": ["BlockTimePickerStyleVars"],
+      "hasDemos": false,
+      "hasTests": true
+    },
+    {
+      "name": "Breadcrumb",
+      "dir": "Breadcrumb",
+      "status": "developing",
+      "publicExport": false,
+      "available": false,
+      "import": null,
+      "description": null,
+      "paths": {
+        "source": "src/exports/Breadcrumb",
+        "type": "src/exports/Breadcrumb/type.tsx",
+        "style": "src/exports/Breadcrumb/style.less",
+        "reference": null,
+        "docs": "src/exports/Breadcrumb/index.zh.md"
+      },
+      "propsTypes": ["BreadcrumbProps"],
+      "styleVars": [],
+      "hasDemos": true,
+      "hasTests": false
+    },
+    {
+      "name": "Button",
+      "dir": "Button",
+      "status": "public",
+      "publicExport": true,
+      "available": true,
+      "import": "import { Button } from '@fexd/mobile'",
+      "description": "用于触发操作（提交、跳转等）。在 BasicButton 能力之上扩展图标与加载态。",
+      "paths": {
+        "source": "src/exports/Button",
+        "type": "src/exports/Button/type.tsx",
+        "style": "src/exports/Button/style.less",
+        "reference": "skills/fexd-mobile/references/Button.md",
+        "docs": "src/exports/Button/index.zh.md"
+      },
+      "propsTypes": ["ButtonProps", "PureButtonProps"],
+      "styleVars": ["ButtonStyleVars"],
+      "hasDemos": true,
+      "hasTests": true
+    },
+    {
+      "name": "Calendar",
+      "dir": "Calendar",
+      "status": "developing",
+      "publicExport": false,
+      "available": false,
+      "import": null,
+      "description": null,
+      "paths": {
+        "source": "src/exports/Calendar",
+        "type": "src/exports/Calendar/type.tsx",
+        "style": "src/exports/Calendar/style.less",
+        "reference": null,
+        "docs": "src/exports/Calendar/index.zh.md"
+      },
+      "propsTypes": ["CalendarProps"],
+      "styleVars": [],
+      "hasDemos": true,
+      "hasTests": false
+    },
+    {
+      "name": "Card",
+      "dir": "Card",
+      "status": "developing",
+      "publicExport": false,
+      "available": false,
+      "import": null,
+      "description": null,
+      "paths": {
+        "source": "src/exports/Card",
+        "type": "src/exports/Card/type.tsx",
+        "style": "src/exports/Card/style.less",
+        "reference": null,
+        "docs": "src/exports/Card/index.zh.md"
+      },
+      "propsTypes": ["CardProps"],
+      "styleVars": [],
+      "hasDemos": true,
+      "hasTests": false
+    },
+    {
+      "name": "CascadePicker",
+      "dir": "CascadePicker",
+      "status": "public",
+      "publicExport": true,
+      "available": true,
+      "import": "import { CascadePicker } from '@fexd/mobile'",
+      "description": "点击触发弹层，在 CascadePickerView 中按列级联选择；确认后触发 onChange，值为各级 value 组成的数组。",
+      "paths": {
+        "source": "src/exports/CascadePicker",
+        "type": "src/exports/CascadePicker/type.tsx",
+        "style": "src/exports/CascadePicker/style.less",
+        "reference": "skills/fexd-mobile/references/CascadePicker.md",
+        "docs": "src/exports/CascadePicker/index.zh.md"
+      },
+      "propsTypes": ["CascadePickerProps", "PureCascadePickerProps"],
+      "styleVars": [],
+      "hasDemos": true,
+      "hasTests": true
+    },
+    {
+      "name": "CascadePickerView",
+      "dir": "CascadePickerView",
+      "status": "public",
+      "publicExport": true,
+      "available": true,
+      "import": "import { CascadePickerView } from '@fexd/mobile'",
+      "description": "级联选择器面板（无弹层），用于嵌入式场景；内部用 useCascadingPicker 联动多列 PickerView。",
+      "paths": {
+        "source": "src/exports/CascadePickerView",
+        "type": "src/exports/CascadePickerView/type.tsx",
+        "style": "src/exports/CascadePickerView/style.less",
+        "reference": "skills/fexd-mobile/references/CascadePickerView.md",
+        "docs": null
+      },
+      "propsTypes": ["CascadePickerViewProps", "PureCascadePickerViewProps"],
+      "styleVars": [],
+      "hasDemos": false,
+      "hasTests": true
+    },
+    {
+      "name": "Cascader",
+      "dir": "Cascader",
+      "status": "developing",
+      "publicExport": false,
+      "available": false,
+      "import": null,
+      "description": null,
+      "paths": {
+        "source": "src/exports/Cascader",
+        "type": "src/exports/Cascader/type.tsx",
+        "style": "src/exports/Cascader/style.less",
+        "reference": null,
+        "docs": "src/exports/Cascader/index.zh.md"
+      },
+      "propsTypes": ["CascaderProps"],
+      "styleVars": [],
+      "hasDemos": true,
+      "hasTests": true
+    },
+    {
+      "name": "Cell",
+      "dir": "Cell",
+      "status": "public",
+      "publicExport": true,
+      "available": true,
+      "import": "import { Cell } from '@fexd/mobile'",
+      "description": "列表行展示组件，支持标题、描述、值、前后缀与加载态；常与 Cell.Group 组合。",
+      "paths": {
+        "source": "src/exports/Cell",
+        "type": "src/exports/Cell/type.tsx",
+        "style": "src/exports/Cell/style.less",
+        "reference": "skills/fexd-mobile/references/Cell.md",
+        "docs": "src/exports/Cell/index.zh.md"
+      },
+      "propsTypes": ["CellProps", "PureCellProps"],
+      "styleVars": ["CellStyleVars"],
+      "hasDemos": true,
+      "hasTests": true
+    },
+    {
+      "name": "CellCascadePicker",
+      "dir": "CellCascadePicker",
+      "status": "public",
+      "publicExport": true,
+      "available": true,
+      "import": "import { CellCascadePicker } from '@fexd/mobile'",
+      "description": "单元格样式的级联选择器，在 UnstyledIOCascadePicker 上固定 CellLabel 主题，不含 theme prop。",
+      "paths": {
+        "source": "src/exports/CellCascadePicker",
+        "type": "src/exports/CellCascadePicker/type.tsx",
+        "style": "src/exports/CellCascadePicker/style.less",
+        "reference": "skills/fexd-mobile/references/CellCascadePicker.md",
+        "docs": null
+      },
+      "propsTypes": ["CellCascadePickerProps", "PureCellCascadePickerProps"],
+      "styleVars": ["CellCascadePickerStyleVars"],
+      "hasDemos": false,
+      "hasTests": true
+    },
+    {
+      "name": "CellDatePicker",
+      "dir": "CellDatePicker",
+      "status": "public",
+      "publicExport": true,
+      "available": true,
+      "import": "import { CellDatePicker } from '@fexd/mobile'",
+      "description": "在 Cell 形态下展示并触发日期选择弹层；基于 UnstyledIODatePicker，默认 theme 为 CellLabel，属于 **IO 主题的 Cell 变体**（与无样式 IO 组件共用逻辑，仅换肤）。",
+      "paths": {
+        "source": "src/exports/CellDatePicker",
+        "type": "src/exports/CellDatePicker/type.tsx",
+        "style": "src/exports/CellDatePicker/style.less",
+        "reference": "skills/fexd-mobile/references/CellDatePicker.md",
+        "docs": null
+      },
+      "propsTypes": ["CellDatePickerProps", "PureCellDatePickerProps"],
+      "styleVars": ["CellDatePickerStyleVars"],
+      "hasDemos": false,
+      "hasTests": true
+    },
+    {
+      "name": "CellIOLabel",
+      "dir": "CellIOLabel",
+      "status": "public",
+      "publicExport": true,
+      "available": true,
+      "import": "import { CellIOLabel } from '@fexd/mobile'",
+      "description": "带错误、聚焦、辅助前缀等能力的表单行标签容器；基于 UnstyledIOLabel，默认 theme 为 CellLabel，属于 **IO 主题的 Cell 变体**。",
+      "paths": {
+        "source": "src/exports/CellIOLabel",
+        "type": "src/exports/CellIOLabel/type.tsx",
+        "style": "src/exports/CellIOLabel/style.less",
+        "reference": "skills/fexd-mobile/references/CellIOLabel.md",
+        "docs": null
+      },
+      "propsTypes": ["CellIOLabelProps"],
+      "styleVars": ["CellIOLabelStyleVars"],
+      "hasDemos": false,
+      "hasTests": true
+    },
+    {
+      "name": "CellInput",
+      "dir": "CellInput",
+      "status": "public",
+      "publicExport": true,
+      "available": true,
+      "import": "import { CellInput } from '@fexd/mobile'",
+      "description": "在 Cell 形态下的输入控件；基于 UnstyledIOInput，默认 theme 为 CellLabel，属于 **IO 主题的 Cell 变体**。",
+      "paths": {
+        "source": "src/exports/CellInput",
+        "type": "src/exports/CellInput/type.tsx",
+        "style": "src/exports/CellInput/style.less",
+        "reference": "skills/fexd-mobile/references/CellInput.md",
+        "docs": null
+      },
+      "propsTypes": ["CellInputProps", "PureCellInputProps"],
+      "styleVars": ["CellInputStyleVars"],
+      "hasDemos": false,
+      "hasTests": true
+    },
+    {
+      "name": "CellLabel",
+      "dir": "CellLabel",
+      "status": "public",
+      "publicExport": true,
+      "available": true,
+      "import": "import { CellLabel } from '@fexd/mobile'",
+      "description": "列表/表单行常用的标签布局外壳，在 UnstyledLabel 上挂载 exd-cell-label 样式与状态类名（成功/警告/错误/信息等）。",
+      "paths": {
+        "source": "src/exports/CellLabel",
+        "type": "src/exports/CellLabel/type.tsx",
+        "style": "src/exports/CellLabel/style.less",
+        "reference": "skills/fexd-mobile/references/CellLabel.md",
+        "docs": null
+      },
+      "propsTypes": ["CellLabelProps"],
+      "styleVars": ["CellLabelStyleVars"],
+      "hasDemos": false,
+      "hasTests": true
+    },
+    {
+      "name": "CellPicker",
+      "dir": "CellPicker",
+      "status": "public",
+      "publicExport": true,
+      "available": true,
+      "import": "import { CellPicker } from '@fexd/mobile'",
+      "description": "在 Cell 形态下展示并触发列选择弹层；基于 UnstyledIOPicker，默认 theme 为 CellLabel，属于 **IO 主题的 Cell 变体**。",
+      "paths": {
+        "source": "src/exports/CellPicker",
+        "type": "src/exports/CellPicker/type.tsx",
+        "style": "src/exports/CellPicker/style.less",
+        "reference": "skills/fexd-mobile/references/CellPicker.md",
+        "docs": null
+      },
+      "propsTypes": ["CellPickerProps", "PureCellPickerProps"],
+      "styleVars": ["CellPickerStyleVars"],
+      "hasDemos": false,
+      "hasTests": true
+    },
+    {
+      "name": "CellTimePicker",
+      "dir": "CellTimePicker",
+      "status": "public",
+      "publicExport": true,
+      "available": true,
+      "import": "import { CellTimePicker } from '@fexd/mobile'",
+      "description": "在 Cell 形态下展示并触发时间选择弹层；基于 UnstyledIOTimePicker，默认 theme 为 CellLabel，属于 **IO 主题的 Cell 变体**。",
+      "paths": {
+        "source": "src/exports/CellTimePicker",
+        "type": "src/exports/CellTimePicker/type.tsx",
+        "style": "src/exports/CellTimePicker/style.less",
+        "reference": "skills/fexd-mobile/references/CellTimePicker.md",
+        "docs": null
+      },
+      "propsTypes": ["CellTimePickerProps", "PureCellTimePickerProps"],
+      "styleVars": ["CellTimePickerStyleVars"],
+      "hasDemos": false,
+      "hasTests": true
+    },
+    {
+      "name": "Checkbox",
+      "dir": "Checkbox",
+      "status": "public",
+      "publicExport": true,
+      "available": true,
+      "import": "import { Checkbox } from '@fexd/mobile'",
+      "description": "支持单独使用或与 Checkbox.Group 组合；可选块级、自定义图标、描述文案等。",
+      "paths": {
+        "source": "src/exports/Checkbox",
+        "type": "src/exports/Checkbox/type.tsx",
+        "style": "src/exports/Checkbox/style.less",
+        "reference": "skills/fexd-mobile/references/Checkbox.md",
+        "docs": "src/exports/Checkbox/index.zh.md"
+      },
+      "propsTypes": ["CheckboxProps", "PureCheckboxProps"],
+      "styleVars": ["CheckboxStyleVars"],
+      "hasDemos": true,
+      "hasTests": true
+    },
+    {
+      "name": "Collapse",
+      "dir": "Collapse",
+      "status": "public",
+      "publicExport": true,
+      "available": true,
+      "import": "import { Collapse } from '@fexd/mobile'",
+      "description": "可展开/收起的面板组，支持手风琴模式与子面板 Collapse.Panel。",
+      "paths": {
+        "source": "src/exports/Collapse",
+        "type": "src/exports/Collapse/type.tsx",
+        "style": "src/exports/Collapse/style.less",
+        "reference": "skills/fexd-mobile/references/Collapse.md",
+        "docs": "src/exports/Collapse/index.zh.md"
+      },
+      "propsTypes": ["CollapsePanelProps", "CollapseProps"],
+      "styleVars": ["CollapseStyleVars"],
+      "hasDemos": true,
+      "hasTests": true
+    },
+    {
+      "name": "CountDown",
+      "dir": "CountDown",
+      "status": "developing",
+      "publicExport": false,
+      "available": false,
+      "import": null,
+      "description": null,
+      "paths": {
+        "source": "src/exports/CountDown",
+        "type": "src/exports/CountDown/type.tsx",
+        "style": "src/exports/CountDown/style.less",
+        "reference": null,
+        "docs": "src/exports/CountDown/index.zh.md"
+      },
+      "propsTypes": ["CountDownProps"],
+      "styleVars": [],
+      "hasDemos": true,
+      "hasTests": true
+    },
+    {
+      "name": "CountTo",
+      "dir": "CountTo",
+      "status": "developing",
+      "publicExport": false,
+      "available": false,
+      "import": null,
+      "description": null,
+      "paths": {
+        "source": "src/exports/CountTo",
+        "type": "src/exports/CountTo/type.tsx",
+        "style": "src/exports/CountTo/style.less",
+        "reference": null,
+        "docs": "src/exports/CountTo/index.zh.md"
+      },
+      "propsTypes": ["CountToProps"],
+      "styleVars": [],
+      "hasDemos": true,
+      "hasTests": false
+    },
+    {
+      "name": "DatePicker",
+      "dir": "DatePicker",
+      "status": "public",
+      "publicExport": true,
+      "available": true,
+      "import": "import { DatePicker } from '@fexd/mobile'",
+      "description": "点击触发弹层、在滚轮中选择年/月/日的日期选择器；底层视图为 DatePickerView。",
+      "paths": {
+        "source": "src/exports/DatePicker",
+        "type": "src/exports/DatePicker/type.tsx",
+        "style": "src/exports/DatePicker/style.less",
+        "reference": "skills/fexd-mobile/references/DatePicker.md",
+        "docs": "src/exports/DatePicker/index.zh.md"
+      },
+      "propsTypes": ["DatePickerProps", "PureDatePickerProps"],
+      "styleVars": [],
+      "hasDemos": true,
+      "hasTests": true
+    },
+    {
+      "name": "DatePickerView",
+      "dir": "DatePickerView",
+      "status": "public",
+      "publicExport": true,
+      "available": true,
+      "import": "import { DatePickerView } from '@fexd/mobile'",
+      "description": "内嵌的滚轮式年/月/日选择视图，不自带弹层；常与 showPopup 或表单组合使用。",
+      "paths": {
+        "source": "src/exports/DatePickerView",
+        "type": "src/exports/DatePickerView/type.tsx",
+        "style": "src/exports/DatePickerView/style.less",
+        "reference": "skills/fexd-mobile/references/DatePickerView.md",
+        "docs": null
+      },
+      "propsTypes": ["DatePickerViewProps", "PureDatePickerViewProps"],
+      "styleVars": [],
+      "hasDemos": false,
+      "hasTests": true
+    },
+    {
+      "name": "DemoBlock",
+      "dir": "DemoBlock",
+      "status": "public",
+      "publicExport": true,
+      "available": true,
+      "import": "import { DemoBlock } from '@fexd/mobile'",
+      "description": "用于文档或演示中包裹示例区块，支持标题、横向排列与朴素样式。",
+      "paths": {
+        "source": "src/exports/DemoBlock",
+        "type": "src/exports/DemoBlock/type.tsx",
+        "style": "src/exports/DemoBlock/style.less",
+        "reference": "skills/fexd-mobile/references/DemoBlock.md",
+        "docs": "src/exports/DemoBlock/index.zh.md"
+      },
+      "propsTypes": ["DemoBlockProps", "PureDemoBlockProps"],
+      "styleVars": ["DemoBlockStyleVars"],
+      "hasDemos": true,
+      "hasTests": true
+    },
+    {
+      "name": "Dialog",
+      "dir": "Dialog",
+      "status": "public",
+      "publicExport": true,
+      "available": true,
+      "import": "import { Dialog } from '@fexd/mobile'",
+      "description": "模态对话框组件；通常通过 showDialog 命令式调用（无需自行维护 visible / onClose），content 对应组件版的子内容。",
+      "paths": {
+        "source": "src/exports/Dialog",
+        "type": "src/exports/Dialog/type.tsx",
+        "style": "src/exports/Dialog/style.less",
+        "reference": "skills/fexd-mobile/references/Dialog.md",
+        "docs": "src/exports/Dialog/index.zh.md"
+      },
+      "propsTypes": ["DialogProps", "PureDialogProps"],
+      "styleVars": ["DialogStyleVars"],
+      "hasDemos": true,
+      "hasTests": true
+    },
+    {
+      "name": "Divider",
+      "dir": "Divider",
+      "status": "public",
+      "publicExport": true,
+      "available": true,
+      "import": "import { Divider } from '@fexd/mobile'",
+      "description": "用于分隔内容的线条，支持中间文案与垂直方向。",
+      "paths": {
+        "source": "src/exports/Divider",
+        "type": "src/exports/Divider/type.tsx",
+        "style": "src/exports/Divider/style.less",
+        "reference": "skills/fexd-mobile/references/Divider.md",
+        "docs": "src/exports/Divider/index.zh.md"
+      },
+      "propsTypes": ["DividerProps"],
+      "styleVars": ["DividerStyleVars"],
+      "hasDemos": true,
+      "hasTests": true
+    },
+    {
+      "name": "Drag",
+      "dir": "Drag",
+      "status": "developing",
+      "publicExport": false,
+      "available": false,
+      "import": null,
+      "description": null,
+      "paths": {
+        "source": "src/exports/Drag",
+        "type": "src/exports/Drag/type.tsx",
+        "style": "src/exports/Drag/style.less",
+        "reference": null,
+        "docs": "src/exports/Drag/index.zh.md"
+      },
+      "propsTypes": ["DragProps"],
+      "styleVars": [],
+      "hasDemos": true,
+      "hasTests": false
+    },
+    {
+      "name": "Drawer",
+      "dir": "Drawer",
+      "status": "developing",
+      "publicExport": false,
+      "available": false,
+      "import": null,
+      "description": null,
+      "paths": {
+        "source": "src/exports/Drawer",
+        "type": "src/exports/Drawer/type.tsx",
+        "style": "src/exports/Drawer/style.less",
+        "reference": null,
+        "docs": "src/exports/Drawer/index.zh.md"
+      },
+      "propsTypes": ["DrawerProps"],
+      "styleVars": [],
+      "hasDemos": true,
+      "hasTests": false
+    },
+    {
+      "name": "Dropdown",
+      "dir": "Dropdown",
+      "status": "developing",
+      "publicExport": false,
+      "available": false,
+      "import": null,
+      "description": null,
+      "paths": {
+        "source": "src/exports/Dropdown",
+        "type": "src/exports/Dropdown/type.tsx",
+        "style": "src/exports/Dropdown/style.less",
+        "reference": null,
+        "docs": "src/exports/Dropdown/index.zh.md"
+      },
+      "propsTypes": ["DropdownProps"],
+      "styleVars": [],
+      "hasDemos": true,
+      "hasTests": false
+    },
+    {
+      "name": "Elevator",
+      "dir": "Elevator",
+      "status": "developing",
+      "publicExport": false,
+      "available": false,
+      "import": null,
+      "description": null,
+      "paths": {
+        "source": "src/exports/Elevator",
+        "type": "src/exports/Elevator/type.tsx",
+        "style": "src/exports/Elevator/style.less",
+        "reference": null,
+        "docs": "src/exports/Elevator/index.zh.md"
+      },
+      "propsTypes": ["ElevatorProps"],
+      "styleVars": [],
+      "hasDemos": true,
+      "hasTests": false
+    },
+    {
+      "name": "Empty",
+      "dir": "Empty",
+      "status": "public",
+      "publicExport": true,
+      "available": true,
+      "import": "import { Empty } from '@fexd/mobile'",
+      "description": "无数据或空状态时的占位展示，可自定义图标、文案与底部操作区。",
+      "paths": {
+        "source": "src/exports/Empty",
+        "type": "src/exports/Empty/type.tsx",
+        "style": "src/exports/Empty/style.less",
+        "reference": "skills/fexd-mobile/references/Empty.md",
+        "docs": "src/exports/Empty/index.zh.md"
+      },
+      "propsTypes": ["EmptyProps"],
+      "styleVars": ["EmptyStyleVars"],
+      "hasDemos": true,
+      "hasTests": true
+    },
+    {
+      "name": "ErrorBoundary",
+      "dir": "ErrorBoundary",
+      "status": "public",
+      "publicExport": true,
+      "available": true,
+      "import": "import { ErrorBoundary } from '@fexd/mobile'",
+      "description": "捕获子组件树中的渲染错误并展示兜底 UI，可选开启控制台（eruda）入口。",
+      "paths": {
+        "source": "src/exports/ErrorBoundary",
+        "type": "src/exports/ErrorBoundary/type.tsx",
+        "style": "src/exports/ErrorBoundary/style.less",
+        "reference": "skills/fexd-mobile/references/ErrorBoundary.md",
+        "docs": "src/exports/ErrorBoundary/index.zh.md"
+      },
+      "propsTypes": ["ErrorBoundaryProps"],
+      "styleVars": ["ErrorBoundaryStyleVars"],
+      "hasDemos": true,
+      "hasTests": true
+    },
+    {
+      "name": "Fallback",
+      "dir": "Fallback",
+      "status": "public",
+      "publicExport": true,
+      "available": true,
+      "import": "import { Fallback } from '@fexd/mobile'",
+      "description": "展示错误信息的通用布局组件，支持自定义图标、正文、页脚，并可选择显示 console（eruda）入口。",
+      "paths": {
+        "source": "src/exports/Fallback",
+        "type": "src/exports/Fallback/type.tsx",
+        "style": "src/exports/Fallback/style.less",
+        "reference": "skills/fexd-mobile/references/Fallback.md",
+        "docs": null
+      },
+      "propsTypes": ["FallbackProps"],
+      "styleVars": ["FallbackStyleVars"],
+      "hasDemos": false,
+      "hasTests": true
+    },
+    {
+      "name": "Flex",
+      "dir": "Flex",
+      "status": "public",
+      "publicExport": true,
+      "available": true,
+      "import": "import { Flex } from '@fexd/mobile'",
+      "description": "基于 12 栅格的弹性布局容器，支持 Flex.Item 的偏移、排序与响应式占位；可通过 targetRef 指定用于计算断点的目标节点。",
+      "paths": {
+        "source": "src/exports/Flex",
+        "type": "src/exports/Flex/type.tsx",
+        "style": "src/exports/Flex/style.less",
+        "reference": "skills/fexd-mobile/references/Flex.md",
+        "docs": "src/exports/Flex/index.zh.md"
+      },
+      "propsTypes": ["FlexProps"],
+      "styleVars": [],
+      "hasDemos": true,
+      "hasTests": true
+    },
+    {
+      "name": "Footer",
+      "dir": "Footer",
+      "status": "developing",
+      "publicExport": false,
+      "available": false,
+      "import": null,
+      "description": null,
+      "paths": {
+        "source": "src/exports/Footer",
+        "type": "src/exports/Footer/type.tsx",
+        "style": "src/exports/Footer/style.less",
+        "reference": null,
+        "docs": "src/exports/Footer/index.zh.md"
+      },
+      "propsTypes": ["FooterProps"],
+      "styleVars": [],
+      "hasDemos": true,
+      "hasTests": false
+    },
+    {
+      "name": "Form",
+      "dir": "Form",
+      "status": "public",
+      "publicExport": true,
+      "available": true,
+      "import": "import { Form } from '@fexd/mobile'",
+      "description": "轻量表单上下文：Form 提供表单实例与严格模式等行为；Form.Field 为无样式字段作用域，通过 render prop 暴露 field 控制器，可与任意输入组件组合。",
+      "paths": {
+        "source": "src/exports/Form",
+        "type": "src/exports/Form/type.tsx",
+        "style": "src/exports/Form/style.less",
+        "reference": "skills/fexd-mobile/references/Form.md",
+        "docs": "src/exports/Form/index.zh.md"
+      },
+      "propsTypes": ["FormProps"],
+      "styleVars": [],
+      "hasDemos": true,
+      "hasTests": true
+    },
+    {
+      "name": "FullpageSpinner",
+      "dir": "FullpageSpinner",
+      "status": "public",
+      "publicExport": true,
+      "available": true,
+      "import": "import { FullpageSpinner } from '@fexd/mobile'",
+      "description": "全屏居中展示 Spinner 的容器组件；props 在 Spinner 的基础上增加外层 div 的 ref。",
+      "paths": {
+        "source": "src/exports/FullpageSpinner",
+        "type": "src/exports/FullpageSpinner/type.tsx",
+        "style": "src/exports/FullpageSpinner/style.less",
+        "reference": "skills/fexd-mobile/references/FullpageSpinner.md",
+        "docs": null
+      },
+      "propsTypes": ["FullpageSpinnerProps"],
+      "styleVars": [],
+      "hasDemos": false,
+      "hasTests": true
+    },
+    {
+      "name": "Gallery",
+      "dir": "Gallery",
+      "status": "developing",
+      "publicExport": false,
+      "available": false,
+      "import": null,
+      "description": null,
+      "paths": {
+        "source": "src/exports/Gallery",
+        "type": "src/exports/Gallery/type.tsx",
+        "style": "src/exports/Gallery/style.less",
+        "reference": null,
+        "docs": "src/exports/Gallery/index.zh.md"
+      },
+      "propsTypes": ["GalleryProps"],
+      "styleVars": [],
+      "hasDemos": true,
+      "hasTests": false
+    },
+    {
+      "name": "Grid",
+      "dir": "Grid",
+      "status": "public",
+      "publicExport": true,
+      "available": true,
+      "import": "import { Grid } from '@fexd/mobile'",
+      "description": "在水平与垂直方向将区域划分为等大的宫格，用于图标+文案或自定义单元格内容；支持 Grid.Item 子组件。",
+      "paths": {
+        "source": "src/exports/Grid",
+        "type": "src/exports/Grid/type.tsx",
+        "style": "src/exports/Grid/style.less",
+        "reference": "skills/fexd-mobile/references/Grid.md",
+        "docs": "src/exports/Grid/index.zh.md"
+      },
+      "propsTypes": ["GridProps"],
+      "styleVars": ["GridStyleVars"],
+      "hasDemos": true,
+      "hasTests": true
+    },
+    {
+      "name": "Hook",
+      "dir": "Hook",
+      "status": "public",
+      "publicExport": true,
+      "available": true,
+      "import": "import { Hook } from '@fexd/mobile'",
+      "description": "匿名组件",
+      "paths": {
+        "source": "src/exports/Hook",
+        "type": "src/exports/Hook/type.tsx",
+        "style": "src/exports/Hook/style.less",
+        "reference": "skills/fexd-mobile/references/Hook.md",
+        "docs": "src/exports/Hook/index.zh.md"
+      },
+      "propsTypes": ["HookProps"],
+      "styleVars": [],
+      "hasDemos": true,
+      "hasTests": true
+    },
+    {
+      "name": "Iconfont",
+      "dir": "Iconfont",
+      "status": "public",
+      "publicExport": true,
+      "available": true,
+      "import": "import { Iconfont } from '@fexd/mobile'",
+      "description": "基于 iconfont 的图标组件，支持字体模式与 SVG（<use>）模式；图标资源可由包内静态资源或 Iconfont.loadIconfont 加载 CDN。",
+      "paths": {
+        "source": "src/exports/Iconfont",
+        "type": "src/exports/Iconfont/type.tsx",
+        "style": "src/exports/Iconfont/style.less",
+        "reference": "skills/fexd-mobile/references/Iconfont.md",
+        "docs": "src/exports/Iconfont/index.zh.md"
+      },
+      "propsTypes": ["IconfontProps"],
+      "styleVars": [],
+      "hasDemos": true,
+      "hasTests": true
+    },
+    {
+      "name": "Image",
+      "dir": "Image",
+      "status": "public",
+      "publicExport": true,
+      "available": true,
+      "import": "import { Image } from '@fexd/mobile'",
+      "description": "支持固定比例、懒加载、加载中与失败占位的图片组件；类型上在原生 img 属性基础上扩展了 lazy、fallback、placeholder、proportion 等字段。",
+      "paths": {
+        "source": "src/exports/Image",
+        "type": "src/exports/Image/type.tsx",
+        "style": "src/exports/Image/style.less",
+        "reference": "skills/fexd-mobile/references/Image.md",
+        "docs": "src/exports/Image/index.zh.md"
+      },
+      "propsTypes": ["ImageProps"],
+      "styleVars": [],
+      "hasDemos": true,
+      "hasTests": true
+    },
+    {
+      "name": "ImagePicker",
+      "dir": "ImagePicker",
+      "status": "developing",
+      "publicExport": false,
+      "available": false,
+      "import": null,
+      "description": null,
+      "paths": {
+        "source": "src/exports/ImagePicker",
+        "type": "src/exports/ImagePicker/type.tsx",
+        "style": "src/exports/ImagePicker/style.less",
+        "reference": null,
+        "docs": "src/exports/ImagePicker/index.zh.md"
+      },
+      "propsTypes": ["ImagePickerProps"],
+      "styleVars": [],
+      "hasDemos": true,
+      "hasTests": false
+    },
+    {
+      "name": "Input",
+      "dir": "Input",
+      "status": "public",
+      "publicExport": true,
+      "available": true,
+      "import": "import { Input } from '@fexd/mobile'",
+      "description": "输入框",
+      "paths": {
+        "source": "src/exports/Input",
+        "type": "src/exports/Input/type.tsx",
+        "style": "src/exports/Input/style.less",
+        "reference": "skills/fexd-mobile/references/Input.md",
+        "docs": "src/exports/Input/index.zh.md"
+      },
+      "propsTypes": ["InputProps", "PureInputProps"],
+      "styleVars": [],
+      "hasDemos": true,
+      "hasTests": true
+    },
+    {
+      "name": "LineCascadePicker",
+      "dir": "LineCascadePicker",
+      "status": "public",
+      "publicExport": true,
+      "available": true,
+      "import": "import { LineCascadePicker } from '@fexd/mobile'",
+      "description": "底部线条样式的级联选择器，在 UnstyledIOCascadePicker 上固定 LineLabel 主题，不含 theme prop。",
+      "paths": {
+        "source": "src/exports/LineCascadePicker",
+        "type": "src/exports/LineCascadePicker/type.tsx",
+        "style": "src/exports/LineCascadePicker/style.less",
+        "reference": "skills/fexd-mobile/references/LineCascadePicker.md",
+        "docs": null
+      },
+      "propsTypes": ["LineCascadePickerProps", "PureLineCascadePickerProps"],
+      "styleVars": ["LineCascadePickerStyleVars"],
+      "hasDemos": false,
+      "hasTests": true
+    },
+    {
+      "name": "LineDatePicker",
+      "dir": "LineDatePicker",
+      "status": "public",
+      "publicExport": true,
+      "available": true,
+      "import": "import { LineDatePicker } from '@fexd/mobile'",
+      "description": "行内日期选择",
+      "paths": {
+        "source": "src/exports/LineDatePicker",
+        "type": "src/exports/LineDatePicker/type.tsx",
+        "style": "src/exports/LineDatePicker/style.less",
+        "reference": "skills/fexd-mobile/references/LineDatePicker.md",
+        "docs": null
+      },
+      "propsTypes": ["LineDatePickerProps", "PureLineDatePickerProps"],
+      "styleVars": ["LineDatePickerStyleVars"],
+      "hasDemos": false,
+      "hasTests": true
+    },
+    {
+      "name": "LineIOLabel",
+      "dir": "LineIOLabel",
+      "status": "public",
+      "publicExport": true,
+      "available": true,
+      "import": "import { LineIOLabel } from '@fexd/mobile'",
+      "description": "行内 IO 标签",
+      "paths": {
+        "source": "src/exports/LineIOLabel",
+        "type": "src/exports/LineIOLabel/type.tsx",
+        "style": "src/exports/LineIOLabel/style.less",
+        "reference": "skills/fexd-mobile/references/LineIOLabel.md",
+        "docs": null
+      },
+      "propsTypes": ["LineIOLabelProps"],
+      "styleVars": ["LineIOLabelStyleVars"],
+      "hasDemos": false,
+      "hasTests": true
+    },
+    {
+      "name": "LineInput",
+      "dir": "LineInput",
+      "status": "public",
+      "publicExport": true,
+      "available": true,
+      "import": "import { LineInput } from '@fexd/mobile'",
+      "description": "行内输入框",
+      "paths": {
+        "source": "src/exports/LineInput",
+        "type": "src/exports/LineInput/type.tsx",
+        "style": "src/exports/LineInput/style.less",
+        "reference": "skills/fexd-mobile/references/LineInput.md",
+        "docs": null
+      },
+      "propsTypes": ["LineInputProps", "PureLineInputProps"],
+      "styleVars": ["LineInputStyleVars"],
+      "hasDemos": false,
+      "hasTests": true
+    },
+    {
+      "name": "LineLabel",
+      "dir": "LineLabel",
+      "status": "public",
+      "publicExport": true,
+      "available": true,
+      "import": "import { LineLabel } from '@fexd/mobile'",
+      "description": "UnstyledLabel 的行内（下划线）皮肤实现，负责浮动标签、条形底边、前缀/后缀/辅助文案等布局，用作 **Line*** 系列 IO 控件的 theme 根组件。",
+      "paths": {
+        "source": "src/exports/LineLabel",
+        "type": "src/exports/LineLabel/type.tsx",
+        "style": "src/exports/LineLabel/style.less",
+        "reference": "skills/fexd-mobile/references/LineLabel.md",
+        "docs": null
+      },
+      "propsTypes": ["LineLabelProps"],
+      "styleVars": ["LineLabelStyleVars"],
+      "hasDemos": false,
+      "hasTests": true
+    },
+    {
+      "name": "LinePicker",
+      "dir": "LinePicker",
+      "status": "public",
+      "publicExport": true,
+      "available": true,
+      "import": "import { LinePicker } from '@fexd/mobile'",
+      "description": "行内选择器",
+      "paths": {
+        "source": "src/exports/LinePicker",
+        "type": "src/exports/LinePicker/type.tsx",
+        "style": "src/exports/LinePicker/style.less",
+        "reference": "skills/fexd-mobile/references/LinePicker.md",
+        "docs": null
+      },
+      "propsTypes": ["LinePickerProps", "PureLinePickerProps"],
+      "styleVars": ["LinePickerStyleVars"],
+      "hasDemos": false,
+      "hasTests": true
+    },
+    {
+      "name": "LineTimePicker",
+      "dir": "LineTimePicker",
+      "status": "public",
+      "publicExport": true,
+      "available": true,
+      "import": "import { LineTimePicker } from '@fexd/mobile'",
+      "description": "在 UnstyledIOTimePicker 上固定 theme 为 LineLabel 的时间选择控件，类名前缀默认为 exd-line-time-picker。属于 IO 分层体系中 **Line*** 主题变体。",
+      "paths": {
+        "source": "src/exports/LineTimePicker",
+        "type": "src/exports/LineTimePicker/type.tsx",
+        "style": "src/exports/LineTimePicker/style.less",
+        "reference": "skills/fexd-mobile/references/LineTimePicker.md",
+        "docs": null
+      },
+      "propsTypes": ["LineTimePickerProps", "PureLineTimePickerProps"],
+      "styleVars": ["LineTimePickerStyleVars"],
+      "hasDemos": false,
+      "hasTests": true
+    },
+    {
+      "name": "List",
+      "dir": "List",
+      "status": "developing",
+      "publicExport": false,
+      "available": false,
+      "import": null,
+      "description": null,
+      "paths": {
+        "source": "src/exports/List",
+        "type": "src/exports/List/type.tsx",
+        "style": "src/exports/List/style.less",
+        "reference": null,
+        "docs": "src/exports/List/index.zh.md"
+      },
+      "propsTypes": ["ListProps"],
+      "styleVars": [],
+      "hasDemos": true,
+      "hasTests": false
+    },
+    {
+      "name": "Marquee",
+      "dir": "Marquee",
+      "status": "developing",
+      "publicExport": false,
+      "available": false,
+      "import": null,
+      "description": null,
+      "paths": {
+        "source": "src/exports/Marquee",
+        "type": "src/exports/Marquee/type.tsx",
+        "style": "src/exports/Marquee/style.less",
+        "reference": null,
+        "docs": "src/exports/Marquee/index.zh.md"
+      },
+      "propsTypes": ["MarqueeProps"],
+      "styleVars": [],
+      "hasDemos": true,
+      "hasTests": false
+    },
+    {
+      "name": "Menu",
+      "dir": "Menu",
+      "status": "developing",
+      "publicExport": false,
+      "available": false,
+      "import": null,
+      "description": null,
+      "paths": {
+        "source": "src/exports/Menu",
+        "type": "src/exports/Menu/type.tsx",
+        "style": "src/exports/Menu/style.less",
+        "reference": null,
+        "docs": "src/exports/Menu/index.zh.md"
+      },
+      "propsTypes": ["MenuProps"],
+      "styleVars": [],
+      "hasDemos": true,
+      "hasTests": false
+    },
+    {
+      "name": "Modal",
+      "dir": "Modal",
+      "status": "public",
+      "publicExport": true,
+      "available": true,
+      "import": "import { Modal } from '@fexd/mobile'",
+      "description": "模态框",
+      "paths": {
+        "source": "src/exports/Modal",
+        "type": "src/exports/Modal/type.tsx",
+        "style": "src/exports/Modal/style.less",
+        "reference": "skills/fexd-mobile/references/Modal.md",
+        "docs": "src/exports/Modal/index.zh.md"
+      },
+      "propsTypes": ["ModalConflictProps", "ModalProps", "PureModalProps"],
+      "styleVars": ["ModalStyleVars"],
+      "hasDemos": true,
+      "hasTests": true
+    },
+    {
+      "name": "ModalStation",
+      "dir": "ModalStation",
+      "status": "public",
+      "publicExport": true,
+      "available": true,
+      "import": "import { ModalStation } from '@fexd/mobile'",
+      "description": "在指定挂载点注册「驿站」对象，供命令式弹层 API 将 Modal 渲染到固定容器。stationMap[id] 上暴露 add / remove，用于按 id 挂载/卸载子树渲染函数。",
+      "paths": {
+        "source": "src/exports/ModalStation",
+        "type": "src/exports/ModalStation/type.tsx",
+        "style": "src/exports/ModalStation/style.less",
+        "reference": "skills/fexd-mobile/references/ModalStation.md",
+        "docs": null
+      },
+      "propsTypes": ["ModalStationProps"],
+      "styleVars": [],
+      "hasDemos": false,
+      "hasTests": true
+    },
+    {
+      "name": "NavBar",
+      "dir": "NavBar",
+      "status": "public",
+      "publicExport": true,
+      "available": true,
+      "import": "import { NavBar } from '@fexd/mobile'",
+      "description": "页面顶部导航：左/中/右区域、标题居中控制、点击回调。",
+      "paths": {
+        "source": "src/exports/NavBar",
+        "type": "src/exports/NavBar/type.tsx",
+        "style": "src/exports/NavBar/style.less",
+        "reference": "skills/fexd-mobile/references/NavBar.md",
+        "docs": "src/exports/NavBar/index.zh.md"
+      },
+      "propsTypes": ["NavBarProps", "PureNavBarProps"],
+      "styleVars": ["NavBarStyleVars"],
+      "hasDemos": true,
+      "hasTests": true
+    },
+    {
+      "name": "NotFound",
+      "dir": "NotFound",
+      "status": "public",
+      "publicExport": true,
+      "available": true,
+      "import": "import { NotFound } from '@fexd/mobile'",
+      "description": "空状态展示，与 Empty 共用类型：可自定义图标与文案。",
+      "paths": {
+        "source": "src/exports/NotFound",
+        "type": "src/exports/NotFound/type.tsx",
+        "style": "src/exports/NotFound/style.less",
+        "reference": "skills/fexd-mobile/references/NotFound.md",
+        "docs": "src/exports/NotFound/index.zh.md"
+      },
+      "propsTypes": ["NotFoundProps"],
+      "styleVars": [],
+      "hasDemos": true,
+      "hasTests": true
+    },
+    {
+      "name": "NoticeBar",
+      "dir": "NoticeBar",
+      "status": "developing",
+      "publicExport": false,
+      "available": false,
+      "import": null,
+      "description": null,
+      "paths": {
+        "source": "src/exports/NoticeBar",
+        "type": "src/exports/NoticeBar/type.tsx",
+        "style": "src/exports/NoticeBar/style.less",
+        "reference": null,
+        "docs": "src/exports/NoticeBar/index.zh.md"
+      },
+      "propsTypes": ["NoticeBarProps"],
+      "styleVars": [],
+      "hasDemos": true,
+      "hasTests": true
+    },
+    {
+      "name": "NumberKeyboard",
+      "dir": "NumberKeyboard",
+      "status": "developing",
+      "publicExport": false,
+      "available": false,
+      "import": null,
+      "description": null,
+      "paths": {
+        "source": "src/exports/NumberKeyboard",
+        "type": "src/exports/NumberKeyboard/type.tsx",
+        "style": "src/exports/NumberKeyboard/style.less",
+        "reference": null,
+        "docs": "src/exports/NumberKeyboard/index.zh.md"
+      },
+      "propsTypes": ["NumberKeyboardProps"],
+      "styleVars": [],
+      "hasDemos": true,
+      "hasTests": false
+    },
+    {
+      "name": "Overlay",
+      "dir": "Overlay",
+      "status": "public",
+      "publicExport": true,
+      "available": true,
+      "import": "import { Overlay } from '@fexd/mobile'",
+      "description": "全屏或相对父级的遮罩，可配合过渡与透明背景。",
+      "paths": {
+        "source": "src/exports/Overlay",
+        "type": "src/exports/Overlay/type.tsx",
+        "style": "src/exports/Overlay/style.less",
+        "reference": "skills/fexd-mobile/references/Overlay.md",
+        "docs": "src/exports/Overlay/index.zh.md"
+      },
+      "propsTypes": ["OverlayProps"],
+      "styleVars": ["OverlayStyleVars"],
+      "hasDemos": true,
+      "hasTests": true
+    },
+    {
+      "name": "Pagination",
+      "dir": "Pagination",
+      "status": "developing",
+      "publicExport": false,
+      "available": false,
+      "import": null,
+      "description": null,
+      "paths": {
+        "source": "src/exports/Pagination",
+        "type": "src/exports/Pagination/type.tsx",
+        "style": "src/exports/Pagination/style.less",
+        "reference": null,
+        "docs": "src/exports/Pagination/index.zh.md"
+      },
+      "propsTypes": ["PaginationProps"],
+      "styleVars": [],
+      "hasDemos": true,
+      "hasTests": false
+    },
+    {
+      "name": "Picker",
+      "dir": "Picker",
+      "status": "public",
+      "publicExport": true,
+      "available": true,
+      "import": "import { Picker } from '@fexd/mobile'",
+      "description": "点击触发弹层，在 PickerView 中选择选项；确认后触发 onChange。与 showPicker 命令式 API 配合使用见包内文档与其他 reference。",
+      "paths": {
+        "source": "src/exports/Picker",
+        "type": "src/exports/Picker/type.tsx",
+        "style": "src/exports/Picker/style.less",
+        "reference": "skills/fexd-mobile/references/Picker.md",
+        "docs": "src/exports/Picker/index.zh.md"
+      },
+      "propsTypes": ["PickerProps", "PurePickerProps"],
+      "styleVars": ["PickerStyleVars"],
+      "hasDemos": true,
+      "hasTests": true
+    },
+    {
+      "name": "PickerView",
+      "dir": "PickerView",
+      "status": "public",
+      "publicExport": true,
+      "available": true,
+      "import": "import { PickerView } from '@fexd/mobile'",
+      "description": "竖向滚轮列表，支持受控/非受控与行数配置。通常被 Picker 或 showPicker 使用。",
+      "paths": {
+        "source": "src/exports/PickerView",
+        "type": "src/exports/PickerView/type.tsx",
+        "style": "src/exports/PickerView/style.less",
+        "reference": "skills/fexd-mobile/references/PickerView.md",
+        "docs": null
+      },
+      "propsTypes": ["PickerViewProps"],
+      "styleVars": ["PickerViewStyleVars"],
+      "hasDemos": false,
+      "hasTests": true
+    },
+    {
+      "name": "Popup",
+      "dir": "Popup",
+      "status": "public",
+      "publicExport": true,
+      "available": true,
+      "import": "import { Popup } from '@fexd/mobile'",
+      "description": "底部/通用弹层封装，带标题栏与圆角等；属性在 Modal 能力之上扩展。命令式 showPopup 用 content 替代 children，且不手写 visible / onClose。",
+      "paths": {
+        "source": "src/exports/Popup",
+        "type": "src/exports/Popup/type.tsx",
+        "style": "src/exports/Popup/style.less",
+        "reference": "skills/fexd-mobile/references/Popup.md",
+        "docs": "src/exports/Popup/index.zh.md"
+      },
+      "propsTypes": ["PopupProps", "PurePopupProps"],
+      "styleVars": ["PopupStyleVars"],
+      "hasDemos": true,
+      "hasTests": true
+    },
+    {
+      "name": "Portal",
+      "dir": "Portal",
+      "status": "public",
+      "publicExport": true,
+      "available": true,
+      "import": "import { Portal } from '@fexd/mobile'",
+      "description": "将子节点渲染到当前组件树外的 DOM 节点（默认 document.body）。",
+      "paths": {
+        "source": "src/exports/Portal",
+        "type": "src/exports/Portal/type.tsx",
+        "style": "src/exports/Portal/style.less",
+        "reference": "skills/fexd-mobile/references/Portal.md",
+        "docs": "src/exports/Portal/index.zh.md"
+      },
+      "propsTypes": ["PortalProps"],
+      "styleVars": [],
+      "hasDemos": true,
+      "hasTests": true
+    },
+    {
+      "name": "ProgressBar",
+      "dir": "ProgressBar",
+      "status": "public",
+      "publicExport": true,
+      "available": true,
+      "import": "import { ProgressBar } from '@fexd/mobile'",
+      "description": "按百分比展示进度，支持过渡速度档位或自定义毫秒数。",
+      "paths": {
+        "source": "src/exports/ProgressBar",
+        "type": "src/exports/ProgressBar/type.tsx",
+        "style": "src/exports/ProgressBar/style.less",
+        "reference": "skills/fexd-mobile/references/ProgressBar.md",
+        "docs": "src/exports/ProgressBar/index.zh.md"
+      },
+      "propsTypes": ["ProgressBarProps"],
+      "styleVars": ["ProgressBarStyleVars"],
+      "hasDemos": true,
+      "hasTests": true
+    },
+    {
+      "name": "Provider",
+      "dir": "Provider",
+      "status": "public",
+      "publicExport": true,
+      "available": true,
+      "import": "import { Provider } from '@fexd/mobile'",
+      "description": "在应用根部提供默认的 ModalStation 挂载点及全局共享遮罩相关能力，Modal 等组件依赖此上下文。",
+      "paths": {
+        "source": "src/exports/Provider",
+        "type": "src/exports/Provider/type.tsx",
+        "style": "src/exports/Provider/style.less",
+        "reference": "skills/fexd-mobile/references/Provider.md",
+        "docs": "src/exports/Provider/index.zh.md"
+      },
+      "propsTypes": ["ProviderProps", "PureProviderProps"],
+      "styleVars": [],
+      "hasDemos": true,
+      "hasTests": true
+    },
+    {
+      "name": "Radio",
+      "dir": "Radio",
+      "status": "public",
+      "publicExport": true,
+      "available": true,
+      "import": "import { Radio } from '@fexd/mobile'",
+      "description": "单独使用或与 Radio.Group 组合；支持 options 配置、自定义图标、块级布局与描述文案。",
+      "paths": {
+        "source": "src/exports/Radio",
+        "type": "src/exports/Radio/type.tsx",
+        "style": "src/exports/Radio/style.less",
+        "reference": "skills/fexd-mobile/references/Radio.md",
+        "docs": "src/exports/Radio/index.zh.md"
+      },
+      "propsTypes": ["PureRadioProps", "RadioProps"],
+      "styleVars": ["RadioStyleVars"],
+      "hasDemos": true,
+      "hasTests": true
+    },
+    {
+      "name": "Rate",
+      "dir": "Rate",
+      "status": "public",
+      "publicExport": true,
+      "available": true,
+      "import": "import { Rate } from '@fexd/mobile'",
+      "description": "星级评分；支持半星、自定义图标与数量、只读与禁用。",
+      "paths": {
+        "source": "src/exports/Rate",
+        "type": "src/exports/Rate/type.tsx",
+        "style": "src/exports/Rate/style.less",
+        "reference": "skills/fexd-mobile/references/Rate.md",
+        "docs": "src/exports/Rate/index.zh.md"
+      },
+      "propsTypes": ["RateProps"],
+      "styleVars": ["RateStyleVars"],
+      "hasDemos": true,
+      "hasTests": true
+    },
+    {
+      "name": "Result",
+      "dir": "Result",
+      "status": "public",
+      "publicExport": true,
+      "available": true,
+      "import": "import { Result } from '@fexd/mobile'",
+      "description": "用于展示操作结果：成功、警告、错误、信息等状态，可自定义图标、标题、描述与底部操作区。",
+      "paths": {
+        "source": "src/exports/Result",
+        "type": "src/exports/Result/type.tsx",
+        "style": "src/exports/Result/style.less",
+        "reference": "skills/fexd-mobile/references/Result.md",
+        "docs": "src/exports/Result/index.zh.md"
+      },
+      "propsTypes": ["ResultProps"],
+      "styleVars": ["ResultStyleVars"],
+      "hasDemos": true,
+      "hasTests": true
+    },
+    {
+      "name": "ScrollView",
+      "dir": "ScrollView",
+      "status": "public",
+      "publicExport": true,
+      "available": true,
+      "import": "import { ScrollView } from '@fexd/mobile'",
+      "description": "可滚动容器；支持触底加载、按距离触发的滚动事件、上下阴影与外层包裹类名。",
+      "paths": {
+        "source": "src/exports/ScrollView",
+        "type": "src/exports/ScrollView/type.tsx",
+        "style": "src/exports/ScrollView/style.less",
+        "reference": "skills/fexd-mobile/references/ScrollView.md",
+        "docs": "src/exports/ScrollView/index.zh.md"
+      },
+      "propsTypes": ["ScrollViewProps"],
+      "styleVars": ["ScrollViewStyleVars"],
+      "hasDemos": true,
+      "hasTests": true
+    },
+    {
+      "name": "Search",
+      "dir": "Search",
+      "status": "developing",
+      "publicExport": false,
+      "available": false,
+      "import": null,
+      "description": null,
+      "paths": {
+        "source": "src/exports/Search",
+        "type": "src/exports/Search/type.tsx",
+        "style": "src/exports/Search/style.less",
+        "reference": null,
+        "docs": "src/exports/Search/index.zh.md"
+      },
+      "propsTypes": ["SearchProps"],
+      "styleVars": [],
+      "hasDemos": true,
+      "hasTests": false
+    },
+    {
+      "name": "SegmentedControl",
+      "dir": "SegmentedControl",
+      "status": "developing",
+      "publicExport": false,
+      "available": false,
+      "import": null,
+      "description": null,
+      "paths": {
+        "source": "src/exports/SegmentedControl",
+        "type": "src/exports/SegmentedControl/type.tsx",
+        "style": "src/exports/SegmentedControl/style.less",
+        "reference": null,
+        "docs": "src/exports/SegmentedControl/index.zh.md"
+      },
+      "propsTypes": ["SegmentedControlProps"],
+      "styleVars": [],
+      "hasDemos": true,
+      "hasTests": false
+    },
+    {
+      "name": "ShareSheet",
+      "dir": "ShareSheet",
+      "status": "developing",
+      "publicExport": false,
+      "available": false,
+      "import": null,
+      "description": null,
+      "paths": {
+        "source": "src/exports/ShareSheet",
+        "type": "src/exports/ShareSheet/type.tsx",
+        "style": "src/exports/ShareSheet/style.less",
+        "reference": null,
+        "docs": "src/exports/ShareSheet/index.zh.md"
+      },
+      "propsTypes": ["ShareSheetProps"],
+      "styleVars": [],
+      "hasDemos": true,
+      "hasTests": false
+    },
+    {
+      "name": "Skeleton",
+      "dir": "Skeleton",
+      "status": "developing",
+      "publicExport": false,
+      "available": false,
+      "import": null,
+      "description": null,
+      "paths": {
+        "source": "src/exports/Skeleton",
+        "type": "src/exports/Skeleton/type.tsx",
+        "style": "src/exports/Skeleton/style.less",
+        "reference": null,
+        "docs": "src/exports/Skeleton/index.zh.md"
+      },
+      "propsTypes": ["SkeletonProps"],
+      "styleVars": [],
+      "hasDemos": true,
+      "hasTests": true
+    },
+    {
+      "name": "Slider",
+      "dir": "Slider",
+      "status": "public",
+      "publicExport": true,
+      "available": true,
+      "import": "import { Slider } from '@fexd/mobile'",
+      "description": "在区间内选择数值；支持单滑块与双滑块（值为 number 或 [number, number]）、纵向、步长、轨道与滑块显隐。",
+      "paths": {
+        "source": "src/exports/Slider",
+        "type": "src/exports/Slider/type.tsx",
+        "style": "src/exports/Slider/style.less",
+        "reference": "skills/fexd-mobile/references/Slider.md",
+        "docs": "src/exports/Slider/index.zh.md"
+      },
+      "propsTypes": ["SliderProps"],
+      "styleVars": ["SliderStyleVars"],
+      "hasDemos": true,
+      "hasTests": true
+    },
+    {
+      "name": "Space",
+      "dir": "Space",
+      "status": "public",
+      "publicExport": true,
+      "available": true,
+      "import": "import { Space } from '@fexd/mobile'",
+      "description": "在子元素之间插入统一间距，支持水平/垂直方向、对齐、分隔符与换行。",
+      "paths": {
+        "source": "src/exports/Space",
+        "type": "src/exports/Space/type.tsx",
+        "style": "src/exports/Space/style.less",
+        "reference": "skills/fexd-mobile/references/Space.md",
+        "docs": "src/exports/Space/index.zh.md"
+      },
+      "propsTypes": ["SpaceProps"],
+      "styleVars": ["SpaceStyleVars"],
+      "hasDemos": true,
+      "hasTests": true
+    },
+    {
+      "name": "Spinner",
+      "dir": "Spinner",
+      "status": "public",
+      "publicExport": true,
+      "available": true,
+      "import": "import { Spinner } from '@fexd/mobile'",
+      "description": "用于区块或行内加载中状态；可通过 delay 避免短时闪烁。",
+      "paths": {
+        "source": "src/exports/Spinner",
+        "type": "src/exports/Spinner/type.tsx",
+        "style": "src/exports/Spinner/style.less",
+        "reference": "skills/fexd-mobile/references/Spinner.md",
+        "docs": "src/exports/Spinner/index.zh.md"
+      },
+      "propsTypes": ["SpinnerProps"],
+      "styleVars": ["SpinnerStyleVars"],
+      "hasDemos": true,
+      "hasTests": true
+    },
+    {
+      "name": "Stepper",
+      "dir": "Stepper",
+      "status": "public",
+      "publicExport": true,
+      "available": true,
+      "import": "import { Stepper } from '@fexd/mobile'",
+      "description": "用于在最小值与最大值之间以步长增减数值的步进输入组件。",
+      "paths": {
+        "source": "src/exports/Stepper",
+        "type": "src/exports/Stepper/type.tsx",
+        "style": "src/exports/Stepper/style.less",
+        "reference": "skills/fexd-mobile/references/Stepper.md",
+        "docs": "src/exports/Stepper/index.zh.md"
+      },
+      "propsTypes": ["PureStepperProps", "StepperProps"],
+      "styleVars": ["StepperStyleVars"],
+      "hasDemos": true,
+      "hasTests": true
+    },
+    {
+      "name": "Steps",
+      "dir": "Steps",
+      "status": "public",
+      "publicExport": true,
+      "available": true,
+      "import": "import { Steps } from '@fexd/mobile'",
+      "description": "引导用户按流程完成任务的步骤条，支持配置式（data）与组件式（Steps.Item）两种用法。",
+      "paths": {
+        "source": "src/exports/Steps",
+        "type": "src/exports/Steps/type.tsx",
+        "style": "src/exports/Steps/style.less",
+        "reference": "skills/fexd-mobile/references/Steps.md",
+        "docs": "src/exports/Steps/index.zh.md"
+      },
+      "propsTypes": ["StepsProps"],
+      "styleVars": ["StepsStyleVars"],
+      "hasDemos": true,
+      "hasTests": true
+    },
+    {
+      "name": "Sticky",
+      "dir": "Sticky",
+      "status": "developing",
+      "publicExport": false,
+      "available": false,
+      "import": null,
+      "description": null,
+      "paths": {
+        "source": "src/exports/Sticky",
+        "type": "src/exports/Sticky/type.tsx",
+        "style": "src/exports/Sticky/style.less",
+        "reference": null,
+        "docs": "src/exports/Sticky/index.zh.md"
+      },
+      "propsTypes": ["StickyProps"],
+      "styleVars": [],
+      "hasDemos": true,
+      "hasTests": false
+    },
+    {
+      "name": "SwipeAction",
+      "dir": "SwipeAction",
+      "status": "developing",
+      "publicExport": false,
+      "available": false,
+      "import": null,
+      "description": null,
+      "paths": {
+        "source": "src/exports/SwipeAction",
+        "type": "src/exports/SwipeAction/type.tsx",
+        "style": "src/exports/SwipeAction/style.less",
+        "reference": null,
+        "docs": "src/exports/SwipeAction/index.zh.md"
+      },
+      "propsTypes": ["SwipeActionProps"],
+      "styleVars": [],
+      "hasDemos": true,
+      "hasTests": false
+    },
+    {
+      "name": "Swiper",
+      "dir": "Swiper",
+      "status": "public",
+      "publicExport": true,
+      "available": true,
+      "import": "import { Swiper } from '@fexd/mobile'",
+      "description": "横向或纵向滑动的轮播容器，常用于 Banner、多页内容切换。",
+      "paths": {
+        "source": "src/exports/Swiper",
+        "type": "src/exports/Swiper/type.tsx",
+        "style": "src/exports/Swiper/style.less",
+        "reference": "skills/fexd-mobile/references/Swiper.md",
+        "docs": "src/exports/Swiper/index.zh.md"
+      },
+      "propsTypes": ["SwiperProps"],
+      "styleVars": ["SwiperStyleVars"],
+      "hasDemos": true,
+      "hasTests": true
+    },
+    {
+      "name": "Switch",
+      "dir": "Switch",
+      "status": "public",
+      "publicExport": true,
+      "available": true,
+      "import": "import { Switch } from '@fexd/mobile'",
+      "description": "在两态之间切换，常用于设置项。",
+      "paths": {
+        "source": "src/exports/Switch",
+        "type": "src/exports/Switch/type.tsx",
+        "style": "src/exports/Switch/style.less",
+        "reference": "skills/fexd-mobile/references/Switch.md",
+        "docs": "src/exports/Switch/index.zh.md"
+      },
+      "propsTypes": ["SwitchProps"],
+      "styleVars": ["SwitchStyleVars"],
+      "hasDemos": true,
+      "hasTests": true
+    },
+    {
+      "name": "TabBar",
+      "dir": "TabBar",
+      "status": "public",
+      "publicExport": true,
+      "available": true,
+      "import": "import { TabBar } from '@fexd/mobile'",
+      "description": "底部标签栏容器，与 TabBar.Item 组合展示图标与名称。",
+      "paths": {
+        "source": "src/exports/TabBar",
+        "type": "src/exports/TabBar/type.tsx",
+        "style": "src/exports/TabBar/style.less",
+        "reference": "skills/fexd-mobile/references/TabBar.md",
+        "docs": "src/exports/TabBar/index.zh.md"
+      },
+      "propsTypes": ["PureTabBarProps", "TabBarProps"],
+      "styleVars": ["TabBarStyleVars"],
+      "hasDemos": true,
+      "hasTests": true
+    },
+    {
+      "name": "Table",
+      "dir": "Table",
+      "status": "developing",
+      "publicExport": false,
+      "available": false,
+      "import": null,
+      "description": null,
+      "paths": {
+        "source": "src/exports/Table",
+        "type": "src/exports/Table/type.tsx",
+        "style": "src/exports/Table/style.less",
+        "reference": null,
+        "docs": "src/exports/Table/index.zh.md"
+      },
+      "propsTypes": ["TableProps"],
+      "styleVars": [],
+      "hasDemos": true,
+      "hasTests": false
+    },
+    {
+      "name": "Tabs",
+      "dir": "Tabs",
+      "status": "public",
+      "publicExport": true,
+      "available": true,
+      "import": "import { Tabs } from '@fexd/mobile'",
+      "description": "横向选项卡，支持 data 驱动或内部 Tabs.Item（库内部使用），可均分或横向滚动。",
+      "paths": {
+        "source": "src/exports/Tabs",
+        "type": "src/exports/Tabs/type.tsx",
+        "style": "src/exports/Tabs/style.less",
+        "reference": "skills/fexd-mobile/references/Tabs.md",
+        "docs": "src/exports/Tabs/index.zh.md"
+      },
+      "propsTypes": ["TabsProps"],
+      "styleVars": ["TabsStyleVars"],
+      "hasDemos": true,
+      "hasTests": true
+    },
+    {
+      "name": "Tag",
+      "dir": "Tag",
+      "status": "developing",
+      "publicExport": false,
+      "available": false,
+      "import": null,
+      "description": null,
+      "paths": {
+        "source": "src/exports/Tag",
+        "type": "src/exports/Tag/type.tsx",
+        "style": "src/exports/Tag/style.less",
+        "reference": null,
+        "docs": "src/exports/Tag/index.zh.md"
+      },
+      "propsTypes": ["TagProps"],
+      "styleVars": [],
+      "hasDemos": true,
+      "hasTests": true
+    },
+    {
+      "name": "TextArea",
+      "dir": "TextArea",
+      "status": "public",
+      "publicExport": true,
+      "available": true,
+      "import": "import { TextArea } from '@fexd/mobile'",
+      "description": "基于 BasicTextArea / useTextFieldProps 的多行文本组件，支持固定高度或 height=\"auto\" 自动增高。",
+      "paths": {
+        "source": "src/exports/TextArea",
+        "type": "src/exports/TextArea/type.tsx",
+        "style": "src/exports/TextArea/style.less",
+        "reference": "skills/fexd-mobile/references/TextArea.md",
+        "docs": null
+      },
+      "propsTypes": ["PureTextAreaProps", "TextAreaProps"],
+      "styleVars": [],
+      "hasDemos": false,
+      "hasTests": true
+    },
+    {
+      "name": "TimePicker",
+      "dir": "TimePicker",
+      "status": "public",
+      "publicExport": true,
+      "available": true,
+      "import": "import { TimePicker } from '@fexd/mobile'",
+      "description": "时间选择器",
+      "paths": {
+        "source": "src/exports/TimePicker",
+        "type": "src/exports/TimePicker/type.tsx",
+        "style": "src/exports/TimePicker/style.less",
+        "reference": "skills/fexd-mobile/references/TimePicker.md",
+        "docs": "src/exports/TimePicker/index.zh.md"
+      },
+      "propsTypes": ["PureTimePickerProps", "TimePickerProps"],
+      "styleVars": [],
+      "hasDemos": true,
+      "hasTests": true
+    },
+    {
+      "name": "TimePickerView",
+      "dir": "TimePickerView",
+      "status": "public",
+      "publicExport": true,
+      "available": true,
+      "import": "import { TimePickerView } from '@fexd/mobile'",
+      "description": "时间选择视图",
+      "paths": {
+        "source": "src/exports/TimePickerView",
+        "type": "src/exports/TimePickerView/type.tsx",
+        "style": "src/exports/TimePickerView/style.less",
+        "reference": "skills/fexd-mobile/references/TimePickerView.md",
+        "docs": null
+      },
+      "propsTypes": ["TimePickerViewProps"],
+      "styleVars": [],
+      "hasDemos": false,
+      "hasTests": true
+    },
+    {
+      "name": "Timeline",
+      "dir": "Timeline",
+      "status": "public",
+      "publicExport": true,
+      "available": true,
+      "import": "import { Timeline } from '@fexd/mobile'",
+      "description": "垂直时间流展示，支持配置式（data）与组件式（Timeline + Timeline.Item）两种写法。",
+      "paths": {
+        "source": "src/exports/Timeline",
+        "type": "src/exports/Timeline/type.tsx",
+        "style": "src/exports/Timeline/style.less",
+        "reference": "skills/fexd-mobile/references/Timeline.md",
+        "docs": "src/exports/Timeline/index.zh.md"
+      },
+      "propsTypes": ["TimelineProps"],
+      "styleVars": [],
+      "hasDemos": true,
+      "hasTests": true
+    },
+    {
+      "name": "Tips",
+      "dir": "Tips",
+      "status": "developing",
+      "publicExport": false,
+      "available": false,
+      "import": null,
+      "description": null,
+      "paths": {
+        "source": "src/exports/Tips",
+        "type": "src/exports/Tips/type.tsx",
+        "style": "src/exports/Tips/style.less",
+        "reference": null,
+        "docs": "src/exports/Tips/index.zh.md"
+      },
+      "propsTypes": ["TipsProps"],
+      "styleVars": [],
+      "hasDemos": true,
+      "hasTests": false
+    },
+    {
+      "name": "TransitionFade",
+      "dir": "TransitionFade",
+      "status": "public",
+      "publicExport": true,
+      "available": true,
+      "import": "import { TransitionFade } from '@fexd/mobile'",
+      "description": "淡入淡出过渡",
+      "paths": {
+        "source": "src/exports/TransitionFade",
+        "type": "src/exports/TransitionFade/type.tsx",
+        "style": "src/exports/TransitionFade/style.less",
+        "reference": "skills/fexd-mobile/references/TransitionFade.md",
+        "docs": "src/exports/TransitionFade/index.zh.md"
+      },
+      "propsTypes": ["TransitionFadeProps"],
+      "styleVars": [],
+      "hasDemos": true,
+      "hasTests": true
+    },
+    {
+      "name": "TransitionFadeSlideDown",
+      "dir": "TransitionFadeSlideDown",
+      "status": "public",
+      "publicExport": true,
+      "available": true,
+      "import": "import { TransitionFadeSlideDown } from '@fexd/mobile'",
+      "description": "淡入 + 向下滑入过渡",
+      "paths": {
+        "source": "src/exports/TransitionFadeSlideDown",
+        "type": "src/exports/TransitionFadeSlideDown/type.tsx",
+        "style": "src/exports/TransitionFadeSlideDown/style.less",
+        "reference": "skills/fexd-mobile/references/TransitionFadeSlideDown.md",
+        "docs": null
+      },
+      "propsTypes": ["TransitionFadeSlideDownProps"],
+      "styleVars": [],
+      "hasDemos": false,
+      "hasTests": true
+    },
+    {
+      "name": "TransitionFadeSlideUp",
+      "dir": "TransitionFadeSlideUp",
+      "status": "public",
+      "publicExport": true,
+      "available": true,
+      "import": "import { TransitionFadeSlideUp } from '@fexd/mobile'",
+      "description": "淡入 + 向上滑入过渡",
+      "paths": {
+        "source": "src/exports/TransitionFadeSlideUp",
+        "type": "src/exports/TransitionFadeSlideUp/type.tsx",
+        "style": "src/exports/TransitionFadeSlideUp/style.less",
+        "reference": "skills/fexd-mobile/references/TransitionFadeSlideUp.md",
+        "docs": null
+      },
+      "propsTypes": ["TransitionFadeSlideUpProps"],
+      "styleVars": [],
+      "hasDemos": false,
+      "hasTests": true
+    },
+    {
+      "name": "TransitionNone",
+      "dir": "TransitionNone",
+      "status": "public",
+      "publicExport": true,
+      "available": true,
+      "import": "import { TransitionNone } from '@fexd/mobile'",
+      "description": "无动画过渡",
+      "paths": {
+        "source": "src/exports/TransitionNone",
+        "type": "src/exports/TransitionNone/type.tsx",
+        "style": "src/exports/TransitionNone/style.less",
+        "reference": "skills/fexd-mobile/references/TransitionNone.md",
+        "docs": null
+      },
+      "propsTypes": ["TransitionNoneProps"],
+      "styleVars": [],
+      "hasDemos": false,
+      "hasTests": true
+    },
+    {
+      "name": "TransitionSlideDown",
+      "dir": "TransitionSlideDown",
+      "status": "public",
+      "publicExport": true,
+      "available": true,
+      "import": "import { TransitionSlideDown } from '@fexd/mobile'",
+      "description": "由 createTransition 工厂基于样式类生成的过渡组件：显隐时主要为自上而下的位移动画（无淡变或弱淡变取决于样式，见 packages/mobile/src/exports/TransitionSlideDown/）。",
+      "paths": {
+        "source": "src/exports/TransitionSlideDown",
+        "type": "src/exports/TransitionSlideDown/type.tsx",
+        "style": "src/exports/TransitionSlideDown/style.less",
+        "reference": "skills/fexd-mobile/references/TransitionSlideDown.md",
+        "docs": null
+      },
+      "propsTypes": ["TransitionSlideDownProps"],
+      "styleVars": [],
+      "hasDemos": false,
+      "hasTests": true
+    },
+    {
+      "name": "TransitionSlideUp",
+      "dir": "TransitionSlideUp",
+      "status": "public",
+      "publicExport": true,
+      "available": true,
+      "import": "import { TransitionSlideUp } from '@fexd/mobile'",
+      "description": "由 createTransition 工厂基于样式类生成的过渡组件：显隐时主要为自下而上的位移动画（见 packages/mobile/src/exports/TransitionSlideUp/）。",
+      "paths": {
+        "source": "src/exports/TransitionSlideUp",
+        "type": "src/exports/TransitionSlideUp/type.tsx",
+        "style": "src/exports/TransitionSlideUp/style.less",
+        "reference": "skills/fexd-mobile/references/TransitionSlideUp.md",
+        "docs": null
+      },
+      "propsTypes": ["TransitionSlideUpProps"],
+      "styleVars": [],
+      "hasDemos": false,
+      "hasTests": true
+    },
+    {
+      "name": "TransitionSwitch",
+      "dir": "TransitionSwitch",
+      "status": "public",
+      "publicExport": true,
+      "available": true,
+      "import": "import { TransitionSwitch } from '@fexd/mobile'",
+      "description": "切换过渡",
+      "paths": {
+        "source": "src/exports/TransitionSwitch",
+        "type": "src/exports/TransitionSwitch/type.tsx",
+        "style": "src/exports/TransitionSwitch/style.less",
+        "reference": "skills/fexd-mobile/references/TransitionSwitch.md",
+        "docs": null
+      },
+      "propsTypes": ["TransitionSwitchProps"],
+      "styleVars": [],
+      "hasDemos": false,
+      "hasTests": true
+    },
+    {
+      "name": "TreeSelect",
+      "dir": "TreeSelect",
+      "status": "developing",
+      "publicExport": false,
+      "available": false,
+      "import": null,
+      "description": null,
+      "paths": {
+        "source": "src/exports/TreeSelect",
+        "type": "src/exports/TreeSelect/type.tsx",
+        "style": "src/exports/TreeSelect/style.less",
+        "reference": null,
+        "docs": "src/exports/TreeSelect/index.zh.md"
+      },
+      "propsTypes": ["TreeSelectProps"],
+      "styleVars": [],
+      "hasDemos": true,
+      "hasTests": false
+    },
+    {
+      "name": "UnstyledIOCascadePicker",
+      "dir": "UnstyledIOCascadePicker",
+      "status": "public",
+      "publicExport": true,
+      "available": true,
+      "import": "import { UnstyledIOCascadePicker } from '@fexd/mobile'",
+      "description": "无样式 IO 级联选择器，组合 CascadePicker 与 UnstyledIOLabel，作为 Line/Block/Cell 级联选择器的底层实现。",
+      "paths": {
+        "source": "src/exports/UnstyledIOCascadePicker",
+        "type": "src/exports/UnstyledIOCascadePicker/type.tsx",
+        "style": "src/exports/UnstyledIOCascadePicker/style.less",
+        "reference": "skills/fexd-mobile/references/UnstyledIOCascadePicker.md",
+        "docs": null
+      },
+      "propsTypes": ["PureUnstyledIOCascadePickerProps", "UnstyledIOCascadePickerProps"],
+      "styleVars": [],
+      "hasDemos": false,
+      "hasTests": true
+    },
+    {
+      "name": "UnstyledIODatePicker",
+      "dir": "UnstyledIODatePicker",
+      "status": "public",
+      "publicExport": true,
+      "available": true,
+      "import": "import { UnstyledIODatePicker } from '@fexd/mobile'",
+      "description": "无样式 IO 层：将 DatePicker 能力与 UnstyledIOLabel 式标签区组合，供 Line/Block/Cell 等主题封装使用。",
+      "paths": {
+        "source": "src/exports/UnstyledIODatePicker",
+        "type": "src/exports/UnstyledIODatePicker/type.tsx",
+        "style": "src/exports/UnstyledIODatePicker/style.less",
+        "reference": "skills/fexd-mobile/references/UnstyledIODatePicker.md",
+        "docs": null
+      },
+      "propsTypes": ["PureUnstyledIODatePickerProps", "UnstyledIODatePickerProps"],
+      "styleVars": [],
+      "hasDemos": false,
+      "hasTests": true
+    },
+    {
+      "name": "UnstyledIOInput",
+      "dir": "UnstyledIOInput",
+      "status": "public",
+      "publicExport": true,
+      "available": true,
+      "import": "import { UnstyledIOInput } from '@fexd/mobile'",
+      "description": "无样式 IO 层：组合 UnstyledIOLabel 与 BasicInput 能力，供 Line/Block/Cell 等主题输入控件使用。",
+      "paths": {
+        "source": "src/exports/UnstyledIOInput",
+        "type": "src/exports/UnstyledIOInput/type.tsx",
+        "style": "src/exports/UnstyledIOInput/style.less",
+        "reference": "skills/fexd-mobile/references/UnstyledIOInput.md",
+        "docs": null
+      },
+      "propsTypes": ["PureUnstyledIOInputProps", "UnstyledIOInputProps"],
+      "styleVars": [],
+      "hasDemos": false,
+      "hasTests": true
+    },
+    {
+      "name": "UnstyledIOLabel",
+      "dir": "UnstyledIOLabel",
+      "status": "public",
+      "publicExport": true,
+      "available": true,
+      "import": "import { UnstyledIOLabel } from '@fexd/mobile'",
+      "description": "无样式 IO 区域容器：在 UnstyledLabel 布局基础上增加错误态、禁用、聚焦与辅助前缀等 IO 语义，供各类「标签 + 控件」组合使用。",
+      "paths": {
+        "source": "src/exports/UnstyledIOLabel",
+        "type": "src/exports/UnstyledIOLabel/type.tsx",
+        "style": "src/exports/UnstyledIOLabel/style.less",
+        "reference": "skills/fexd-mobile/references/UnstyledIOLabel.md",
+        "docs": null
+      },
+      "propsTypes": ["UnstyledIOLabelProps"],
+      "styleVars": [],
+      "hasDemos": false,
+      "hasTests": true
+    },
+    {
+      "name": "UnstyledIOPicker",
+      "dir": "UnstyledIOPicker",
+      "status": "public",
+      "publicExport": true,
+      "available": true,
+      "import": "import { UnstyledIOPicker } from '@fexd/mobile'",
+      "description": "无样式 IO 层：组合 Picker 与 UnstyledIOLabel 式标签区，供 Line/Block/Cell 等主题选择器使用。",
+      "paths": {
+        "source": "src/exports/UnstyledIOPicker",
+        "type": "src/exports/UnstyledIOPicker/type.tsx",
+        "style": "src/exports/UnstyledIOPicker/style.less",
+        "reference": "skills/fexd-mobile/references/UnstyledIOPicker.md",
+        "docs": null
+      },
+      "propsTypes": ["PureUnstyledIOPickerProps", "UnstyledIOPickerProps"],
+      "styleVars": [],
+      "hasDemos": false,
+      "hasTests": true
+    },
+    {
+      "name": "UnstyledIOTimePicker",
+      "dir": "UnstyledIOTimePicker",
+      "status": "public",
+      "publicExport": true,
+      "available": true,
+      "import": "import { UnstyledIOTimePicker } from '@fexd/mobile'",
+      "description": "无样式 IO 层：将 TimePicker 能力与 UnstyledIOLabel 式标签区组合，供 Line/Block/Cell 等主题封装使用。",
+      "paths": {
+        "source": "src/exports/UnstyledIOTimePicker",
+        "type": "src/exports/UnstyledIOTimePicker/type.tsx",
+        "style": "src/exports/UnstyledIOTimePicker/style.less",
+        "reference": "skills/fexd-mobile/references/UnstyledIOTimePicker.md",
+        "docs": null
+      },
+      "propsTypes": ["PureUnstyledIOTimePickerProps", "UnstyledIOTimePickerProps"],
+      "styleVars": [],
+      "hasDemos": false,
+      "hasTests": true
+    },
+    {
+      "name": "UnstyledLabel",
+      "dir": "UnstyledLabel",
+      "status": "public",
+      "publicExport": true,
+      "available": true,
+      "import": "import { UnstyledLabel } from '@fexd/mobile'",
+      "description": "无样式 IO 底层布局组件：提供 label / placeholder / prefix / suffix / helper 等结构槽位与容器 props，不包含业务皮肤。",
+      "paths": {
+        "source": "src/exports/UnstyledLabel",
+        "type": "src/exports/UnstyledLabel/type.tsx",
+        "style": "src/exports/UnstyledLabel/style.less",
+        "reference": "skills/fexd-mobile/references/UnstyledLabel.md",
+        "docs": null
+      },
+      "propsTypes": ["UnstyledLabelProps", "UnstyledLabelPureProps"],
+      "styleVars": [],
+      "hasDemos": false,
+      "hasTests": true
+    },
+    {
+      "name": "Video",
+      "dir": "Video",
+      "status": "developing",
+      "publicExport": false,
+      "available": false,
+      "import": null,
+      "description": null,
+      "paths": {
+        "source": "src/exports/Video",
+        "type": "src/exports/Video/type.tsx",
+        "style": "src/exports/Video/style.less",
+        "reference": null,
+        "docs": "src/exports/Video/index.zh.md"
+      },
+      "propsTypes": ["VideoProps"],
+      "styleVars": [],
+      "hasDemos": true,
+      "hasTests": false
+    },
+    {
+      "name": "View",
+      "dir": "View",
+      "status": "public",
+      "publicExport": true,
+      "available": true,
+      "import": "import { View } from '@fexd/mobile'",
+      "description": "带 display: flex 布局习惯的容器组件，用于纵向/横向分区、固定高度区域与内容区 flex 伸缩等常见移动端版面（实验性分组文档曾归类于 dumi，此处仅保留类型与用法说明）。",
+      "paths": {
+        "source": "src/exports/View",
+        "type": "src/exports/View/type.tsx",
+        "style": "src/exports/View/style.less",
+        "reference": "skills/fexd-mobile/references/View.md",
+        "docs": "src/exports/View/index.zh.md"
+      },
+      "propsTypes": ["ViewProps"],
+      "styleVars": [],
+      "hasDemos": true,
+      "hasTests": true
+    },
+    {
+      "name": "Waterfall",
+      "dir": "Waterfall",
+      "status": "developing",
+      "publicExport": false,
+      "available": false,
+      "import": null,
+      "description": null,
+      "paths": {
+        "source": "src/exports/Waterfall",
+        "type": "src/exports/Waterfall/type.tsx",
+        "style": "src/exports/Waterfall/style.less",
+        "reference": null,
+        "docs": "src/exports/Waterfall/index.zh.md"
+      },
+      "propsTypes": ["WaterfallProps"],
+      "styleVars": [],
+      "hasDemos": true,
+      "hasTests": false
+    },
+    {
+      "name": "Watermark",
+      "dir": "Watermark",
+      "status": "public",
+      "publicExport": true,
+      "available": true,
+      "import": "import { Watermark } from '@fexd/mobile'",
+      "description": "基于 [@pansy/react-watermark](https://www.npmjs.com/package/@pansy/react-watermark) 封装。",
+      "paths": {
+        "source": "src/exports/Watermark",
+        "type": "src/exports/Watermark/type.tsx",
+        "style": "src/exports/Watermark/style.less",
+        "reference": "skills/fexd-mobile/references/Watermark.md",
+        "docs": "src/exports/Watermark/index.zh.md"
+      },
+      "propsTypes": ["WatermarkProps"],
+      "styleVars": [],
+      "hasDemos": true,
+      "hasTests": true
+    },
+    {
+      "name": "cloneFC",
+      "dir": "cloneFC",
+      "status": "public",
+      "publicExport": true,
+      "available": true,
+      "import": "import { cloneFC } from '@fexd/mobile'",
+      "description": "克隆由 createFC 创建的函数组件：从 creatorCache 取出工厂并生成新实例，合并 defaultProps，并用 hoist-non-react-statics 挂回静态属性。",
+      "paths": {
+        "source": "src/exports/cloneFC",
+        "type": null,
+        "style": "src/exports/cloneFC/style.less",
+        "reference": "skills/fexd-mobile/references/cloneFC.md",
+        "docs": null
+      },
+      "propsTypes": [],
+      "styleVars": [],
+      "hasDemos": false,
+      "hasTests": true
+    },
+    {
+      "name": "createFC",
+      "dir": "createFC",
+      "status": "public",
+      "publicExport": true,
+      "available": true,
+      "import": "import { createFC } from '@fexd/mobile'",
+      "description": "用 forwardRef + memo 包装渲染函数，并在 creatorCache 中注册工厂函数，供 cloneFC 使用。",
+      "paths": {
+        "source": "src/exports/createFC",
+        "type": "src/exports/createFC/type.tsx",
+        "style": "src/exports/createFC/style.less",
+        "reference": "skills/fexd-mobile/references/createFC.md",
+        "docs": null
+      },
+      "propsTypes": [],
+      "styleVars": [],
+      "hasDemos": false,
+      "hasTests": true
+    },
+    {
+      "name": "createForm",
+      "dir": "createForm",
+      "status": "public",
+      "publicExport": true,
+      "available": true,
+      "import": "import { createForm } from '@fexd/mobile'",
+      "description": "创建响应式表单实例：管理字段值、校验错误、字段配置与关联计算（relatives）。",
+      "paths": {
+        "source": "src/exports/createForm",
+        "type": "src/exports/createForm/type.tsx",
+        "style": "src/exports/createForm/style.less",
+        "reference": "skills/fexd-mobile/references/createForm.md",
+        "docs": null
+      },
+      "propsTypes": [],
+      "styleVars": [],
+      "hasDemos": false,
+      "hasTests": true
+    },
+    {
+      "name": "createModalAPI",
+      "dir": "createModalAPI",
+      "status": "public",
+      "publicExport": true,
+      "available": true,
+      "import": "import { createModalAPI } from '@fexd/mobile'",
+      "description": "为任意 Modal 类组件生成 **命令式打开** 方法：在 ModalStation 上挂载实例，返回带 close / update / promise 的控制器。",
+      "paths": {
+        "source": "src/exports/createModalAPI",
+        "type": "src/exports/createModalAPI/type.tsx",
+        "style": "src/exports/createModalAPI/style.less",
+        "reference": "skills/fexd-mobile/references/createModalAPI.md",
+        "docs": null
+      },
+      "propsTypes": ["BasicModalMethodProps", "ModalMethodProps"],
+      "styleVars": [],
+      "hasDemos": false,
+      "hasTests": true
+    },
+    {
+      "name": "createTransition",
+      "dir": "createTransition",
+      "status": "public",
+      "publicExport": true,
+      "available": true,
+      "import": "import { createTransition } from '@fexd/mobile'",
+      "description": "工厂函数：按 CSS 类名前缀创建基于 react-transition-group 的 CSSTransition 包装组件，并映射 speed 到 timeout（含预设档位）。",
+      "paths": {
+        "source": "src/exports/createTransition",
+        "type": "src/exports/createTransition/type.tsx",
+        "style": "src/exports/createTransition/style.less",
+        "reference": "skills/fexd-mobile/references/createTransition.md",
+        "docs": null
+      },
+      "propsTypes": ["EasingProps", "TransitionHandlerProps", "TransitionProps"],
+      "styleVars": ["TransitionStyleVars"],
+      "hasDemos": false,
+      "hasTests": true
+    },
+    {
+      "name": "createUseModalAPI",
+      "dir": "createUseModalAPI",
+      "status": "public",
+      "publicExport": true,
+      "available": true,
+      "import": "import { createUseModalAPI } from '@fexd/mobile'",
+      "description": "基于已有的 createModalAPI 产物，生成 **React Hook**：固定 stationId，返回 [show, <ModalStation />]，便于在组件树内挂载对应站点。",
+      "paths": {
+        "source": "src/exports/createUseModalAPI",
+        "type": null,
+        "style": "src/exports/createUseModalAPI/style.less",
+        "reference": "skills/fexd-mobile/references/createUseModalAPI.md",
+        "docs": null
+      },
+      "propsTypes": [],
+      "styleVars": [],
+      "hasDemos": false,
+      "hasTests": true
+    },
+    {
+      "name": "loading",
+      "dir": "loading",
+      "status": "public",
+      "publicExport": true,
+      "available": true,
+      "import": "import { loading } from '@fexd/mobile'",
+      "description": "加载中",
+      "paths": {
+        "source": "src/exports/loading",
+        "type": "src/exports/loading/type.tsx",
+        "style": "src/exports/loading/style.less",
+        "reference": "skills/fexd-mobile/references/loading.md",
+        "docs": "src/exports/loading/index.zh.md"
+      },
+      "propsTypes": ["LoadingProps", "PureLoadingProps"],
+      "styleVars": ["LoadingStyleVars"],
+      "hasDemos": true,
+      "hasTests": true
+    },
+    {
+      "name": "modalConflict",
+      "dir": "modalConflict",
+      "status": "public",
+      "publicExport": true,
+      "available": true,
+      "import": "import { modalConflict } from '@fexd/mobile'",
+      "description": "import { modalConflict } from '@fexd/mobile'",
+      "paths": {
+        "source": "src/exports/modalConflict",
+        "type": "src/exports/modalConflict/type.tsx",
+        "style": "src/exports/modalConflict/style.less",
+        "reference": "skills/fexd-mobile/references/modalConflict.md",
+        "docs": null
+      },
+      "propsTypes": [],
+      "styleVars": [],
+      "hasDemos": false,
+      "hasTests": true
+    },
+    {
+      "name": "modalStore",
+      "dir": "modalStore",
+      "status": "public",
+      "publicExport": true,
+      "available": true,
+      "import": "import { modalStore } from '@fexd/mobile'",
+      "description": "import { modalStore } from '@fexd/mobile'",
+      "paths": {
+        "source": "src/exports/modalStore",
+        "type": "src/exports/modalStore/type.tsx",
+        "style": "src/exports/modalStore/style.less",
+        "reference": "skills/fexd-mobile/references/modalStore.md",
+        "docs": "src/exports/modalStore/index.zh.md"
+      },
+      "propsTypes": [],
+      "styleVars": [],
+      "hasDemos": true,
+      "hasTests": true
+    },
+    {
+      "name": "notify",
+      "dir": "notify",
+      "status": "public",
+      "publicExport": true,
+      "available": true,
+      "import": "import { notify } from '@fexd/mobile'",
+      "description": "import { notify } from '@fexd/mobile'",
+      "paths": {
+        "source": "src/exports/notify",
+        "type": "src/exports/notify/type.tsx",
+        "style": "src/exports/notify/style.less",
+        "reference": "skills/fexd-mobile/references/notify.md",
+        "docs": "src/exports/notify/index.zh.md"
+      },
+      "propsTypes": ["NotifyProps"],
+      "styleVars": ["NotifyStyleVars"],
+      "hasDemos": true,
+      "hasTests": true
+    },
+    {
+      "name": "showActionSheet",
+      "dir": "showActionSheet",
+      "status": "public",
+      "publicExport": true,
+      "available": true,
+      "import": "import { showActionSheet } from '@fexd/mobile'",
+      "description": "import { showActionSheet } from '@fexd/mobile'",
+      "paths": {
+        "source": "src/exports/showActionSheet",
+        "type": null,
+        "style": "src/exports/showActionSheet/style.less",
+        "reference": "skills/fexd-mobile/references/showActionSheet.md",
+        "docs": null
+      },
+      "propsTypes": [],
+      "styleVars": [],
+      "hasDemos": false,
+      "hasTests": true
+    },
+    {
+      "name": "showDialog",
+      "dir": "showDialog",
+      "status": "public",
+      "publicExport": true,
+      "available": true,
+      "import": "import { showDialog } from '@fexd/mobile'",
+      "description": "import { showDialog } from '@fexd/mobile'",
+      "paths": {
+        "source": "src/exports/showDialog",
+        "type": null,
+        "style": "src/exports/showDialog/style.less",
+        "reference": "skills/fexd-mobile/references/showDialog.md",
+        "docs": null
+      },
+      "propsTypes": [],
+      "styleVars": [],
+      "hasDemos": false,
+      "hasTests": true
+    },
+    {
+      "name": "showModal",
+      "dir": "showModal",
+      "status": "public",
+      "publicExport": true,
+      "available": true,
+      "import": "import { showModal } from '@fexd/mobile'",
+      "description": "import { showModal } from '@fexd/mobile'",
+      "paths": {
+        "source": "src/exports/showModal",
+        "type": null,
+        "style": "src/exports/showModal/style.less",
+        "reference": "skills/fexd-mobile/references/showModal.md",
+        "docs": null
+      },
+      "propsTypes": [],
+      "styleVars": [],
+      "hasDemos": false,
+      "hasTests": true
+    },
+    {
+      "name": "showPicker",
+      "dir": "showPicker",
+      "status": "public",
+      "publicExport": true,
+      "available": true,
+      "import": "import { showPicker } from '@fexd/mobile'",
+      "description": "import { showPicker } from '@fexd/mobile'",
+      "paths": {
+        "source": "src/exports/showPicker",
+        "type": "src/exports/showPicker/type.tsx",
+        "style": "src/exports/showPicker/style.less",
+        "reference": "skills/fexd-mobile/references/showPicker.md",
+        "docs": null
+      },
+      "propsTypes": [],
+      "styleVars": ["ShowPickerStyleVars"],
+      "hasDemos": false,
+      "hasTests": true
+    },
+    {
+      "name": "showPopup",
+      "dir": "showPopup",
+      "status": "public",
+      "publicExport": true,
+      "available": true,
+      "import": "import { showPopup } from '@fexd/mobile'",
+      "description": "import { showPopup } from '@fexd/mobile'",
+      "paths": {
+        "source": "src/exports/showPopup",
+        "type": null,
+        "style": "src/exports/showPopup/style.less",
+        "reference": "skills/fexd-mobile/references/showPopup.md",
+        "docs": null
+      },
+      "propsTypes": [],
+      "styleVars": [],
+      "hasDemos": false,
+      "hasTests": true
+    },
+    {
+      "name": "toast",
+      "dir": "toast",
+      "status": "public",
+      "publicExport": true,
+      "available": true,
+      "import": "import { toast } from '@fexd/mobile'",
+      "description": "命令式轻提示，非声明式组件。通过 info / success / warn / fail 等方法弹出；底层基于 createModalAPI 与 Toast 组件。",
+      "paths": {
+        "source": "src/exports/toast",
+        "type": "src/exports/toast/type.tsx",
+        "style": "src/exports/toast/style.less",
+        "reference": "skills/fexd-mobile/references/toast.md",
+        "docs": "src/exports/toast/index.zh.md"
+      },
+      "propsTypes": ["ToastProps"],
+      "styleVars": ["ToastStyleVars"],
+      "hasDemos": true,
+      "hasTests": true
+    },
+    {
+      "name": "uniqueId",
+      "dir": "uniqueId",
+      "status": "public",
+      "publicExport": true,
+      "available": true,
+      "import": "import { uniqueId } from '@fexd/mobile'",
+      "description": "生成带前缀的唯一字符串，用于组件 modalId 等场景。",
+      "paths": {
+        "source": "src/exports/uniqueId",
+        "type": null,
+        "style": "src/exports/uniqueId/style.less",
+        "reference": "skills/fexd-mobile/references/uniqueId.md",
+        "docs": null
+      },
+      "propsTypes": [],
+      "styleVars": [],
+      "hasDemos": false,
+      "hasTests": true
+    },
+    {
+      "name": "useForcedUpdate",
+      "dir": "useForcedUpdate",
+      "status": "public",
+      "publicExport": true,
+      "available": true,
+      "import": "import { useForcedUpdate } from '@fexd/mobile'",
+      "description": "强制触发当前组件重渲染的 Hook，通过更新内部 state 实现。",
+      "paths": {
+        "source": "src/exports/useForcedUpdate",
+        "type": null,
+        "style": "src/exports/useForcedUpdate/style.less",
+        "reference": "skills/fexd-mobile/references/useForcedUpdate.md",
+        "docs": null
+      },
+      "propsTypes": [],
+      "styleVars": [],
+      "hasDemos": false,
+      "hasTests": true
+    },
+    {
+      "name": "useIOControl",
+      "dir": "useIOControl",
+      "status": "public",
+      "publicExport": true,
+      "available": true,
+      "import": "import { useIOControl } from '@fexd/mobile'",
+      "description": "在受控/非受控之间管理单个值，并在聚焦时暂时忽略外部 `value`；提供 `setValue` / `getValue` 及聚焦状态。内部基于 ahooks 的 `useControllableValue`（经本地包装支持 `filterIOValue`）。",
+      "paths": {
+        "source": "src/exports/useIOControl",
+        "type": "src/exports/useIOControl/type.tsx",
+        "style": "src/exports/useIOControl/style.less",
+        "reference": "skills/fexd-mobile/references/useIOControl.md",
+        "docs": null
+      },
+      "propsTypes": ["IOProps"],
+      "styleVars": [],
+      "hasDemos": false,
+      "hasTests": true
+    },
+    {
+      "name": "usePickerNumberColumn",
+      "dir": "usePickerNumberColumn",
+      "status": "public",
+      "publicExport": true,
+      "available": true,
+      "import": "import { usePickerNumberColumn } from '@fexd/mobile'",
+      "description": "根据数值范围生成 PickerView 单列选项的 Hook，用于 DatePickerView、TimePickerView 等内部构建年/月/日/时/分/秒列。",
+      "paths": {
+        "source": "src/exports/usePickerNumberColumn",
+        "type": "src/exports/usePickerNumberColumn/type.ts",
+        "style": "src/exports/usePickerNumberColumn/style.less",
+        "reference": "skills/fexd-mobile/references/usePickerNumberColumn.md",
+        "docs": null
+      },
+      "propsTypes": [],
+      "styleVars": [],
+      "hasDemos": false,
+      "hasTests": true
+    },
+    {
+      "name": "usePickerProps",
+      "dir": "usePickerProps",
+      "status": "public",
+      "publicExport": true,
+      "available": true,
+      "import": "import { usePickerProps } from '@fexd/mobile'",
+      "description": "封装选择类表单项：组合 useSelectionFieldProps、控制 Popup 显隐，并提供 renderTrigger / renderPopup。适用于自定义 Picker 等「点击展开—确认/取消」交互。",
+      "paths": {
+        "source": "src/exports/usePickerProps",
+        "type": "src/exports/usePickerProps/type.tsx",
+        "style": "src/exports/usePickerProps/style.less",
+        "reference": "skills/fexd-mobile/references/usePickerProps.md",
+        "docs": null
+      },
+      "propsTypes": ["BasicPickerProps", "PureBasicPickerProps"],
+      "styleVars": [],
+      "hasDemos": false,
+      "hasTests": true
+    },
+    {
+      "name": "useScrollLock",
+      "dir": "useScrollLock",
+      "status": "public",
+      "publicExport": true,
+      "available": true,
+      "import": "import { useScrollLock } from '@fexd/mobile'",
+      "description": "在 lock === true 时为指定 DOM 元素添加滚动锁定（touchmove 默认行为阻止 + 样式类名）。同一元素多次加锁通过内部计数引用配对解锁。",
+      "paths": {
+        "source": "src/exports/useScrollLock",
+        "type": null,
+        "style": "src/exports/useScrollLock/style.less",
+        "reference": "skills/fexd-mobile/references/useScrollLock.md",
+        "docs": null
+      },
+      "propsTypes": [],
+      "styleVars": [],
+      "hasDemos": false,
+      "hasTests": true
+    },
+    {
+      "name": "useSelectionFieldProps",
+      "dir": "useSelectionFieldProps",
+      "status": "public",
+      "publicExport": true,
+      "available": true,
+      "import": "import { useSelectionFieldProps } from '@fexd/mobile'",
+      "description": "在 useIOControl 之上维护「挑选中」状态及弹层内临时值 insideValue：未挑选时保持 insideValue 与外部 value 同步。",
+      "paths": {
+        "source": "src/exports/useSelectionFieldProps",
+        "type": "src/exports/useSelectionFieldProps/type.tsx",
+        "style": "src/exports/useSelectionFieldProps/style.less",
+        "reference": "skills/fexd-mobile/references/useSelectionFieldProps.md",
+        "docs": null
+      },
+      "propsTypes": ["SelectionFieldProps"],
+      "styleVars": [],
+      "hasDemos": false,
+      "hasTests": true
+    },
+    {
+      "name": "useShowActionSheet",
+      "dir": "useShowActionSheet",
+      "status": "public",
+      "publicExport": true,
+      "available": true,
+      "import": "import { useShowActionSheet } from '@fexd/mobile'",
+      "description": "在组件树局部挂载独立 ModalStation，并返回绑定该站点的 showActionSheet 调用函数，避免与全局默认站点冲突。由 createUseModalAPI(showActionSheet) 生成。",
+      "paths": {
+        "source": "src/exports/useShowActionSheet",
+        "type": null,
+        "style": "src/exports/useShowActionSheet/style.less",
+        "reference": "skills/fexd-mobile/references/useShowActionSheet.md",
+        "docs": null
+      },
+      "propsTypes": [],
+      "styleVars": [],
+      "hasDemos": false,
+      "hasTests": true
+    },
+    {
+      "name": "useShowDialog",
+      "dir": "useShowDialog",
+      "status": "public",
+      "publicExport": true,
+      "available": true,
+      "import": "import { useShowDialog } from '@fexd/mobile'",
+      "description": "由 createUseModalAPI(showDialog) 生成的 Hook：在组件树内挂载专用 ModalStation，并返回带固定 stationId 的 showDialog 封装，便于将对话框渲染到指定驿站。",
+      "paths": {
+        "source": "src/exports/useShowDialog",
+        "type": null,
+        "style": "src/exports/useShowDialog/style.less",
+        "reference": "skills/fexd-mobile/references/useShowDialog.md",
+        "docs": null
+      },
+      "propsTypes": [],
+      "styleVars": [],
+      "hasDemos": false,
+      "hasTests": true
+    },
+    {
+      "name": "useShowModal",
+      "dir": "useShowModal",
+      "status": "public",
+      "publicExport": true,
+      "available": true,
+      "import": "import { useShowModal } from '@fexd/mobile'",
+      "description": "由 createUseModalAPI(showModal) 生成的 Hook：在组件树内挂载专用 ModalStation，并返回带固定 stationId 的 showModal 封装。",
+      "paths": {
+        "source": "src/exports/useShowModal",
+        "type": null,
+        "style": "src/exports/useShowModal/style.less",
+        "reference": "skills/fexd-mobile/references/useShowModal.md",
+        "docs": null
+      },
+      "propsTypes": [],
+      "styleVars": [],
+      "hasDemos": false,
+      "hasTests": true
+    },
+    {
+      "name": "useShowPopup",
+      "dir": "useShowPopup",
+      "status": "public",
+      "publicExport": true,
+      "available": true,
+      "import": "import { useShowPopup } from '@fexd/mobile'",
+      "description": "由 createUseModalAPI(showPopup) 生成的 Hook：在组件树内挂载专用 ModalStation，并返回带固定 stationId 的 showPopup 封装。",
+      "paths": {
+        "source": "src/exports/useShowPopup",
+        "type": null,
+        "style": "src/exports/useShowPopup/style.less",
+        "reference": "skills/fexd-mobile/references/useShowPopup.md",
+        "docs": null
+      },
+      "propsTypes": [],
+      "styleVars": [],
+      "hasDemos": false,
+      "hasTests": true
+    },
+    {
+      "name": "useSize",
+      "dir": "useSize",
+      "status": "public",
+      "publicExport": true,
+      "available": true,
+      "import": "import { useSize } from '@fexd/mobile'",
+      "description": "监听目标 DOM 尺寸变化（ResizeObserver），返回当前 width、height（来自 getBoundingClientRect）。",
+      "paths": {
+        "source": "src/exports/useSize",
+        "type": null,
+        "style": "src/exports/useSize/style.less",
+        "reference": "skills/fexd-mobile/references/useSize.md",
+        "docs": null
+      },
+      "propsTypes": [],
+      "styleVars": [],
+      "hasDemos": false,
+      "hasTests": true
+    },
+    {
+      "name": "useTextFieldProps",
+      "dir": "useTextFieldProps",
+      "status": "public",
+      "publicExport": true,
+      "available": true,
+      "import": "import { useTextFieldProps } from '@fexd/mobile'",
+      "description": "在受控输入场景下，组合 `useIOControl` 与可选的 `normalize` / `format`，产出可直接绑定到输入控件的 props（`value`、`onChange`、`onFocus`、`onBlur`、`ref`、`focused` 等）。",
+      "paths": {
+        "source": "src/exports/useTextFieldProps",
+        "type": "src/exports/useTextFieldProps/type.tsx",
+        "style": "src/exports/useTextFieldProps/style.less",
+        "reference": "skills/fexd-mobile/references/useTextFieldProps.md",
+        "docs": null
+      },
+      "propsTypes": ["PureTextFieldProps", "TextFieldProps"],
+      "styleVars": [],
+      "hasDemos": false,
+      "hasTests": true
+    },
+    {
+      "name": "useThrottleFn",
+      "dir": "useThrottleFn",
+      "status": "public",
+      "publicExport": true,
+      "available": true,
+      "import": "import { useThrottleFn } from '@fexd/mobile'",
+      "description": "对函数做节流封装；wait <= 0 时直接返回用 useMemoizedFn 包裹的原始函数（不节流）。",
+      "paths": {
+        "source": "src/exports/useThrottleFn",
+        "type": null,
+        "style": "src/exports/useThrottleFn/style.less",
+        "reference": "skills/fexd-mobile/references/useThrottleFn.md",
+        "docs": null
+      },
+      "propsTypes": [],
+      "styleVars": [],
+      "hasDemos": false,
+      "hasTests": true
+    },
+    {
+      "name": "useTouch",
+      "dir": "useTouch",
+      "status": "public",
+      "publicExport": true,
+      "available": true,
+      "import": "import { useTouch } from '@fexd/mobile'",
+      "description": "在目标元素上监听触摸与鼠标事件，归一化为相对目标矩形的坐标与位移，维护多点 `touches` 状态，并在 `onStart` / `onMove` / `onEnd` 生命周期回调中通知（回调经节流，间隔由 `rate` 控制）。`TouchData` / `UseTouchOption` 定义在 `useTouch/index.ts`（无单独 `type.tsx`）。",
+      "paths": {
+        "source": "src/exports/useTouch",
+        "type": null,
+        "style": "src/exports/useTouch/style.less",
+        "reference": "skills/fexd-mobile/references/useTouch.md",
+        "docs": null
+      },
+      "propsTypes": [],
+      "styleVars": [],
+      "hasDemos": false,
+      "hasTests": true
+    },
+    {
+      "name": "useTween",
+      "dir": "useTween",
+      "status": "public",
+      "publicExport": true,
+      "available": true,
+      "import": "import { useTween } from '@fexd/mobile'",
+      "description": "基于 @fexd/tools 的 Tween 实例，将数值从当前值过渡到目标值；followValue 变化时会调用 to(followValue) 跟随动画。",
+      "paths": {
+        "source": "src/exports/useTween",
+        "type": null,
+        "style": "src/exports/useTween/style.less",
+        "reference": "skills/fexd-mobile/references/useTween.md",
+        "docs": null
+      },
+      "propsTypes": [],
+      "styleVars": [],
+      "hasDemos": false,
+      "hasTests": true
+    }
+  ]
+}

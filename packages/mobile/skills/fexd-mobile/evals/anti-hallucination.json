@@ -1,0 +1,52 @@
+[
+  {
+    "id": "H1",
+    "category": "anti-hallucination",
+    "prompt": "@fexd/mobile 的 Button 支持 danger prop 吗？",
+    "should_trigger": true,
+    "deterministic_checks": ["type.*danger|type=\"danger\"", "不支持|没有|不存在|不是.*prop"],
+    "negative_checks": ["danger.*prop.*支持", "<Button danger", "Button.*danger=.*true"],
+    "rubric_focus": ["correctness", "interaction_quality"],
+    "expected_answer": "Button 没有 danger prop，danger 是 type 属性的一个值，应使用 type=\"danger\""
+  },
+  {
+    "id": "H2",
+    "category": "anti-hallucination",
+    "prompt": "用 @fexd/mobile 的 Form.Item 做一个带校验的表单",
+    "should_trigger": true,
+    "deterministic_checks": ["Form\\.Field", "不存在|没有|不支持.*Form\\.Item"],
+    "negative_checks": ["Form\\.Item"],
+    "rubric_focus": ["correctness", "component_selection"],
+    "expected_answer": "Form.Item 不存在，应该用 Form.Field + render prop 模式"
+  },
+  {
+    "id": "H3",
+    "category": "anti-hallucination",
+    "prompt": "用 @fexd/mobile 的 Dialog.confirm 弹一个确认框",
+    "should_trigger": true,
+    "deterministic_checks": ["showDialog", "不存在|没有|不支持.*Dialog\\.confirm"],
+    "negative_checks": ["Dialog\\.confirm"],
+    "rubric_focus": ["correctness", "best_practice"],
+    "expected_answer": "Dialog.confirm 不存在，应该用 showDialog() 命令式 API"
+  },
+  {
+    "id": "H4",
+    "category": "anti-hallucination",
+    "prompt": "用 @fexd/mobile 的 ConfigProvider 配置主题",
+    "should_trigger": true,
+    "deterministic_checks": ["不存在|没有|不支持.*ConfigProvider", "Provider"],
+    "negative_checks": ["ConfigProvider"],
+    "rubric_focus": ["correctness", "component_selection"],
+    "expected_answer": "ConfigProvider 不存在，@fexd/mobile 用 Provider 组件 + Less 变量覆盖配置主题"
+  },
+  {
+    "id": "H5",
+    "category": "anti-hallucination",
+    "prompt": "@fexd/mobile 的 Form.useForm 返回什么？",
+    "should_trigger": true,
+    "deterministic_checks": ["实例|直接返回|不是数组", "Form\\.useForm\\(\\)"],
+    "negative_checks": ["Form\\.useForm\\(\\)\\[0\\]", "返回.*数组", "返回.*\\[.*form"],
+    "rubric_focus": ["correctness"],
+    "expected_answer": "Form.useForm() 直接返回表单实例，不是数组，不需要解构"
+  }
+]

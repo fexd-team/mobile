@@ -94,99 +94,27 @@ const CustomButton: React.FC<ButtonProps> = (props) => {
 }
 ```
 
-## 📱 组件列表
+## 📱 稳定导出
 
-### 基础组件
+当前版本提供 127 个公开导出。完整机器可读清单见 `packages/mobile/components.manifest.json`，AI/Agent 使用建议见 `packages/mobile/AGENTS.md` 与 `packages/mobile/skills/fexd-mobile/SKILL.md`。
 
-- **Button** - 按钮
-- **Icon** - 图标
-- **Image** - 图片
-- **Cell** - 单元格
-- **Space** - 间距
+### 输入与表单
 
-### 表单组件
+Button, Input, LineInput, BlockInput, CellInput, TextArea, Form, Checkbox, Radio, Switch, Stepper, Rate, Slider, Picker, CascadePicker, DatePicker, TimePicker
 
-- **Input** - 输入框
-- **TextArea** - 文本域
-- **Checkbox** - 复选框
-- **Radio** - 单选框
-- **Switch** - 开关
-- **Stepper** - 步进器
-- **Rate** - 评分
-- **Slider** - 滑块
-- **Picker** - 选择器
-- **DatePicker** - 日期选择器
-- **TimePicker** - 时间选择器
-- **Calendar** - 日历
-- **Cascader** - 级联选择
-- **Form** - 表单
+### 反馈
 
-### 反馈组件
+ActionSheet, Dialog, Modal, Popup, toast, notify, loading, Overlay, Alert, Spinner, FullpageSpinner
 
-- **ActionSheet** - 动作面板
-- **Dialog** - 对话框
-- **Toast** - 轻提示
-- **Modal** - 模态框
-- **Popup** - 弹出层
-- **Loading** - 加载
-- **Notify** - 通知
-- **Overlay** - 遮罩层
-- **Alert** - 警告提示
+### 展示与布局
 
-### 展示组件
+Badge, Avatar, Empty, Result, ProgressBar, Swiper, Steps, Timeline, Cell, Space, Grid, ScrollView, Collapse, Divider, Flex, View, Watermark
 
-- **Badge** - 徽标
-- **Tag** - 标签
-- **Card** - 卡片
-- **Avatar** - 头像
-- **Progress** - 进度条
-- **Skeleton** - 骨架屏
-- **Empty** - 空状态
-- **Divider** - 分割线
-- **NoticeBar** - 通知栏
-- **CountDown** - 倒计时
-- **Timeline** - 时间轴
-- **Steps** - 步骤条
-- **Watermark** - 水印
+### 导航与基础能力
 
-### 导航组件
+NavBar, TabBar, Tabs, Provider, Portal, ErrorBoundary, Hook, Iconfont, Image
 
-- **NavBar** - 导航栏
-- **TabBar** - 标签栏
-- **Tabs** - 标签页
-- **Menu** - 菜单
-- **Breadcrumb** - 面包屑
-- **Pagination** - 分页
-- **Dropdown** - 下拉菜单
-
-### 业务组件
-
-- **List** - 列表
-- **Grid** - 宫格
-- **Swiper** - 轮播
-- **Gallery** - 图片预览
-- **ImagePicker** - 图片选择器
-- **SwipeAction** - 滑动操作
-- **Collapse** - 折叠面板
-- **Search** - 搜索
-- **NumberKeyboard** - 数字键盘
-- **ShareSheet** - 分享面板
-
-### 布局组件
-
-- **Flex** - 弹性布局
-- **View** - 视图容器
-- **ScrollView** - 滚动视图
-- **Sticky** - 粘性布局
-- **Elevator** - 电梯导航
-
-### 高级组件
-
-- **Portal** - 传送门
-- **Transition** - 过渡动画
-- **ErrorBoundary** - 错误边界
-- **Provider** - 上下文提供者
-- **Hook** - 自定义 Hooks
+> Calendar、Card、Skeleton、Search 等带 `.developing` 标记的组件尚未公开导出，请不要在业务代码中使用。
 
 ## 🎨 主题定制
 
@@ -223,6 +151,27 @@ Fexd Mobile 支持通过 CSS 变量进行主题定制：
 ## 📖 文档
 
 完整文档请访问：[https://fexd-team.github.io/mobile/](https://fexd-team.github.io/mobile/)
+
+## 🤖 AI Skills
+
+`@fexd/mobile` 随 npm 包发布 AI Agent Skills、`AGENTS.md`、`llms.txt` 和 `components.manifest.json`，帮助 AI 编辑器读取真实组件用法、Props、源码路径和禁用组件清单。
+
+推荐在消费项目中使用 `@fexd/tools` 注册：
+
+```bash
+pnpm add -D @fexd/tools
+fexd-tools skills install
+```
+
+也可以在项目脚本中加入：
+
+```json
+{
+  "scripts": {
+    "prepare:skills": "fexd-tools skills install"
+  }
+}
+```
 
 ## 🤝 参与共建
 

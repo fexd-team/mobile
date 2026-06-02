@@ -25,7 +25,7 @@ importers:
       '@fexd/icons-bootstrap': ^0.1.0
       '@fexd/icons-bytesize': ^0.1.0
       '@fexd/icons-mono': ^0.1.0
-      '@fexd/tools': ^0.1.0
+      '@fexd/tools': ^0.2.6
       '@swc/core': ^1.15.21
       '@swc/jest': ^0.2.39
       '@testing-library/jest-dom': ^5.16.4
@@ -84,7 +84,7 @@ importers:
       '@fexd/icons-bootstrap': 0.1.0_react@18.3.1
       '@fexd/icons-bytesize': 0.1.0_react@18.3.1
       '@fexd/icons-mono': 0.1.0_react@18.3.1
-      '@fexd/tools': 0.1.7
+      '@fexd/tools': 0.2.6
       '@swc/core': 1.15.24
       '@swc/jest': 0.2.39_@swc+core@1.15.24
       '@testing-library/jest-dom': 5.17.0
@@ -138,7 +138,7 @@ importers:
       '@babel/runtime': ^7.13.10
       '@fexd/icons': ^0.1.0
       '@fexd/icons-bytesize': ^0.1.0
-      '@fexd/tools': ^0.1.7
+      '@fexd/tools': ^0.2.6
       '@pansy/react-watermark': ^2.1.1
       '@types/hoist-non-react-statics': ^3.3.1
       '@types/react-transition-group': 4.4.1
@@ -160,7 +160,7 @@ importers:
       '@babel/runtime': 7.29.2
       '@fexd/icons': 0.1.0_react@18.3.1
       '@fexd/icons-bytesize': 0.1.0_react@18.3.1
-      '@fexd/tools': 0.1.7
+      '@fexd/tools': 0.2.6
       '@pansy/react-watermark': 2.1.1_react-dom@18.3.1+react@18.3.1
       '@types/hoist-non-react-statics': 3.3.7
       '@types/react-transition-group': 4.4.1
@@ -3020,6 +3020,14 @@ packages:
 
   /@fexd/tools/0.1.7:
     resolution: {integrity: sha512-8nD2M1rawsdRWDmunAz0avoMtfCzAA2BUh4B6/2U2ZoG468CBBSpEkpNcYpMB45HqmsyJ5EQTmCv7YptKrJvgQ==}
+    dependencies:
+      '@babel/runtime': 7.29.2
+      classnames: 2.5.1
+    dev: false
+
+  /@fexd/tools/0.2.6:
+    resolution: {integrity: sha512-sp23+uNz9jJwiy+s9oAkZwRepgH4I7cVEmWD4YedWF3vGBBazvxkCSCNWiPabPW/D+j95rTxHG5gEXi3CgtizQ==}
+    hasBin: true
     dependencies:
       '@babel/runtime': 7.29.2
       classnames: 2.5.1

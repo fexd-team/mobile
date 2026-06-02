@@ -76,6 +76,15 @@ export default () => (
 
 同文档目录下还有 `LinePicker`、`BlockPicker`、`CellPicker`、`PickerView`、`showPicker`（各自 `type.tsx` 与 demos）。
 
+## 不要在以下情况使用 Picker
+
+- 在表单中需要 label + error → 用 `LinePicker` / `CellPicker` / `BlockPicker`（自带 IOLabel）
+- 嵌入页面不需要弹层 → 用 `PickerView`
+- 一次性选择（不需要组件）→ 用 `showPicker`
+- 多级联动选择 → 用 `CascadePicker` / `LineCascadePicker`
+- 日期选择 → 用 `DatePicker` / `LineDatePicker`
+- 时间选择 → 用 `TimePicker` / `LineTimePicker`
+
 <!--
 Source:
 - packages/mobile/src/exports/Picker/type.tsx

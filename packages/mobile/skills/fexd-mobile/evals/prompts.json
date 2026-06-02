@@ -1,0 +1,160 @@
+[
+  {
+    "id": "A1",
+    "category": "daily",
+    "prompt": "用 @fexd/mobile 做一个登录表单，包含用户名、密码、提交按钮",
+    "should_trigger": true,
+    "deterministic_checks": [
+      "import.*Form.*from '@fexd/mobile'",
+      "import.*LineInput.*from '@fexd/mobile'",
+      "import.*Button.*from '@fexd/mobile'",
+      "Form\\.Field",
+      "Form\\.useForm"
+    ],
+    "negative_checks": ["Form\\.Item", "Input(?!.*Line)", "\\[form\\].*=.*Form\\.useForm"],
+    "rubric_focus": ["correctness", "best_practice"]
+  },
+  {
+    "id": "A2",
+    "category": "daily",
+    "prompt": "帮我加一个确认删除的弹窗",
+    "should_trigger": true,
+    "deterministic_checks": ["import.*showDialog.*from '@fexd/mobile'", "showDialog\\(", "actions.*content"],
+    "negative_checks": ["Dialog\\.confirm", "visible.*useState"],
+    "rubric_focus": ["correctness", "best_practice"]
+  },
+  {
+    "id": "A3",
+    "category": "daily",
+    "prompt": "需要一个省市区三级联动选择器",
+    "should_trigger": true,
+    "deterministic_checks": [
+      "import.*(LineCascadePicker|CascadePicker|CellCascadePicker|BlockCascadePicker).*from '@fexd/mobile'",
+      "options"
+    ],
+    "negative_checks": ["import.*Cascader[^P].*from '@fexd/mobile'", "import.*Cascader'.*from '@fexd/mobile'"],
+    "rubric_focus": ["correctness", "component_selection"]
+  },
+  {
+    "id": "A4",
+    "category": "daily",
+    "prompt": "给按钮加 loading 效果，提交时自动显示",
+    "should_trigger": true,
+    "deterministic_checks": ["import.*Button.*from '@fexd/mobile'", "loading"],
+    "negative_checks": [],
+    "rubric_focus": ["correctness", "best_practice"]
+  },
+  {
+    "id": "A5",
+    "category": "daily",
+    "prompt": "做一个底部 Tab 导航，包含首页/发现/我的三个页签",
+    "should_trigger": true,
+    "deterministic_checks": ["import.*TabBar.*from '@fexd/mobile'", "TabBar\\.Item"],
+    "negative_checks": ["import.*Footer.*from '@fexd/mobile'"],
+    "rubric_focus": ["correctness", "component_selection"]
+  },
+  {
+    "id": "A6",
+    "category": "daily",
+    "prompt": "自定义主题色为 #ff6b00，所有组件生效",
+    "should_trigger": true,
+    "deterministic_checks": ["@color-primary.*#ff6b00|color-primary.*ff6b00"],
+    "negative_checks": ["ConfigProvider", "colorPrimary", "token"],
+    "rubric_focus": ["correctness", "best_practice"]
+  },
+  {
+    "id": "B1",
+    "category": "boundary",
+    "prompt": "用 @fexd/mobile 的 Calendar 日历组件做一个日期选择",
+    "should_trigger": true,
+    "deterministic_checks": ["禁用|不可用|未导出|开发中|不支持", "DatePicker"],
+    "negative_checks": ["import.*Calendar.*from '@fexd/mobile'"],
+    "rubric_focus": ["component_selection", "interaction_quality"]
+  },
+  {
+    "id": "B2",
+    "category": "boundary",
+    "prompt": "用 @fexd/mobile 的 Skeleton 做骨架屏",
+    "should_trigger": true,
+    "deterministic_checks": ["禁用|不可用|未导出|开发中|不支持", "Spinner|loading"],
+    "negative_checks": ["import.*Skeleton.*from '@fexd/mobile'"],
+    "rubric_focus": ["component_selection", "interaction_quality"]
+  },
+  {
+    "id": "B3",
+    "category": "boundary",
+    "prompt": "不用 Provider 包裹根组件，直接用 showDialog 行不行？",
+    "should_trigger": true,
+    "deterministic_checks": ["可以|能.*工作|自动.*挂载|自动.*Provider", "仍.*推荐|建议.*Provider|推荐.*包裹"],
+    "negative_checks": ["ConfigProvider"],
+    "rubric_focus": ["correctness", "interaction_quality"]
+  },
+  {
+    "id": "C1",
+    "category": "fuzzy",
+    "prompt": "帮我做一个选择地址的功能",
+    "should_trigger": true,
+    "deterministic_checks": [
+      "import.*(LineCascadePicker|CascadePicker).*from '@fexd/mobile'",
+      "import.*LineInput.*from '@fexd/mobile'"
+    ],
+    "negative_checks": ["import.*Cascader[^P].*from '@fexd/mobile'"],
+    "rubric_focus": ["component_selection", "interaction_quality"]
+  },
+  {
+    "id": "C2",
+    "category": "fuzzy",
+    "prompt": "页面需要一个弹窗",
+    "should_trigger": true,
+    "deterministic_checks": ["showDialog|showPopup|Modal"],
+    "negative_checks": [],
+    "rubric_focus": ["component_selection", "interaction_quality"]
+  },
+  {
+    "id": "C3",
+    "category": "fuzzy",
+    "prompt": "输入框要有校验功能",
+    "should_trigger": true,
+    "deterministic_checks": ["Form\\.Field", "rules", "import.*LineInput.*from '@fexd/mobile'"],
+    "negative_checks": ["Form\\.Item"],
+    "rubric_focus": ["correctness", "interaction_quality"]
+  },
+  {
+    "id": "D1",
+    "category": "pipeline",
+    "prompt": "从零搭建一个完整的商品编辑表单页面，包含商品名称、价格、分类选择、上架日期",
+    "should_trigger": true,
+    "deterministic_checks": [
+      "import.*Provider.*from '@fexd/mobile'",
+      "import.*Form.*from '@fexd/mobile'",
+      "import.*LineInput.*from '@fexd/mobile'",
+      "import.*(LinePicker|LineDatePicker).*from '@fexd/mobile'",
+      "Form\\.Field"
+    ],
+    "negative_checks": ["Form\\.Item", "InputNumber"],
+    "rubric_focus": ["correctness", "completeness"]
+  },
+  {
+    "id": "D2",
+    "category": "pipeline",
+    "prompt": "给现有页面加一套完整的弹窗交互流程：点击按钮 → 确认弹窗 → 执行操作 → 成功提示",
+    "should_trigger": true,
+    "deterministic_checks": ["showDialog", "toast\\.(success|show)|toast\\(", "loading\\.(show|hide)"],
+    "negative_checks": ["Dialog\\.confirm", "Toast\\.show"],
+    "rubric_focus": ["correctness", "best_practice"]
+  },
+  {
+    "id": "D3",
+    "category": "pipeline",
+    "prompt": "把一个 antd 表单页面迁移到 @fexd/mobile，保持相同功能",
+    "should_trigger": true,
+    "deterministic_checks": [
+      "import.*Provider.*from '@fexd/mobile'",
+      "Form\\.Field",
+      "import.*(LineInput|LinePicker|LineDatePicker).*from '@fexd/mobile'",
+      "toast"
+    ],
+    "negative_checks": ["Form\\.Item", "antd"],
+    "rubric_focus": ["correctness", "completeness"]
+  }
+]
